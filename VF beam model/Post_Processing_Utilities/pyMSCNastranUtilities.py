@@ -1101,3 +1101,154 @@ def writeLoad(out_file, load_type, load_id, grid_id, load_comps, cid_inp=0):
     out_file.write(load_type+",%i,%i,%i,1.,%e,%e,%e\n" %(load_id,grid_id,cid_inp,x,y,z))
 
     return
+
+def ComputeMAC(phi_1, phi_2):
+    """
+    Computes the MAC between two eigenvectors.
+    Args:
+        phi_1: eigenvector 1 (n_elems*1 numpy array)
+        phi_2: eigenvector 2 (n_elems*1 numpy array)
+    
+    Returns: 
+        MAC: MAC between the two eigenvectors
+    """
+    # check inputs
+    if len(phi_1) != len(phi_2):
+        raise ValueError("Input eigenvectors have different length.")
+
+    # get number of components
+    n_elems = len(phi_1)
+
+    # initialize MAC
+    MAC = 0.0
+
+    # get norms of the eigenvectors
+    phi_1n = np.linalg.norm(phi_1)
+    phi_2n = np.linalg.norm(phi_2)
+
+    # compute MAC
+    for i in range(0, n_elems):
+
+        # get elements
+        phi_1_i = phi_1[i]
+        phi_2_i = phi_2[i]
+
+        # get complex conjugates
+        phi_1_ic = np.conj(phi_1_i)
+
+        # add MAC contribution
+        MAC = MAC + np.abs(phi_1_ic * phi_2_i)
+
+    MAC = MAC ** 2.0 / (phi_1n * phi_2n)
+
+    return MAC
+
+
+def ComputeMACs(Phi_1, Phi_2):
+    """
+   Compute MACs between two eigenvector sets.
+    Args:
+        Phi_1: eigenvector 1 (n_elems*n_modes numpy array)
+        Phi_2: eigenvector 2 (n_elems*n_modes numpy array)
+    
+    Returns: 
+        MACs: MACs between the two eigenvector sets
+        
+    Remarks:
+        1. MAC is computed between the eigenvectors in the two sets that have
+           the same order.
+    """
+    # check inputs
+    if len(Phi_1[:, 0]) != len(Phi_2[:, 0]):
+        raise ValueError("Eigenvectors have different length.")
+    if len(Phi_1[0, :]) != len(Phi_2[0, :]):
+        raise ValueError("Eigenvector sets have different size.")
+
+    # get number of modes
+    n_modes = len(Phi_1[0, :])
+
+    # allocate MACs
+    MACs = np.zeros(n_modes)
+
+    # loop eigenvectors
+    for i in range(0, n_modes):
+
+        # compute MAC
+        MACs[i] = ComputeMAC(Phi_1[:, i], Phi_2[:, i])
+
+    return MACs
+
+
+def TrackModes(Phi_1, Phi_2, roots_2):
+    """
+    Reorders eigenvector sets based on MAC criterion.
+    
+    Args:
+        Phi_1: old eigenvectors (n_elems*n_modes numpy array)
+        Phi_2: new eigenvectors (n_elems*n_modes numpy array)
+        roots_2: new eigenvalues (n_modes*1 numpy array)
+        
+    Returns:
+        Phi_tracked: reordered eigenvectors from set 2 
+        roots_tracked: reordered eigenvalues from set 2
+        MAC: vector of MAC between set 2 and set 1 eigenvectors
+        best_indices: tracking indices of set 2 with respect to set 1
+    """
+    # check inputs
+    if len(Phi_1[:, 0]) != len(Phi_2[:, 0]):
+        raise ValueError("Eigenvectors have different length.")
+    if len(Phi_1[0, :]) != len(Phi_2[0, :]):
+        raise ValueError("Eigenvector sets have different size.")
+
+    # get number of components
+    n_elems = len(Phi_1[:, 0])
+
+    # get number of modes
+    n_modes = len(Phi_1[0, :])
+
+    # allocate tracked roots
+    roots_tracked = np.zeros(n_modes)
+
+    # allocate tracked eigenvectors
+    Phi_tracked = np.zeros([n_elems, n_modes])
+
+    # allocate MAC
+    MAC = np.zeros(n_modes)
+
+    # initialize list of matched indices
+    best_indices = []
+
+    # loop new eigenvectors
+    for i in range(0, n_modes):
+
+        # initialize best MAC
+        MAC_ij_best = 0.0
+
+        # loop old eigenvectors
+        for j in range(0, n_modes):
+
+            # if not already matched
+            if not j in best_indices:
+
+                # compute MAC
+                MAC_ij = ComputeMAC(Phi_1[:, j], Phi_2[:, i])
+
+                # update MAC if applicable
+                if MAC_ij > MAC_ij_best:
+
+                    MAC_ij_best = MAC_ij
+                    MAC_ij_best_index = j
+
+        # add matched index to list to be excluded
+        best_indices.append(MAC_ij_best_index)
+
+        # save tracked root
+        roots_tracked[MAC_ij_best_index] = roots_2[i]
+
+        # save tracked eigenvector
+        Phi_tracked[:, MAC_ij_best_index] = Phi_2[:, i]
+
+        # save MAC
+        MAC[MAC_ij_best_index] = MAC_ij_best
+
+    return Phi_tracked, roots_tracked, MAC, best_indices
