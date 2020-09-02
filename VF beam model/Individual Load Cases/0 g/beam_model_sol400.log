@@ -1,0 +1,178 @@
+MSC Nastran V2017.1 (Intel Windows 10 Home 6.2 9200) Control File: 
+----------------------------------------------------------------- 
+$ sysfield=SCR*(RAW=YES,BUFFIO=YES,wnum=16,wsize=16mb) $(c:/msc.software/msc_nastran/20171/conf/nast20171.rcf[1])
+$ sysfield=DBALL(RAW=YES,BUFFIO=YES,wnum=16,wsize=16mb) $(c:/msc.software/msc_nastran/20171/conf/nast20171.rcf[2])
+Nastran BUFFSIZE=8193 $(c:/msc.software/msc_nastran/20171/conf/nast20171.rcf[5])
+JID='c:/users/bilal/onedrive/michigan/2020/fall 2020/fem updating for vfa/vf beam model/individual load cases/0 g/beam_model_sol400.bdf'
+OUT='./beam_model_sol400'
+MEM=1056178176      $ WORDS
+MACH='Intel'
+OPER='Windows 10 Home'
+OSV='6.2 9200'
+MODEL='P5-4/5787 (DESKTOP-8JDOLSH)'
+NPROC='12'
+CONFIG=15
+NPROC=12
+symbol=DELDIR='c:/msc.software/msc_nastran/20171/msc20171/nast/del' $(program default)
+symbol=DEMODIR='c:/msc.software/msc_nastran/20171/msc20171/nast/demo' $(program default)
+symbol=LM_NO_SNMP=1 $(c:/msc.software/msc_nastran/20171/conf/nast20171.rcf[8])
+symbol=SSSALTERDIR='c:/msc.software/msc_nastran/20171/msc20171/nast/sssalter' $(program default)
+symbol=TPLDIR='c:/msc.software/msc_nastran/20171/msc20171/nast/tpl' $(program default)
+SDIR='c:/scratch/beam_model_sol400.T16924_13'
+DBS='c:/scratch/beam_model_sol400.T16924_13'
+SCR='yes'
+SMEM=100
+BPOOL=7716.1MB
+DMPMEM=estimate
+NEWDEL='c:/msc.software/msc_nastran/20171/msc20171/win64i8/sss'
+DEL='MSCDEF'
+DML=MSCDEF
+SDL=MSCDEF
+AUTH='1800@license-msc-research.engin.umich.edu'
+AUTHQUE=20
+MSGCAT='c:/msc.software/msc_nastran/20171/msc20171/win64i8/analysis.msg'
+MSGDEST='f06'
+NEWS='c:/msc.software/msc_nastran/20171/msc20171/nast/news.txt'
+----------------------------------------------------------------- 
+MSC_ISHELLPATH=C:\MSC.Software\MSC_Nastran\20171\msc20171\actran\win64\Actran_17.1.b.97631\bin;C:\MSC.Software\MSC_Nastran\20171\msc20171\nast; 
+MSC_JIDPATH= 
+PATH=c:\msc.software\msc_nastran\20171\msc20171\win64i8;c:\msc.software\msc_nastran\20171\msc20171\win64i8\nCode\bin;c:\msc.software\msc_nastran\20171\msc20171\win64i8\nvidia;c:\msc.software\msc_nastran\20171\msc20171\win64i8\lib;c:\msc.software\msc_nastran\20171\msc20171\win64i8;C:\MSC.Software\Patran_x64\20170\bin;C:\Program Files\Microsoft MPI\Bin\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\MATLAB\R2019b\bin;C:\Program Files\MATLAB\R2018b\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\CMake\bin;C:\Program Files\dotnet\;C:\Program Files\doxygen\bin;C:\Users\Bilal\AppData\Local\Programs\Python\Python37;C:\Users\Bilal\AppData\Local\Programs\Python\Python37\Scripts;C:\Users\Bilal\Documents\Install\MTK\MTK;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\PuTTY\;C:\Users\Bilal\AppData\Local\Microsoft\WindowsApps;C:\Users\Bilal\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Bilal\AppData\Local\Programs\Python\Python37;C:\Users\Bilal\AppData\Local\Programs\Python\Python37\scripts;C:\Users\Bilal\Documents\Install\MTK\MTK;C:\Users\Bilal\AppData\Local\Box\Box Edit\ 
+SCA_SERVICE_CATALOG=c:\msc.software\msc_nastran\20171\msc20171\res\SCAServiceCatalog.xml 
+SCA_RESOURCE_DIR=c:\msc.software\msc_nastran\20171\msc20171\res 
+Cmd Line:    C:\MSC.Software\MSC_Nastran\20171\msc20171\win64i8\nastran.exe JID=C:\Users\Bilal\OneDrive\Michigan\2020\Fall 2020\FEM updating for VFA\VF beam model\Individual Load Cases\0 g\beam_model_SOL400.bdf scr=yes 
+Current Dir: C:\Users\Bilal\OneDrive\Michigan\2020\Fall 2020\FEM updating for VFA\VF beam model\Individual Load Cases\0 g 
+Time Cmd:    c:\msc.software\msc_nastran\20171\msc20171\win64i8\msctime 
+Executable:  c:\msc.software\msc_nastran\20171\msc20171\win64i8\analysis.exe 
+Arch= Kywd:  [Not specified]  
+MSC_MSG:     stderr  
+FPE:         yes  
+----------------------------------------------------------------- 
+Current resource limits:
+ Physical memory:                    16116 MB
+ Physical memory available:           5356 MB
+ Paging file size:                   35257 MB
+ Paging file size available:         15100 MB
+ Virtual memory:                 134217727 MB
+ Virtual memory available:       134213537 MB
+----------------------------------------------------------------- 
+System configuration:
+ Hostname:         DESKTOP-8JDOLSH
+ Architecture:     win64i8
+ Platform:         Intel Windows 10 Home 6.2 9200 (Windows Compute Cluster)
+ Model:            P5-4/6450
+ Clock freq.:      6400 MHz
+ Number of CPUs:   12
+ Executable:       standard
+ Raw model ID:     15
+ Config number:    15
+ Physical memory:  16116 MB
+ Virtual memory:   35257 MB
+ Numeric format:   64-bit little-endian IEEE.
+ Bytes per word:   8
+ Disk block size:  512 bytes (64 words)
+ Remote shell cmd: "c:/msc.software/msc_nastran/20171/msc20171/win64i8/mscrmtcmd.exe" (Windows non-CCS nodes, UNIX)
+                   <ccs_cmd> (Windows CCS nodes)
+----------------------------------------------------------------- 
+MSC Nastran started  Wed Sep  2 13:05:14 EDT 2020 
+ 13:05:15  Beginning Analysis
+SCA Kernel 18.3.439984 successfully initialized
+BLAS/LAPACK .dll "c:\msc.software\msc_nastran\20171\msc20171\win64i8\libimalloc.dll" has been loaded.
+BLAS/LAPACK .dll "c:\msc.software\msc_nastran\20171\msc20171\win64i8\mkl_core.dll" has been loaded.
+BLAS/LAPACK .dll "c:\msc.software\msc_nastran\20171\msc20171\win64i8\mkl_intel_thread.dll" has been loaded.
+BLAS/LAPACK .dll "c:\msc.software\msc_nastran\20171\msc20171\win64i8\mkl_rt.dll" has been loaded.
+BLAS/LAPACK .dll "c:\msc.software\msc_nastran\20171\msc20171\win64i8\MSCblas.dll" has been loaded.
+
+ 13:05:15  MSC Authorization Information - System Attributes (1004, 0)
+ 13:05:15  -----------------------------------------------------------
+  Date:          Wed Sep  2 13:05:15 2020
+  MSC Id:        9cb6d0b996d2 (ethernet) (Intel)
+  Hostname:      DESKTOP-8JDOLSH (user Bilal, display DESKTOP-8JDOLSH)
+  License files: 1800@license-msc-research.engin.umich.edu
+  CEID:          56AB4399-499EB8D3
+  User:          Bilal
+  Display:       DESKTOP-8JDOLSH
+  LAPI Version:  LAPI 10.1.8-3298 (FLEXlm 11.9.0.0)
+
+  * * * * * * * * * * * * * * * * * * * *
+  * * * * * * * * * * * * * * * * * * * *
+  * *                                 * *
+  * *   MSC Customer Entitlement ID   * *
+  * *        56AB4399-499EB8D3        * *
+  * *                                 * *
+  * * * * * * * * * * * * * * * * * * * *
+  * * * * * * * * * * * * * * * * * * * *
+
+ 13:05:15  MSC Authorization Information - License Expiration Warning (1009, 0)
+ 13:05:15  --------------------------------------------------------------------
+ 13:05:15  The license for MSC Nastran expires in 28 days
+
+ 13:05:15  MSC Authorization Information - Checkout Successful (1016, 0)
+ 13:05:15  -------------------------------------------------------------
+ 13:05:15  Acquired 1 license for MSC Nastran from license server on host license-msc-research.engin.umich.edu
+
+
+ 13:05:16  MSC Authorization Information - License Expiration Warning (1009, 0)
+ 13:05:16  --------------------------------------------------------------------
+ 13:05:16  The license for MSC Nastran DMAP Compile expires in 28 days
+
+ 13:05:16  MSC Authorization Information - Checkout Successful (1016, 0)
+ 13:05:16  -------------------------------------------------------------
+ 13:05:16  Acquired 1 license for MSC Nastran DMAP Compile from license server on host license-msc-research.engin.umich.edu
+
+
+ 13:05:16  MSC Authorization Information - License Expiration Warning (1009, 0)
+ 13:05:16  --------------------------------------------------------------------
+ 13:05:16  The license for MSC Nastran Advanced Nonlinear expires in 28 days
+
+ 13:05:16  MSC Authorization Information - Checkout Successful (1016, 0)
+ 13:05:16  -------------------------------------------------------------
+ 13:05:16  Acquired 1 license for MSC Nastran Advanced Nonlinear from license server on host license-msc-research.engin.umich.edu
+
+
+Beginning bulk data processing using the IFPStar component.
+For more information on IFPStar, please see KB article KB8019200
+on our support pages, at http://simcompanion.mscsoftware.com.
+
+ 13:05:16  Reading INCLUDE file "c:\Users\Bilal\OneDrive\Michigan\2020\Fall 2020\FEM updating for VFA\VF beam model\Individual Load Cases\0 g\beam_model.bdf"
+ 13:05:16  1111 records read from INCLUDE file "c:\Users\Bilal\OneDrive\Michigan\2020\Fall 2020\FEM updating for VFA\VF beam model\Individual Load Cases\0 g\beam_model.bdf"
+ 13:05:16  142 records read from JID file "c:/users/bilal/onedrive/michigan/2020/fall 2020/fem updating for vfa/vf beam model/individual load cases/0 g/beam_model_sol400.bdf"
+ 13:05:16  A total of 1253 records were read from 2 files.
+
+Processing of bulk data entries is complete.
+
+ 13:05:16  Analysis started.
+ 13:05:16  Geometry access/verification to CAD part initiated (if needed).
+ 13:05:16  Geometry access/verification to CAD part successfully completed (if needed).
+ 13:05:17  Finite element model generation started.
+ 13:05:17  Finite element model generated 2202 degrees of freedom.
+ 13:05:17  Finite element model generation successfully completed.
+ 13:05:17  Application of Loads and Boundary Conditions to the finite element model started.
+ 13:05:17  Application of Loads and Boundary Conditions to the finite element model successfully completed.
+ 13:05:18  Solution of the system equations for normal modes started.
+ 13:05:19  Solution of the system equations for normal modes successfully completed.
+ 13:05:19  54 records read from JID file "c:/users/bilal/onedrive/michigan/2020/fall 2020/fem updating for vfa/vf beam model/individual load cases/0 g/beam_model_sol400.bdf"
+ 13:05:19  NSEXIT: EXIT(0)
+ 13:05:19  Analysis complete  0
+Real:        4.579 seconds ( 0:00:04.579)
+User:        1.937 seconds ( 0:00:01.937)
+Sys:         0.750 seconds ( 0:00:00.750)
+ ==================================================
+ OS:              6.2
+ OEM ID:         9
+ Number of processors:         12
+ Page size:         4096
+ Processor type:         8664
+ Minimum application address:         10000
+ Maximum application address:         fffeffff
+ Active processor mask:         4095
+ Nsocket:         1
+ Ncore:           12  ( 1 X 12 )
+ HyperThreading:  On
+ Ram:          16116 Mb
+ ==================================================
+ Time Summary                 CPU       Wall   ( Time in Seconds )
+ =====================================================
+ Detailed performance information can be found in the 
+ "MSC Nastran High Performance Computing User's Guide"
+ =====================================================
+MSC Nastran finished Wed Sep  2 13:05:19 EDT 2020 
