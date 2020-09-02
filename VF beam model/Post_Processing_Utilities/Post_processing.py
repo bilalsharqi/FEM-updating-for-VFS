@@ -32,16 +32,17 @@ Loads = np.asarray(pd.read_csv('Loads.txt'))
 n_modes=25
 n_subcases=48
 
+# BS - read the relevant files and store the numerical data
+grids, n_grids, grid_coords = importGrids('', ['beam_model.bdf',model_coords], debug=True)
+freq_NASTRAN = importFrequencies(file_path, f06_file, n_modes, n_subcases, debug=True)
+mode_shapes_NASTRAN = importEigenvectors(file_path, f06_file, n_modes, n_grids, grids, n_subcases,[],debug=True)
+static_deform= importDisplacements(file_path, f06_file, n_subcases, grids, grids_order=[], debug=True)
+
+print("\nNASTRAN data import completed")
+    
 # BS - switch plot flag to yes if want to plot
 plot = 'no'
 while plot=='yes':
-    # BS - read the relevant files and store the numerical data
-    grids, n_grids, grid_coords = importGrids('', ['beam_model.bdf',model_coords], debug=True)
-    freq_NASTRAN = importFrequencies(file_path, f06_file, n_modes, n_subcases, debug=True)
-    mode_shapes_NASTRAN = importEigenvectors(file_path, f06_file, n_modes, n_grids, grids, n_subcases,[],debug=True)
-    static_deform= importDisplacements(file_path, f06_file, n_subcases, grids, grids_order=[], debug=True)
-    
-    print("\nNASTRAN data import completed")
     
     # Plotting
     j=47 # subcase number
