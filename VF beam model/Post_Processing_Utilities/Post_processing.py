@@ -216,7 +216,7 @@ plt.yticks(fontsize=25)
 plt.ax.spines["right"].set_visible(False)
 plt.ax.spines["top"].set_visible(False)
 
-#fig1.savefig("untracked_test_out_tuned.svg",bbox_inches='tight')
+#fig1.savefig("untracked.svg",bbox_inches='tight')
 
 #print("\ntrack modes")
 # usage of TrackModes function in MTK
@@ -240,7 +240,7 @@ plt.ax = plt.gca()
 plt.ax.spines["right"].set_visible(False)
 plt.ax.spines["top"].set_visible(False)
 
-#fig2.savefig("tracked_test_out_tuned.svg",bbox_inches='tight')
+#fig2.savefig("tracked.svg",bbox_inches='tight')
 
 ## function to plot selected modes and save data in a .mat file if asked for
 #def PlotReal2(var, data, line=True, sym=True):
