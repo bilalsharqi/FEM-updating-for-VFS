@@ -10,9 +10,6 @@ from mpl_toolkits.mplot3d import axes3d, Axes3D
 
 plt.close("all")
 
-sys.path.append('../Individual Load Cases/1 g/')
-sys.path.append('../Individual Load Cases/1 g/')
-
 from pyMSCNastranUtilities import *
 
 # BS - if a single load case is desired, uncomment lines below
@@ -26,11 +23,11 @@ from pyMSCNastranUtilities import *
 # BS - if multiple load cases are desired, import these files 
 # NOTE: I have not finished collating this dataset for all loads yet
 file_path = '../Multiple Load Cases/'
-f06_file = 'beam_model_sol400_case_1to48.f06'
+f06_file = 'beam_model_sol400.f06'
 model_coords = 'sol400_coor.txt'
 Loads = np.asarray(pd.read_csv('Loads.txt', header=None))
 n_modes=25
-n_subcases=48
+n_subcases=3
 
 # BS - read the relevant files and store the numerical data
 grids, n_grids, grid_coords = importGrids('', ['beam_model.bdf',model_coords], debug=True)
@@ -41,12 +38,12 @@ static_deform= importDisplacements(file_path, f06_file, n_subcases, grids, grids
 print("\nNASTRAN data import completed")
     
 # BS - switch plot flag to yes if want to plot
-plot = 'no'
+plot = 'yes'
 while plot=='yes':
     
     # Plotting
-    j=47 # subcase number
-    i=7 # Test mode number
+    j=1 # subcase number
+    i=1 # Test mode number
     print("MODE SHAPE PLOTTING")
     print("OOP Bending mode shapes")
     
@@ -141,112 +138,22 @@ while plot=='yes':
     
     break
 
-from MTK.MTK import EigenPair, ModeSet, TrackModes
-
-#================================================================================
-# Mode tracking data creation: this is the formatting of data for MTK
-#================================================================================
-
-print("\nStart of mode tracking data formatting")
-data_mode_sets =[[[0.,np.zeros([6*n_grids])] for i in range(n_modes)] for j in range(n_subcases)]
-for i in range(n_subcases):
-    for j in range(n_modes):
-        data_mode_sets[i][j][0] = freq_NASTRAN[i][j]
-        data_mode_sets[i][j][1] = mode_shapes_NASTRAN[i][j].flatten('F') # double check that it flattened correctly
-        
-# function to plot data
-def PlotReal(var, data, line=True, sym=True):
-    """Plots the real mode progression over a variable.
-    """
-    N_sets = len(data)
-    N_modes = data[0].Size()
-    real = np.zeros([N_sets, N_modes])
-
-    for i in range(N_sets):
-        for j in range(N_modes):
-            real[i,j] = data[i][j]["value"].real
-
-    # plot the data
-    opt = ""
-    if sym:
-        opt += "o"
-    if line:
-        opt += "-"
-
-    plt.plot(var, real, opt)
-    
-#print("\nRead and plot untracked data")
-
-# create mode_sets to store each subcase as an entry in mode_sets
-# NOTE: EigenPair(), ModeSet(), AddPair() are MTK functions
-mode_sets = []
-for modeset_list in data_mode_sets:
-    
-    modeset = ModeSet()
-    for mode in modeset_list:
-        pair = EigenPair()
-        pair["value"], pair["vector"]  = mode
-
-        modeset.AddPair(pair)
-
-    mode_sets.append(modeset)
-
-# create seed or reference starting data    
-seed = ModeSet()
-
-for i in range(mode_sets[0].Size()):
-#    print(i)
-    if (i >=0) and (i < 25):
-#        print("adding mode " +str(i))
-        pair  = mode_sets[0][i]
-        seed.AddPair(pair)
-        
-var1=np.array(Loads)[0:,0] # store loads
-# plot the untracked mode sets
-print("\nPlot untracked data")
-fig1=plt.figure(figsize=(15,8))
-PlotReal(var1, mode_sets[0:], sym=True, line=True)
-plt.rcParams["lines.linewidth"] = 3
-plt.title('Modes evolution with loading in g (untracked)',fontsize=32 )
-plt.xlabel("Loads [g]",fontsize=26)
-plt.ylabel("Frequency [Hz]",fontsize=26)
-plt.ax = plt.gca()
-plt.xticks(fontsize=25)
-plt.yticks(fontsize=25)
-plt.ax.spines["right"].set_visible(False)
-plt.ax.spines["top"].set_visible(False)
-
-#fig1.savefig("untracked.svg",bbox_inches='tight')
-
-#print("\ntrack modes")
-# usage of TrackModes function in MTK
-tracked_mode_sets=TrackModes(seed,mode_sets[0:]) 
-var2=np.array(Loads)[0:,0]
-print("\nPlot tracked data")
-fig2=plt.figure(figsize=(15,8))
-plt.rcParams["lines.linewidth"] = 4
-PlotReal(var2, tracked_mode_sets, sym=True, line=True)
-plt.title('Modes evolution with loading: (tracked)',fontsize=32 )
-plt.xlabel("Loads [g]",fontsize=26)
-plt.xticks(fontsize=25)
-plt.yticks(fontsize=25)
-plt.ylabel("Frequency [Hz]",fontsize=26)
-plt.ax = plt.gca()
-#plt.annotate('1 T', xy=(-0.05,46), xytext=(-0.05, 46),size=25)
-#plt.annotate('2 IP', xy=(-0.05,53), xytext=(-0.05, 53),size=25)
-#plt.annotate('2 T', xy=(-0.05,97), xytext=(-0.05, 97),size=25)
-#plt.annotate('1 IP', xy=(-0.05, 18), xytext=(-0.05, 18),size=25)
-#plt.annotate('Pitch:X', xy=(-0.05, 1), xytext=(-0.05, 1),size=25)
-plt.ax.spines["right"].set_visible(False)
-plt.ax.spines["top"].set_visible(False)
-
-#fig2.savefig("tracked.svg",bbox_inches='tight')
-
-## function to plot selected modes and save data in a .mat file if asked for
-#def PlotReal2(var, data, line=True, sym=True):
-#    """Plots the real mode progression over a variable. 
-#    Modified to plot only certain modes input by the user in the 
-#    test_modes array
+#from MTK.MTK import EigenPair, ModeSet, TrackModes
+#
+##================================================================================
+## Mode tracking data creation: this is the formatting of data for MTK
+##================================================================================
+#
+#print("\nStart of mode tracking data formatting")
+#data_mode_sets =[[[0.,np.zeros([6*n_grids])] for i in range(n_modes)] for j in range(n_subcases)]
+#for i in range(n_subcases):
+#    for j in range(n_modes):
+#        data_mode_sets[i][j][0] = freq_NASTRAN[i][j]
+#        data_mode_sets[i][j][1] = mode_shapes_NASTRAN[i][j].flatten('F') # double check that it flattened correctly
+#        
+## function to plot data
+#def PlotReal(var, data, line=True, sym=True):
+#    """Plots the real mode progression over a variable.
 #    """
 #    N_sets = len(data)
 #    N_modes = data[0].Size()
@@ -262,45 +169,135 @@ plt.ax.spines["top"].set_visible(False)
 #        opt += "o"
 #    if line:
 #        opt += "-"
-#    test_modes=np.array([0,11,16,17,22])
-#    real2=real[:,test_modes]
-#    plt.plot(var, real2, opt)
 #
-#    dir=os.path.dirname(os.path.abspath("Post_processing.py"))
-#    path = os.path.join(dir, "tracked_modes.mat")
-#    database = {}
+#    plt.plot(var, real, opt)
 #    
-#    # Write problem data
-#    database["Loads"] = var2
-#    database["tracked_modes"] = real2
+##print("\nRead and plot untracked data")
+#
+## create mode_sets to store each subcase as an entry in mode_sets
+## NOTE: EigenPair(), ModeSet(), AddPair() are MTK functions
+#mode_sets = []
+#for modeset_list in data_mode_sets:
 #    
-#    # Writing database, uncomment if want to store selected modes in a .mat file
-##    print("...Exporting results in a .mat file")
-##    if os.path.isfile(path):
-##        os.remove(path)
-##    sio.savemat(path,database,appendmat=False)
-#    
-##print("\nselected tracked modes")
-#tracked_mode_sets=TrackModes(seed,mode_sets[0:])
+#    modeset = ModeSet()
+#    for mode in modeset_list:
+#        pair = EigenPair()
+#        pair["value"], pair["vector"]  = mode
+#
+#        modeset.AddPair(pair)
+#
+#    mode_sets.append(modeset)
+#
+## create seed or reference starting data    
+#seed = ModeSet()
+#
+#for i in range(mode_sets[0].Size()):
+##    print(i)
+#    if (i >=0) and (i < 25):
+##        print("adding mode " +str(i))
+#        pair  = mode_sets[0][i]
+#        seed.AddPair(pair)
+#        
+#var1=np.array(Loads)[0:,0] # store loads
+## plot the untracked mode sets
+#print("\nPlot untracked data")
+#fig1=plt.figure(figsize=(15,8))
+#PlotReal(var1, mode_sets[0:], sym=True, line=True)
+#plt.rcParams["lines.linewidth"] = 3
+#plt.title('Modes evolution with loading in g (untracked)',fontsize=32 )
+#plt.xlabel("Loads [g]",fontsize=26)
+#plt.ylabel("Frequency [Hz]",fontsize=26)
+#plt.ax = plt.gca()
+#plt.xticks(fontsize=25)
+#plt.yticks(fontsize=25)
+#plt.ax.spines["right"].set_visible(False)
+#plt.ax.spines["top"].set_visible(False)
+#
+##fig1.savefig("untracked.svg",bbox_inches='tight')
+#
+##print("\ntrack modes")
+## usage of TrackModes function in MTK
+#tracked_mode_sets=TrackModes(seed,mode_sets[0:]) 
 #var2=np.array(Loads)[0:,0]
-#    
-#print("\nPlot tracked data with modes of interest")
-#fig4=plt.figure(figsize=(15,8))
+#print("\nPlot tracked data")
+#fig2=plt.figure(figsize=(15,8))
 #plt.rcParams["lines.linewidth"] = 4
-#PlotReal2(var2, tracked_mode_sets, sym=True, line=True)
-#plt.title('Selected modes evolution with loading: (tracked)',fontsize=32 )
+#PlotReal(var2, tracked_mode_sets, sym=True, line=True)
+#plt.title('Modes evolution with loading: (tracked)',fontsize=32 )
 #plt.xlabel("Loads [g]",fontsize=26)
 #plt.xticks(fontsize=25)
 #plt.yticks(fontsize=25)
 #plt.ylabel("Frequency [Hz]",fontsize=26)
 #plt.ax = plt.gca()
+##plt.annotate('1 T', xy=(-0.05,46), xytext=(-0.05, 46),size=25)
+##plt.annotate('2 IP', xy=(-0.05,53), xytext=(-0.05, 53),size=25)
+##plt.annotate('2 T', xy=(-0.05,97), xytext=(-0.05, 97),size=25)
+##plt.annotate('1 IP', xy=(-0.05, 18), xytext=(-0.05, 18),size=25)
 ##plt.annotate('Pitch:X', xy=(-0.05, 1), xytext=(-0.05, 1),size=25)
-##plt.annotate('1 IP', xy=(-0.05, 18),   xytext=(-0.05, 18),size=25)
-##plt.annotate('1 T', xy=(-0.05,45),     xytext=(-0.05, 45),size=25)
-##plt.annotate('2 IP', xy=(-0.05,53),    xytext=(-0.05, 53),size=25)
-##plt.annotate('2 T', xy=(-0.05,97),     xytext=(-0.05, 97),size=25)
-#
 #plt.ax.spines["right"].set_visible(False)
 #plt.ax.spines["top"].set_visible(False)
 #
-##fig4.savefig("tracked_test_out_tuned_selected.svg",bbox_inches='tight')
+##fig2.savefig("tracked.svg",bbox_inches='tight')
+#
+### function to plot selected modes and save data in a .mat file if asked for
+##def PlotReal2(var, data, line=True, sym=True):
+##    """Plots the real mode progression over a variable. 
+##    Modified to plot only certain modes input by the user in the 
+##    test_modes array
+##    """
+##    N_sets = len(data)
+##    N_modes = data[0].Size()
+##    real = np.zeros([N_sets, N_modes])
+##
+##    for i in range(N_sets):
+##        for j in range(N_modes):
+##            real[i,j] = data[i][j]["value"].real
+##
+##    # plot the data
+##    opt = ""
+##    if sym:
+##        opt += "o"
+##    if line:
+##        opt += "-"
+##    test_modes=np.array([0,11,16,17,22])
+##    real2=real[:,test_modes]
+##    plt.plot(var, real2, opt)
+##
+##    dir=os.path.dirname(os.path.abspath("Post_processing.py"))
+##    path = os.path.join(dir, "tracked_modes.mat")
+##    database = {}
+##    
+##    # Write problem data
+##    database["Loads"] = var2
+##    database["tracked_modes"] = real2
+##    
+##    # Writing database, uncomment if want to store selected modes in a .mat file
+###    print("...Exporting results in a .mat file")
+###    if os.path.isfile(path):
+###        os.remove(path)
+###    sio.savemat(path,database,appendmat=False)
+##    
+###print("\nselected tracked modes")
+##tracked_mode_sets=TrackModes(seed,mode_sets[0:])
+##var2=np.array(Loads)[0:,0]
+##    
+##print("\nPlot tracked data with modes of interest")
+##fig4=plt.figure(figsize=(15,8))
+##plt.rcParams["lines.linewidth"] = 4
+##PlotReal2(var2, tracked_mode_sets, sym=True, line=True)
+##plt.title('Selected modes evolution with loading: (tracked)',fontsize=32 )
+##plt.xlabel("Loads [g]",fontsize=26)
+##plt.xticks(fontsize=25)
+##plt.yticks(fontsize=25)
+##plt.ylabel("Frequency [Hz]",fontsize=26)
+##plt.ax = plt.gca()
+###plt.annotate('Pitch:X', xy=(-0.05, 1), xytext=(-0.05, 1),size=25)
+###plt.annotate('1 IP', xy=(-0.05, 18),   xytext=(-0.05, 18),size=25)
+###plt.annotate('1 T', xy=(-0.05,45),     xytext=(-0.05, 45),size=25)
+###plt.annotate('2 IP', xy=(-0.05,53),    xytext=(-0.05, 53),size=25)
+###plt.annotate('2 T', xy=(-0.05,97),     xytext=(-0.05, 97),size=25)
+##
+##plt.ax.spines["right"].set_visible(False)
+##plt.ax.spines["top"].set_visible(False)
+##
+###fig4.savefig("tracked_test_out_tuned_selected.svg",bbox_inches='tight')
