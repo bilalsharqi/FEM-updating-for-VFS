@@ -1,0 +1,766 @@
+1
+ 
+ 
+ 
+ 
+                      Warning: This computer program is protected by copyright law and international treaties.       
+                  Unauthorized use, reproduction or distribution of this computer program, or any portion of it, may 
+                                          result in severe civil and criminal penalties.                             
+                         Copyright (C) 2012 MSC.Software Corporation and its licensors. All rights reserved.         
+ 
+ 
+                                              * * * * * * * * * * * * * * * * * * * *
+                                              * * * * * * * * * * * * * * * * * * * *
+                                              * *                                 * *
+                                              * *           MSC.SOFTWARE          * *
+                                              * *               CORP              * *
+                                              * *                                 * *
+                                              * *      M S C   N a s t r a n      * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *     Version 2012.2.0-CL151760   * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *          JUL  6, 2012           * *
+                                              * *                                 * *
+                                              * *       x86-64 Based System       * *
+                                              * *        MODEL Intel x8664        * *
+                                              * * Linux 3.10.0-957.5.1.el7.x86_64 * *
+                                              * *       Compiled for x8664        * *
+                                              * *                                 * *
+                                              * * * * * * * * * * * * * * * * * * * *
+                                              * * * * * * * * * * * * * * * * * * * *
+1                                                                             APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE     1
+                                                                                                                                    
+0        N A S T R A N    F I L E    A N D    S Y S T E M    P A R A M E T E R    E C H O                                           
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     NASTRAN BUFFSIZE=8193 $(/APPS/GLOBAL/MSC/NASTRAN/2012.2/RHEL5/X86_64/CONF/NAST20
+1                                                                             APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE     2
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    E C H O                                                             
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     SOL 101                                                                                 
+     TIME 99999                                                                              
+     CEND                                                                                    
+1    DISPLACEMENT AT BEAM NODES                                               APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE     3
+      UCRM-135 ISOTROPIC MATERIALS                                                                                                  
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L    E C H O                                                        
+                 COMMAND                                                                                                            
+                 COUNT                                                                                                              
+                  1      TITLE    = DISPLACEMENT AT BEAM NODES                                                   
+                  2      SUBTITLE = UCRM-135 ISOTROPIC MATERIALS                                                 
+                  3      $ SET 998 ARE NODES AT UPPER LEADING EDGE                                               
+                  4      $ - JUST USED FOR REFERENCE TO SANITY CHECK BEAM DISPLACEMENTS                          
+                  5      SET 998 = 160099 THRU 160101,160104,160106,160107,                                      
+                  6              160109,160112,160114,160116,160118,160120,                              
+                  7              160122,160124,160125,160128,160129,160132,                              
+                  8              160134,160136,160138,160139,160141,160143,                              
+                  9              160145,160148,160149,160151,160153,160155,                              
+                 10              160157,160159,160161,160163,160165,160167,                              
+                 11              160169,160171,160173,160175,160177,160180,                              
+                 12              160181,160183,160185,160187,160189,160191,                              
+                 13              160193,160195,160197,160199,160201,160203,                              
+                 14              160205,160207,160209,160211                                             
+                 15      $ SET 999 ARE BEAM NODES                                                                
+                 16      SET 999 = 30000001 THRU 30000056                                                        
+                 17      SUBCASE 1                                                                               
+                 18         LABEL    = TRANSLATION LOAD 1                                                        
+                 19         SPC      = 1                                                                         
+                 20         DISP     = 999                                                                       
+                 21         LOAD     = 101                                                                       
+                 22      SUBCASE 2                                                                               
+                 23         LABEL    = TRANSLATION LOAD 2                                                        
+                 24         SPC      = 1                                                                         
+                 25         DISP     = 999                                                                       
+                 26         LOAD     = 102                                                                       
+                 27      SUBCASE 3                                                                               
+                 28         LABEL    = TRANSLATION LOAD 3                                                        
+                 29         SPC      = 1                                                                         
+                 30         DISP     = 999                                                                       
+                 31         LOAD     = 103                                                                       
+                 32      SUBCASE 4                                                                               
+                 33         LABEL    = ROTATION LOAD 1                                                           
+                 34         SPC      = 1                                                                         
+                 35         DISP     = 999                                                                       
+                 36         LOAD     = 104                                                                       
+                 37      SUBCASE 5                                                                               
+                 38         LABEL    = ROTATION LOAD 2                                                           
+                 39         SPC      = 1                                                                         
+                 40         DISP     = 999                                                                       
+                 41         LOAD     = 105                                                                       
+                 42      SUBCASE 6                                                                               
+                 43         LABEL    = ROTATION LOAD 3                                                           
+                 44         SPC      = 1                                                                         
+                 45         DISP     = 999                                                                       
+                 46         LOAD     = 106                                                                       
+                 47      $SUBCASE 7                                                                              
+                 48      $   LABEL    = MDAO-LAB UCRM REFERENCE CASE                                             
+                 49      $   SPC      = 1                                                                        
+                 50      $   DISP     = 999                                                                      
+1    DISPLACEMENT AT BEAM NODES                                               APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE     4
+      UCRM-135 ISOTROPIC MATERIALS                                                                                                  
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L    E C H O                                                        
+                 COMMAND                                                                                                            
+                 COUNT                                                                                                              
+                 51      $   LOAD     = 1001                                                                     
+                 52      ECHO = NONE                                                                             
+                 53      BEGIN BULK                                                                              
+1    DISPLACEMENT AT BEAM NODES                                               APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE     5
+      UCRM-135 ISOTROPIC MATERIALS                                                                                                  
+0                                                                                                                                   
+                                              I N P U T   B U L K   D A T A   E C H O                                               
+                 ENTRY                                                                                                              
+                 COUNT        .   1  ..   2  ..   3  ..   4  ..   5  ..   6  ..   7  ..   8  ..   9  ..  10  .                      
+                              $INCLUDE "./uCRM-135_wingbox_coarse_mesh.bdf"
+                              $END OF INCLUDE FILE "./uCRM-135_wingbox_coarse_mesh.bdf"
+                              $INCLUDE "./uCRM-135_beam_grids.bdf"
+                              $END OF INCLUDE FILE "./uCRM-135_beam_grids.bdf"
+                              $INCLUDE "./uCRM-135_beam_forces.bdf"
+                              $END OF INCLUDE FILE "./uCRM-135_beam_forces.bdf"
+                              $INCLUDE "./uCRM-135_beam_full_rbe3_equal_weight.bdf"
+                              $END OF INCLUDE FILE "./uCRM-135_beam_full_rbe3_equal_weight.bdf"
+                              $INCLUDE "./uCRM-135_mat_and_props.bdf"
+                              $END OF INCLUDE FILE "./uCRM-135_mat_and_props.bdf"
+                              $INCLUDE "./uCRM-135_spc.bdf"
+                              $END OF INCLUDE FILE "./uCRM-135_spc.bdf"
+1    DISPLACEMENT AT BEAM NODES                                               APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE     6
+      UCRM-135 ISOTROPIC MATERIALS                                                                                                  
+0                                                                                                                                   
+                                        M O D E L   S U M M A R Y          BULK = 0
+                                   ENTRY NAME        NUMBER OF ENTRIES
+                                   ----------        -----------------
+                                       CORD2R                      287
+                                       CQUADR                    23399
+                                        FORCE                        3
+                                         GRID                    22164
+                                         MAT1                      287
+                                       MOMENT                        3
+                                        PARAM                        8
+                                       PSHELL                      287
+                                         RBE3                       56
+                                          SPC                     1090
+
+ ^^^     
+ ^^^ >>> IFP OPERATIONS COMPLETE <<< 
+ ^^^     
+ *** USER INFORMATION MESSAGE 7310 (VECPRN)
+     REFERENCE GRID        1 WAS NOT FOUND FOR VECPLOT OPERATION.
+     ORIGIN OF ASSEMBLY BASIC COORDINATE SYSTEM WILL BE USED AS REFERENCE LOCATION.
+ *** USER INFORMATION MESSAGE 7555 (GMTSTD)
+     FINITE ELEMENT GEOMETRY CHECK RESULTS EXCEED TOLERANCE LEVELS FOR THE FOLLOWING ELEMENTS.  METRIC VALUES THAT EXCEED
+     TEST TOLERANCE LIMITS ARE IDENTIFIED BY ONE OF THE FOLLOWING FLAGS PLACED TO THE RIGHT OF THE METRIC VALUE.
+        "++++" FOR TEST RESULTS EXCEEDING TOLERANCES.  INFORMATIONAL ONLY.  PROBLEM SOLUTION CONTINUES.  (DEFAULT FLAG)
+        "IGNR" FOR TEST RESULTS EXCEEDING TOLERANCES.  INFORMATIONAL ONLY.  PROBLEM SOLUTION CONTINUES.
+        "WARN" FOR TEST RESULTS EXCEEDING TOLERANCES.  INFORMATIONAL ONLY.  PROBLEM SOLUTION CONTINUES.
+        "FAIL" FOR TEST RESULTS EXCEEDING TOLERANCES.  SEVERE ERROR.        PROBLEM SOLUTION TERMINATES.
+     USER ACTION: USE THE GEOMCHECK (EXECUTIVE CONTROL STATEMENT) KEYWORD=VALUE TO CHANGE TOLERANCE VALUES IF DESIRED.
+     A MAXIMUM OF        100 SKEW ANGLE (SA)       TOLERANCE LIMIT VIOLATIONS WILL BE IDENTIFIED BY THE FLAG "++++"
+                             PLACED AFTER THE VALUE METRIC FOR THE TEST.
+     A MAXIMUM OF        100 MIN INT. ANGLE (IA)   TOLERANCE LIMIT VIOLATIONS WILL BE IDENTIFIED BY THE FLAG "++++"
+                             PLACED AFTER THE VALUE METRIC FOR THE TEST.
+     A MAXIMUM OF        100 MAX INT. ANGLE (IA)   TOLERANCE LIMIT VIOLATIONS WILL BE IDENTIFIED BY THE FLAG "++++"
+                             PLACED AFTER THE VALUE METRIC FOR THE TEST.
+     A MAXIMUM OF        100 WARPING FACTOR (WF)   TOLERANCE LIMIT VIOLATIONS WILL BE IDENTIFIED BY THE FLAG "++++"
+                             PLACED AFTER THE VALUE METRIC FOR THE TEST.
+     A MAXIMUM OF        100 TAPER RATIO (TR)      TOLERANCE LIMIT VIOLATIONS WILL BE IDENTIFIED BY THE FLAG "++++"
+                             PLACED AFTER THE VALUE METRIC FOR THE TEST.
+     USER INFORMATION: THE MAXIMUM MESSAGE COUNT FOR ANY ONE ELEMENT ERROR TEST COULD BE EXCEEDED BY THE 
+     CUMULATIVE EFFECT OF ALL THE MESSAGES GENERATED FOR ALL OF THE DIFFERENT TESTS PERFORMED.
+1    DISPLACEMENT AT BEAM NODES                                               APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE     7
+      UCRM-135 ISOTROPIC MATERIALS                                                                                                  
+0                                                                                                                                   
+     TOLERANCE LIMITS ARE:  SA =  30.00, IA(MIN) =  30.00, IA(MAX) = 150.00, WF =   0.05, TR =   0.50 (FLAG = LIMIT VIOLATED)
+ ELEMENT TYPE    ID          SKEW ANGLE      MIN INT. ANGLE    MAX INT. ANGLE    WARPING FACTOR      TAPER RATIO  
+    QUADR       17997        42.38             29.67 ++++       130.28              0.00              0.46     
+    QUADR       18268        42.54             29.85 ++++       130.17              0.00              0.46     
+    QUADR       18439        42.32             29.67 ++++       130.55              0.00              0.46     
+1    DISPLACEMENT AT BEAM NODES                                               APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE     8
+      UCRM-135 ISOTROPIC MATERIALS                                                                                                  
+0                                                                                                                                   
+
+
+                            E L E M E N T   G E O M E T R Y   T E S T   R E S U L T S   S U M M A R Y
+                                        TOTAL NUMBER OF TIMES TOLERANCES WERE EXCEEDED
+  ELEMENT        SKEW       ASPECT/     MINIMUM      MAXIMUM    SURFACE/FACE    OFFSET     EDGE POINT   EDGE POINT    JACOBIAN  
+    TYPE       ANGLE      TAPER RATIO INTER. ANGLE INTER. ANGLE  WARP FACTOR    RATIO     LENGTH RATIO ANGLE LIMIT  DETERMINANT 
+   QUADR           0            0            3            0            0          N/A          N/A          N/A          N/A        
+
+         N/A IN THE ABOVE TABLE INDICATES TESTS THAT ARE NOT APPLICABLE TO THE ELEMENT TYPE AND WERE NOT PERFORMED.
+         FOR ALL ELEMENTS WHERE GEOMETRY TEST RESULTS HAVE EXCEEDED TOLERANCES,
+
+         QUADR    ELEMENT ID    18439 PRODUCED SMALLEST INTERIOR ANGLE   OF      29.67 (TOLERANCE =       30.00).
+ *** USER INFORMATION MESSAGE 7310 (VECPRN)
+     REFERENCE GRID        1 WAS NOT FOUND FOR VECPLOT OPERATION.
+     ORIGIN OF SUPERELEMENT BASIC COORDINATE SYSTEM WILL BE USED AS REFERENCE LOCATION.
+1    DISPLACEMENT AT BEAM NODES                                               APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE     9
+      UCRM-135 ISOTROPIC MATERIALS                                                                                                  
+0                                                                                                                                   
+ *** USER INFORMATION MESSAGE 7310 (OFPH09)
+     REFERENCE GRID 1 WAS NOT FOUND.
+     ORIGIN OF ASSEMBLY BASIC COORDINATE SYSTEM WILL BE USED AS REFERENCE LOCATION.
+                           O U T P U T   F R O M   G R I D   P O I N T   W E I G H T   G E N E R A T O R
+0                                                     REFERENCE POINT =        0
+                                                                M O
+                      *  1.524715E+04  6.279103E-14  2.258844E-14 -1.240897E-13  6.474327E+04 -1.604586E+05 *
+                      *  6.279103E-14  1.524715E+04 -3.234470E-14 -6.474327E+04  1.294255E-12  4.962013E+05 *
+                      *  2.258844E-14 -3.234470E-14  1.524715E+04  1.604586E+05 -4.962013E+05 -1.170166E-12 *
+                      * -1.240897E-13 -6.474327E+04  1.604586E+05  2.881202E+06 -5.783375E+06 -2.121511E+06 *
+                      *  6.474327E+04  1.294255E-12 -4.962013E+05 -5.783375E+06  1.679927E+07 -7.086239E+05 *
+                      * -1.604586E+05  4.962013E+05 -1.170166E-12 -2.121511E+06 -7.086239E+05  1.912304E+07 *
+                                                                 S
+                                           *  1.000000E+00  0.000000E+00  0.000000E+00 *
+                                           *  0.000000E+00  1.000000E+00  0.000000E+00 *
+                                           *  0.000000E+00  0.000000E+00  1.000000E+00 *
+                               DIRECTION
+                          MASS AXIS SYSTEM (S)     MASS              X-C.G.        Y-C.G.        Z-C.G.
+                                  X            1.524715E+04     -8.138548E-18  1.052384E+01  4.246253E+00
+                                  Y            1.524715E+04      3.254388E+01  8.488506E-17  4.246253E+00
+                                  Z            1.524715E+04      3.254388E+01  1.052384E+01 -7.674651E-17
+                                                                I(S)
+                                           *  9.176444E+05  5.614306E+05  1.451441E+04 *
+                                           *  5.614306E+05  3.760439E+05  2.727606E+04 *
+                                           *  1.451441E+04  2.727606E+04  1.286084E+06 *
+                                                                I(Q)
+                                           *  1.287124E+06                             *
+                                           *                2.276500E+04               *
+                                           *                              1.269883E+06 *
+                                                                 Q
+                                           *  9.670538E-02 -5.315749E-01  8.414726E-01 *
+                                           * -8.927649E-02 -8.466600E-01 -5.245919E-01 *
+                                           *  9.913011E-01 -2.439286E-02 -1.293337E-01 *
+
+1    DISPLACEMENT AT BEAM NODES                                               APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE    10
+      UCRM-135 ISOTROPIC MATERIALS                                                                                                  
+0                                                                                                                                   
+1    DISPLACEMENT AT BEAM NODES                                               APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE    11
+      UCRM-135 ISOTROPIC MATERIALS                                                                                                  
+0                                                                                                                                   
+ *** USER INFORMATION MESSAGE 7310 (VECPRN)
+     REFERENCE GRID        1 WAS NOT FOUND FOR VECPLOT OPERATION.
+     ORIGIN OF SUPERELEMENT BASIC COORDINATE SYSTEM WILL BE USED AS REFERENCE LOCATION.
+     RESULTANTS ABOUT ORIGIN OF SUPERELEMENT BASIC COORDINATE SYSTEM IN SUPERELEMENT BASIC SYSTEM COORDINATES.
+0                                                  OLOAD    RESULTANT       
+  SUBCASE/    LOAD
+  DAREA ID    TYPE       T1            T2            T3            R1            R2            R3
+0        1     FX    1.000000E+04     ----          ----          ----       4.455280E+04 -3.599870E+05                             
+               FY       ----       0.000000E+00     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----       0.000000E+00  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----       0.000000E+00     ----          ----                                  
+               MY       ----          ----          ----          ----       0.000000E+00     ----                                  
+               MZ       ----          ----          ----          ----          ----       0.000000E+00                             
+             TOTALS  1.000000E+04  0.000000E+00  0.000000E+00  0.000000E+00  4.455280E+04 -3.599870E+05
+0        2     FX    0.000000E+00     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----       1.000000E+04     ----      -4.455280E+04     ----       4.925307E+05                             
+               FZ       ----          ----       0.000000E+00  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----       0.000000E+00     ----          ----                                  
+               MY       ----          ----          ----          ----       0.000000E+00     ----                                  
+               MZ       ----          ----          ----          ----          ----       0.000000E+00                             
+             TOTALS  0.000000E+00  1.000000E+04  0.000000E+00 -4.455280E+04  0.000000E+00  4.925307E+05
+0        3     FX    0.000000E+00     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----       0.000000E+00     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----       1.000000E+04  3.599870E+05 -4.925307E+05     ----                                  
+               MX       ----          ----          ----       0.000000E+00     ----          ----                                  
+               MY       ----          ----          ----          ----       0.000000E+00     ----                                  
+               MZ       ----          ----          ----          ----          ----       0.000000E+00                             
+             TOTALS  0.000000E+00  0.000000E+00  1.000000E+04  3.599870E+05 -4.925307E+05  0.000000E+00
+0        4     FX    0.000000E+00     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----       0.000000E+00     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----       0.000000E+00  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----       1.000000E+04     ----          ----                                  
+               MY       ----          ----          ----          ----       0.000000E+00     ----                                  
+               MZ       ----          ----          ----          ----          ----       0.000000E+00                             
+             TOTALS  0.000000E+00  0.000000E+00  0.000000E+00  1.000000E+04  0.000000E+00  0.000000E+00
+0        5     FX    0.000000E+00     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----       0.000000E+00     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----       0.000000E+00  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----       0.000000E+00     ----          ----                                  
+               MY       ----          ----          ----          ----       1.000000E+04     ----                                  
+               MZ       ----          ----          ----          ----          ----       0.000000E+00                             
+             TOTALS  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  1.000000E+04  0.000000E+00
+0        6     FX    0.000000E+00     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----       0.000000E+00     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----       0.000000E+00  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----       0.000000E+00     ----          ----                                  
+               MY       ----          ----          ----          ----       0.000000E+00     ----                                  
+               MZ       ----          ----          ----          ----          ----       1.000000E+04                             
+             TOTALS  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  1.000000E+04
+  
+ *** SYSTEM INFORMATION MESSAGE 4159 (DFMSA)
+     THE DECOMPOSITION OF KLL      YIELDS A MAXIMUM MATRIX-TO-FACTOR-DIAGONAL RATIO OF    1.797139E+03
+1    DISPLACEMENT AT BEAM NODES                                               APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE    12
+      UCRM-135 ISOTROPIC MATERIALS                                                                                                  
+0     TRANSLATION LOAD 1                                                                                     SUBCASE 1              
+ *** USER INFORMATION MESSAGE 5293 (SSG3A)
+    FOR DATA BLOCK KLL     
+    LOAD SEQ. NO.             EPSILON              EXTERNAL WORK      EPSILONS LARGER THAN 0.001 ARE FLAGGED WITH ASTERISKS
+                1         -1.0625599E-11          2.3875743E+02
+                2          1.8934099E-11          1.0643476E+02
+                3          1.0976767E-10          3.1877061E+03
+                4         -8.5203875E-12          1.0690959E+02
+                5         -8.4512432E-12          1.0250591E+02
+                6         -3.6738451E-12          1.4909226E+01
+1    DISPLACEMENT AT BEAM NODES                                               APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE    13
+      UCRM-135 ISOTROPIC MATERIALS                                                                                                  
+0     TRANSLATION LOAD 1                                                                                     SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+      30000001      G      0.0            0.0            0.0            0.0            0.0            0.0
+      30000002      G     -1.558878E-06  -1.287891E-06   1.930805E-06   1.486341E-06  -6.796576E-08  -3.459031E-06
+      30000003      G     -1.190586E-06  -2.319328E-06   1.942268E-06   3.814003E-06   5.746546E-08  -7.838196E-06
+      30000004      G      2.471931E-06  -2.995214E-06   2.052903E-06   6.555222E-06   1.991608E-07  -1.254166E-05
+      30000005      G      7.859030E-06  -2.676275E-06   4.788187E-09   9.052901E-06  -3.670038E-07  -1.772578E-05
+      30000006      G      2.674332E-05  -1.915146E-06  -6.044454E-07   1.299832E-05  -7.368444E-06  -2.831473E-05
+      30000007      G      4.621792E-05  -1.260843E-05   1.218599E-05   1.706290E-05  -1.021120E-05  -3.477862E-05
+      30000008      G      7.188374E-05  -2.939312E-05   3.404258E-05   1.952798E-05  -1.503179E-05  -4.447686E-05
+      30000009      G      1.038587E-04  -5.029666E-05   5.961605E-05   2.184961E-05  -2.005308E-05  -5.549275E-05
+      30000010      G      1.433258E-04  -7.540024E-05   9.096777E-05   2.359447E-05  -2.505168E-05  -6.668983E-05
+      30000011      G      1.902247E-04  -1.056100E-04   1.293694E-04   2.396992E-05  -3.079422E-05  -7.894494E-05
+      30000012      G      2.452939E-04  -1.405229E-04   1.711134E-04   2.368717E-05  -3.648321E-05  -9.183562E-05
+      30000013      G      3.089468E-04  -1.802977E-04   2.141720E-04   2.304413E-05  -4.160617E-05  -1.054283E-04
+      30000014      G      3.814815E-04  -2.250360E-04   2.569804E-04   2.212888E-05  -4.592253E-05  -1.197228E-04
+      30000015      G      4.637380E-04  -2.753829E-04   2.975458E-04   2.109280E-05  -4.935464E-05  -1.345936E-04
+      30000016      G      5.562858E-04  -3.313109E-04   3.354117E-04   2.028836E-05  -5.158640E-05  -1.505930E-04
+      30000017      G      6.602416E-04  -3.935931E-04   3.726092E-04   1.893869E-05  -5.338910E-05  -1.678598E-04
+      30000018      G      7.752277E-04  -4.632277E-04   4.078334E-04   1.790878E-05  -5.390991E-05  -1.856446E-04
+      30000019      G      9.002363E-04  -5.462582E-04   4.380283E-04   1.738913E-05  -5.365062E-05  -2.052751E-04
+      30000020      G      1.037906E-03  -6.383835E-04   4.706023E-04   1.562892E-05  -5.610807E-05  -2.268583E-04
+      30000021      G      1.190164E-03  -7.402332E-04   5.042692E-04   1.400665E-05  -5.992005E-05  -2.504536E-04
+      30000022      G      1.357873E-03  -8.527068E-04   5.383334E-04   1.276552E-05  -6.328187E-05  -2.758222E-04
+      30000023      G      1.542135E-03  -9.758552E-04   5.725903E-04   1.189013E-05  -6.617962E-05  -3.016886E-04
+      30000024      G      1.743540E-03  -1.110574E-03   6.061764E-04   1.160895E-05  -6.895468E-05  -3.296915E-04
+      30000025      G      1.963559E-03  -1.257838E-03   6.401092E-04   1.198075E-05  -7.205422E-05  -3.600926E-04
+      30000026      G      2.203653E-03  -1.417779E-03   6.752312E-04   1.316730E-05  -7.569940E-05  -3.915449E-04
+      30000027      G      2.464689E-03  -1.592441E-03   7.125212E-04   1.576586E-05  -7.984800E-05  -4.264561E-04
+      30000028      G      2.748872E-03  -1.781351E-03   7.538628E-04   1.987324E-05  -8.475892E-05  -4.624415E-04
+      30000029      G      3.057242E-03  -1.987434E-03   7.999931E-04   2.628978E-05  -9.034651E-05  -5.035774E-04
+      30000030      G      3.393047E-03  -2.210961E-03   8.537398E-04   3.495641E-05  -9.739100E-05  -5.471832E-04
+      30000031      G      3.758160E-03  -2.454795E-03   9.165170E-04   4.667731E-05  -1.058187E-04  -5.963177E-04
+      30000032      G      4.156447E-03  -2.720053E-03   9.918833E-04   6.195034E-05  -1.162360E-04  -6.496738E-04
+      30000033      G      4.590651E-03  -3.009513E-03   1.082632E-03   8.189501E-05  -1.285796E-04  -7.094240E-04
+      30000034      G      5.064470E-03  -3.325576E-03   1.194046E-03   1.070754E-04  -1.436593E-04  -7.742730E-04
+      30000035      G      5.579931E-03  -3.670734E-03   1.330551E-03   1.384776E-04  -1.617061E-04  -8.429576E-04
+      30000036      G      6.142565E-03  -4.046594E-03   1.498158E-03   1.766609E-04  -1.852780E-04  -9.207781E-04
+      30000037      G      6.756862E-03  -4.457693E-03   1.705255E-03   2.224567E-04  -2.137073E-04  -1.005641E-03
+      30000038      G      7.427274E-03  -4.906047E-03   1.959299E-03   2.760723E-04  -2.483702E-04  -1.096553E-03
+      30000039      G      8.159881E-03  -5.396902E-03   2.266392E-03   3.386026E-04  -2.895426E-04  -1.202328E-03
+      30000040      G      8.967297E-03  -5.935884E-03   2.636177E-03   4.119413E-04  -3.379525E-04  -1.327790E-03
+      30000041      G      9.861263E-03  -6.530224E-03   3.079968E-03   4.965375E-04  -3.939989E-04  -1.468966E-03
+      30000042      G      1.085205E-02  -7.190750E-03   3.607654E-03   5.928879E-04  -4.585727E-04  -1.633286E-03
+      30000043      G      1.195494E-02  -7.926071E-03   4.230029E-03   7.040161E-04  -5.334537E-04  -1.819762E-03
+      30000044      G      1.318484E-02  -8.745833E-03   4.962855E-03   8.328644E-04  -6.207615E-04  -2.031069E-03
+      30000045      G      1.455943E-02  -9.661542E-03   5.825088E-03   9.844465E-04  -7.241001E-04  -2.271781E-03
+      30000046      G      1.609911E-02  -1.068706E-02   6.841454E-03   1.163700E-03  -8.475141E-04  -2.546904E-03
+      30000047      G      1.782808E-02  -1.183877E-02   8.041161E-03   1.376180E-03  -9.963269E-04  -2.862765E-03
+      30000048      G      1.977479E-02  -1.313540E-02   9.461321E-03   1.627970E-03  -1.175630E-03  -3.226178E-03
+      30000049      G      2.197176E-02  -1.459954E-02   1.114176E-02   1.924419E-03  -1.388562E-03  -3.644109E-03
+      30000050      G      2.445374E-02  -1.625644E-02   1.312479E-02   2.263471E-03  -1.635064E-03  -4.118481E-03
+1    DISPLACEMENT AT BEAM NODES                                               APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE    14
+      UCRM-135 ISOTROPIC MATERIALS                                                                                                  
+0     TRANSLATION LOAD 1                                                                                     SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+      30000051      G      2.725833E-02  -1.813285E-02   1.545247E-02   2.644093E-03  -1.921181E-03  -4.653901E-03
+      30000052      G      3.042436E-02  -2.025258E-02   1.816663E-02   3.056677E-03  -2.242290E-03  -5.244121E-03
+      30000053      G      3.398378E-02  -2.263413E-02   2.129090E-02   3.482905E-03  -2.575981E-03  -5.871178E-03
+      30000054      G      3.795144E-02  -2.527663E-02   2.481667E-02   3.879801E-03  -2.871034E-03  -6.485175E-03
+      30000055      G      4.230711E-02  -2.815432E-02   2.868607E-02   4.207731E-03  -3.088641E-03  -7.017247E-03
+      30000056      G      4.775149E-02  -3.169316E-02   3.349994E-02   4.377397E-03  -3.204841E-03  -7.306408E-03
+1    DISPLACEMENT AT BEAM NODES                                               APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE    15
+      UCRM-135 ISOTROPIC MATERIALS                                                                                                  
+0     TRANSLATION LOAD 2                                                                                     SUBCASE 2              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+      30000001      G      0.0            0.0            0.0            0.0            0.0            0.0
+      30000002      G      1.371158E-06   1.274611E-06  -1.161306E-06  -1.385724E-06   3.161134E-08   2.233201E-06
+      30000003      G      1.575739E-06   2.419090E-06  -9.549752E-07  -3.312374E-06  -7.987367E-08   5.084662E-06
+      30000004      G     -3.752951E-07   3.365884E-06  -9.954119E-07  -5.551034E-06  -1.510176E-07   8.180882E-06
+      30000005      G     -3.646262E-06   3.774012E-06  -3.121192E-09  -7.796803E-06   2.391960E-07   1.160552E-05
+      30000006      G     -1.493916E-05   3.721629E-06  -1.129225E-06  -1.105130E-05   5.356763E-06   1.827360E-05
+      30000007      G     -2.719012E-05   1.116226E-05  -1.166327E-05  -1.431453E-05   7.479496E-06   2.248880E-05
+      30000008      G     -4.339642E-05   2.279516E-05  -2.899616E-05  -1.653942E-05   1.111314E-05   2.891225E-05
+      30000009      G     -6.374713E-05   3.717568E-05  -4.963064E-05  -1.863055E-05   1.490670E-05   3.622282E-05
+      30000010      G     -8.906845E-05   5.434256E-05  -7.482342E-05  -2.033226E-05   1.866276E-05   4.364032E-05
+      30000011      G     -1.192998E-04   7.492874E-05  -1.055336E-04  -2.106084E-05   2.294146E-05   5.177687E-05
+      30000012      G     -1.549349E-04   9.863956E-05  -1.390886E-04  -2.132827E-05   2.715330E-05   6.033337E-05
+      30000013      G     -1.962518E-04   1.255618E-04  -1.739528E-04  -2.133544E-05   3.095422E-05   6.935842E-05
+      30000014      G     -2.434585E-04   1.557537E-04  -2.089176E-04  -2.113357E-05   3.419337E-05   7.885971E-05
+      30000015      G     -2.971301E-04   1.896324E-04  -2.425145E-04  -2.082537E-05   3.682031E-05   8.876101E-05
+      30000016      G     -3.576833E-04   2.272054E-04  -2.745035E-04  -2.066357E-05   3.857261E-05   9.942360E-05
+      30000017      G     -4.258298E-04   2.689665E-04  -3.060955E-04  -2.008055E-05   4.006980E-05   1.109550E-04
+      30000018      G     -5.013709E-04   3.156241E-04  -3.365468E-04  -1.972076E-05   4.063323E-05   1.228656E-04
+      30000019      G     -5.836780E-04   3.712161E-04  -3.639667E-04  -1.972634E-05   4.060715E-05   1.359988E-04
+      30000020      G     -6.744326E-04   4.329378E-04  -3.934879E-04  -1.885274E-05   4.242363E-05   1.504619E-04
+      30000021      G     -7.749260E-04   5.012206E-04  -4.239383E-04  -1.761321E-05   4.486547E-05   1.662723E-04
+      30000022      G     -8.857558E-04   5.766517E-04  -4.546415E-04  -1.646351E-05   4.691815E-05   1.832818E-04
+      30000023      G     -1.007680E-03   6.592319E-04  -4.850608E-04  -1.545712E-05   4.854327E-05   2.006084E-04
+      30000024      G     -1.141070E-03   7.495880E-04  -5.144785E-04  -1.471646E-05   4.999586E-05   2.193736E-04
+      30000025      G     -1.286907E-03   8.483836E-04  -5.434382E-04  -1.426555E-05   5.156441E-05   2.397502E-04
+      30000026      G     -1.446171E-03   9.556878E-04  -5.723175E-04  -1.423321E-05   5.336982E-05   2.607978E-04
+      30000027      G     -1.619422E-03   1.072896E-03  -6.017019E-04  -1.497258E-05   5.540991E-05   2.841879E-04
+      30000028      G     -1.808135E-03   1.199667E-03  -6.326599E-04  -1.657934E-05   5.784333E-05   3.082413E-04
+      30000029      G     -2.012971E-03   1.338005E-03  -6.655910E-04  -1.957281E-05   6.062349E-05   3.357862E-04
+      30000030      G     -2.236117E-03   1.488065E-03  -7.022697E-04  -2.391519E-05   6.426846E-05   3.649385E-04
+      30000031      G     -2.478775E-03   1.651791E-03  -7.434722E-04  -3.016310E-05   6.870374E-05   3.978341E-04
+      30000032      G     -2.743582E-03   1.829936E-03  -7.914270E-04  -3.858601E-05   7.436264E-05   4.335061E-04
+      30000033      G     -3.032316E-03   2.024374E-03  -8.477865E-04  -4.995057E-05   8.116581E-05   4.734688E-04
+      30000034      G     -3.347466E-03   2.236712E-03  -9.159360E-04  -6.461294E-05   8.964900E-05   5.168581E-04
+      30000035      G     -3.690458E-03   2.468644E-03  -9.986985E-04  -8.326356E-05   1.000020E-04   5.629052E-04
+      30000036      G     -4.064911E-03   2.721275E-03  -1.099924E-03  -1.062127E-04   1.138475E-04   6.150078E-04
+      30000037      G     -4.473863E-03   2.997636E-03  -1.224979E-03  -1.340618E-04   1.308100E-04   6.718805E-04
+      30000038      G     -4.920311E-03   3.299082E-03  -1.378730E-03  -1.669448E-04   1.518476E-04   7.327699E-04
+      30000039      G     -5.408275E-03   3.629217E-03  -1.565018E-03  -2.055181E-04   1.770175E-04   8.036775E-04
+      30000040      G     -5.946130E-03   3.991819E-03  -1.789997E-03  -2.510528E-04   2.068410E-04   8.876001E-04
+      30000041      G     -6.541616E-03   4.391616E-03  -2.061105E-03  -3.039136E-04   2.417014E-04   9.817780E-04
+      30000042      G     -7.201501E-03   4.835906E-03  -2.384723E-03  -3.644426E-04   2.821018E-04   1.091579E-03
+      30000043      G     -7.936044E-03   5.330500E-03  -2.767786E-03  -4.344826E-04   3.291004E-04   1.216189E-03
+      30000044      G     -8.755162E-03   5.881880E-03  -3.220447E-03  -5.159865E-04   3.840853E-04   1.357394E-03
+      30000045      G     -9.670613E-03   6.497799E-03  -3.754832E-03  -6.119040E-04   4.492011E-04   1.518204E-03
+      30000046      G     -1.069595E-02   7.187559E-03  -4.386728E-03  -7.253675E-04   5.270627E-04   1.701936E-03
+      30000047      G     -1.184719E-02   7.962169E-03  -5.134587E-03  -8.595398E-04   6.208878E-04   1.912741E-03
+      30000048      G     -1.314313E-02   8.834180E-03  -6.021522E-03  -1.017743E-03   7.336176E-04   2.155066E-03
+      30000049      G     -1.460519E-02   9.818697E-03  -7.071774E-03  -1.202506E-03   8.666596E-04   2.433392E-03
+      30000050      G     -1.625627E-02   1.093246E-02  -8.310799E-03  -1.412481E-03   1.019993E-03   2.748936E-03
+1    DISPLACEMENT AT BEAM NODES                                               APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE    16
+      UCRM-135 ISOTROPIC MATERIALS                                                                                                  
+0     TRANSLATION LOAD 2                                                                                     SUBCASE 2              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+      30000051      G     -1.812092E-02   1.219328E-02  -9.762994E-03  -1.645065E-03   1.196427E-03   3.104451E-03
+      30000052      G     -2.022414E-02   1.361682E-02  -1.144954E-02  -1.889596E-03   1.390047E-03   3.495079E-03
+      30000053      G     -2.258589E-02   1.521499E-02  -1.337613E-02  -2.130991E-03   1.584017E-03   3.908249E-03
+      30000054      G     -2.521466E-02   1.698673E-02  -1.552778E-02  -2.348648E-03   1.749511E-03   4.311382E-03
+      30000055      G     -2.809551E-02   1.891532E-02  -1.786610E-02  -2.528443E-03   1.869607E-03   4.659222E-03
+      30000056      G     -3.169316E-02   2.128695E-02  -2.075762E-02  -2.625093E-03   1.934403E-03   4.870284E-03
+1    DISPLACEMENT AT BEAM NODES                                               APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE    17
+      UCRM-135 ISOTROPIC MATERIALS                                                                                                  
+0     TRANSLATION LOAD 3                                                                                     SUBCASE 3              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+      30000001      G      0.0            0.0            0.0            0.0            0.0            0.0
+      30000002      G     -2.418373E-07  -5.734250E-06  -2.879219E-06   2.159285E-05   2.627053E-06  -1.980155E-06
+      30000003      G      2.491473E-07  -1.051222E-05  -7.305132E-06   4.949309E-05   3.936590E-06  -4.684733E-06
+      30000004      G      1.441418E-06  -1.869652E-05   4.432106E-06   8.064452E-05   1.697869E-06  -8.341060E-06
+      30000005      G      1.719324E-06  -2.696631E-05   3.511768E-08   1.208202E-04  -2.690646E-06  -1.314050E-05
+      30000006      G      5.384314E-07  -3.696026E-05   4.938487E-05   1.767215E-04  -7.384386E-05  -2.254820E-05
+      30000007      G      8.610203E-06  -4.251163E-05   1.344346E-04   2.376124E-04  -1.011630E-04  -2.536757E-05
+      30000008      G      1.614805E-05  -6.332037E-05   2.882088E-04   3.111038E-04  -1.460094E-04  -3.152034E-05
+      30000009      G      2.762615E-05  -8.791468E-05   5.106200E-04   3.953430E-04  -1.994480E-04  -3.802035E-05
+      30000010      G      4.244953E-05  -1.172279E-04   8.123353E-04   4.889046E-04  -2.603887E-04  -4.391283E-05
+      30000011      G      5.955370E-05  -1.522078E-04   1.199935E-03   5.949981E-04  -3.273854E-04  -4.910775E-05
+      30000012      G      7.837799E-05  -1.932766E-04   1.691542E-03   7.107300E-04  -4.031830E-04  -5.348488E-05
+      30000013      G      9.866163E-05  -2.394498E-04   2.303986E-03   8.362725E-04  -4.866252E-04  -5.698214E-05
+      30000014      G      1.202430E-04  -2.892604E-04   3.056650E-03   9.723319E-04  -5.764815E-04  -5.960552E-05
+      30000015      G      1.427009E-04  -3.401484E-04   3.940259E-03   1.119943E-03  -6.724353E-04  -6.134008E-05
+      30000016      G      1.678275E-04  -3.898185E-04   4.951891E-03   1.279735E-03  -7.772436E-04  -6.208890E-05
+      30000017      G      1.940930E-04  -4.369292E-04   6.140855E-03   1.454050E-03  -8.804139E-04  -6.219455E-05
+      30000018      G      2.208563E-04  -4.828547E-04   7.505614E-03   1.637048E-03  -9.963566E-04  -6.205568E-05
+      30000019      G      2.473420E-04  -5.277822E-04   9.065641E-03   1.823523E-03  -1.130373E-03  -6.164467E-05
+      30000020      G      2.710375E-04  -5.758735E-04   1.079936E-02   2.026700E-03  -1.272431E-03  -6.153747E-05
+      30000021      G      2.986895E-04  -6.201712E-04   1.271796E-02   2.254162E-03  -1.429279E-03  -6.176259E-05
+      30000022      G      3.263431E-04  -6.650469E-04   1.484736E-02   2.501888E-03  -1.598583E-03  -6.225998E-05
+      30000023      G      3.551087E-04  -7.087807E-04   1.721476E-02   2.766964E-03  -1.779041E-03  -6.289696E-05
+      30000024      G      3.858706E-04  -7.503398E-04   1.985063E-02   3.059438E-03  -1.975868E-03  -6.392356E-05
+      30000025      G      4.189964E-04  -7.900370E-04   2.278208E-02   3.381614E-03  -2.191046E-03  -6.566790E-05
+      30000026      G      4.552725E-04  -8.280286E-04   2.603261E-02   3.730173E-03  -2.422959E-03  -6.843933E-05
+      30000027      G      4.964554E-04  -8.635779E-04   2.962238E-02   4.105316E-03  -2.673238E-03  -7.278987E-05
+      30000028      G      5.442980E-04  -8.964813E-04   3.357542E-02   4.510113E-03  -2.940973E-03  -7.908783E-05
+      30000029      G      6.005077E-04  -9.272675E-04   3.791789E-02   4.948005E-03  -3.233574E-03  -8.796460E-05
+      30000030      G      6.668946E-04  -9.570585E-04   4.267453E-02   5.422872E-03  -3.550263E-03  -9.999560E-05
+      30000031      G      7.461129E-04  -9.867722E-04   4.788736E-02   5.936374E-03  -3.906260E-03  -1.157833E-04
+      30000032      G      8.419182E-04  -1.016390E-03   5.359444E-02   6.506918E-03  -4.289132E-03  -1.363484E-04
+      30000033      G      9.577025E-04  -1.048407E-03   5.985676E-02   7.141001E-03  -4.714641E-03  -1.627315E-04
+      30000034      G      1.096551E-03  -1.087177E-03   6.673706E-02   7.846153E-03  -5.187055E-03  -1.960389E-04
+      30000035      G      1.261574E-03  -1.137991E-03   7.430548E-02   8.634713E-03  -5.703366E-03  -2.372165E-04
+      30000036      G      1.458667E-03  -1.206123E-03   8.264332E-02   9.508930E-03  -6.289891E-03  -2.889094E-04
+      30000037      G      1.692877E-03  -1.299061E-03   9.184231E-02   1.047584E-02  -6.938765E-03  -3.513123E-04
+      30000038      G      1.970118E-03  -1.423043E-03   1.019822E-01   1.153862E-02  -7.649546E-03  -4.257289E-04
+      30000039      G      2.298522E-03  -1.583416E-03   1.131584E-01   1.270820E-02  -8.442348E-03  -5.128642E-04
+      30000040      G      2.687774E-03  -1.786276E-03   1.254888E-01   1.399779E-02  -9.315473E-03  -6.155912E-04
+      30000041      G      3.146442E-03  -2.039352E-03   1.390730E-01   1.541289E-02  -1.025706E-02  -7.351047E-04
+      30000042      G      3.686422E-03  -2.348245E-03   1.540296E-01   1.696348E-02  -1.129644E-02  -8.712802E-04
+      30000043      G      4.322289E-03  -2.715880E-03   1.704857E-01   1.867231E-02  -1.244665E-02  -1.028762E-03
+      30000044      G      5.070680E-03  -3.150408E-03   1.886033E-01   2.055516E-02  -1.371749E-02  -1.211605E-03
+      30000045      G      5.952356E-03  -3.661115E-03   2.085588E-01   2.264703E-02  -1.513255E-02  -1.427114E-03
+      30000046      G      6.986880E-03  -4.269511E-03   2.305649E-01   2.498519E-02  -1.671693E-02  -1.682922E-03
+      30000047      G      8.200748E-03  -4.997638E-03   2.548686E-01   2.761825E-02  -1.850453E-02  -1.987961E-03
+      30000048      G      9.627098E-03  -5.873007E-03   2.817864E-01   3.060300E-02  -2.053081E-02  -2.351009E-03
+      30000049      G      1.129880E-02  -6.930949E-03   3.116619E-01   3.399095E-02  -2.283026E-02  -2.779691E-03
+      30000050      G      1.324323E-02  -8.218545E-03   3.448674E-01   3.777371E-02  -2.539552E-02  -3.272038E-03
+1    DISPLACEMENT AT BEAM NODES                                               APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE    18
+      UCRM-135 ISOTROPIC MATERIALS                                                                                                  
+0     TRANSLATION LOAD 3                                                                                     SUBCASE 3              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+      30000051      G      1.549300E-02  -9.774855E-03   3.817769E-01   4.198566E-02  -2.824614E-02  -3.828928E-03
+      30000052      G      1.809864E-02  -1.160906E-02   4.227844E-01   4.656734E-02  -3.134093E-02  -4.434958E-03
+      30000053      G      2.110228E-02  -1.370058E-02   4.681517E-01   5.135335E-02  -3.456080E-02  -5.056345E-03
+      30000054      G      2.456460E-02  -1.593282E-02   5.178705E-01   5.589136E-02  -3.759888E-02  -5.620441E-03
+      30000055      G      2.850075E-02  -1.815751E-02   5.714919E-01   5.970410E-02  -4.005300E-02  -6.069406E-03
+      30000056      G      3.349994E-02  -2.075762E-02   6.375412E-01   6.168878E-02  -4.146808E-02  -6.307637E-03
+1    DISPLACEMENT AT BEAM NODES                                               APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE    19
+      UCRM-135 ISOTROPIC MATERIALS                                                                                                  
+0     ROTATION LOAD 1                                                                                        SUBCASE 4              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+      30000001      G      0.0            0.0            0.0            0.0            0.0            0.0
+      30000002      G      9.311119E-09  -1.721802E-07  -9.883168E-08   6.559647E-07   1.115823E-07  -5.313213E-08
+      30000003      G      3.484047E-08  -3.209082E-07  -2.113184E-07   1.504570E-06   1.787055E-07  -1.301519E-07
+      30000004      G      8.812338E-08  -5.828703E-07   2.399281E-07   2.452473E-06   1.305507E-07  -2.368318E-07
+      30000005      G      8.837655E-08  -8.232213E-07   4.352599E-10   3.700515E-06  -3.330642E-08  -3.840257E-07
+      30000006      G      3.320714E-07  -1.298521E-06   3.017341E-06   5.299498E-06  -8.683763E-07  -5.168063E-07
+      30000007      G      6.504015E-07  -1.558658E-06   6.387178E-06   6.779504E-06  -1.024040E-06  -5.495526E-07
+      30000008      G      9.719965E-07  -2.103015E-06   1.024986E-05   9.038727E-06  -1.155451E-06  -6.308503E-07
+      30000009      G      1.335606E-06  -2.665663E-06   1.511775E-05   1.186854E-05  -1.196966E-06  -7.090483E-07
+      30000010      G      1.760705E-06  -3.338507E-06   2.189465E-05   1.506084E-05  -1.275030E-06  -7.723815E-07
+      30000011      G      2.223296E-06  -4.105242E-06   3.017339E-05   1.891849E-05  -1.131574E-06  -7.959705E-07
+      30000012      G      2.724897E-06  -5.035905E-06   4.114230E-05   2.324111E-05  -9.347829E-07  -7.927080E-07
+      30000013      G      3.250389E-06  -6.111215E-06   5.532485E-05   2.805553E-05  -6.563010E-07  -7.670084E-07
+      30000014      G      3.781132E-06  -7.293557E-06   7.316035E-05   3.336135E-05  -3.685352E-07  -7.269243E-07
+      30000015      G      4.295062E-06  -8.507554E-06   9.436270E-05   3.918845E-05  -1.268408E-07  -6.734682E-07
+      30000016      G      4.808684E-06  -9.688577E-06   1.196407E-04   4.561870E-05   2.278587E-07  -6.125362E-07
+      30000017      G      5.271116E-06  -1.077736E-05   1.497447E-04   5.279430E-05   7.688874E-07  -5.466292E-07
+      30000018      G      5.678129E-06  -1.183595E-05   1.860151E-04   6.013105E-05   6.952055E-07  -4.987714E-07
+      30000019      G      6.044943E-06  -1.283614E-05   2.275481E-04   6.806972E-05   7.504863E-07  -4.469834E-07
+      30000020      G      6.402247E-06  -1.396762E-05   2.730101E-04   7.721697E-05   1.251758E-06  -3.882552E-07
+      30000021      G      6.667517E-06  -1.483781E-05   3.236271E-04   8.768487E-05   1.732933E-06  -3.308469E-07
+      30000022      G      6.914612E-06  -1.570555E-05   3.798818E-04   9.963676E-05   2.629595E-06  -2.750797E-07
+      30000023      G      7.114912E-06  -1.651215E-05   4.443863E-04   1.124961E-04   3.162118E-06  -2.327606E-07
+      30000024      G      7.288486E-06  -1.721860E-05   5.171357E-04   1.272473E-04   3.999990E-06  -2.110254E-07
+      30000025      G      7.448165E-06  -1.783738E-05   5.996219E-04   1.439855E-04   5.022061E-06  -2.287266E-07
+      30000026      G      7.614030E-06  -1.837102E-05   6.947957E-04   1.620179E-04   5.184141E-06  -2.944919E-07
+      30000027      G      7.835353E-06  -1.877521E-05   8.011733E-04   1.825103E-04   6.070582E-06  -4.342675E-07
+      30000028      G      8.164298E-06  -1.904263E-05   9.228474E-04   2.045897E-04   5.870616E-06  -6.649509E-07
+      30000029      G      8.653160E-06  -1.917549E-05   1.057737E-03   2.300791E-04   6.711399E-06  -1.027573E-06
+      30000030      G      9.404728E-06  -1.922224E-05   1.210133E-03   2.581696E-04   6.717501E-06  -1.545831E-06
+      30000031      G      1.048034E-05  -1.919699E-05   1.379166E-03   2.906982E-04   7.534414E-06  -2.290692E-06
+      30000032      G      1.208080E-05  -1.910014E-05   1.570761E-03   3.274402E-04   7.771888E-06  -3.284792E-06
+      30000033      G      1.430059E-05  -1.899620E-05   1.785105E-03   3.706015E-04   8.855727E-06  -4.635900E-06
+      30000034      G      1.737215E-05  -1.908138E-05   2.026376E-03   4.201254E-04   9.014862E-06  -6.423498E-06
+      30000035      G      2.154213E-05  -1.961673E-05   2.298286E-03   4.770351E-04   8.211178E-06  -8.727645E-06
+      30000036      G      2.731226E-05  -2.092828E-05   2.610124E-03   5.436217E-04   7.314406E-06  -1.171090E-05
+      30000037      G      3.508007E-05  -2.343527E-05   2.966811E-03   6.205476E-04   5.607104E-06  -1.544460E-05
+      30000038      G      4.556401E-05  -2.768634E-05   3.378850E-03   7.074383E-04   4.026321E-07  -2.005201E-05
+      30000039      G      5.898825E-05  -3.384078E-05   3.848950E-03   8.104245E-04  -3.107175E-06  -2.571449E-05
+      30000040      G      7.652811E-05  -4.263255E-05   4.394463E-03   9.316644E-04  -5.369812E-06  -3.271297E-05
+      30000041      G      9.941895E-05  -5.500741E-05   5.031333E-03   1.071589E-03  -9.184892E-06  -4.129428E-05
+      30000042      G      1.279696E-04  -7.110846E-05   5.761457E-03   1.237938E-03  -1.021823E-05  -5.172447E-05
+      30000043      G      1.637313E-04  -9.154950E-05   6.605376E-03   1.433875E-03  -1.304723E-05  -6.467407E-05
+      30000044      G      2.085407E-04  -1.173248E-04   7.585397E-03   1.666293E-03  -1.751400E-05  -8.090191E-05
+      30000045      G      2.647145E-04  -1.494808E-04   8.728418E-03   1.945829E-03  -2.433542E-05  -1.016786E-04
+      30000046      G      3.355469E-04  -1.905120E-04   1.006969E-02   2.286586E-03  -3.435734E-05  -1.285930E-04
+      30000047      G      4.254089E-04  -2.433061E-04   1.165499E-02   2.708601E-03  -4.894198E-05  -1.638825E-04
+      30000048      G      5.405264E-04  -3.120346E-04   1.354887E-02   3.240681E-03  -7.002822E-05  -2.105823E-04
+      30000049      G      6.890706E-04  -4.028141E-04   1.583543E-02   3.921224E-03  -1.006529E-04  -2.726482E-04
+      30000050      G      8.821903E-04  -5.260101E-04   1.862697E-02   4.793469E-03  -1.425920E-04  -3.540381E-04
+1    DISPLACEMENT AT BEAM NODES                                               APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE    20
+      UCRM-135 ISOTROPIC MATERIALS                                                                                                  
+0     ROTATION LOAD 1                                                                                        SUBCASE 4              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+      30000051      G      1.134083E-03  -6.933845E-04   2.207203E-02   5.932812E-03  -2.008328E-04  -4.614404E-04
+      30000052      G      1.463923E-03  -9.158099E-04   2.638297E-02   7.438018E-03  -2.805572E-04  -6.030861E-04
+      30000053      G      1.896563E-03  -1.205315E-03   3.184025E-02   9.439574E-03  -3.878534E-04  -7.881928E-04
+      30000054      G      2.466148E-03  -1.567451E-03   3.880906E-02   1.206172E-02  -5.204762E-04  -1.023112E-03
+      30000055      G      3.211807E-03  -1.997836E-03   4.777367E-02   1.557129E-02  -6.818065E-04  -1.330654E-03
+      30000056      G      4.377397E-03  -2.625093E-03   6.168878E-02   2.138192E-02  -1.146297E-03  -1.852200E-03
+1    DISPLACEMENT AT BEAM NODES                                               APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE    21
+      UCRM-135 ISOTROPIC MATERIALS                                                                                                  
+0     ROTATION LOAD 2                                                                                        SUBCASE 5              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+      30000001      G      0.0            0.0            0.0            0.0            0.0            0.0
+      30000002      G      2.903050E-08   3.906900E-09  -1.683727E-08  -2.934675E-09   5.242595E-08   1.222208E-08
+      30000003      G      4.760820E-08  -1.515040E-09   2.040601E-08  -5.670218E-09   9.873150E-08   2.152577E-08
+      30000004      G      7.722817E-08  -2.225468E-08   1.735571E-07  -9.485147E-09   1.357577E-07   3.034936E-08
+      30000005      G      6.395480E-08  -3.576488E-09  -1.071207E-09   2.840370E-08   8.214511E-08   2.927404E-08
+      30000006      G      5.639553E-07  -3.065649E-07   2.759411E-06  -1.504341E-07   2.492149E-06   3.127284E-07
+      30000007      G      7.008731E-07  -5.047223E-07   4.445982E-06  -8.793654E-07   3.655532E-06   3.944369E-07
+      30000008      G      8.938238E-07  -4.312964E-07   3.873118E-06  -1.146055E-06   5.730386E-06   5.651985E-07
+      30000009      G      9.665279E-07  -2.056801E-07   1.712685E-06  -1.200884E-06   8.401113E-06   7.611278E-07
+      30000010      G      9.705520E-07   9.485321E-08  -1.441997E-06  -1.258779E-06   1.147948E-05   9.542629E-07
+      30000011      G      9.240334E-07   5.318677E-07  -6.426927E-06  -1.118883E-06   1.523459E-05   1.168976E-06
+      30000012      G      8.550656E-07   1.044052E-06  -1.261313E-05  -9.017691E-07   1.964047E-05   1.384030E-06
+      30000013      G      7.543421E-07   1.627585E-06  -2.029932E-05  -6.015073E-07   2.469034E-05   1.589760E-06
+      30000014      G      6.046043E-07   2.282357E-06  -3.021049E-05  -3.025343E-07   3.019696E-05   1.775355E-06
+      30000015      G      3.972386E-07   2.985498E-06  -4.240717E-05  -7.333249E-08   3.604324E-05   1.936398E-06
+      30000016      G      6.345685E-08   3.714512E-06  -5.562028E-05   1.829401E-07   4.276824E-05   2.058119E-06
+      30000017      G     -3.875419E-07   4.498527E-06  -7.325267E-05   4.574467E-07   4.966096E-05   2.154177E-06
+      30000018      G     -9.298849E-07   5.291238E-06  -9.149564E-05   2.404925E-07   5.677464E-05   2.214263E-06
+      30000019      G     -1.501018E-06   6.128631E-06  -1.138014E-04   4.951489E-07   6.546297E-05   2.270097E-06
+      30000020      G     -1.912822E-06   6.971051E-06  -1.408754E-04   1.074071E-06   7.545132E-05   2.355800E-06
+      30000021      G     -2.721971E-06   7.944273E-06  -1.720256E-04   1.623063E-06   8.665863E-05   2.456237E-06
+      30000022      G     -3.559686E-06   8.961287E-06  -2.084705E-04   2.489573E-06   9.955143E-05   2.572677E-06
+      30000023      G     -4.521597E-06   1.002282E-05  -2.490186E-04   3.086265E-06   1.131761E-04   2.683352E-06
+      30000024      G     -5.637171E-06   1.113059E-05  -2.959863E-04   3.915766E-06   1.287486E-04   2.797117E-06
+      30000025      G     -6.917460E-06   1.228328E-05  -3.498121E-04   4.828164E-06   1.463470E-04   2.913552E-06
+      30000026      G     -8.392416E-06   1.348590E-05  -4.090761E-04   5.053032E-06   1.647176E-04   3.045204E-06
+      30000027      G     -1.012967E-05   1.475500E-05  -4.776473E-04   5.827002E-06   1.859981E-04   3.202556E-06
+      30000028      G     -1.219396E-05   1.609459E-05  -5.530119E-04   5.713221E-06   2.081300E-04   3.398551E-06
+      30000029      G     -1.466102E-05   1.753797E-05  -6.404427E-04   6.453064E-06   2.344059E-04   3.642001E-06
+      30000030      G     -1.756655E-05   1.909979E-05  -7.376383E-04   6.551377E-06   2.627856E-04   3.962558E-06
+      30000031      G     -2.106960E-05   2.083835E-05  -8.500661E-04   7.799787E-06   2.967101E-04   4.341166E-06
+      30000032      G     -2.527382E-05   2.277509E-05  -9.749933E-04   8.180599E-06   3.340695E-04   4.865690E-06
+      30000033      G     -3.041860E-05   2.502474E-05  -1.119173E-03   9.252469E-06   3.781692E-04   5.530974E-06
+      30000034      G     -3.661933E-05   2.769160E-05  -1.286008E-03   9.433464E-06   4.273164E-04   6.386526E-06
+      30000035      G     -4.399145E-05   3.091407E-05  -1.480552E-03   7.702688E-06   4.813390E-04   7.504586E-06
+      30000036      G     -5.257984E-05   3.474913E-05  -1.700109E-03   6.607580E-06   5.461212E-04   9.024529E-06
+      30000037      G     -6.264077E-05   3.946799E-05  -1.953089E-03   4.516982E-06   6.200133E-04   1.100338E-05
+      30000038      G     -7.415377E-05   4.514413E-05  -2.239733E-03  -6.725044E-07   7.010581E-04   1.358283E-05
+      30000039      G     -8.799846E-05   5.230079E-05  -2.572065E-03  -4.326399E-06   7.993965E-04   1.681942E-05
+      30000040      G     -1.041426E-04   6.095755E-05  -2.947829E-03  -6.736602E-06   9.179321E-04   2.097419E-05
+      30000041      G     -1.226243E-04   7.122481E-05  -3.368937E-03  -1.048249E-05   1.054435E-03   2.622030E-05
+      30000042      G     -1.452889E-04   8.419568E-05  -3.861223E-03  -1.207936E-05   1.218960E-03   3.262927E-05
+      30000043      G     -1.731406E-04   1.002771E-04  -4.431683E-03  -1.512726E-05   1.411902E-03   4.057582E-05
+      30000044      G     -2.075772E-04   1.202359E-04  -5.094874E-03  -1.983074E-05   1.640401E-03   5.055746E-05
+      30000045      G     -2.508335E-04   1.452195E-04  -5.869058E-03  -2.687576E-05   1.914585E-03   6.332989E-05
+      30000046      G     -3.048286E-04   1.767227E-04  -6.778106E-03  -3.712333E-05   2.248015E-03   7.999557E-05
+      30000047      G     -3.727586E-04   2.168899E-04  -7.853142E-03  -5.163095E-05   2.659959E-03   1.020189E-04
+      30000048      G     -4.589749E-04   2.686569E-04  -9.136959E-03  -7.280593E-05   3.177645E-03   1.314623E-04
+      30000049      G     -5.686799E-04   3.359731E-04  -1.068581E-02  -1.033290E-04   3.837296E-03   1.710813E-04
+      30000050      G     -7.059846E-04   4.235758E-04  -1.257384E-02  -1.450188E-04   4.681326E-03   2.242709E-04
+1    DISPLACEMENT AT BEAM NODES                                               APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE    22
+      UCRM-135 ISOTROPIC MATERIALS                                                                                                  
+0     ROTATION LOAD 2                                                                                        SUBCASE 5              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+      30000051      G     -8.787157E-04   5.382905E-04  -1.490059E-02  -2.025968E-04   5.780887E-03   2.960665E-04
+      30000052      G     -1.103208E-03   6.896737E-04  -1.780578E-02  -2.815524E-04   7.232767E-03   3.916380E-04
+      30000053      G     -1.399641E-03   8.882435E-04  -2.147538E-02  -3.877064E-04   9.163152E-03   5.159547E-04
+      30000054      G     -1.796952E-03   1.141531E-03  -2.614942E-02  -5.180802E-04   1.169139E-02   6.664654E-04
+      30000055      G     -2.338270E-03   1.457938E-03  -3.215349E-02  -6.729952E-04   1.511653E-02   8.506029E-04
+      30000056      G     -3.204841E-03   1.934403E-03  -4.146808E-02  -1.146297E-03   2.050118E-02   1.148641E-03
+1    DISPLACEMENT AT BEAM NODES                                               APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE    23
+      UCRM-135 ISOTROPIC MATERIALS                                                                                                  
+0     ROTATION LOAD 3                                                                                        SUBCASE 6              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+      30000001      G      0.0            0.0            0.0            0.0            0.0            0.0
+      30000002      G      6.737611E-08   3.703744E-08  -5.537533E-08  -4.446226E-08   3.169544E-09   1.003702E-07
+      30000003      G      8.262521E-08   6.600695E-08  -4.926813E-08  -1.145160E-07  -2.212546E-10   2.297103E-07
+      30000004      G     -6.484293E-10   8.406863E-08  -4.331218E-08  -1.976014E-07  -3.688109E-09   3.708754E-07
+      30000005      G     -1.445083E-07   7.534258E-08  -1.366060E-10  -2.708700E-07   1.047030E-08   5.271137E-07
+      30000006      G     -6.494958E-07   1.602489E-08   1.000878E-07  -3.913976E-07   2.787370E-07   8.654742E-07
+      30000007      G     -1.200863E-06   3.212107E-07  -2.423187E-07  -5.309191E-07   3.871116E-07   1.072268E-06
+      30000008      G     -1.943043E-06   8.210920E-07  -9.133989E-07  -6.141209E-07   5.676484E-07   1.386369E-06
+      30000009      G     -2.891236E-06   1.457565E-06  -1.725083E-06  -6.923016E-07   7.594257E-07   1.750822E-06
+      30000010      G     -4.089645E-06   2.235330E-06  -2.748388E-06  -7.516550E-07   9.538162E-07   2.128739E-06
+      30000011      G     -5.541106E-06   3.188783E-06  -4.039458E-06  -7.633408E-07   1.177300E-06   2.551544E-06
+      30000012      G     -7.276617E-06   4.307521E-06  -5.474347E-06  -7.505092E-07   1.402941E-06   3.006083E-06
+      30000013      G     -9.317309E-06   5.600666E-06  -6.984045E-06  -7.233521E-07   1.611528E-06   3.496404E-06
+      30000014      G     -1.168087E-05   7.075545E-06  -8.511142E-06  -6.852982E-07   1.792329E-06   4.025260E-06
+      30000015      G     -1.440634E-05   8.760156E-06  -9.978487E-06  -6.415527E-07   1.941149E-06   4.588106E-06
+      30000016      G     -1.752425E-05   1.065926E-05  -1.135342E-05  -6.065782E-07   2.046647E-06   5.208501E-06
+      30000017      G     -2.108846E-05   1.280757E-05  -1.270831E-05  -5.491580E-07   2.135994E-06   5.894995E-06
+      30000018      G     -2.509608E-05   1.524773E-05  -1.399757E-05  -5.048189E-07   2.171981E-06   6.621322E-06
+      30000019      G     -2.953501E-05   1.820834E-05  -1.508089E-05  -4.815658E-07   2.177333E-06   7.441978E-06
+      30000020      G     -3.450774E-05   2.155280E-05  -1.626727E-05  -4.053218E-07   2.297095E-06   8.369556E-06
+      30000021      G     -4.011074E-05   2.531821E-05  -1.750576E-05  -3.314802E-07   2.462746E-06   9.411867E-06
+      30000022      G     -4.640295E-05   2.955860E-05  -1.876112E-05  -2.737842E-07   2.604026E-06   1.056516E-05
+      30000023      G     -5.345621E-05   3.429048E-05  -2.001857E-05  -2.325594E-07   2.720324E-06   1.177529E-05
+      30000024      G     -6.131863E-05   3.957046E-05  -2.122944E-05  -2.202092E-07   2.826403E-06   1.312591E-05
+      30000025      G     -7.008632E-05   4.546320E-05  -2.243407E-05  -2.415291E-07   2.943256E-06   1.463893E-05
+      30000026      G     -7.986251E-05   5.199399E-05  -2.367331E-05  -3.046981E-07   3.086801E-06   1.625445E-05
+      30000027      G     -9.072510E-05   5.929159E-05  -2.498427E-05  -4.473833E-07   3.250241E-06   1.810853E-05
+      30000028      G     -1.028285E-04   6.735458E-05  -2.647797E-05  -6.748973E-07   3.459407E-06   2.008530E-05
+      30000029      G     -1.162734E-04   7.637442E-05  -2.817564E-05  -1.047259E-06   3.698998E-06   2.242820E-05
+      30000030      G     -1.312964E-04   8.640051E-05  -3.026024E-05  -1.563926E-06   4.030923E-06   2.500381E-05
+      30000031      G     -1.480680E-04   9.764505E-05  -3.279950E-05  -2.296646E-06   4.441383E-06   2.802171E-05
+      30000032      G     -1.668995E-04   1.102234E-04  -3.605401E-05  -3.282649E-06   4.991777E-06   3.142921E-05
+      30000033      G     -1.880513E-04   1.243719E-04  -4.019614E-05  -4.632059E-06   5.669180E-06   3.540783E-05
+      30000034      G     -2.118754E-04   1.403208E-04  -4.563293E-05  -6.411009E-06   6.547514E-06   3.991869E-05
+      30000035      G     -2.386350E-04   1.583277E-04  -5.273442E-05  -8.738936E-06   7.652173E-06   4.492369E-05
+      30000036      G     -2.688762E-04   1.786129E-04  -6.200386E-05  -1.170154E-05   9.207718E-06   5.086392E-05
+      30000037      G     -3.031213E-04   2.016396E-04  -7.420602E-05  -1.543681E-05   1.119551E-05   5.767480E-05
+      30000038      G     -3.419462E-04   2.277165E-04  -9.015929E-05  -2.001651E-05   1.382371E-05   6.536081E-05
+      30000039      G     -3.861157E-04   2.574652E-04  -1.104750E-04  -2.568606E-05   1.709477E-05   7.480973E-05
+      30000040      G     -4.370946E-04   2.916158E-04  -1.362942E-04  -3.271497E-05   2.123049E-05   8.668315E-05
+      30000041      G     -4.964462E-04   3.311275E-04  -1.691277E-04  -4.127178E-05   2.646988E-05   1.008825E-04
+      30000042      G     -5.657712E-04   3.774705E-04  -2.103255E-04  -5.173036E-05   3.288225E-05   1.185491E-04
+      30000043      G     -6.474610E-04   4.320901E-04  -2.617383E-04  -6.466998E-05   4.089963E-05   1.400622E-04
+      30000044      G     -7.442284E-04   4.967678E-04  -3.259891E-04  -8.087036E-05   5.103664E-05   1.663818E-04
+      30000045      G     -8.595784E-04   5.738089E-04  -4.065213E-04  -1.015761E-04   6.407656E-05   1.989422E-04
+      30000046      G     -9.980425E-04   6.662537E-04  -5.082130E-04  -1.283722E-04   8.112735E-05   2.396556E-04
+      30000047      G     -1.165622E-03   7.781313E-04  -6.375766E-04  -1.634139E-04   1.037674E-04   2.912137E-04
+      30000048      G     -1.370350E-03   9.147352E-04  -8.038987E-04  -2.097707E-04   1.341017E-04   3.574177E-04
+      30000049      G     -1.623037E-03   1.083376E-03  -1.019244E-03  -2.714923E-04   1.745464E-04   4.434949E-04
+      30000050      G     -1.938060E-03   1.293998E-03  -1.299590E-03  -3.526711E-04   2.282085E-04   5.558876E-04
+1    DISPLACEMENT AT BEAM NODES                                               APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE    24
+      UCRM-135 ISOTROPIC MATERIALS                                                                                                  
+0     ROTATION LOAD 3                                                                                        SUBCASE 6              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+      30000051      G     -2.335110E-03   1.560156E-03  -1.665924E-03  -4.597071E-04   3.009054E-04   7.050615E-04
+      30000052      G     -2.841763E-03   1.899935E-03  -2.147018E-03  -6.006550E-04   3.981014E-04   9.049582E-04
+      30000053      G     -3.496116E-03   2.338382E-03  -2.778117E-03  -7.857177E-04   5.226853E-04   1.175508E-03
+      30000054      G     -4.351132E-03   2.908836E-03  -3.600678E-03  -1.021793E-03   6.701550E-04   1.540981E-03
+      30000055      G     -5.482792E-03   3.658356E-03  -4.662230E-03  -1.330479E-03   8.509217E-04   2.051148E-03
+      30000056      G     -7.306408E-03   4.870284E-03  -6.307637E-03  -1.852200E-03   1.148641E-03   2.981845E-03
+1    DISPLACEMENT AT BEAM NODES                                               APRIL  25, 2019  MSC.NASTRAN  7/ 6/12   PAGE    25
+      UCRM-135 ISOTROPIC MATERIALS                                                                                                  
+0                                                                                                                                   
+ * * * *  D B D I C T   P R I N T  * * * *      SUBDMAP = PRTSUM  ,  DMAP STATEMENT NO.     41
+
+
+
+0                                   * * * *  A N A L Y S I S  S U M M A R Y  T A B L E  * * * *
+0 SEID  PEID PROJ VERS APRCH      SEMG SEMR SEKR SELG SELR MODES DYNRED SOLLIN PVALID SOLNL LOOPID DESIGN CYCLE SENSITIVITY
+ --------------------------------------------------------------------------------------------------------------------------
+     0     0    1    1 '        '    T    T    T    T    T     F      F      T      0     F     -1            0           F
+0SEID = SUPERELEMENT ID.
+ PEID = PRIMARY SUPERELEMENT ID OF IMAGE SUPERELEMENT.
+ PROJ = PROJECT ID NUMBER.
+ VERS = VERSION ID.
+ APRCH = BLANK FOR STRUCTURAL ANALYSIS.  HEAT FOR HEAT TRANSFER ANALYSIS.
+ SEMG = STIFFNESS AND MASS MATRIX GENERATION STEP.
+ SEMR = MASS MATRIX REDUCTION STEP (INCLUDES EIGENVALUE SOLUTION FOR MODES).
+ SEKR = STIFFNESS MATRIX REDUCTION STEP.
+ SELG = LOAD MATRIX GENERATION STEP.
+ SELR = LOAD MATRIX REDUCTION STEP. 
+ MODES = T (TRUE) IF NORMAL MODES OR BUCKLING MODES CALCULATED.
+ DYNRED = T (TRUE) MEANS GENERALIZED DYNAMIC AND/OR COMPONENT MODE REDUCTION PERFORMED.
+ SOLLIN = T (TRUE) IF LINEAR SOLUTION EXISTS IN DATABASE.
+ PVALID = P-DISTRIBUTION ID OF P-VALUE FOR P-ELEMENTS
+ LOOPID = THE LAST LOOPID VALUE USED IN THE NONLINEAR ANALYSIS.  USEFUL FOR RESTARTS.
+ SOLNL = T (TRUE) IF NONLINEAR SOLUTION EXISTS IN DATABASE.
+ DESIGN CYCLE = THE LAST DESIGN CYCLE (ONLY VALID IN OPTIMIZATION).
+ SENSITIVITY = SENSITIVITY MATRIX GENERATION FLAG.
+ 
+ No PARAM values were set in the Control File.
+ 
+1                                        * * * END OF JOB * * *
+ 
+ 
+ No Symbolic Replacement variables or values were specified.
+
