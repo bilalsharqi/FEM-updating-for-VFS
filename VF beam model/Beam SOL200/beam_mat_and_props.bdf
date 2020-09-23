@@ -1,0 +1,64 @@
+$
+$ Elements and Element Properties for region : elements 1 to 30
+PBEAML   1       1               BAR
+*       .0508           .003175
+*
+$ Elements and Element Properties for region : elements 31 to 60
+PBEAML   2       2               BAR
+*       .0508           .003175
+*
+$ Elements and Element Properties for region : elements 61 to 90
+PBEAML   3       3               BAR
+*       .0508           .003175
+*
+$ Elements and Element Properties for region : elements 91 to 120
+PBEAML   4       4               BAR
+*       .0508           .003175
+*
+$ Elements and Element Properties for region : elements 121 to 150
+PBEAML   5       5               BAR
+*       .0508           .003175
+*
+$ Elements and Element Properties for region : elements 151 to 180
+PBEAML   6       6               BAR
+*       .0508           .003175
+*
+$ Elements and Element Properties for region : elements 181 to 210
+PBEAML   7       7               BAR
+*       .0508           .003175
+*
+$ Elements and Element Properties for region : elements 211 to 240
+PBEAML   8       8               BAR
+*       .0508           .003175
+*
+$ Elements and Element Properties for region : elements 241 to 270
+PBEAML   9       9               BAR
+*       .0508           .003175
+*
+$ Elements and Element Properties for region : elements 271 to 300
+PBEAML   10       10               BAR
+*       .0508           .003175
+*
+$ Elements and Element Properties for region : elements 301 to 330
+PBEAML   11       11               BAR
+*       .0508           .003175
+*
+$ Elements and Element Properties for region : elements 331 to 366
+PBEAML   12       12               BAR
+*       .0508           .003175
+*
+$ Referenced Material Records
+$ Material Record : Aluminum
+$ Description of Material : Date: 28-Oct-19           Time: 18:47:28
+MAT1     1      6.99+10         .33     2700.
+MAT1     2      6.99+10         .33     2700.
+MAT1     3      6.99+10         .33     2700.
+MAT1     4      6.99+10         .33     2700.
+MAT1     5      6.99+10         .33     2700.
+MAT1     6      6.99+10         .33     2700.
+MAT1     7      6.99+10         .33     2700.
+MAT1     8      6.99+10         .33     2700.
+MAT1     9      6.99+10         .33     2700.
+MAT1     10      6.99+10         .33     2700.
+MAT1     11      6.99+10         .33     2700.
+MAT1     12      6.99+10         .33     2700.

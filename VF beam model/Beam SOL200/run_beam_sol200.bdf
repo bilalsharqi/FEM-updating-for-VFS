@@ -1,0 +1,94 @@
+$ASSIGN USERFILE='sens.csv', UNIT=52, STATUS=NEW, FORM=FORMATTED
+SOL 200
+TIME 99999
+CEND
+TITLE    = MASS SENSITVITY ANALYSIS
+SUBTITLE = beam Isotropic Materials
+DESOBJ(MIN) = 999 $ OBJECTIVE FUNCTION DEFINITION
+DSAPRT(FORMATTED, START=1,END=SENS)=ALL
+DSAPRT(FORMATTED, START=1,END=SENS)=ALL
+$SET 999 = 160099 THRU 160101,160104,160106,160107,
+$	    30000001 THRU 30000056
+SUBCASE 1
+   ANALYSIS = STATICS
+   LABEL    = Gravitational Load in z
+   SPC      = 1
+$   DISP     = 999
+   LOAD     = 11
+$   DESSUB   = 100
+$SUBCASE 2
+$   ANALYSIS = STATICS
+$   LABEL    = Translation Load 2
+$   SPC      = 1
+$   DISP     = 999
+$   LOAD     = 102
+$   DESSUB   = 100
+$SUBCASE 3
+$   ANALYSIS = STATICS
+$   LABEL    = Translation Load 3
+$   SPC      = 1
+$   DISP     = 999
+$   LOAD     = 103
+$   DESSUB   = 100
+$SUBCASE 4   
+$   ANALYSIS = STATICS
+$   LABEL    = Rotation Load 1
+$   SPC      = 1
+$   DISP     = 999
+$   LOAD     = 104
+$   DESSUB   = 100
+$SUBCASE 5
+$   ANALYSIS = STATICS
+$   LABEL    = Rotation Load 2
+$   SPC      = 1
+$   DISP     = 999
+$   LOAD     = 105
+$   DESSUB   = 100
+$SUBCASE 6
+$   ANALYSIS = STATICS
+$   LABEL    = Rotation Load 3
+$   SPC      = 1
+$   DISP     = 999
+$   LOAD     = 106
+$   DESSUB   = 100
+ECHO = NONE
+BEGIN BULK
+$$
+$$ Analysis parameters
+PARAM,AUTOSPC,NO
+PARAM,GRDPNT,1
+$PARAM,K6ROT,1e5
+$PARAM,OGEOM,YES
+$PARAM,COUPMASS,-1
+$PARAM,MAXRATIO,1.0e7
+PARAM,POST,0
+$PARAM,WTMASS,1.0
+$PARAM,AUTOMSET,YES
+
+$ Include beam mesh.
+INCLUDE 'beam_model.bdf'
+
+$ Include design data.
+INCLUDE 'beam_design_data.bdf'
+
+$ Include beam grids, loads, RBE3s
+$INCLUDE 'uCRM-135_beam_grids.bdf'
+INCLUDE 'beam_forces.bdf'
+$INCLUDE 'uCRM-135_beam_full_rbe3_equal_weight.bdf'
+
+$ Include the materials and shell properties.
+INCLUDE 'beam_mat_and_props.bdf'
+
+$ Include the boundary conditions.
+INCLUDE 'beam_spc.bdf'
+
+$ Include external masses
+INCLUDE 'beam_external_masses.bdf'
+
+$ Add 1g inertial loads
+GRAV    2       0       -9.81   0.      0.      1.0
+
+$ Parameters for CSV output.
+PARAM, NASPRT,  1
+PARAM, XYUNIT, 52
+ENDDATA
