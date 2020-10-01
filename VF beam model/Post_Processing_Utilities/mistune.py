@@ -284,4 +284,4 @@ def alterBoth(model, factor, elemPropKeys, conMassKeys, matStiffPropKeys, matMas
 # Test
 test_bdf = "beam_model.bdf"
 for i in range(5):
-	mistuneBDF(test_bdf,3,"both",i+1)
+	mistuneBDF(test_bdf,15,"mass",i+1)
