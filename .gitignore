@@ -10,3 +10,13 @@ VF beam model/Post_Processing_Utilities/mistune_output/
 *.jou
 
 *.log
+
+*.f04
+
+*.f06
+
+*.pch
+
+*.xdb
+
+*.csv
