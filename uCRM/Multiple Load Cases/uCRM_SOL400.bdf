@@ -1,0 +1,104 @@
+$ This is an example run file used to perform modal analysis of
+$  the uCRM-13.5 coarse structural model
+NASTRAN PARALLEL=6
+SOL 400
+CEND
+ECHO = NONE
+RESVEC = NO
+$---------------------
+$ Subcases
+$---------------------
+SUBCASE 1
+STEP 1
+SPC = 1
+LOAD = 100
+NLPARM = 21
+DISPLACEMENT(SORT1,PRINT,PUNCH,REAL) = ALL
+STEP 2
+ANALYSIS = MODES
+SPC = 1  
+METHOD = 100
+VECTOR(SORT1,REAL)=ALL
+$
+SUBCASE 2
+STEP 1
+SPC = 1
+LOAD = 101
+NLPARM = 21
+DISPLACEMENT(SORT1,PRINT,PUNCH,REAL) = ALL
+STEP 2
+ANALYSIS = MODES
+SPC = 1  
+METHOD = 100
+VECTOR(SORT1,REAL)=ALL
+$
+SUBCASE 3
+STEP 1
+SPC = 1
+LOAD = 102
+NLPARM = 21
+DISPLACEMENT(SORT1,PRINT,PUNCH,REAL) = ALL
+STEP 2
+ANALYSIS = MODES
+SPC = 1  
+METHOD = 100
+VECTOR(SORT1,REAL)=ALL
+$
+BEGIN BULK
+$ Analysis parameters
+PARAM,AUTOSPC,NO
+PARAM,GRDPNT,1
+PARAM,K6ROT,1e5
+PARAM,OGEOM,YES
+PARAM,COUPMASS,-1
+PARAM,MAXRATIO,1.0e7
+PARAM,POST,-1
+PARAM   PRTMAXIM YES
+PARAM,WTMASS,1.0
+$---------------------
+PARAM,LGDISP,2
+PARAM,NLTOL,0
+$---------------------
+NLPARM,21,40,,FNT,-1,50,,NO
+$
+$PARAM,AUTOMSET,YES
+$
+$ Method
+$---------------------
+EIGRL,100,,,25,,,,MASS
+$---------------------
+$ Load set
+$---------------------
+LOAD,100,1.,1.,200
+$---------------------
+GRAV,200,,9.81e-6,0.,0.,-1. 
+$---------------------
+$
+LOAD,101,1.,1.,201
+$---------------------
+GRAV,201,,9.81,0.,0.,-1.
+$---------------------
+$
+LOAD,102,1.,1.,202
+$---------------------
+GRAV,202,,-24.525,0.,0.,-1. 
+$---------------------
+$ Boundary condition
+$---------------------
+$SPCADD,1,1
+$SPC1,1,12356,10002
+$SPC1,1,1356,21002
+$
+$ Include wingbox model
+INCLUDE 'uCRM-135_wingbox_coarse.bdf'
+
+$ Include external masses
+$INCLUDE 'uCRM-135_LETE_masses_coarse.bdf'
+$INCLUDE 'uCRM-135_engine_mass_coarse.bdf'
+
+$ Include internal fuel mass 
+$ NOTE: Can change replace this with 100 percent fuel file, 
+$ if fullfuel is desired
+$INCLUDE 'uCRM-135_fuel_mass_20_percent_coarse.bdf'
+
+ENDDATA
