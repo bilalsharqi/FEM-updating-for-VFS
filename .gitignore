@@ -20,3 +20,11 @@ VF beam model/Post_Processing_Utilities/mistune_output/
 *.xdb
 
 *.csv
+
+*.DBALL
+
+*.IFPDAT
+
+*.MASTER
+
+VF beam model/2_m_beam/archive/
