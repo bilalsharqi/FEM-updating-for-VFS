@@ -53,7 +53,7 @@ plt.yticks(fontsize=25)
 plt.legend(fontsize=22)
 plt.ylim(-0.1,1)
 
-fig.savefig("beam_static_2m_z.svg",bbox_inches='tight')
+# fig.savefig("beam_static_2m_z.svg",bbox_inches='tight')
     
 fig1=plt.figure(figsize=(15,8))
 plt.plot(grid_coords[0,:] + static_deform[0][0][:], static_deform[0][1][:],'r',label='No load' )
@@ -70,7 +70,8 @@ plt.xticks(fontsize=25)
 plt.yticks(fontsize=25)
 plt.legend(fontsize=22)
 plt.ylim(-0.1,.01)
-fig1.savefig("beam_static_2m_y.svg",bbox_inches='tight')
+
+# fig1.savefig("beam_static_2m_y.svg",bbox_inches='tight')
 
 # BS - switch plot flag to yes if want to plot
 # plot = 'yes'

@@ -1,0 +1,178 @@
+$ MSC.Nastran input file created on September 30, 2020 at 20:56:37 by
+$ Patran 2019
+$ Direct Text Input for Nastran System Cell Section
+$ Direct Text Input for File Management Section
+$ Direct Text Input for Executive Control
+$ Normal Modes Analysis, Database
+SOL 200
+CEND
+$ Direct Text Input for Global Case Control Data
+TITLE = MSC.Nastran job created on 25-Sep-20 at 20:55:46
+ECHO = NONE
+$ Using Nastran default values for RESVEC
+$ ANALYSIS = MODES
+ANALYSIS = STATICS
+SUBCASE 1
+   DESOBJ(min) = 22
+   SUBTITLE=Default
+   LOAD = 11
+   METHOD = 1
+   SPC = 2
+   VECTOR(SORT1,REAL)=ALL
+$ Direct Text Input for this Subcase
+BEGIN BULK
+$ Direct Text Input for Bulk Data
+MDLPRM   HDF5    0
+PARAM   PRTMAXIM YES
+$ This is a eigenvector extraction method
+EIGRL    1       0.     1000.    25      0                       MASS
+$ Elements and Element Properties for region : beam-section
+$ Ten beam elements. One of each 0.15 m of the beam
+$ Elements and Element Properties for region : beam1
+PBEAML   1       1               BAR
+        .051    .0031
+PBEAML   2       2               BAR
+        .051    .0031
+PBEAML   3       3               BAR
+        .051    .0031
+PBEAML   4       4               BAR
+        .051    .0031
+PBEAML   5       5               BAR
+        .051    .0031
+PBEAML   6       6               BAR
+        .051    .0031
+PBEAML   7       7               BAR
+        .051    .0031
+PBEAML   8       8               BAR
+        .051    .0031
+PBEAML   9       9               BAR
+        .051    .0031
+PBEAML   10       10               BAR
+        .051    .0031
+
+$ Define CBEAM elements copy and pasted from a week1 analysis. Won't run if I manually edit grid fields
+CBEAM    11      1       12      13      0.     1.       0.
+CBEAM    12      2       13      14      0.     1.       0.
+CBEAM    13      3       14      15      0.     1.       0.
+CBEAM    14      4       15      16      0.     1.       0.
+CBEAM    15      5       16      17      0.     1.       0.
+CBEAM    16      6       17      18      0.     1.       0.
+CBEAM    17      7       18      19      0.     1.       0.
+CBEAM    18      8       19      20      0.     1.       0.
+CBEAM    19      9       20      21      0.     1.       0.
+CBEAM    20      10       21      22      0.     1.       0.
+
+
+$ Referenced Material Records
+$ Material Record : aluminum
+$ Description of Material : Date: 17-Sep-20           Time: 20:11:40
+$ Density for every 10th of the beam is determined from part1
+$ Stiffness is correct, reference value. Will be varied in part2
+MAT1     1      7.+10           .33     2644.
+MAT1     2      7.+10           .33     2690.
+MAT1     3      7.+10           .33     2717.
+MAT1     4      7.+10           .33     2684.
+MAT1     5      7.+10           .33     2696.
+MAT1     6      7.+10           .33     2694.
+MAT1     7      7.+10           .33     2677.
+MAT1     8      7.+10           .33     2700.
+MAT1     9      7.+10           .33     2676.
+MAT1     10      7.+10           .33     2727.
+
+$ Nodes of the Entire Model
+GRID     12              0.      0.      0.
+GRID*    13                             .150000005960465 0.
+*        0.
+GRID*    14                             .300000011920929 0.
+*        0.
+GRID*    15                             .450000017881393 0.
+*        0.
+GRID*    16                             .600000023841858 0.
+*        0.
+GRID     17             .75      0.      0.
+GRID*    18                             .900000035762787 0.
+*        0.
+GRID*    19                             1.04999995231628 0.
+*        0.
+GRID*    20                             1.20000004768372 0.
+*        0.
+GRID*    21                             1.34999990463257 0.
+*        0.
+GRID     22             1.5      0.      0.
+
+$ Define Stiffness as design variable
+DESVAR,100,E0,6.9+10,6.9+10,7.1+10,
+DESVAR,101,E1,6.9+10,6.9+10,7.1+10,
+DESVAR,102,E2,6.9+10,6.9+10,7.1+10,
+DESVAR,103,E3,6.9+10,6.9+10,7.1+10,
+DESVAR,104,E4,6.9+10,6.9+10,7.1+10,
+DESVAR,105,E5,6.9+10,6.9+10,7.1+10,
+DESVAR,106,E6,6.9+10,6.9+10,7.1+10,
+DESVAR,107,E7,6.9+10,6.9+10,7.1+10,
+DESVAR,108,E8,6.9+10,6.9+10,7.1+10,
+DESVAR,109,E9,6.9+10,6.9+10,7.1+10,
+
+DVMREL1,150,MAT1,1,E,
+       ,100,1.0,
+DVMREL1,151,MAT1,2,E,
+       ,101,1.0,
+DVMREL1,152,MAT1,3,E,
+       ,102,1.0,
+DVMREL1,153,MAT1,4,E,
+       ,103,1.0,
+DVMREL1,154,MAT1,5,E,
+       ,104,1.0,
+DVMREL1,155,MAT1,6,E,
+       ,105,1.0,
+DVMREL1,156,MAT1,7,E,
+       ,106,1.0,
+DVMREL1,157,MAT1,8,E,
+       ,107,1.0,
+DVMREL1,158,MAT1,9,E,
+       ,108,1.0,
+DVMREL1,159,MAT1,10,E,
+       ,109,1.0,
+
+$ Design response we are measuring is displacement of each node
+DRESP1,31,D0,DISP,,,3,,12
+DRESP1,32,D1,DISP,,,3,,13
+DRESP1,33,D2,DISP,,,3,,14
+DRESP1,34,D3,DISP,,,3,,15
+DRESP1,35,D4,DISP,,,3,,16
+DRESP1,36,D5,DISP,,,3,,17
+DRESP1,37,D6,DISP,,,3,,18
+DRESP1,38,D7,DISP,,,3,,19
+DRESP1,39,D8,DISP,,,3,,20
+DRESP1,40,D9,DISP,,,3,,21
+DRESP1,41,D10,DISP,,,3,,22
+
+$ Objective Function Definition (Optimal reference node disp - current iteration node disp)
+DEQATN  21      F1(D0,D1,D2,D3,D4,D5,D6,D7,D8,D9,D10) = (D0)**2;
+        F2 = (-2.09227E-05-D1)**2;
+        F3 = (-7.771185E-05 - D2)**2;
+        F4 = (-1.628681E-04 - D3)**2;
+        F5 = (-2.697754E-04 - D4)**2;
+        F6 = (-3.927010E-04 - D5)**2;
+        F7 = (-5.267938E-04 - D6)**2;
+        F8 = (-6.680837E-04 - D7)**2;
+        F9 = (-8.134806E-04 - D8)**2;
+        F10 = (-9.607737E-04 - D9)**2;
+        F11 = (-1.108634E-03 - D10)**2;
+        F = F1+F2+F3+F4+F5+F6+F7+F8+F9+F10+F11
+
+$  objective function, objective parameters together in design response
+DRESP2,22,R1,21,,,,,,+
++,       DRESP1,31,32,33,34,35,36,37,+
++,       ,,38,39,40,41,
+
+$ Loads for Load Case : Default
+SPCADD   2       1
+$ Displacement Constraints of Load Set : clamped-root
+SPC1     1       123456  12
+$ Referenced Coordinate Frames
+$ Load set
+$---------------------
+LOAD,11,1.,1.,10
+$---------------------
+GRAV,10,,9.81,0.,0.,-1. 
+ENDDATA 174dd727

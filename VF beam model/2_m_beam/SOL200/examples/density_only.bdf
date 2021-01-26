@@ -1,0 +1,393 @@
+$ MSC.Nastran input file created on September 30, 2020 at 20:56:37 by
+$ Patran 2019
+$ Direct Text Input for Nastran System Cell Section
+$ Direct Text Input for File Management Section
+$ Direct Text Input for Executive Control
+$ Normal Modes Analysis, Database
+SOL 200
+CEND
+$ Direct Text Input for Global Case Control Data
+TITLE = MSC.Nastran job created on 25-Sep-20 at 20:55:46
+ECHO = NONE
+$ Using Nastran default values for RESVEC
+ANALYSIS = MODES
+$ ANALYSIS = STATICS
+SUBCASE 1
+   DESOBJ(min) = 22
+   SUBTITLE=Default
+   METHOD = 1
+   SPC = 2
+   VECTOR(SORT1,REAL)=ALL
+$ Direct Text Input for this Subcase
+BEGIN BULK
+$ Direct Text Input for Bulk Data
+MDLPRM   HDF5    0
+PARAM   PRTMAXIM YES
+$ This is a eigenvector extraction method
+EIGRL    1       0.     1000.    25      0                       MASS
+$ Elements and Element Properties for region : beam-section
+$ Ten beam elements. One of each 0.15 m of the beam
+PBEAML   1       1               BAR
+        .051    .0031
+PBEAML   2       2               BAR
+        .051    .0031
+PBEAML   3       3               BAR
+        .051    .0031
+PBEAML   4       4               BAR
+        .051    .0031
+PBEAML   5       5               BAR
+        .051    .0031
+PBEAML   6       6               BAR
+        .051    .0031
+PBEAML   7       7               BAR
+        .051    .0031
+PBEAML   8       8               BAR
+        .051    .0031
+PBEAML   9       9               BAR
+        .051    .0031
+PBEAML   10       10               BAR
+        .051    .0031
+
+$ Pset: "beam-section" will be imported as: "pbeaml.1". 80 cbeam elements defined
+CBEAM    1       1       1       2       0.     1.       0.
+CBEAM    2       1       2       3       0.     1.       0.
+CBEAM    3       1       3       4       0.     1.       0.
+CBEAM    4       1       4       5       0.     1.       0.
+CBEAM    5       1       5       6       0.     1.       0.
+CBEAM    6       1       6       7       0.     1.       0.
+CBEAM    7       1       7       8       0.     1.       0.
+CBEAM    8       1       8       9       0.     1.       0.
+CBEAM    9       2       9       10      0.     1.       0.
+CBEAM    10      2       10      11      0.     1.       0.
+CBEAM    11      2       11      12      0.     1.       0.
+CBEAM    12      2       12      13      0.     1.       0.
+CBEAM    13      2       13      14      0.     1.       0.
+CBEAM    14      2       14      15      0.     1.       0.
+CBEAM    15      2       15      16      0.     1.       0.
+CBEAM    16      2       16      17      0.     1.       0.
+CBEAM    17      3       17      18      0.     1.       0.
+CBEAM    18      3       18      19      0.     1.       0.
+CBEAM    19      3       19      20      0.     1.       0.
+CBEAM    20      3       20      21      0.     1.       0.
+CBEAM    21      3       21      22      0.     1.       0.
+CBEAM    22      3       22      23      0.     1.       0.
+CBEAM    23      3       23      24      0.     1.       0.
+CBEAM    24      3       24      25      0.     1.       0.
+CBEAM    25      4       25      26      0.     1.       0.
+CBEAM    26      4       26      27      0.     1.       0.
+CBEAM    27      4       27      28      0.     1.       0.
+CBEAM    28      4       28      29      0.     1.       0.
+CBEAM    29      4       29      30      0.     1.       0.
+CBEAM    30      4       30      31      0.     1.       0.
+CBEAM    31      4       31      32      0.     1.       0.
+CBEAM    32      4       32      33      0.     1.       0.
+CBEAM    33      5       33      34      0.     1.       0.
+CBEAM    34      5       34      35      0.     1.       0.
+CBEAM    35      5       35      36      0.     1.       0.
+CBEAM    36      5       36      37      0.     1.       0.
+CBEAM    37      5       37      38      0.     1.       0.
+CBEAM    38      5       38      39      0.     1.       0.
+CBEAM    39      5       39      40      0.     1.       0.
+CBEAM    40      5       40      41      0.     1.       0.
+CBEAM    41      6       41      42      0.     1.       0.
+CBEAM    42      6       42      43      0.     1.       0.
+CBEAM    43      6       43      44      0.     1.       0.
+CBEAM    44      6       44      45      0.     1.       0.
+CBEAM    45      6       45      46      0.     1.       0.
+CBEAM    46      6       46      47      0.     1.       0.
+CBEAM    47      6       47      48      0.     1.       0.
+CBEAM    48      6       48      49      0.     1.       0.
+CBEAM    49      7       49      50      0.     1.       0.
+CBEAM    50      7       50      51      0.     1.       0.
+CBEAM    51      7       51      52      0.     1.       0.
+CBEAM    52      7       52      53      0.     1.       0.
+CBEAM    53      7       53      54      0.     1.       0.
+CBEAM    54      7       54      55      0.     1.       0.
+CBEAM    55      7       55      56      0.     1.       0.
+CBEAM    56      7       56      57      0.     1.       0.
+CBEAM    57      8       57      58      0.     1.       0.
+CBEAM    58      8       58      59      0.     1.       0.
+CBEAM    59      8       59      60      0.     1.       0.
+CBEAM    60      8       60      61      0.     1.       0.
+CBEAM    61      8       61      62      0.     1.       0.
+CBEAM    62      8       62      63      0.     1.       0.
+CBEAM    63      8       63      64      0.     1.       0.
+CBEAM    64      8       64      65      0.     1.       0.
+CBEAM    65      9       65      66      0.     1.       0.
+CBEAM    66      9       66      67      0.     1.       0.
+CBEAM    67      9       67      68      0.     1.       0.
+CBEAM    68      9       68      69      0.     1.       0.
+CBEAM    69      9       69      70      0.     1.       0.
+CBEAM    70      9       70      71      0.     1.       0.
+CBEAM    71      9       71      72      0.     1.       0.
+CBEAM    72      9       72      73      0.     1.       0.
+CBEAM    73      10       73      74      0.     1.       0.
+CBEAM    74      10       74      75      0.     1.       0.
+CBEAM    75      10       75      76      0.     1.       0.
+CBEAM    76      10       76      77      0.     1.       0.
+CBEAM    77      10       77      78      0.     1.       0.
+CBEAM    78      10       78      79      0.     1.       0.
+CBEAM    79      10       79      80      0.     1.       0.
+CBEAM    80      10       80      81      0.     1.       0.
+$ Referenced Material Records
+$ Material Record : aluminum
+$ Description of Material : Date: 25-Sep-20           Time: 20:48:43
+$ Density and stiffness same as reference mode. Density will be varied below as a design variable.
+MAT1     1      7.+10           .33     2700.
+MAT1     2      7.+10           .33     2700.
+MAT1     3      7.+10           .33     2700.
+MAT1     4      7.+10           .33     2700.
+MAT1     5      7.+10           .33     2700.
+MAT1     6      7.+10           .33     2700.
+MAT1     7      7.+10           .33     2700.
+MAT1     8      7.+10           .33     2700.
+MAT1     9      7.+10           .33     2700.
+MAT1     10      7.+10           .33     2700.
+
+$ Nodes of the Entire Model. 81 grids for 80 elements
+GRID     1               0.      0.      0.
+GRID*    2                              .018750000745058 0.
+*        0.
+GRID*    3                              .037500001490116 0.
+*        0.
+GRID*    4                              .056250002235174 0.
+*        0.
+GRID*    5                              .075000002980232 0.
+*        0.
+GRID     6              .09375   0.      0.
+GRID*    7                              .112500004470348 0.
+*        0.
+GRID*    8                              .131249994039536 0.
+*        0.
+GRID*    9                              .150000005960465 0.
+*        0.
+GRID*    10                             .168750002980232 0.
+*        0.
+GRID     11             .1875    0.      0.
+GRID*    12                             .206250011920929 0.
+*        0.
+GRID*    13                             .225000008940697 0.
+*        0.
+GRID*    14                             .243749991059303 0.
+*        0.
+GRID*    15                             .262499988079071 0.
+*        0.
+GRID     16             .28125   0.      0.
+GRID*    17                             .300000011920929 0.
+*        0.
+GRID*    18                             .318749994039536 0.
+*        0.
+GRID*    19                             .337499976158142 0.
+*        0.
+GRID*    20                             .356249988079071 0.
+*        0.
+GRID*    21                             .374999970197678 0.
+*        0.
+GRID*    22                             .393749982118607 0.
+*        0.
+GRID*    23                             .412500023841858 0.
+*        0.
+GRID*    24                             .43124994635582  0.
+*        0.
+GRID*    25                             .449999988079071 0.
+*        0.
+GRID*    26                             .468749940395355 0.
+*        0.
+GRID*    27                             .487499922513962 0.
+*        0.
+GRID*    28                             .506249964237213 0.
+*        0.
+GRID*    29                             .524999916553497 0.
+*        0.
+GRID*    30                             .543749988079071 0.
+*        0.
+GRID*    31                             .56249988079071  0.
+*        0.
+GRID*    32                             .581249833106995 0.
+*        0.
+GRID*    33                             .599999904632568 0.
+*        0.
+GRID*    34                             .618749856948853 0.
+*        0.
+GRID*    35                             .637499928474426 0.
+*        0.
+GRID*    36                             .65624988079071  0.
+*        0.
+GRID*    37                             .674999833106995 0.
+*        0.
+GRID*    38                             .693749904632568 0.
+*        0.
+GRID*    39                             .712499797344208 0.
+*        0.
+GRID*    40                             .731249868869782 0.
+*        0.
+GRID*    41                             .749999821186066 0.
+*        0.
+GRID*    42                             .768749833106995 0.
+*        0.
+GRID*    43                             .787499785423279 0.
+*        0.
+GRID*    44                             .806249856948853 0.
+*        0.
+GRID*    45                             .824999809265137 0.
+*        0.
+GRID*    46                             .843749821186066 0.
+*        0.
+GRID*    47                             .862499833106995 0.
+*        0.
+GRID*    48                             .881249785423279 0.
+*        0.
+GRID*    49                             .899999856948853 0.
+*        0.
+GRID*    50                             .918749809265137 0.
+*        0.
+GRID*    51                             .937499821186066 0.
+*        0.
+GRID*    52                             .956249833106995 0.
+*        0.
+GRID*    53                             .974999785423279 0.
+*        0.
+GRID*    54                             .993749856948853 0.
+*        0.
+GRID*    55                             1.01249980926514 0.
+*        0.
+GRID*    56                             1.03124976158142 0.
+*        0.
+GRID*    57                             1.049999833107   0.
+*        0.
+GRID*    58                             1.06874978542328 0.
+*        0.
+GRID*    59                             1.08749997615814 0.
+*        0.
+GRID*    60                             1.10624992847443 0.
+*        0.
+GRID*    61                             1.12499988079071 0.
+*        0.
+GRID*    62                             1.14374995231628 0.
+*        0.
+GRID*    63                             1.16249990463257 0.
+*        0.
+GRID*    64                             1.18125009536743 0.
+*        0.
+GRID*    65                             1.20000004768372 0.
+*        0.
+GRID     66             1.21875  0.      0.
+GRID*    67                             1.23749995231628 0.
+*        0.
+GRID*    68                             1.25624990463257 0.
+*        0.
+GRID*    69                             1.27500009536743 0.
+*        0.
+GRID*    70                             1.29375004768372 0.
+*        0.
+GRID*    71                             1.31250011920929 0.
+*        0.
+GRID*    72                             1.33125007152557 0.
+*        0.
+GRID*    73                             1.35000002384186 0.
+*        0.
+GRID*    74                             1.36875021457672 0.
+*        0.
+GRID*    75                             1.38750016689301 0.
+*        0.
+GRID*    76                             1.40625023841858 0.
+*        0.
+GRID*    77                             1.42500019073486 0.
+*        0.
+GRID*    78                             1.44375014305115 0.
+*        0.
+GRID*    79                             1.46250033378601 0.
+*        0.
+GRID*    80                             1.4812502861023  0.
+*        0.
+GRID     81             1.5      0.      0.
+
+$ Define parameters used to calculate CG. This is no longer necesssary as a modal analysis is paired with density as a design variable.
+$ DRESP1,1000,M,WEIGHT,,,3,3
+$ DRESP1,1001,XM,WEIGHT,,,2,6
+$ DRESP1,1002,YM,WEIGHT,,,3,4
+$ DRESP1,1003,ZM,WEIGHT,,,1,5
+
+$DEQATN  100      F1(XM,M) = XM/M
+$DEQATN  101      F2(YM,M) = YM/M
+$DEQATN  102      F3(ZM,M) = ZM/M
+
+$DRESP2,200,Xcg,100,,,,,,+
+$+,       DRESP1,1000,1001
+$DRESP2,201,Ycg,101,,,,,,+
+$+,       DRESP1,1000,1002
+$DRESP2,202,Zcg,102,,,,,,+
+$+,       DRESP1,1000,1003
+
+$ Obj Function for a minimization of cg position and weight compared to reference model
+$DEQATN  150      H1(W,Xcg,Ycg,Zcg) = (W - (ref))**2;
+$        H2 = (Xcg - (ref))**2;
+$        H3 = (Ycg - (ref))**2;
+$        H4 = (Zcg - (ref))**2;
+$        J = H1+H2+H3+H4
+
+$DRESP2,250,OBJ,150,,,,,,+
+$+,       DRESP1,300
+$+,       DRESP2,200,201,202
+
+$DRESP1,300,W,WEIGHT
+
+$ Density design variable will vary from 2640 kg/cu m to 2810 kg/cu m. Initialized to be 2640 kg/cu m.
+DESVAR,100,R0,2640.,2640.,2810.,
+DESVAR,101,R1,2640.,2640.,2810.,
+DESVAR,102,R2,2640.,2640.,2810.,
+DESVAR,103,R3,2640.,2640.,2810.,
+DESVAR,104,R4,2640.,2640.,2810.,
+DESVAR,105,R5,2640.,2640.,2810.,
+DESVAR,106,R6,2640.,2640.,2810.,
+DESVAR,107,R7,2640.,2640.,2810.,
+DESVAR,108,R8,2640.,2640.,2810.,
+DESVAR,109,R9,2640.,2640.,2810.,
+
+$ Link Design variable to density, a material property, with DVMREL
+DVMREL1,150,MAT1,1,RHO,
+      ,100,1.0,
+DVMREL1,151,MAT1,2,RHO,
+      ,101,1.0,
+DVMREL1,152,MAT1,3,RHO,
+      ,102,1.0,
+DVMREL1,153,MAT1,4,RHO,
+      ,103,1.0,
+DVMREL1,154,MAT1,5,RHO,
+      ,104,1.0,
+DVMREL1,155,MAT1,6,RHO,
+      ,105,1.0,
+DVMREL1,156,MAT1,7,RHO,
+      ,106,1.0,
+DVMREL1,157,MAT1,8,RHO,
+      ,107,1.0,
+DVMREL1,158,MAT1,9,RHO,
+      ,108,1.0,
+DVMREL1,159,MAT1,10,RHO,
+      ,109,1.0,
+
+$ DRESP1 declares A,B,C,D,E as the first five frequencies
+DRESP1  31      A       FREQ                    1
+DRESP1  32      B       FREQ                    2
+DRESP1  33      C       FREQ                    3
+DRESP1  34      D       FREQ                    4
+DRESP1  35      E       FREQ                    5
+
+$ Objective Function Definition (Optimal reference first freq - current iteration first freq)
+DEQATN  21      F1(A,B,C,D,E) = (1.133168-A)**2;
+        F2 = (7.100077-B)**2;
+        F3 = (18.62918-C)**2;
+        F4 = (19.87676-D)**2;
+        F5 = (38.94272-E)**2;
+        F = F1+F2+F3+F4+F5
+
+$  Objective function and frequencies together in design response
+DRESP2,22,R1,21,,,,,,+
++,       DRESP1,31,32,33,34,35,
+
+$ Loads for Load Case : Default
+SPCADD   2       1
+$ Displacement Constraints of Load Set : clamped-root
+SPC1     1       123456  1
+$ Referenced Coordinate Frames
+ENDDATA 174dd727
