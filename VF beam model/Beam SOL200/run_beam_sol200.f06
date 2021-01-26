@@ -1,0 +1,992 @@
+1
+ 
+ 
+ 
+ 
+                      Warning: This computer program is protected by copyright law and international treaties.       
+                  Unauthorized use, reproduction or distribution of this computer program, or any portion of it, may 
+                                          result in severe civil and criminal penalties.                             
+                         Copyright (C) 2017 MSC Software Corporation and its licensors. All rights reserved.         
+ 
+ 
+                                              * * * * * * * * * * * * * * * * * * * *
+                                              * * * * * * * * * * * * * * * * * * * *
+                                              * *                                 * *
+                                              * *           MSC Software          * *
+                                              * *               CORP              * *
+                                              * *                                 * *
+                                              * *      M S C   N a s t r a n      * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *     Version 2017.1.0-CL479603   * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *          APR  5, 2017           * *
+                                              * *                                 * *
+                                              * *              Intel              * *
+                                              * *MODEL P5-4/1517 (DESKTOP-4REHAG6 * *
+                                              * *     Windows 10 Pro 6.2 9200     * *
+                                              * * Compiled for 8664 (SINGLE Mode) * *
+                                              * *                                 * *
+                                              * * * * * * * * * * * * * * * * * * * *
+                                              * * * * * * * * * * * * * * * * * * * *
+1News file - (March 8, 2017):
+  
+               Welcome to MSC Nastran 2017.1
+  
+  
+   Details of the new capabilities can be found in the MSC Nastran 2017.1
+     Release Guide available online in the installation documentation
+     sub-directory.
+   Additional information can be found at the MSC Nastran Product Support page:
+  
+      http://simcompanion.mscsoftware.com
+  
+  
+   The support page provides links to these valuable information:
+      * A searchable Knowledge Base containing examples and answers to thousands
+        of frequently asked questions written by MSC Software subject-matter
+        experts.
+      * Peer-to-peer Discussion Forums enabling you to post questions for your
+        MSC Software products and receive answers from other users worldwide.
+      * A list of known issues with the product and any workarounds.
+      * Instructions on how to contact technical support
+      * A mechanism for sending us product feedback or enhancement requests.
+      * Hardware and software requirements.
+      * Examples and Tutorials
+      * and much more.
+  
+   For information on training, please visit our Training web site
+  
+      http://www.mscsoftware.com/Contents/Services/Training/
+  
+   MSC Nastran brings powerful new features and enhancements for engineering
+   solutions.
+  
+  
+     HPC
+     -  New ACMS method now supports External Superelement and Adams MNF
+          creation.
+     -  New ACMS method shows reduced memory requirements, in particular,
+          for solid element models.
+     -  A new method has been introduced to improve the robustnessof AUTOMSET.
+     -  Automatic DMP support for fluid eigensolution problem.
+  
+     Acoustics
+     -  A capability called PEAKOUT has been introduced to calculate the
+          acoustic participation factors at the peaks of the frequency
+          response.
+     -  A new process is available to provide a confidence band associated with
+          mid frequency for FRFs (frequency response) when modeling
+          uncertainties exist in the stiffness, mass and/or damping in the
+          mid-frequency range (300Hz - 1500Hz).
+1 
+     Embedded-Fatigue
+     -  Capability has been extended for fatigue analysis in the (vibratory)
+          frequency domain.
+  
+     Optimization
+     -  MSC Nastran Embedded Vibratory Fatigue may be used as an objective or
+          constraint in an optimization simulation. This is not available
+          for topology optimization.
+     -  Topology optimization may now be used to minimize mass under stress
+          constraints for solid elements
+     - A new manufacturing constraint to control maximum member size in
+          topology optimization has been introduced
+  
+     Rotordynamics
+     -  New methods options are available for defining different WR3/WR4
+          damping for rotordynamics for individual rotors.
+     -  CAMPBELL plots are now available in Sol 110.
+     -  2D and 3D Rotors are now supported in SOL 110 and SOL 111.
+  
+     Implicit Nonlinear Analysis - SOL 400
+     -  The Anand solder model has been added, this may also be used for
+          creep analysis.
+     -  The segment-to-segment method has been enhanced.
+     -  Cohesive contact has been introduced to allow user defined normal
+          and tangential contact stiffness.
+  
+     Results Database
+     -  Additional data blocks have been added to the HDF5 file.
+     -  The intermediate HDF5 is supported through OUTCTRL keyword in NLOPRM
+          which allows viewing of the results during the calculation.
+  
+     Explicit Nonlinear Analysis - SOL 700
+     -  Starting in MSC Nastran 2017.1 there is a change in the execution of
+          MSC Nastran SOL 700. Customers that have a lease agreement will no
+          longer be able to run MSC Nastran SOL 700 jobs.
+     -  The binaries needed to execute SOL 700 will no longer be installed.
+     -  Paid-up customers will have an option to download an addition installer
+          from the SDC site. This installer only contains the binaries needed
+          for SOL 700 and it should be installed after the installation of
+          the regular MSC Nastran application.
+  
+     Documentation
+  
+     The complete documentation set is provided in a separate installer and
+     when installed is available at:
+     MSC_DOC_DIR/doc/pdf_nastran directory.
+     Where MSC_DOC_DIR is the directory where documentation was installed
+     This help set has cross references between documents, links to how-to
+     videos, and example files.
+1 
+     Individual MSC Nastran documents are available for download from the
+       Simcompanion Website at:
+       http://simcompanion.mscsoftware.com/
+  
+     These documents were updated for the MSC Nastran 2017.1 Release
+  
+         1.  MSC Nastran 2017.1 Installation and Operations Guide
+         2.  MSC Nastran 2017.1 Quick Reference Guide
+         3.  MSC Nastran 2017.1 Release Guide
+         4.  MSC Nastran 2017.1 Linear Statics Analysis User's Guide
+         5.  MSC Nastran 2017.1 Dynamic Analysis User's Guide
+         6.  MSC Nastran 2017.1 Superelements User's Guide
+         7.  MSC Nastran 2017.1 Rotordynamics User's Guide
+         8.  MSC Nastran 2017.1 Demonstration Problems Manual
+         9.  MSC Nastran 2017.1 Nastran Embedded Fatigue User's Guide
+        10.  MSC Nastran 2017.1 Design Sensitivity and Optimization
+        11.  MSC Nastran 2017.1 Nonlinear User's Guide SOL 400
+        12.  MSC Nastran 2017.1 DMAP Programmer's Guide
+  
+    The following is a new manual for the MSC Nastrans 2017 Release
+  
+         1.  MSC Nastran 2017 Nastran Embedded Vibration Fatigue User's Guide
+         2.  MSC Nastran 2017 High Performance Computing User’s Guide
+  
+  
+    Please refer to:
+  
+    MSC_DOC_DIR/doc/pdf_nastran/nastran_library.pdf
+  
+1                                                                           JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE     1
+                                                                                                                                    
+0        N A S T R A N    F I L E    A N D    S Y S T E M    P A R A M E T E R    E C H O                                           
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     $ SYSFIELD=SCR*(RAW=YES,BUFFIO=YES,WNUM=16,WSIZE=16MB) $(C:/MSC.SOFTWARE/MSC_NAS
+     $ SYSFIELD=DBALL(RAW=YES,BUFFIO=YES,WNUM=16,WSIZE=16MB) $(C:/MSC.SOFTWARE/MSC_NA
+     NASTRAN BUFFSIZE=8193 $(C:/MSC.SOFTWARE/MSC_NASTRAN/20171/CONF/NAST20171.RCF[5])
+     $ASSIGN USERFILE='SENS.CSV', UNIT=52, STATUS=NEW, FORM=FORMATTED                
+1                                                                           JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE     2
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    E C H O                                                             
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     SOL 200                                                                                 
+     TIME 99999                                                                              
+     CEND                                                                                    
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE     3
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L    E C H O                                                        
+                 COMMAND                                                                                                            
+                 COUNT                                                                                                              
+                  1      TITLE    = MASS SENSITVITY ANALYSIS                                                     
+                  2      SUBTITLE = BEAM ISOTROPIC MATERIALS                                                     
+                  3      DESOBJ(MIN) = 999 $ OBJECTIVE FUNCTION DEFINITION                                       
+                  4      $DSAPRT(FORMATTED, START=1,END=SENS)=ALL                                                
+                  5      $DSAPRT(FORMATTED, START=1,END=SENS)=ALL                                                
+                  6      $SET 999 = 160099 THRU 160101,160104,160106,160107,                                     
+                  7      $           30000001 THRU 30000056                                                      
+                  8      ANALYSIS = STATICS                                                                      
+                  9      SUBCASE 1                                                                               
+                 10         LABEL    = GRAVITATIONAL LOAD IN Z                                                   
+                 11         SPC      = 1                                                                         
+                 12      $   DISP     = 999                                                                      
+                 13         LOAD     = 11                                                                        
+                 14      $   DESSUB   = 100                                                                      
+                 15      $SUBCASE 2                                                                              
+                 16      $   ANALYSIS = STATICS                                                                  
+                 17      $   LABEL    = TRANSLATION LOAD 2                                                       
+                 18      $   SPC      = 1                                                                        
+                 19      $   DISP     = 999                                                                      
+                 20      $   LOAD     = 102                                                                      
+                 21      $   DESSUB   = 100                                                                      
+                 22      $SUBCASE 3                                                                              
+                 23      $   ANALYSIS = STATICS                                                                  
+                 24      $   LABEL    = TRANSLATION LOAD 3                                                       
+                 25      $   SPC      = 1                                                                        
+                 26      $   DISP     = 999                                                                      
+                 27      $   LOAD     = 103                                                                      
+                 28      $   DESSUB   = 100                                                                      
+                 29      $SUBCASE 4                                                                              
+                 30      $   ANALYSIS = STATICS                                                                  
+                 31      $   LABEL    = ROTATION LOAD 1                                                          
+                 32      $   SPC      = 1                                                                        
+                 33      $   DISP     = 999                                                                      
+                 34      $   LOAD     = 104                                                                      
+                 35      $   DESSUB   = 100                                                                      
+                 36      $SUBCASE 5                                                                              
+                 37      $   ANALYSIS = STATICS                                                                  
+                 38      $   LABEL    = ROTATION LOAD 2                                                          
+                 39      $   SPC      = 1                                                                        
+                 40      $   DISP     = 999                                                                      
+                 41      $   LOAD     = 105                                                                      
+                 42      $   DESSUB   = 100                                                                      
+                 43      $SUBCASE 6                                                                              
+                 44      $   ANALYSIS = STATICS                                                                  
+                 45      $   LABEL    = ROTATION LOAD 3                                                          
+                 46      $   SPC      = 1                                                                        
+                 47      $   DISP     = 999                                                                      
+                 48      $   LOAD     = 106                                                                      
+                 49      $   DESSUB   = 100                                                                      
+                 50      ECHO = NONE                                                                             
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE     4
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L    E C H O                                                        
+                 COMMAND                                                                                                            
+                 COUNT                                                                                                              
+                 51      BEGIN BULK                                                                              
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE     5
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+                                              I N P U T   B U L K   D A T A   E C H O                                               
+                 ENTRY                                                                                                              
+                 COUNT        .   1  ..   2  ..   3  ..   4  ..   5  ..   6  ..   7  ..   8  ..   9  ..  10  .                      
+ *** USER INFORMATION MESSAGE 9991 (SDLWIF)
+     Messages are being generated at include level 1.
+     File: c:\Users\bilal\Documents\FEM-updating-for-VFS\VF beam model\Beam SOL200\beam_design_data.bdf
+ *** USER WARNING MESSAGE 9994 (BULKIN)
+     Line 27
+     User information:  A maximum of 80 characters will be used for fixed field format.
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE     6
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+                                        M O D E L   S U M M A R Y          BULK = 0
+                                   ENTRY NAME        NUMBER OF ENTRIES
+                                   ----------        -----------------
+                                        CBEAM                      366
+                                        CONM2                       37
+                                       DEQATN                        2
+                                       DESVAR                       43
+                                      DOPTPRM                        1
+                                       DRESP1                        5
+                                       DRESP2                        4
+                                      DVCREL1                        1
+                                      DVMREL1                        6
+                                         GRAV                        1
+                                         GRID                      367
+                                         LOAD                        1
+                                         MAT1                       12
+                                        PARAM                        3
+                                       PBEAML                       12
+                                         SPC1                        2
+                                       SPCADD                        1
+
+ ^^^     
+ ^^^ >>> IFP OPERATIONS COMPLETE <<< 
+ ^^^     
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE     7
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE     8
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+
+ THERE ARE       366 BEAM     ELEMENTS. FIRST EID =         1 LAST EID =       366
+
+ THERE ARE        37 CONM2    ELEMENTS. FIRST EID =     70001 LAST EID =     70202
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE     9
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+
+
+           -----   COMPARISON BETWEEN INPUT CONNECTIVITY PROPERTY VALUES FROM ANALYSIS AND DESIGN MODELS -----
+
+     ---------------------------------------------------------------------------------------------------------------
+      ELEMENT    ELEMENT   CONNECTIVITY  ANALYSIS         DESIGN          LOWER           UPPER       DIFFERENCE
+        TYPE        ID        NAME         VALUE          VALUE           BOUND           BOUND          FLAG
+     ---------------------------------------------------------------------------------------------------------------
+      CONM2          70001         M    2.976800E-03    2.976800E-03        N/A             N/A           NONE 
+
+     1. THE DIFFERENCE FLAG IS USED TO CHARACTERIZE DIFFERENCES BETWEEN ANALYSIS AND DESIGN MODEL PROPERTIES:
+        IF THE FLAG IS NONE, THEN THERE IS NO SIGNIFICANT DIFFERENCE BETWEEN THE TWO VALUES.
+        IF THE FLAG IS WARNING, THEN THE USER IS ADVISED THAT DIFFERENCES EXIST AND THE DESIGN MODEL
+        IS BEING USED TO OVERRIDE THE ANALYSIS MODEL. 
+        IF THE FLAG IS FATAL, THEN THE DIFFERENCES ARE GREATER THAN  1.00000E+35 AND THE RUN WILL BE TERMINATED.
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    10
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+
+
+           -----   COMPARISON BETWEEN INPUT MATERIAL PROPERTY VALUES FROM ANALYSIS AND DESIGN MODELS -----
+
+     ---------------------------------------------------------------------------------------------------------------
+      MATERIAL   MATERIAL   MATERIAL     ANALYSIS         DESIGN          LOWER           UPPER       DIFFERENCE
+        TYPE        ID        NAME         VALUE          VALUE           BOUND           BOUND          FLAG
+     ---------------------------------------------------------------------------------------------------------------
+      MAT1               4       RHO    2.748953E+03    2.757558E+03        N/A             N/A        WARNING 
+      MAT1               7       RHO    2.580222E+03    2.787957E+03        N/A             N/A        WARNING 
+      MAT1               8       RHO    2.759443E+03    2.597436E+03        N/A             N/A        WARNING 
+      MAT1               9       RHO    2.769703E+03    2.680381E+03        N/A             N/A        WARNING 
+      MAT1              11       RHO    2.773162E+03    2.728954E+03        N/A             N/A        WARNING 
+      MAT1              12       RHO    2.698137E+03    2.720056E+03        N/A             N/A        WARNING 
+
+     1. THE DIFFERENCE FLAG IS USED TO CHARACTERIZE DIFFERENCES BETWEEN ANALYSIS AND DESIGN MODEL PROPERTIES:
+        IF THE FLAG IS NONE, THEN THERE IS NO SIGNIFICANT DIFFERENCE BETWEEN THE TWO VALUES.
+        IF THE FLAG IS WARNING, THEN THE USER IS ADVISED THAT DIFFERENCES EXIST AND THE DESIGN MODEL
+        IS BEING USED TO OVERRIDE THE ANALYSIS MODEL. 
+        IF THE FLAG IS FATAL, THEN THE DIFFERENCES ARE GREATER THAN  1.00000E+35 AND THE RUN WILL BE TERMINATED.
+ *** USER INFORMATION MESSAGE 7103 (DOPR3)
+     NO DCONSTR ENTRIES ARE SPECIFIED IN THE BULK DATA.
+ *** USER INFORMATION MESSAGE 9024 (SUBDMAP FEA)
+     STIFFNESS, MASS, DAMPING, AND LOAD GENERATION INITIATED.  DESIGN CYCLE NUMBER= 1
+ SUBTOTAL MASS FOR ALL CONM2    ELEMENTS                                   1.1695E-01   0.0000E+00     1.1695E-01     1.1695E-01
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    11
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    12
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+                           O U T P U T   F R O M   G R I D   P O I N T   W E I G H T   G E N E R A T O R
+0                                                     REFERENCE POINT =      184
+                                                                M O
+                      *  1.728142E+00  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  1.041146E-05 *
+                      *  0.000000E+00  1.728142E+00  0.000000E+00  0.000000E+00  0.000000E+00 -1.260355E-02 *
+                      *  0.000000E+00  0.000000E+00  1.728142E+00 -1.041146E-05  1.260355E-02  0.000000E+00 *
+                      *  0.000000E+00  0.000000E+00 -1.041146E-05  3.980369E-04  1.901551E-07  0.000000E+00 *
+                      *  0.000000E+00  0.000000E+00  1.260355E-02  1.901551E-07  1.937258E+00  0.000000E+00 *
+                      *  1.041146E-05 -1.260355E-02  0.000000E+00  0.000000E+00  0.000000E+00  1.937308E+00 *
+                                                                 S
+                                           *  1.000000E+00  0.000000E+00  0.000000E+00 *
+                                           *  0.000000E+00  1.000000E+00  0.000000E+00 *
+                                           *  0.000000E+00  0.000000E+00  1.000000E+00 *
+                               DIRECTION
+                          MASS AXIS SYSTEM (S)     MASS              X-C.G.        Y-C.G.        Z-C.G.
+                                  X            1.728142E+00      0.000000E+00 -6.024655E-06  0.000000E+00
+                                  Y            1.728142E+00     -7.293120E-03  0.000000E+00  0.000000E+00
+                                  Z            1.728142E+00     -7.293120E-03 -6.024655E-06  0.000000E+00
+                                                                I(S)
+                                           *  3.980369E-04 -2.660872E-07  0.000000E+00 *
+                                           * -2.660872E-07  1.937166E+00  0.000000E+00 *
+                                           *  0.000000E+00  0.000000E+00  1.937216E+00 *
+                                                                I(Q)
+                                           *  3.980369E-04                             *
+                                           *                1.937166E+00               *
+                                           *                              1.937216E+00 *
+                                                                 Q
+                                           *  1.000000E+00  0.000000E+00  0.000000E+00 *
+                                           *  0.000000E+00  1.000000E+00  0.000000E+00 *
+                                           *  0.000000E+00  0.000000E+00  1.000000E+00 *
+
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    13
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    14
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+0 RESULTANTS ABOUT      184 IN SUPERELEMENT BASIC SYSTEM COORDINATES.
+
+0                                                  OLOAD    RESULTANT       
+  SUBCASE/    LOAD
+  DAREA ID    TYPE       T1            T2            T3            R1            R2            R3
+0        1     FX    0.000000E+00     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----       0.000000E+00     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----      -1.695308E+01  0.000000E+00 -1.236408E-01     ----                                  
+               MX       ----          ----          ----       1.021364E-04     ----          ----                                  
+               MY       ----          ----          ----          ----       0.000000E+00     ----                                  
+               MZ       ----          ----          ----          ----          ----       0.000000E+00                             
+             TOTALS  0.000000E+00  0.000000E+00 -1.695308E+01  1.021364E-04 -1.236408E-01  0.000000E+00
+  
+ *** SYSTEM INFORMATION MESSAGE 4159 (DFMSA)
+     THE DECOMPOSITION OF KLL      YIELDS A MAXIMUM MATRIX-TO-FACTOR-DIAGONAL RATIO OF    8.086816E+03
+ *** USER INFORMATION MESSAGE 9051 (SUBDMAP FEA)
+     STATIC   ANALYSIS INITIATED.  DESIGN CYCLE NUMBER= 1
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    15
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0     GRAVITATIONAL LOAD IN Z                                                                                SUBCASE 1              
+ *** USER INFORMATION MESSAGE 5293 (SSG3A)
+    FOR DATA BLOCK KLL     
+    LOAD SEQ. NO.             EPSILON              EXTERNAL WORK      EPSILONS LARGER THAN 0.001 ARE FLAGGED WITH ASTERISKS
+                1         -6.5741321E-09          6.1547770E+00
+ *** USER INFORMATION MESSAGE 9052 (SUBDMAP FEA)
+     STATIC   ANALYSIS COMPLETED.  DESIGN CYCLE NUMBER= 1
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    16
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+
+
+
+                     THIS IS THE FIRST ANALYSIS - NO CONVERGENCE CHECK
+                     -------------------------------------------------------
+                      MAXIMUM VALUE OF CONSTRAINTS           :    N/A     
+                     -------------------------------------------------------
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    17
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+
+
+
+                                ********************************************************************
+                                *                                                                  *
+                                *                                                                  *
+                                *                D E S I G N    O P T I M I Z A T I O N            *
+                                *                                                                  *
+                                *                                                                  *
+                                ********************************************************************
+
+
+
+                                         ***********************************************
+                                         *                                             *
+                                         *       I N I T I A L   A N A L Y S I S       *
+                                         *                                             *
+                                         ***********************************************
+
+
+
+                                    *******   ANALYSIS RESULTS BASED ON THE INITIAL DESIGN   *******
+
+
+                                                  -----   DESIGN OBJECTIVE   -----
+
+     ----------------------------------------------------------------------------------------------------
+                INTERNAL                            MINIMIZE                                                           
+                RESPONSE                RESPONSE       OR       SUPERELEMENT    SUBCASE
+                   ID        DRESPx       TYPE      MAXIMIZE         ID            ID          VALUE   
+     ----------------------------------------------------------------------------------------------------
+                       4     DRESP2        N/A      MINIMIZE         N/A          N/A        9.4677E+00
+
+
+                                                  -----   DESIGN VARIABLES   -----
+
+     ---------------------------------------------------------------------------------------------------------
+            INTERNAL       DESVAR                         LOWER                               UPPER   
+               ID            ID          LABEL            BOUND             VALUE             BOUND   
+     ---------------------------------------------------------------------------------------------------------
+                   1             4      RHO4            2.5000E+03        2.7576E+03        2.9000E+03
+                   2             7      RHO7            2.5000E+03        2.7880E+03        2.9000E+03
+                   3             8      RHO8            2.5000E+03        2.5974E+03        2.9000E+03
+                   4             9      RHO9            2.5000E+03        2.6804E+03        2.9000E+03
+                   5            11      RHO11           2.5000E+03        2.7290E+03        2.9000E+03
+                   6            12      RHO12           2.5000E+03        2.7201E+03        2.9000E+03
+                   7            20      CM1             2.0000E-03        2.9768E-03        4.0000E-03
+                   8            21      CM2             2.0000E-03        2.9693E-03        4.0000E-03
+                   9            22      CM3             2.0000E-03        2.9355E-03        4.0000E-03
+                  10            23      CM4             2.0000E-03        2.9390E-03        4.0000E-03
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    18
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+
+
+                                                  -----   DESIGN VARIABLES   -----
+
+     ---------------------------------------------------------------------------------------------------------
+            INTERNAL       DESVAR                         LOWER                               UPPER   
+               ID            ID          LABEL            BOUND             VALUE             BOUND   
+     ---------------------------------------------------------------------------------------------------------
+                  11            24      CM5             2.0000E-03        2.9923E-03        4.0000E-03
+                  12            25      CM6             2.0000E-03        2.9413E-03        4.0000E-03
+                  13            26      CM7             2.0000E-03        2.9330E-03        4.0000E-03
+                  14            27      CM8             2.0000E-03        3.1192E-03        4.0000E-03
+                  15            28      CM9             2.0000E-03        2.9477E-03        4.0000E-03
+                  16            29      CM10            2.0000E-03        3.0257E-03        4.0000E-03
+                  17            30      CM11            2.0000E-03        2.8742E-03        4.0000E-03
+                  18            31      CM12            2.0000E-03        2.8847E-03        4.0000E-03
+                  19            32      CM13            2.0000E-03        3.0764E-03        4.0000E-03
+                  20            33      CM14            2.0000E-03        3.1261E-03        4.0000E-03
+                  21            34      CM15            2.0000E-03        2.9166E-03        4.0000E-03
+                  22            35      CM16            2.0000E-03        2.9713E-03        4.0000E-03
+                  23            36      CM17            2.0000E-03        2.9914E-03        4.0000E-03
+                  24            37      CM18            2.0000E-03        3.1454E-03        4.0000E-03
+                  25            38      CM19            2.0000E-03        3.1341E-03        4.0000E-03
+                  26            39      CM20            2.0000E-03        2.9461E-03        4.0000E-03
+                  27            40      CM21            2.0000E-03        3.0704E-03        4.0000E-03
+                  28            41      CM22            2.0000E-03        3.0124E-03        4.0000E-03
+                  29            42      CM23            2.0000E-03        2.8827E-03        4.0000E-03
+                  30            43      CM24            2.0000E-03        3.0433E-03        4.0000E-03
+                  31            44      CM25            2.0000E-03        2.9628E-03        4.0000E-03
+                  32            45      CM26            2.0000E-03        2.9800E-03        4.0000E-03
+                  33            50      CM31            2.0000E-03        2.9524E-03        4.0000E-03
+                  34            51      CM32            2.0000E-03        2.9979E-03        4.0000E-03
+                  35            52      CM33            2.0000E-03        3.0356E-03        4.0000E-03
+                  36            53      CM34            2.0000E-03        3.0895E-03        4.0000E-03
+                  37            54      CM35            2.0000E-03        3.0529E-03        4.0000E-03
+                  38            55      CM36            2.0000E-03        2.8732E-03        4.0000E-03
+                  39            56      CM37            2.0000E-03        3.0321E-03        4.0000E-03
+                  40            57      CM38            2.0000E-03        3.0890E-03        4.0000E-03
+                  41            58      CM39            2.0000E-03        3.0161E-03        4.0000E-03
+                  42            60      CM41            4.0000E-03        6.1723E-03        8.0000E-03
+                  43            61      CM42            4.0000E-03        5.8449E-03        8.0000E-03
+ *** SYSTEM INFORMATION MESSAGE 6649 (ADS9S)
+     MSCADS METHOD = 1 (MMFD) HAS BEEN SELECTED FOR DESIGN CYCLE =          1.
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    19
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+
+
+
+                                ********************************************************************
+                                *                                                                  *
+                                *                                                                  *
+                                *                D E S I G N    O P T I M I Z A T I O N            *
+                                *                                                                  *
+                                *                                                                  *
+                                ********************************************************************
+
+
+
+                                             *******************************************
+                                             *                                         *
+                                             *      D E S I G N   C Y C L E       1    *
+                                             *                                         *
+                                             *******************************************
+
+
+
+                                 *****   OPTIMIZATION RESULTS BASED ON THE APPROXIMATE MODEL   *****
+
+
+                                                  -----   DESIGN OBJECTIVE   -----
+
+     ---------------------------------------------------------------------------------------------------------------------------
+                INTERNAL                            MINIMIZE                                                           
+                RESPONSE                RESPONSE       OR       SUPERELEMENT    SUBCASE        INPUT          OUTPUT   
+                   ID        DRESPx       TYPE      MAXIMIZE         ID            ID          VALUE           VALUE   
+     ---------------------------------------------------------------------------------------------------------------------------
+                       4     DRESP2        N/A      MINIMIZE         N/A          N/A        9.4677E+00      9.4320E+00
+
+
+                                                  -----   DESIGN VARIABLES   -----
+
+     ---------------------------------------------------------------------------------------------------------------------------
+            INTERNAL       DESVAR                         LOWER             INPUT            OUTPUT             UPPER   
+               ID            ID          LABEL            BOUND             VALUE             VALUE             BOUND   
+     ---------------------------------------------------------------------------------------------------------------------------
+                   1             4      RHO4            2.5000E+03        2.7576E+03        2.5590E+03        2.9000E+03
+                   2             7      RHO7            2.5000E+03        2.7880E+03        2.6742E+03        2.9000E+03
+                   3             8      RHO8            2.5000E+03        2.5974E+03        2.5245E+03        2.9000E+03
+                   4             9      RHO9            2.5000E+03        2.6804E+03        2.6301E+03        2.9000E+03
+                   5            11      RHO11           2.5000E+03        2.7290E+03        2.7338E+03        2.9000E+03
+                   6            12      RHO12           2.5000E+03        2.7201E+03        2.7632E+03        2.9000E+03
+                   7            20      CM1             2.0000E-03        2.9768E-03        2.9781E-03        4.0000E-03
+                   8            21      CM2             2.0000E-03        2.9693E-03        2.9693E-03        4.0000E-03
+                   9            22      CM3             2.0000E-03        2.9355E-03        2.9355E-03        4.0000E-03
+                  10            23      CM4             2.0000E-03        2.9390E-03        2.9390E-03        4.0000E-03
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    20
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+
+
+                                                  -----   DESIGN VARIABLES   -----
+
+     ---------------------------------------------------------------------------------------------------------------------------
+            INTERNAL       DESVAR                         LOWER             INPUT            OUTPUT             UPPER   
+               ID            ID          LABEL            BOUND             VALUE             VALUE             BOUND   
+     ---------------------------------------------------------------------------------------------------------------------------
+                  11            24      CM5             2.0000E-03        2.9923E-03        2.9923E-03        4.0000E-03
+                  12            25      CM6             2.0000E-03        2.9413E-03        2.9413E-03        4.0000E-03
+                  13            26      CM7             2.0000E-03        2.9330E-03        2.9330E-03        4.0000E-03
+                  14            27      CM8             2.0000E-03        3.1192E-03        3.1192E-03        4.0000E-03
+                  15            28      CM9             2.0000E-03        2.9477E-03        2.9477E-03        4.0000E-03
+                  16            29      CM10            2.0000E-03        3.0257E-03        3.0257E-03        4.0000E-03
+                  17            30      CM11            2.0000E-03        2.8742E-03        2.8742E-03        4.0000E-03
+                  18            31      CM12            2.0000E-03        2.8847E-03        2.8847E-03        4.0000E-03
+                  19            32      CM13            2.0000E-03        3.0764E-03        3.0764E-03        4.0000E-03
+                  20            33      CM14            2.0000E-03        3.1261E-03        3.1261E-03        4.0000E-03
+                  21            34      CM15            2.0000E-03        2.9166E-03        2.9166E-03        4.0000E-03
+                  22            35      CM16            2.0000E-03        2.9713E-03        2.9713E-03        4.0000E-03
+                  23            36      CM17            2.0000E-03        2.9914E-03        2.9914E-03        4.0000E-03
+                  24            37      CM18            2.0000E-03        3.1454E-03        3.1454E-03        4.0000E-03
+                  25            38      CM19            2.0000E-03        3.1341E-03        3.1341E-03        4.0000E-03
+                  26            39      CM20            2.0000E-03        2.9461E-03        2.9461E-03        4.0000E-03
+                  27            40      CM21            2.0000E-03        3.0704E-03        3.0704E-03        4.0000E-03
+                  28            41      CM22            2.0000E-03        3.0124E-03        3.0124E-03        4.0000E-03
+                  29            42      CM23            2.0000E-03        2.8827E-03        2.8827E-03        4.0000E-03
+                  30            43      CM24            2.0000E-03        3.0433E-03        3.0433E-03        4.0000E-03
+                  31            44      CM25            2.0000E-03        2.9628E-03        2.9628E-03        4.0000E-03
+                  32            45      CM26            2.0000E-03        2.9800E-03        2.9800E-03        4.0000E-03
+                  33            50      CM31            2.0000E-03        2.9524E-03        2.9524E-03        4.0000E-03
+                  34            51      CM32            2.0000E-03        2.9979E-03        2.9979E-03        4.0000E-03
+                  35            52      CM33            2.0000E-03        3.0356E-03        3.0356E-03        4.0000E-03
+                  36            53      CM34            2.0000E-03        3.0895E-03        3.0895E-03        4.0000E-03
+                  37            54      CM35            2.0000E-03        3.0529E-03        3.0529E-03        4.0000E-03
+                  38            55      CM36            2.0000E-03        2.8732E-03        2.8732E-03        4.0000E-03
+                  39            56      CM37            2.0000E-03        3.0321E-03        3.0321E-03        4.0000E-03
+                  40            57      CM38            2.0000E-03        3.0890E-03        3.0890E-03        4.0000E-03
+                  41            58      CM39            2.0000E-03        3.0161E-03        3.0161E-03        4.0000E-03
+                  42            60      CM41            4.0000E-03        6.1723E-03        6.1723E-03        8.0000E-03
+                  43            61      CM42            4.0000E-03        5.8449E-03        5.8449E-03        8.0000E-03
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    21
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+
+
+
+                       ****************************************************************************************
+                       INSPECTION OF CONVERGENCE DATA FOR THE OPTIMAL DESIGN WITH RESPECT TO APPROXIMATE MODELS
+                                                  (SOFT CONVERGENCE DECISION LOGIC)                            
+                       ****************************************************************************************
+
+                          MAXIMUM OF RELATIVE PROP. CHANGES     7.2004E-02 MUST BE LESS THAN   1.0000E-03
+                                                        --- AND ---
+                          MAXIMUM OF RELATIVE D.V. CHANGES      7.2004E-02  MUST BE LESS THAN   1.0000E-03
+                       ****************************************************************************************
+
+
+  
+ *** USER INFORMATION MESSAGE 9024 (SUBDMAP FEA)
+     STIFFNESS, MASS, DAMPING, AND LOAD GENERATION INITIATED.  DESIGN CYCLE NUMBER= 2
+ SUBTOTAL MASS FOR ALL CONM2    ELEMENTS                                   1.1695E-01   0.0000E+00     1.1695E-01     1.1695E-01
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    22
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+  
+ *** SYSTEM INFORMATION MESSAGE 4159 (DFMSA)
+     THE DECOMPOSITION OF KLL      YIELDS A MAXIMUM MATRIX-TO-FACTOR-DIAGONAL RATIO OF    8.086816E+03
+ *** USER INFORMATION MESSAGE 9051 (SUBDMAP FEA)
+     STATIC   ANALYSIS INITIATED.  DESIGN CYCLE NUMBER= 2
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    23
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0     GRAVITATIONAL LOAD IN Z                                                                                SUBCASE 1              
+ *** USER INFORMATION MESSAGE 5293 (SSG3A)
+    FOR DATA BLOCK KLL     
+    LOAD SEQ. NO.             EPSILON              EXTERNAL WORK      EPSILONS LARGER THAN 0.001 ARE FLAGGED WITH ASTERISKS
+                1         -1.8781943E-08          5.9577436E+00
+ *** USER INFORMATION MESSAGE 9052 (SUBDMAP FEA)
+     STATIC   ANALYSIS COMPLETED.  DESIGN CYCLE NUMBER= 2
+
+
+                              CONVERGENCE NOT ACHIEVED YET   (HARD CONVERGENCE DECISION LOGIC)
+             ----------------------------------------------------------------------------------------------
+
+                      RELATIVE CHANGE IN OBJECTIVE           :  3.7704E-03  MUST BE LESS THAN   1.0000E-09
+              OR      ABSOLUTE CHANGE IN OBJECTIVE           :  3.5697E-02  MUST BE LESS THAN   1.0000E-20
+                                                      --- AND ---
+                      MAXIMUM CONSTRAINT VALUE               :   N/A        MUST BE LESS THAN   5.0000E-03
+                                             (CONVERGENCE TO A FEASIBLE DESIGN)
+                                                      --- OR ---
+                      MAXIMUM OF RELATIVE PROP. CHANGES      :  7.2004E-02  MUST BE LESS THAN   1.0000E-03
+              AND     MAXIMUM OF RELATIVE D.V. CHANGES       :  7.2004E-02  MUST BE LESS THAN   1.0000E-03
+                                     (CONVERGENCE TO A BEST COMPROMISE INFEASIBLE DESIGN)
+             ----------------------------------------------------------------------------------------------
+ *** SYSTEM INFORMATION MESSAGE 6649 (ADS9S)
+     MSCADS METHOD = 1 (MMFD) HAS BEEN SELECTED FOR DESIGN CYCLE =          2.
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    24
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+
+                                         **************************************************
+                                         TERMINATION OF DESIGN ITERATION (SOFT CONVERGENCE)
+                                         **************************************************
+
+                          MAXIMUM OF RELATIVE PROP. CHANGES     0.0000E+00 MUST BE LESS THAN   1.0000E-03
+                                                        --- AND ---
+                          MAXIMUM OF RELATIVE D.V. CHANGES      0.0000E+00 MUST BE LESS THAN   1.0000E-03
+
+               EXPLANATION:
+                 THE OPTIMIZATION PROCESS WITH RESPECT TO THE APPROXIMATE MODELS DID NOT CHANGE APPRECIABLY.
+                 THIS DESIGN MAY NOT WARRANT AN ADDITIONAL COMPLETE FINITE ELEMENT ANALYSIS.
+ *** USER INFORMATION MESSAGE 9024 (SUBDMAP FEA)
+     STIFFNESS, MASS, DAMPING, AND LOAD GENERATION INITIATED.  DESIGN CYCLE NUMBER= 3
+ SUBTOTAL MASS FOR ALL CONM2    ELEMENTS                                   1.1695E-01   0.0000E+00     1.1695E-01     1.1695E-01
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    25
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+  
+ *** SYSTEM INFORMATION MESSAGE 4159 (DFMSA)
+     THE DECOMPOSITION OF KLL      YIELDS A MAXIMUM MATRIX-TO-FACTOR-DIAGONAL RATIO OF    8.086816E+03
+ *** USER INFORMATION MESSAGE 9051 (SUBDMAP FEA)
+     STATIC   ANALYSIS INITIATED.  DESIGN CYCLE NUMBER= 3
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    26
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0     GRAVITATIONAL LOAD IN Z                                                                                SUBCASE 1              
+ *** USER INFORMATION MESSAGE 5293 (SSG3A)
+    FOR DATA BLOCK KLL     
+    LOAD SEQ. NO.             EPSILON              EXTERNAL WORK      EPSILONS LARGER THAN 0.001 ARE FLAGGED WITH ASTERISKS
+                1         -1.8781943E-08          5.9577436E+00
+ *** USER INFORMATION MESSAGE 9052 (SUBDMAP FEA)
+     STATIC   ANALYSIS COMPLETED.  DESIGN CYCLE NUMBER= 3
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    27
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+
+
+                 ***** NORMAL CONVERGENCE CRITERIA SATISFIED ***** (HARD CONVERGENCE DECISION LOGIC)
+
+                 **************************************************************************************
+                                  CONVERGENCE ACHIEVED BASED ON THE FOLLOWING CRITERIA
+                                           (HARD CONVERGENCE DECISION LOGIC)          
+
+                        RELATIVE CHANGE IN OBJECTIVE        0.0000E+00  MUST BE LESS THAN   1.0000E-09
+                  OR    ABSOLUTE CHANGE IN OBJECTIVE        0.0000E+00  MUST BE LESS THAN   1.0000E-20
+                                                   --- AND ---
+                        MAXIMUM CONSTRAINT VALUE               N/A      MUST BE LESS THAN   5.0000E-03
+                                          (CONVERGENCE TO A FEASIBLE DESIGN)
+                                                   --- OR ---
+                        MAXIMUM OF RELATIVE PROP. CHANGES   0.0000E+00  MUST BE LESS THAN   1.0000E-03
+                  AND   MAXIMUM OF RELATIVE D.V. CHANGES    0.0000E+00  MUST BE LESS THAN   1.0000E-03
+                                 (CONVERGENCE TO A BEST COMPROMISE INFEASIBLE DESIGN)
+                 **************************************************************************************
+ *** USER INFORMATION MESSAGE 9024 (SUBDMAP FEA)
+     STIFFNESS, MASS, DAMPING, AND LOAD GENERATION INITIATED.  DESIGN CYCLE NUMBER= 3
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    28
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+                           O U T P U T   F R O M   G R I D   P O I N T   W E I G H T   G E N E R A T O R
+0                                                     REFERENCE POINT =      184
+                                                                M O
+                      *  1.709823E+00  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  1.037873E-05 *
+                      *  0.000000E+00  1.709823E+00  0.000000E+00  0.000000E+00  0.000000E+00 -4.564281E-03 *
+                      *  0.000000E+00  0.000000E+00  1.709823E+00 -1.037873E-05  4.564281E-03  0.000000E+00 *
+                      *  0.000000E+00  0.000000E+00 -1.037873E-05  3.940825E-04  1.306321E-07  0.000000E+00 *
+                      *  0.000000E+00  0.000000E+00  4.564281E-03  1.306321E-07  1.936562E+00  0.000000E+00 *
+                      *  1.037873E-05 -4.564281E-03  0.000000E+00  0.000000E+00  0.000000E+00  1.936612E+00 *
+                                                                 S
+                                           *  1.000000E+00  0.000000E+00  0.000000E+00 *
+                                           *  0.000000E+00  1.000000E+00  0.000000E+00 *
+                                           *  0.000000E+00  0.000000E+00  1.000000E+00 *
+                               DIRECTION
+                          MASS AXIS SYSTEM (S)     MASS              X-C.G.        Y-C.G.        Z-C.G.
+                                  X            1.709823E+00      0.000000E+00 -6.070063E-06  0.000000E+00
+                                  Y            1.709823E+00     -2.669446E-03  0.000000E+00  0.000000E+00
+                                  Z            1.709823E+00     -2.669446E-03 -6.070063E-06  0.000000E+00
+                                                                I(S)
+                                           *  3.940824E-04 -1.583375E-07  0.000000E+00 *
+                                           * -1.583375E-07  1.936550E+00  0.000000E+00 *
+                                           *  0.000000E+00  0.000000E+00  1.936600E+00 *
+                                                                I(Q)
+                                           *  3.940824E-04                             *
+                                           *                1.936550E+00               *
+                                           *                              1.936600E+00 *
+                                                                 Q
+                                           *  1.000000E+00  0.000000E+00  0.000000E+00 *
+                                           *  0.000000E+00  1.000000E+00  0.000000E+00 *
+                                           *  0.000000E+00  0.000000E+00  1.000000E+00 *
+
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    29
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+ *** USER INFORMATION MESSAGE 9052 (SUBDMAP FEA)
+     STATIC   ANALYSIS COMPLETED.  DESIGN CYCLE NUMBER= 3
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    30
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+
+
+
+                                ********************************************************************
+                                *                                                                  *
+                                *                                                                  *
+                                *                D E S I G N    O P T I M I Z A T I O N            *
+                                *                                                                  *
+                                *                                                                  *
+                                ********************************************************************
+
+
+
+                                             *******************************************
+                                             *                                         *
+                                             *        F I N A L  A N A L Y S I S       *
+                                             *                                         *
+                                             *******************************************
+
+
+
+                                    *******   ANALYSIS RESULTS BASED ON THE FINAL DESIGN   *******
+
+
+                                                  -----   DESIGN OBJECTIVE   -----
+
+     ----------------------------------------------------------------------------------------------------
+                INTERNAL                            MINIMIZE                                                           
+                RESPONSE                RESPONSE       OR       SUPERELEMENT    SUBCASE
+                   ID        DRESPx       TYPE      MAXIMIZE         ID            ID          VALUE   
+     ----------------------------------------------------------------------------------------------------
+                       4     DRESP2        N/A      MINIMIZE         N/A          N/A        9.4320E+00
+
+
+                                                  -----   DESIGN VARIABLES   -----
+
+     ---------------------------------------------------------------------------------------------------------
+            INTERNAL       DESVAR                         LOWER                               UPPER   
+               ID            ID          LABEL            BOUND             VALUE             BOUND   
+     ---------------------------------------------------------------------------------------------------------
+                   1             4      RHO4            2.5000E+03        2.5590E+03        2.9000E+03
+                   2             7      RHO7            2.5000E+03        2.6742E+03        2.9000E+03
+                   3             8      RHO8            2.5000E+03        2.5245E+03        2.9000E+03
+                   4             9      RHO9            2.5000E+03        2.6301E+03        2.9000E+03
+                   5            11      RHO11           2.5000E+03        2.7338E+03        2.9000E+03
+                   6            12      RHO12           2.5000E+03        2.7632E+03        2.9000E+03
+                   7            20      CM1             2.0000E-03        2.9781E-03        4.0000E-03
+                   8            21      CM2             2.0000E-03        2.9693E-03        4.0000E-03
+                   9            22      CM3             2.0000E-03        2.9355E-03        4.0000E-03
+                  10            23      CM4             2.0000E-03        2.9390E-03        4.0000E-03
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    31
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+
+
+                                                  -----   DESIGN VARIABLES   -----
+
+     ---------------------------------------------------------------------------------------------------------
+            INTERNAL       DESVAR                         LOWER                               UPPER   
+               ID            ID          LABEL            BOUND             VALUE             BOUND   
+     ---------------------------------------------------------------------------------------------------------
+                  11            24      CM5             2.0000E-03        2.9923E-03        4.0000E-03
+                  12            25      CM6             2.0000E-03        2.9413E-03        4.0000E-03
+                  13            26      CM7             2.0000E-03        2.9330E-03        4.0000E-03
+                  14            27      CM8             2.0000E-03        3.1192E-03        4.0000E-03
+                  15            28      CM9             2.0000E-03        2.9477E-03        4.0000E-03
+                  16            29      CM10            2.0000E-03        3.0257E-03        4.0000E-03
+                  17            30      CM11            2.0000E-03        2.8742E-03        4.0000E-03
+                  18            31      CM12            2.0000E-03        2.8847E-03        4.0000E-03
+                  19            32      CM13            2.0000E-03        3.0764E-03        4.0000E-03
+                  20            33      CM14            2.0000E-03        3.1261E-03        4.0000E-03
+                  21            34      CM15            2.0000E-03        2.9166E-03        4.0000E-03
+                  22            35      CM16            2.0000E-03        2.9713E-03        4.0000E-03
+                  23            36      CM17            2.0000E-03        2.9914E-03        4.0000E-03
+                  24            37      CM18            2.0000E-03        3.1454E-03        4.0000E-03
+                  25            38      CM19            2.0000E-03        3.1341E-03        4.0000E-03
+                  26            39      CM20            2.0000E-03        2.9461E-03        4.0000E-03
+                  27            40      CM21            2.0000E-03        3.0704E-03        4.0000E-03
+                  28            41      CM22            2.0000E-03        3.0124E-03        4.0000E-03
+                  29            42      CM23            2.0000E-03        2.8827E-03        4.0000E-03
+                  30            43      CM24            2.0000E-03        3.0433E-03        4.0000E-03
+                  31            44      CM25            2.0000E-03        2.9628E-03        4.0000E-03
+                  32            45      CM26            2.0000E-03        2.9800E-03        4.0000E-03
+                  33            50      CM31            2.0000E-03        2.9524E-03        4.0000E-03
+                  34            51      CM32            2.0000E-03        2.9979E-03        4.0000E-03
+                  35            52      CM33            2.0000E-03        3.0356E-03        4.0000E-03
+                  36            53      CM34            2.0000E-03        3.0895E-03        4.0000E-03
+                  37            54      CM35            2.0000E-03        3.0529E-03        4.0000E-03
+                  38            55      CM36            2.0000E-03        2.8732E-03        4.0000E-03
+                  39            56      CM37            2.0000E-03        3.0321E-03        4.0000E-03
+                  40            57      CM38            2.0000E-03        3.0890E-03        4.0000E-03
+                  41            58      CM39            2.0000E-03        3.0161E-03        4.0000E-03
+                  42            60      CM41            4.0000E-03        6.1723E-03        8.0000E-03
+                  43            61      CM42            4.0000E-03        5.8449E-03        8.0000E-03
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    32
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+                                   ***************************************************************
+                                   S U M M A R Y   O F   D E S I G N    C Y C L E    H I S T O R Y
+                                   ***************************************************************
+
+                                                      (HARD CONVERGENCE ACHIEVED)
+
+                                                      (SOFT CONVERGENCE ACHIEVED)
+
+
+                                       NUMBER OF FINITE ELEMENT ANALYSES COMPLETED           3
+                                       NUMBER OF OPTIMIZATIONS W.R.T. APPROXIMATE MODELS     2
+
+
+                                              OBJECTIVE AND MAXIMUM CONSTRAINT HISTORY
+           ---------------------------------------------------------------------------------------------------------------
+                              OBJECTIVE FROM           OBJECTIVE FROM          FRACTIONAL ERROR          MAXIMUM VALUE  
+             CYCLE              APPROXIMATE                 EXACT                    OF                       OF
+             NUMBER            OPTIMIZATION               ANALYSIS              APPROXIMATION             CONSTRAINT   
+           ---------------------------------------------------------------------------------------------------------------
+
+             INITIAL                                      9.467653E+00                                        N/A       
+
+                   1             9.431956E+00             9.431956E+00             0.000000E+00               N/A       
+
+                   2             9.431956E+00             9.431956E+00             0.000000E+00               N/A       
+           ---------------------------------------------------------------------------------------------------------------
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    33
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+                                                       DESIGN VARIABLE HISTORY
+ ----------------------------------------------------------------------------------------------------------------------------------
+  INTERNAL |   EXTERNAL   |             |                                                                                          
+   DV. ID. |    DV. ID.   |    LABEL    |   INITIAL    :      1       :      2       :      3       :      4       :      5       :
+ ----------------------------------------------------------------------------------------------------------------------------------
+         1 |          4   |  RHO4       |   2.7576E+03 :   2.5590E+03 :   2.5590E+03 :
+         2 |          7   |  RHO7       |   2.7880E+03 :   2.6742E+03 :   2.6742E+03 :
+         3 |          8   |  RHO8       |   2.5974E+03 :   2.5245E+03 :   2.5245E+03 :
+         4 |          9   |  RHO9       |   2.6804E+03 :   2.6301E+03 :   2.6301E+03 :
+         5 |         11   |  RHO11      |   2.7290E+03 :   2.7338E+03 :   2.7338E+03 :
+         6 |         12   |  RHO12      |   2.7201E+03 :   2.7632E+03 :   2.7632E+03 :
+         7 |         20   |  CM1        |   2.9768E-03 :   2.9781E-03 :   2.9781E-03 :
+         8 |         21   |  CM2        |   2.9693E-03 :   2.9693E-03 :   2.9693E-03 :
+         9 |         22   |  CM3        |   2.9355E-03 :   2.9355E-03 :   2.9355E-03 :
+        10 |         23   |  CM4        |   2.9390E-03 :   2.9390E-03 :   2.9390E-03 :
+        11 |         24   |  CM5        |   2.9923E-03 :   2.9923E-03 :   2.9923E-03 :
+        12 |         25   |  CM6        |   2.9413E-03 :   2.9413E-03 :   2.9413E-03 :
+        13 |         26   |  CM7        |   2.9330E-03 :   2.9330E-03 :   2.9330E-03 :
+        14 |         27   |  CM8        |   3.1192E-03 :   3.1192E-03 :   3.1192E-03 :
+        15 |         28   |  CM9        |   2.9477E-03 :   2.9477E-03 :   2.9477E-03 :
+        16 |         29   |  CM10       |   3.0257E-03 :   3.0257E-03 :   3.0257E-03 :
+        17 |         30   |  CM11       |   2.8742E-03 :   2.8742E-03 :   2.8742E-03 :
+        18 |         31   |  CM12       |   2.8847E-03 :   2.8847E-03 :   2.8847E-03 :
+        19 |         32   |  CM13       |   3.0764E-03 :   3.0764E-03 :   3.0764E-03 :
+        20 |         33   |  CM14       |   3.1261E-03 :   3.1261E-03 :   3.1261E-03 :
+        21 |         34   |  CM15       |   2.9166E-03 :   2.9166E-03 :   2.9166E-03 :
+        22 |         35   |  CM16       |   2.9713E-03 :   2.9713E-03 :   2.9713E-03 :
+        23 |         36   |  CM17       |   2.9914E-03 :   2.9914E-03 :   2.9914E-03 :
+        24 |         37   |  CM18       |   3.1454E-03 :   3.1454E-03 :   3.1454E-03 :
+        25 |         38   |  CM19       |   3.1341E-03 :   3.1341E-03 :   3.1341E-03 :
+        26 |         39   |  CM20       |   2.9461E-03 :   2.9461E-03 :   2.9461E-03 :
+        27 |         40   |  CM21       |   3.0704E-03 :   3.0704E-03 :   3.0704E-03 :
+        28 |         41   |  CM22       |   3.0124E-03 :   3.0124E-03 :   3.0124E-03 :
+        29 |         42   |  CM23       |   2.8827E-03 :   2.8827E-03 :   2.8827E-03 :
+        30 |         43   |  CM24       |   3.0433E-03 :   3.0433E-03 :   3.0433E-03 :
+        31 |         44   |  CM25       |   2.9628E-03 :   2.9628E-03 :   2.9628E-03 :
+        32 |         45   |  CM26       |   2.9800E-03 :   2.9800E-03 :   2.9800E-03 :
+        33 |         50   |  CM31       |   2.9524E-03 :   2.9524E-03 :   2.9524E-03 :
+        34 |         51   |  CM32       |   2.9979E-03 :   2.9979E-03 :   2.9979E-03 :
+        35 |         52   |  CM33       |   3.0356E-03 :   3.0356E-03 :   3.0356E-03 :
+        36 |         53   |  CM34       |   3.0895E-03 :   3.0895E-03 :   3.0895E-03 :
+        37 |         54   |  CM35       |   3.0529E-03 :   3.0529E-03 :   3.0529E-03 :
+        38 |         55   |  CM36       |   2.8732E-03 :   2.8732E-03 :   2.8732E-03 :
+        39 |         56   |  CM37       |   3.0321E-03 :   3.0321E-03 :   3.0321E-03 :
+        40 |         57   |  CM38       |   3.0890E-03 :   3.0890E-03 :   3.0890E-03 :
+        41 |         58   |  CM39       |   3.0161E-03 :   3.0161E-03 :   3.0161E-03 :
+        42 |         60   |  CM41       |   6.1723E-03 :   6.1723E-03 :   6.1723E-03 :
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    34
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+ ----------------------------------------------------------------------------------------------------------------------------------
+  INTERNAL |   EXTERNAL   |             |                                                                                          
+   DV. ID. |    DV. ID.   |    LABEL    |   INITIAL    :      1       :      2       :      3       :      4       :      5       :
+ ----------------------------------------------------------------------------------------------------------------------------------
+        43 |         61   |  CM42       |   5.8449E-03 :   5.8449E-03 :   5.8449E-03 :
+ *** USER INFORMATION MESSAGE 6464 (DOM12E)
+     RUN TERMINATED DUE TO HARD CONVERGENCE TO AN OPTIMUM AT CYCLE NUMBER =        2.
+1    MASS SENSITVITY ANALYSIS                                               JANUARY  14, 2021  MSC Nastran  4/ 5/17   PAGE    35
+      BEAM ISOTROPIC MATERIALS                                                                                                      
+0                                                                                                                                   
+ * * * *  D B D I C T   P R I N T  * * * *      SUBDMAP = PRTSUM  ,  DMAP STATEMENT NO.     71
+
+
+
+0                                   * * * *  A N A L Y S I S  S U M M A R Y  T A B L E  * * * *
+0 SEID  PEID PROJ VERS APRCH      SEMG SEMR SEKR SELG SELR MODES DYNRED SOLLIN PVALID SOLNL LOOPID DESIGN CYCLE SENSITIVITY
+ --------------------------------------------------------------------------------------------------------------------------
+     0     0    1    1 '        '    T    T    T    T    T     F      F      T      0     F     -1            3           T
+     0     0    1    1 '        '    T    T    T    T    T     F      F      T      0     F     -1            3           F
+0SEID = SUPERELEMENT ID.
+ PEID = PRIMARY SUPERELEMENT ID OF IMAGE SUPERELEMENT.
+ PROJ = PROJECT ID NUMBER.
+ VERS = VERSION ID.
+ APRCH = BLANK FOR STRUCTURAL ANALYSIS.  HEAT FOR HEAT TRANSFER ANALYSIS.
+ SEMG = STIFFNESS AND MASS MATRIX GENERATION STEP.
+ SEMR = MASS MATRIX REDUCTION STEP (INCLUDES EIGENVALUE SOLUTION FOR MODES).
+ SEKR = STIFFNESS MATRIX REDUCTION STEP.
+ SELG = LOAD MATRIX GENERATION STEP.
+ SELR = LOAD MATRIX REDUCTION STEP. 
+ MODES = T (TRUE) IF NORMAL MODES OR BUCKLING MODES CALCULATED.
+ DYNRED = T (TRUE) MEANS GENERALIZED DYNAMIC AND/OR COMPONENT MODE REDUCTION PERFORMED.
+ SOLLIN = T (TRUE) IF LINEAR SOLUTION EXISTS IN DATABASE.
+ PVALID = P-DISTRIBUTION ID OF P-VALUE FOR P-ELEMENTS
+ LOOPID = THE LAST LOOPID VALUE USED IN THE NONLINEAR ANALYSIS.  USEFUL FOR RESTARTS.
+ SOLNL = T (TRUE) IF NONLINEAR SOLUTION EXISTS IN DATABASE.
+ DESIGN CYCLE = THE LAST DESIGN CYCLE (ONLY VALID IN OPTIMIZATION).
+ SENSITIVITY = SENSITIVITY MATRIX GENERATION FLAG.
+ 
+ No PARAM values were set in the Control File.
+ 
+1                                        * * * END OF JOB * * *
+ 
+ 
+ No Symbolic Replacement variables or values were specified.
+
