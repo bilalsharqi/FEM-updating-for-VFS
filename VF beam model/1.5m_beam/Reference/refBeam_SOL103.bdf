@@ -1,0 +1,29 @@
+NASTRAN NLINES=9999999
+NASTRAN BUFFSIZE=65537
+NASTRAN SYSTEM (151)=1
+
+SOL 103
+CEND
+
+TITLE = refBeam Nonlinear Modal
+ECHO = NONE
+RIGID = LAGR 
+
+SUBCASE 1
+	ANALYSIS = MODES
+	SPC = 777
+	METHOD = 1
+	VECTOR(SORT1,PRINT,REAL)=ALL
+
+BEGIN BULK
+
+$ Include the model info
+INCLUDE 'refBeam.bdf'
+
+$ Describe the analysis
+
+PARAM   PRTMAXIM YES
+
+EIGRL   1       0.      1000.   8       0                       MASS
+
+ENDDATA
