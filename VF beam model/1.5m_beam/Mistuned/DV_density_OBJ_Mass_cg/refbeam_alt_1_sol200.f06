@@ -1,0 +1,1500 @@
+1
+ 
+ 
+ 
+ 
+                      Warning: This computer program is protected by copyright law and international treaties.       
+                  Unauthorized use, reproduction or distribution of this computer program, or any portion of it, may 
+                                          result in severe civil and criminal penalties.                             
+                         Copyright (C) 2018 MSC Software Corporation and its licensors. All rights reserved.         
+ 
+ 
+                                              * * * * * * * * * * * * * * * * * * * *
+                                              * * * * * * * * * * * * * * * * * * * *
+                                              * *                                 * *
+                                              * *           MSC Software          * *
+                                              * *               CORP              * *
+                                              * *                                 * *
+                                              * *      M S C   N a s t r a n      * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *     Version 2019.0.0-CL621679   * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *          DEC 18, 2018           * *
+                                              * *                                 * *
+                                              * *              Intel              * *
+                                              * *  MODEL Xeon/3727 (COOL1934P05)  * *
+                                              * * Windows 10 Enterprise 6.2 9200  * *
+                                              * * Compiled for 8664 (SINGLE Mode) * *
+                                              * *                                 * *
+                                              * * * * * * * * * * * * * * * * * * * *
+                                              * * * * * * * * * * * * * * * * * * * *
+1News file - (November 7, 2018)
+  
+               Welcome to MSC Nastran 2019.0
+  
+  
+   MSC Nastran brings powerful new features and enhancements for engineering
+   solutions.
+  
+     Dynamics
+     -  RFORCE and GRAV loads can now be optionally applied to a subset of
+        the model
+  
+     SOL 128 (Nonlinear Harmonics) Rotordynamics Enhancements
+     -  Option to reset initial conditions
+     -  Nonlinear load output
+     -  Output for multiple harmonics
+     -  Support for continuation procedure for frequency-independent analysis
+  
+     Pyramid Element
+     -  The linear and quadratic pyramid element is available in linear
+        solutions: statics, modes, buckling, frequency and transient dynamics,
+        linear contact, acoustics, fatigue, rotordynamics, aeroelasticity and
+        design optimization
+     -  The element is also available in SOL 400 for linear, nlstatics,
+        nltransient and linear perturbation solutions
+  
+     Assembly
+     -  Module Instantiation:  Allow copy of a primary Module to create
+        a secondary Module at a new position by translation, rotation and mirror
+  
+     Contact
+     -  Support geometry adjustment of initial stress free in S2S Contact
+     -  Support model check output in S2S Contact
+     -  Allow user input minimum angle between segments on BCPARA
+  
+     SOL 400 Implicit Nonlinear Analysis
+     -  Support Automatic SGLUE setup for permanent glued contact with large
+        deformation
+     -  Reduce the debug output when using "NLOPRM NLDBG(N3DSUM)"
+     -  Support MONPNT1, MONPNT3, MONSUM, MONSUM1, and MONSUMT in NLSTAT
+        and NLTRAN
+  
+     SOL 700 Explicit Nonlinear Analysis
+     -  Support failure of ACS surface and DMP of ACS algorithm
+     -  Support Occupant Safety, including Articulated Total Body (ATB),
+        Initial Metric Method (IMM) and Air bag fabric material model (MATFAB)
+     -  Support Viscoelastic Material (MATVE), Localized Cohesive friction, and
+        User Defined Services (UDS)
+  
+     High Performance Computing (HPC)
+1    -  Improved performance and scalability of acoustic coupling reduction
+        with ACMS for large models
+     -  Improved performance for ACMS Phase 1 for large solid models
+     -  Improved performance (up to 10X) in the RANDOM module
+     -  New DMP implementation for Panel Participation factor calculation
+        (PFCALC) with linear parallel scaling
+     -  Performance enhancements for FASTFR through shared-memory
+        parallelization (SMP) of frequency processing
+  
+  
+     Results HDF5 Database
+     -  Support outputs of Aerodynamic solution SOL144, 145 and 146 results
+     -  Support Modal effective  mass, Modules,  Contact Check and
+        Global contact body data
+     -  Support Bar/Beam end loads under the shear stress effect of 2D elements
+  
+  
+     Documentation
+     The complete documentation set is provided in a separate installer and
+     when installed is available at: MSC_DOC_DIR/doc/pdf_nastran directory.
+     Where MSC_DOC_DIR is the directory where documentation was installed
+     This help set has cross references between documents, links to how-to
+     videos, and example files.
+  
+     Individual MSC Nastran documents are available for download from the
+       Simcompanion Website at:
+       http://simcompanion.mscsoftware.com/
+  
+     These documents were updated for the MSC Nastran 2019 Release
+  
+         1.  MSC Nastran 2019.0 Installation and Operations Guide
+         2.  MSC Nastran 2019.0 Quick Reference Guide
+         3.  MSC Nastran 2019.0 Release Guide
+         4.  MSC Nastran 2019.0 Linear Statics Analysis User's Guide
+         5.  MSC Nastran 2019.0 Dynamic Analysis User's Guide
+         6.  MSC Nastran 2019.0 Superelements User's Guide
+         7.  MSC Nastran 2019.0 Rotordynamics User's Guide
+         8.  MSC Nastran 2019.0 Demonstration Problems Manual
+         9.  MSC Nastran 2019.0 Nastran Embedded Fatigue User's Guide
+        10.  MSC Nastran 2019.0 Design Sensitivity and Optimization
+        11.  MSC Nastran 2019.0 Nonlinear User's Guide SOL 400
+        12.  MSC Nastran 2019.0 DMAP Programmer's Guide
+        13.  MSC Nastran 2019.0 High Performance Computing User's Guide
+        14.  MSC Nastran 2019.0 DEMATD Guide
+        15.  MSC Nastran 2019.0 Explicit Nonlinear (SOL 700) User's Guide
+  
+   Please refer to  MSC_DOC_DIR/doc/pdf_nastran/nastran_library.pdf
+   for the complete document set:
+  
+  
+1  Additional information about the release can be found at the MSC Nastran
+   Product Support page: http://simcompanion.mscsoftware.com
+  
+   The support page provides links to these valuable information:
+      * A searchable Knowledge Base containing examples and answers to thousands
+        of frequently asked questions written by MSC Software subject-matter
+        experts.
+      * Peer-to-peer Discussion Forums enabling you to post questions for your
+        MSC Software products and receive answers from other users worldwide.
+      * A list of known issues with the product and any workarounds.
+      * Instructions on how to contact technical support
+      * A mechanism for sending us product feedback or enhancement requests.
+      * Hardware and software requirements.
+      * Examples and Tutorials
+      * and much more.
+  
+   For information on training, please visit our Training web site
+  
+      http://www.mscsoftware.com/Contents/Services/Training/
+  
+1                                                                             MARCH  29, 2021  MSC Nastran 12/18/18   PAGE     1
+                                                                                                                                    
+0        N A S T R A N    F I L E    A N D    S Y S T E M    P A R A M E T E R    E C H O                                           
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     $ SYSFIELD=SCR*(RAW=YES,BUFFIO=YES,WNUM=16,WSIZE=16MB) $(C:/MSC.SOFTWARE/MSC_NAS
+     $ SYSFIELD=DBALL(RAW=YES,BUFFIO=YES,WNUM=16,WSIZE=16MB) $(C:/MSC.SOFTWARE/MSC_NA
+     NASTRAN BUFFSIZE=32769 $(C:/MSC.SOFTWARE/MSC_NASTRAN/20190/CONF/NAST20190.RCF[6]
+1                                                                             MARCH  29, 2021  MSC Nastran 12/18/18   PAGE     2
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    E C H O                                                             
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     SOL 200                                                                                 
+     CEND                                                                                    
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L    E C H O                                                        
+                 COMMAND                                                                                                            
+                 COUNT                                                                                                              
+                  1                                                                                              
+                  2      TITLE = REFBEAM OPTIMIZATION                                                            
+                  3      ECHO = NONE                                                                             
+                  4                                                                                              
+                  5      ANALYSIS = STATICS                                                                      
+                  6      SUBCASE 1                                                                               
+                  7              DESOBJ(MIN) = 999                                                               
+                  8      $       MODTRAK = 888                                                                   
+                  9              SUBTITLE = DEFAULT                                                              
+                 10      $       METHOD = 1                                                                      
+                 11              LOAD = 1111                                                                     
+                 12              SPC = 777                                                                       
+                 13              DISPLACEMENT(SORT1,REAL) = ALL                                                  
+                 14      $       VECTOR(SORT1,REAL) = ALL                                                        
+                 15                                                                                              
+                 16      BEGIN BULK                                                                              
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE     4
+                                                                                                                                    
+0                                                                                                                                   
+                                              I N P U T   B U L K   D A T A   E C H O                                               
+                 ENTRY                                                                                                              
+                 COUNT        .   1  ..   2  ..   3  ..   4  ..   5  ..   6  ..   7  ..   8  ..   9  ..  10  .                      
+                              $INCLUDE "z:\Desktop\Research\FEM Updating\Nastran Data\Mistuned\refBeam_Alt_1.bdf"
+                              $END OF INCLUDE "z:\Desktop\Research\FEM Updating\Nastran Data\Mistuned\refBeam_Alt_1.bdf"
+                              $INCLUDE "z:\Desktop\Research\FEM Updating\Nastran Data\Mistuned\refBeam_Alt_1_design_data.bdf"
+                              $END OF INCLUDE "z:\Desktop\Research\FEM Updating\Nastran Data\Mistuned\refBeam_Alt_1_design_data.bdf"
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE     5
+                                                                                                                                    
+0                                                                                                                                   
+                                        M O D E L   S U M M A R Y          BULK = 0
+                                   ENTRY NAME        NUMBER OF ENTRIES
+                                   ----------        -----------------
+                                        CBEAM                      150
+                                       DEQATN                        2
+                                       DESVAR                       15
+                                      DOPTPRM                        1
+                                       DRESP1                        5
+                                       DRESP2                        4
+                                      DVMREL1                       15
+                                         GRAV                        1
+                                         GRID                      151
+                                         LOAD                        1
+                                         MAT1                       15
+                                        PARAM                        1
+                                       PBEAML                       15
+                                         SPC1                        1
+                                       SPCADD                        1
+
+ ^^^     
+ ^^^ >>> IFP OPERATIONS COMPLETE <<< 
+ ^^^     
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE     6
+                                                                                                                                    
+0                                                                                                                                   
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE     7
+                                                                                                                                    
+0                                                                                                                                   
+
+ THERE ARE       150 BEAM     ELEMENTS. FIRST EID =         1 LAST EID =       150
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE     8
+                                                                                                                                    
+0                                                                                                                                   
+
+
+           -----   COMPARISON BETWEEN INPUT MATERIAL PROPERTY VALUES FROM ANALYSIS AND DESIGN MODELS -----
+
+     ---------------------------------------------------------------------------------------------------------------
+      MATERIAL   MATERIAL   MATERIAL     ANALYSIS         DESIGN          LOWER           UPPER       DIFFERENCE
+        TYPE        ID        NAME         VALUE          VALUE           BOUND           BOUND          FLAG
+     ---------------------------------------------------------------------------------------------------------------
+      MAT1               1       RHO    2.715105E+03    2.715105E+03        N/A             N/A           NONE 
+      MAT1               2       RHO    2.634789E+03    2.634789E+03        N/A             N/A           NONE 
+      MAT1               3       RHO    2.619327E+03    2.619327E+03        N/A             N/A           NONE 
+      MAT1               4       RHO    2.580562E+03    2.580562E+03        N/A             N/A           NONE 
+      MAT1               5       RHO    2.566318E+03    2.566318E+03        N/A             N/A           NONE 
+      MAT1               6       RHO    2.774154E+03    2.774154E+03        N/A             N/A           NONE 
+      MAT1               7       RHO    2.725635E+03    2.725635E+03        N/A             N/A           NONE 
+      MAT1               8       RHO    2.629975E+03    2.629975E+03        N/A             N/A           NONE 
+      MAT1               9       RHO    2.755297E+03    2.755297E+03        N/A             N/A           NONE 
+      MAT1              10       RHO    2.624046E+03    2.624046E+03        N/A             N/A           NONE 
+      MAT1              11       RHO    2.665098E+03    2.665098E+03        N/A             N/A           NONE 
+      MAT1              12       RHO    2.694630E+03    2.694630E+03        N/A             N/A           NONE 
+      MAT1              13       RHO    2.796397E+03    2.796397E+03        N/A             N/A           NONE 
+      MAT1              14       RHO    2.662452E+03    2.662452E+03        N/A             N/A           NONE 
+      MAT1              15       RHO    2.707851E+03    2.707851E+03        N/A             N/A           NONE 
+
+     1. THE DIFFERENCE FLAG IS USED TO CHARACTERIZE DIFFERENCES BETWEEN ANALYSIS AND DESIGN MODEL PROPERTIES:
+        IF THE FLAG IS NONE, THEN THERE IS NO SIGNIFICANT DIFFERENCE BETWEEN THE TWO VALUES.
+        IF THE FLAG IS WARNING, THEN THE USER IS ADVISED THAT DIFFERENCES EXIST AND THE DESIGN MODEL
+        IS BEING USED TO OVERRIDE THE ANALYSIS MODEL. 
+        IF THE FLAG IS FATAL, THEN THE DIFFERENCES ARE GREATER THAN  1.00000E+35 AND THE RUN WILL BE TERMINATED.
+ *** USER INFORMATION MESSAGE 7103 (DOPR3)
+     NO DCONSTR ENTRIES ARE SPECIFIED IN THE BULK DATA.
+ *** USER INFORMATION MESSAGE 9024 (SUBDMAP FEA)
+     STIFFNESS, MASS, DAMPING, AND LOAD GENERATION INITIATED.  DESIGN CYCLE NUMBER= 1
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE     9
+                                                                                                                                    
+0                                                                                                                                   
+ *** USER INFORMATION MESSAGE 7310 (VECPRN)
+     ORIGIN OF SUPERELEMENT OR MODULE BASIC COORDINATE SYSTEM WILL BE USED AS REFERENCE LOCATION.
+     RESULTANTS ABOUT ORIGIN OF SUPERELEMENT OR MODULE BASIC COORDINATE SYSTEM IN SUPERELEMENT OR MODULE
+     BASIC SYSTEM COORDINATES.
+0                                                  OLOAD    RESULTANT       
+  SUBCASE/    LOAD
+  DAREA ID    TYPE       T1            T2            T3            R1            R2            R3
+0        1     FX    0.000000E+00     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----       0.000000E+00     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----      -5.908313E+00 -5.908313E+00  1.036136E+01     ----                                  
+               MX       ----          ----          ----       0.000000E+00     ----          ----                                  
+               MY       ----          ----          ----          ----       0.000000E+00     ----                                  
+               MZ       ----          ----          ----          ----          ----       0.000000E+00                             
+             TOTALS  0.000000E+00  0.000000E+00 -5.908313E+00 -5.908313E+00  1.036136E+01  0.000000E+00
+  
+ *** SYSTEM INFORMATION MESSAGE 4159 (DFMSA)
+     THE DECOMPOSITION OF KLL      YIELDS A MAXIMUM MATRIX-TO-FACTOR-DIAGONAL RATIO OF    1.601299E+03
+ *** USER INFORMATION MESSAGE 9051 (SUBDMAP FEA)
+     STATIC   ANALYSIS INITIATED.  DESIGN CYCLE NUMBER= 1
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    10
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+ *** USER INFORMATION MESSAGE 5293 (SSG3A)
+    FOR DATA BLOCK KLL     
+    LOAD SEQ. NO.             EPSILON              EXTERNAL WORK      EPSILONS LARGER THAN 0.001 ARE FLAGGED WITH ASTERISKS
+                1          8.5205333E-09          3.7382619E-01
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    11
+                                                                                                                                    
+0                                                                                                                                   
+0                                                  MAXIMUM  DISPLACEMENTS   
+  SUBCASE/
+  DAREA ID        T1             T2             T3             R1             R2             R3
+0        1   0.0000000E+00  0.0000000E+00  3.1464417E-01  0.0000000E+00  2.8003775E-01  0.0000000E+00
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    12
+                                                                                                                                    
+0                                                                                                                                   
+0                                                  MAXIMUM  APPLIED LOADS   
+  SUBCASE/
+  DAREA ID        T1             T2             T3             R1             R2             R3
+0        1   0.0000000E+00  0.0000000E+00  4.1148982E-02  0.0000000E+00  0.0000000E+00  0.0000000E+00
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    13
+      DEFAULT                                                                                                                       
+0                                                                                                            SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0
+             2      G      0.0            0.0           -2.790690E-05   0.0            5.565602E-03   0.0
+             3      G      0.0            0.0           -1.111001E-04   0.0            1.105737E-02   0.0
+             4      G      0.0            0.0           -2.488438E-04   0.0            1.647581E-02   0.0
+             5      G      0.0            0.0           -4.404072E-04   0.0            2.182142E-02   0.0
+             6      G      0.0            0.0           -6.850646E-04   0.0            2.709470E-02   0.0
+             7      G      0.0            0.0           -9.820951E-04   0.0            3.229616E-02   0.0
+             8      G      0.0            0.0           -1.330783E-03   0.0            3.742631E-02   0.0
+             9      G      0.0            0.0           -1.730418E-03   0.0            4.248563E-02   0.0
+            10      G      0.0            0.0           -2.180294E-03   0.0            4.747464E-02   0.0
+            11      G      0.0            0.0           -2.679710E-03   0.0            5.239384E-02   0.0
+            12      G      0.0            0.0           -3.227089E-03   0.0            5.706775E-02   0.0
+            13      G      0.0            0.0           -3.820875E-03   0.0            6.167534E-02   0.0
+            14      G      0.0            0.0           -4.460407E-03   0.0            6.621707E-02   0.0
+            15      G      0.0            0.0           -5.145029E-03   0.0            7.069342E-02   0.0
+            16      G      0.0            0.0           -5.874090E-03   0.0            7.510485E-02   0.0
+            17      G      0.0            0.0           -6.646942E-03   0.0            7.945184E-02   0.0
+            18      G      0.0            0.0           -7.462943E-03   0.0            8.373486E-02   0.0
+            19      G      0.0            0.0           -8.321457E-03   0.0            8.795437E-02   0.0
+            20      G      0.0            0.0           -9.221850E-03   0.0            9.211085E-02   0.0
+            21      G      0.0            0.0           -1.016349E-02   0.0            9.620476E-02   0.0
+            22      G      0.0            0.0           -1.114629E-02   0.0            1.003415E-01   0.0
+            23      G      0.0            0.0           -1.217014E-02   0.0            1.044151E-01   0.0
+            24      G      0.0            0.0           -1.323442E-02   0.0            1.084259E-01   0.0
+            25      G      0.0            0.0           -1.433848E-02   0.0            1.123744E-01   0.0
+            26      G      0.0            0.0           -1.548173E-02   0.0            1.162611E-01   0.0
+            27      G      0.0            0.0           -1.666353E-02   0.0            1.200866E-01   0.0
+            28      G      0.0            0.0           -1.788328E-02   0.0            1.238512E-01   0.0
+            29      G      0.0            0.0           -1.914038E-02   0.0            1.275554E-01   0.0
+            30      G      0.0            0.0           -2.043422E-02   0.0            1.311998E-01   0.0
+            31      G      0.0            0.0           -2.176420E-02   0.0            1.347847E-01   0.0
+            32      G      0.0            0.0           -2.313009E-02   0.0            1.383797E-01   0.0
+            33      G      0.0            0.0           -2.453163E-02   0.0            1.419151E-01   0.0
+            34      G      0.0            0.0           -2.596822E-02   0.0            1.453914E-01   0.0
+            35      G      0.0            0.0           -2.743929E-02   0.0            1.488091E-01   0.0
+            36      G      0.0            0.0           -2.894424E-02   0.0            1.521686E-01   0.0
+            37      G      0.0            0.0           -3.048249E-02   0.0            1.554705E-01   0.0
+            38      G      0.0            0.0           -3.205348E-02   0.0            1.587152E-01   0.0
+            39      G      0.0            0.0           -3.365663E-02   0.0            1.619032E-01   0.0
+            40      G      0.0            0.0           -3.529139E-02   0.0            1.650350E-01   0.0
+            41      G      0.0            0.0           -3.695717E-02   0.0            1.681110E-01   0.0
+            42      G      0.0            0.0           -3.865382E-02   0.0            1.712051E-01   0.0
+            43      G      0.0            0.0           -4.038112E-02   0.0            1.742431E-01   0.0
+            44      G      0.0            0.0           -4.213852E-02   0.0            1.772255E-01   0.0
+            45      G      0.0            0.0           -4.392547E-02   0.0            1.801528E-01   0.0
+            46      G      0.0            0.0           -4.574142E-02   0.0            1.830254E-01   0.0
+            47      G      0.0            0.0           -4.758582E-02   0.0            1.858439E-01   0.0
+            48      G      0.0            0.0           -4.945814E-02   0.0            1.886088E-01   0.0
+            49      G      0.0            0.0           -5.135784E-02   0.0            1.913205E-01   0.0
+            50      G      0.0            0.0           -5.328440E-02   0.0            1.939795E-01   0.0
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    14
+      DEFAULT                                                                                                                       
+0                                                                                                            SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            51      G      0.0            0.0           -5.523728E-02   0.0            1.965864E-01   0.0
+            52      G      0.0            0.0           -5.721608E-02   0.0            1.991611E-01   0.0
+            53      G      0.0            0.0           -5.922036E-02   0.0            2.016844E-01   0.0
+            54      G      0.0            0.0           -6.124962E-02   0.0            2.041565E-01   0.0
+            55      G      0.0            0.0           -6.330334E-02   0.0            2.065783E-01   0.0
+            56      G      0.0            0.0           -6.538104E-02   0.0            2.089500E-01   0.0
+            57      G      0.0            0.0           -6.748220E-02   0.0            2.112724E-01   0.0
+            58      G      0.0            0.0           -6.960635E-02   0.0            2.135459E-01   0.0
+            59      G      0.0            0.0           -7.175298E-02   0.0            2.157711E-01   0.0
+            60      G      0.0            0.0           -7.392163E-02   0.0            2.179484E-01   0.0
+            61      G      0.0            0.0           -7.611182E-02   0.0            2.200785E-01   0.0
+            62      G      0.0            0.0           -7.832265E-02   0.0            2.220785E-01   0.0
+            63      G      0.0            0.0           -8.055326E-02   0.0            2.240341E-01   0.0
+            64      G      0.0            0.0           -8.280320E-02   0.0            2.259459E-01   0.0
+            65      G      0.0            0.0           -8.507205E-02   0.0            2.278143E-01   0.0
+            66      G      0.0            0.0           -8.735937E-02   0.0            2.296398E-01   0.0
+            67      G      0.0            0.0           -8.966473E-02   0.0            2.314231E-01   0.0
+            68      G      0.0            0.0           -9.198771E-02   0.0            2.331644E-01   0.0
+            69      G      0.0            0.0           -9.432790E-02   0.0            2.348645E-01   0.0
+            70      G      0.0            0.0           -9.668488E-02   0.0            2.365237E-01   0.0
+            71      G      0.0            0.0           -9.905825E-02   0.0            2.381425E-01   0.0
+            72      G      0.0            0.0           -1.014473E-01   0.0            2.396662E-01   0.0
+            73      G      0.0            0.0           -1.038515E-01   0.0            2.411519E-01   0.0
+            74      G      0.0            0.0           -1.062703E-01   0.0            2.426002E-01   0.0
+            75      G      0.0            0.0           -1.087034E-01   0.0            2.440114E-01   0.0
+            76      G      0.0            0.0           -1.111504E-01   0.0            2.453860E-01   0.0
+            77      G      0.0            0.0           -1.136110E-01   0.0            2.467246E-01   0.0
+            78      G      0.0            0.0           -1.160848E-01   0.0            2.480275E-01   0.0
+            79      G      0.0            0.0           -1.185714E-01   0.0            2.492954E-01   0.0
+            80      G      0.0            0.0           -1.210706E-01   0.0            2.505285E-01   0.0
+            81      G      0.0            0.0           -1.235819E-01   0.0            2.517274E-01   0.0
+            82      G      0.0            0.0           -1.261052E-01   0.0            2.529290E-01   0.0
+            83      G      0.0            0.0           -1.286404E-01   0.0            2.540963E-01   0.0
+            84      G      0.0            0.0           -1.311871E-01   0.0            2.552299E-01   0.0
+            85      G      0.0            0.0           -1.337449E-01   0.0            2.563301E-01   0.0
+            86      G      0.0            0.0           -1.363136E-01   0.0            2.573976E-01   0.0
+            87      G      0.0            0.0           -1.388927E-01   0.0            2.584329E-01   0.0
+            88      G      0.0            0.0           -1.414821E-01   0.0            2.594364E-01   0.0
+            89      G      0.0            0.0           -1.440814E-01   0.0            2.604086E-01   0.0
+            90      G      0.0            0.0           -1.466902E-01   0.0            2.613502E-01   0.0
+            91      G      0.0            0.0           -1.493083E-01   0.0            2.622615E-01   0.0
+            92      G      0.0            0.0           -1.519352E-01   0.0            2.631159E-01   0.0
+            93      G      0.0            0.0           -1.545705E-01   0.0            2.639419E-01   0.0
+            94      G      0.0            0.0           -1.572140E-01   0.0            2.647401E-01   0.0
+            95      G      0.0            0.0           -1.598653E-01   0.0            2.655109E-01   0.0
+            96      G      0.0            0.0           -1.625241E-01   0.0            2.662548E-01   0.0
+            97      G      0.0            0.0           -1.651903E-01   0.0            2.669722E-01   0.0
+            98      G      0.0            0.0           -1.678635E-01   0.0            2.676636E-01   0.0
+            99      G      0.0            0.0           -1.705435E-01   0.0            2.683295E-01   0.0
+           100      G      0.0            0.0           -1.732300E-01   0.0            2.689703E-01   0.0
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    15
+      DEFAULT                                                                                                                       
+0                                                                                                            SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G      0.0            0.0           -1.759228E-01   0.0            2.695866E-01   0.0
+           102      G      0.0            0.0           -1.786218E-01   0.0            2.702110E-01   0.0
+           103      G      0.0            0.0           -1.813270E-01   0.0            2.708106E-01   0.0
+           104      G      0.0            0.0           -1.840380E-01   0.0            2.713856E-01   0.0
+           105      G      0.0            0.0           -1.867546E-01   0.0            2.719368E-01   0.0
+           106      G      0.0            0.0           -1.894766E-01   0.0            2.724645E-01   0.0
+           107      G      0.0            0.0           -1.922038E-01   0.0            2.729693E-01   0.0
+           108      G      0.0            0.0           -1.949360E-01   0.0            2.734516E-01   0.0
+           109      G      0.0            0.0           -1.976728E-01   0.0            2.739120E-01   0.0
+           110      G      0.0            0.0           -2.004141E-01   0.0            2.743510E-01   0.0
+           111      G      0.0            0.0           -2.031598E-01   0.0            2.747690E-01   0.0
+           112      G      0.0            0.0           -2.059094E-01   0.0            2.751519E-01   0.0
+           113      G      0.0            0.0           -2.086627E-01   0.0            2.755157E-01   0.0
+           114      G      0.0            0.0           -2.114197E-01   0.0            2.758607E-01   0.0
+           115      G      0.0            0.0           -2.141799E-01   0.0            2.761875E-01   0.0
+           116      G      0.0            0.0           -2.169434E-01   0.0            2.764966E-01   0.0
+           117      G      0.0            0.0           -2.197098E-01   0.0            2.767885E-01   0.0
+           118      G      0.0            0.0           -2.224791E-01   0.0            2.770636E-01   0.0
+           119      G      0.0            0.0           -2.252510E-01   0.0            2.773224E-01   0.0
+           120      G      0.0            0.0           -2.280255E-01   0.0            2.775655E-01   0.0
+           121      G      0.0            0.0           -2.308023E-01   0.0            2.777933E-01   0.0
+           122      G      0.0            0.0           -2.335813E-01   0.0            2.780094E-01   0.0
+           123      G      0.0            0.0           -2.363624E-01   0.0            2.782110E-01   0.0
+           124      G      0.0            0.0           -2.391455E-01   0.0            2.783986E-01   0.0
+           125      G      0.0            0.0           -2.419304E-01   0.0            2.785727E-01   0.0
+           126      G      0.0            0.0           -2.447169E-01   0.0            2.787339E-01   0.0
+           127      G      0.0            0.0           -2.475050E-01   0.0            2.788827E-01   0.0
+           128      G      0.0            0.0           -2.502945E-01   0.0            2.790195E-01   0.0
+           129      G      0.0            0.0           -2.530854E-01   0.0            2.791450E-01   0.0
+           130      G      0.0            0.0           -2.558774E-01   0.0            2.792595E-01   0.0
+           131      G      0.0            0.0           -2.586705E-01   0.0            2.793636E-01   0.0
+           132      G      0.0            0.0           -2.614647E-01   0.0            2.794592E-01   0.0
+           133      G      0.0            0.0           -2.642597E-01   0.0            2.795453E-01   0.0
+           134      G      0.0            0.0           -2.670555E-01   0.0            2.796224E-01   0.0
+           135      G      0.0            0.0           -2.698521E-01   0.0            2.796910E-01   0.0
+           136      G      0.0            0.0           -2.726493E-01   0.0            2.797515E-01   0.0
+           137      G      0.0            0.0           -2.754471E-01   0.0            2.798045E-01   0.0
+           138      G      0.0            0.0           -2.782454E-01   0.0            2.798505E-01   0.0
+           139      G      0.0            0.0           -2.810441E-01   0.0            2.798900E-01   0.0
+           140      G      0.0            0.0           -2.838432E-01   0.0            2.799234E-01   0.0
+           141      G      0.0            0.0           -2.866426E-01   0.0            2.799513E-01   0.0
+           142      G      0.0            0.0           -2.894422E-01   0.0            2.799746E-01   0.0
+           143      G      0.0            0.0           -2.922420E-01   0.0            2.799933E-01   0.0
+           144      G      0.0            0.0           -2.950421E-01   0.0            2.800079E-01   0.0
+           145      G      0.0            0.0           -2.978422E-01   0.0            2.800189E-01   0.0
+           146      G      0.0            0.0           -3.006424E-01   0.0            2.800268E-01   0.0
+           147      G      0.0            0.0           -3.034427E-01   0.0            2.800321E-01   0.0
+           148      G      0.0            0.0           -3.062431E-01   0.0            2.800353E-01   0.0
+           149      G      0.0            0.0           -3.090434E-01   0.0            2.800370E-01   0.0
+           150      G      0.0            0.0           -3.118438E-01   0.0            2.800376E-01   0.0
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    16
+      DEFAULT                                                                                                                       
+0                                                                                                            SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           151      G      0.0            0.0           -3.146442E-01   0.0            2.800378E-01   0.0
+ *** USER INFORMATION MESSAGE 9052 (SUBDMAP FEA)
+     STATIC   ANALYSIS COMPLETED.  DESIGN CYCLE NUMBER= 1
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    17
+                                                                                                                                    
+0                                                                                                                                   
+
+
+
+                     THIS IS THE FIRST ANALYSIS - NO CONVERGENCE CHECK
+                     -------------------------------------------------------
+                      MAXIMUM VALUE OF CONSTRAINTS           :    N/A     
+                     -------------------------------------------------------
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    18
+                                                                                                                                    
+0                                                                                                                                   
+
+
+
+                                ********************************************************************
+                                *                                                                  *
+                                *                                                                  *
+                                *                D E S I G N    O P T I M I Z A T I O N            *
+                                *                                                                  *
+                                *                                                                  *
+                                ********************************************************************
+
+
+
+                                         ***********************************************
+                                         *                                             *
+                                         *       I N I T I A L   A N A L Y S I S       *
+                                         *                                             *
+                                         ***********************************************
+
+
+
+                                    *******   ANALYSIS RESULTS BASED ON THE INITIAL DESIGN   *******
+
+
+                                                  -----   DESIGN OBJECTIVE   -----
+
+     ----------------------------------------------------------------------------------------------------
+                INTERNAL                            MINIMIZE                                                           
+                RESPONSE                RESPONSE       OR       SUPERELEMENT    SUBCASE
+                   ID        DRESPx       TYPE      MAXIMIZE         ID            ID          VALUE   
+     ----------------------------------------------------------------------------------------------------
+                       4     DRESP2        N/A      MINIMIZE         N/A          N/A        7.8439E-05
+
+
+                                                  -----   DESIGN VARIABLES   -----
+
+     ---------------------------------------------------------------------------------------------------------
+            INTERNAL       DESVAR                         LOWER                               UPPER   
+               ID            ID          LABEL            BOUND             VALUE             BOUND   
+     ---------------------------------------------------------------------------------------------------------
+                   1           101      RHO1            2.5650E+03        2.7151E+03        2.8350E+03
+                   2           102      RHO2            2.5650E+03        2.6348E+03        2.8350E+03
+                   3           103      RHO3            2.5650E+03        2.6193E+03        2.8350E+03
+                   4           104      RHO4            2.5650E+03        2.5806E+03        2.8350E+03
+                   5           105      RHO5            2.5650E+03        2.5663E+03        2.8350E+03
+                   6           106      RHO6            2.5650E+03        2.7742E+03        2.8350E+03
+                   7           107      RHO7            2.5650E+03        2.7256E+03        2.8350E+03
+                   8           108      RHO8            2.5650E+03        2.6300E+03        2.8350E+03
+                   9           109      RHO9            2.5650E+03        2.7553E+03        2.8350E+03
+                  10           110      RHO10           2.5650E+03        2.6240E+03        2.8350E+03
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    19
+                                                                                                                                    
+0                                                                                                                                   
+
+
+                                                  -----   DESIGN VARIABLES   -----
+
+     ---------------------------------------------------------------------------------------------------------
+            INTERNAL       DESVAR                         LOWER                               UPPER   
+               ID            ID          LABEL            BOUND             VALUE             BOUND   
+     ---------------------------------------------------------------------------------------------------------
+                  11           111      RHO11           2.5650E+03        2.6651E+03        2.8350E+03
+                  12           112      RHO12           2.5650E+03        2.6946E+03        2.8350E+03
+                  13           113      RHO13           2.5650E+03        2.7964E+03        2.8350E+03
+                  14           114      RHO14           2.5650E+03        2.6625E+03        2.8350E+03
+                  15           115      RHO15           2.5650E+03        2.7079E+03        2.8350E+03
+ *** SYSTEM INFORMATION MESSAGE 6649 (ADS9S)
+     MSCADS METHOD = 1 (MMFD) HAS BEEN SELECTED FOR DESIGN CYCLE =          1.
+
+
+
+
+
+
+
+
+                            M S C . A D S
+
+
+              E N H A N C E D   A D S   P R O G R A M
+
+                                F O R
+
+         A U T O M A T E D   D E S I G N   S Y N T H E S I S
+
+
+
+     MINMAX = -1 : THE OBJECTIVE FUNCTION WILL BE MINIMIZED
+     METHOD =  1 : MODIFIED METHOD OF FEASIBLE DIRECTIONS WILL BE USED
+
+     ADS CONTROL PARAMETERS
+     ISTRAT =    0    IOPT   =    3    IONED  =    2    IPRINT =    2
+     IGRAD  =    1    NDV    =   15    NCON   =    0
+1
+
+     SCALAR PROGRAM PARAMETERS
+     REAL PARAMETERS
+       1) ALAMDZ =  0.00000E+00     20) EXTRAP =  5.00000E+00
+       2) BETAMC =  0.00000E+00     21) FDCH   =  1.00000E-02
+       3) CT     = -3.00000E-02     22) FDCHM  =  1.00000E-03
+       4) CTL    = -5.00000E-03     23) GMULTZ =  1.00000E+01
+       5) CTLMIN =  1.00000E-03     24) PSAIZ  =  9.50000E-01
+       6) CTMIN  =  3.00000E-03     25) RMULT  =  5.00000E+00
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    20
+                                                                                                                                    
+0                                                                                                                                   
+       7) DABALP =  1.00000E-04     26) RMVLMZ =  2.00000E-01
+       8) DABOBJ =  7.84393E-09     27) RP     =  1.00000E+01
+       9) DABOBM =  1.56879E-08     28) RPMAX  =  1.00000E+10
+      10) DABSTR =  7.84393E-09     29) RPMULT =  2.00000E-01
+      11) DELALP =  5.00000E-03     30) RPPMIN =  1.00000E-10
+      12) DELOBJ =  1.00000E-03     31) RPPRIM =  1.00000E+02
+      13) DELOBM =  1.00000E-03     32) SCFO   =  1.00000E+00
+      14) DELSTR =  1.00000E-03     33) SCLMIN =  1.00000E-03
+      15) DOBJ1  =  1.00000E-01     34) STOL   =  1.00000E-03
+      16) DOBJ2  =  2.00000E-01     35) THETAZ =  1.00000E-01
+      17) DX1    =  1.00000E-02     36) XMULT  =  2.61803E+00
+      18) DX2    =  5.59279E+02     37) ZRO    =  1.00000E-06
+      19) EPSPEN = -5.00000E-02     38) PMLT   =  1.00000E+01
+
+     INTEGER PARAMETERS
+       1) ICNDIR =   16      4) ITRMOP =    2      7) JTMAX  =   20
+       2) ISCAL  =    1      5) ITRMST =    2      8) IGRAD  =    1
+       3) ITMAX  =  100      6) JONED  =    2      9) IWRITE =    6
+
+     ARRAY STORAGE REQUIREMENTS
+                      DIMENSIONED                  REQUIRED
+     ARRAY                   SIZE                      SIZE
+       WK                    5490                       515
+      IWK                     220                       217
+1
+
+
+     ---------------------------------------------------------------------------
+                    IOPT = 3; VARIABLE METRIC METHOD -- BFGS ---
+     ---------------------------------------------------------------------------
+
+
+     INITIAL DESIGN
+
+
+     OBJ = 7.84393E-05
+
+     DECISION VARIABLES (X-VECTOR)
+        1)   2.71511E+03   2.63479E+03   2.61933E+03   2.58056E+03   2.56632E+03
+        6)   2.77415E+03   2.72564E+03   2.62997E+03   2.75530E+03   2.62405E+03
+       11)   2.66510E+03   2.69463E+03   2.79640E+03   2.66245E+03   2.70785E+03
+
+
+     -- ITERATION    1   OBJ = 3.99101E-06
+
+     DECISION VARIABLES (X-VECTOR)
+        1)   2.74145E+03   2.65928E+03   2.64322E+03   2.60344E+03   2.58865E+03
+        6)   2.79989E+03   2.75014E+03   2.65247E+03   2.77964E+03   2.64581E+03
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    21
+                                                                                                                                    
+0                                                                                                                                   
+       11)   2.68722E+03   2.71691E+03   2.82003E+03   2.68355E+03   2.72934E+03
+
+
+     -- ITERATION    2   OBJ = 3.02303E-06
+
+     DECISION VARIABLES (X-VECTOR)
+        1)   2.74226E+03   2.66114E+03   2.64552E+03   2.60637E+03   2.59198E+03
+        6)   2.80190E+03   2.75154E+03   2.65254E+03   2.77836E+03   2.64341E+03
+       11)   2.68348E+03   2.71179E+03   2.81312E+03   2.67602E+03   2.72023E+03
+
+
+     -- ITERATION    3   OBJ = 2.71967E-06
+
+     DECISION VARIABLES (X-VECTOR)
+        1)   2.74226E+03   2.66114E+03   2.64552E+03   2.60637E+03   2.59198E+03
+        6)   2.80190E+03   2.75289E+03   2.65627E+03   2.78285E+03   2.64594E+03
+       11)   2.68416E+03   2.71052E+03   2.80964E+03   2.67094E+03   2.71300E+03
+
+
+     -- ITERATION    4   OBJ = 2.50880E-06
+
+     DECISION VARIABLES (X-VECTOR)
+        1)   2.74226E+03   2.66114E+03   2.64552E+03   2.60637E+03   2.59198E+03
+        6)   2.80190E+03   2.75289E+03   2.65627E+03   2.78285E+03   2.65029E+03
+       11)   2.69175E+03   2.71368E+03   2.80808E+03   2.66503E+03   2.70223E+03
+
+
+     -- ITERATION    5   OBJ = 2.48202E-06
+
+     DECISION VARIABLES (X-VECTOR)
+        1)   2.74226E+03   2.66114E+03   2.64552E+03   2.60637E+03   2.59198E+03
+        6)   2.80190E+03   2.75289E+03   2.65627E+03   2.78285E+03   2.65029E+03
+       11)   2.69175E+03   2.71373E+03   2.80921E+03   2.66702E+03   2.70530E+03
+
+
+     -- ITERATION    6   OBJ = 2.36472E-06
+
+     DECISION VARIABLES (X-VECTOR)
+        1)   2.74226E+03   2.66114E+03   2.64552E+03   2.60637E+03   2.59198E+03
+        6)   2.80190E+03   2.75289E+03   2.65627E+03   2.78285E+03   2.65029E+03
+       11)   2.69175E+03   2.72158E+03   2.81335E+03   2.66347E+03   2.69407E+03
+
+
+     -- ITERATION    7   OBJ = 2.25391E-06
+
+     DECISION VARIABLES (X-VECTOR)
+        1)   2.74226E+03   2.66114E+03   2.64552E+03   2.60637E+03   2.59198E+03
+        6)   2.80190E+03   2.75289E+03   2.65627E+03   2.78285E+03   2.65029E+03
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    22
+                                                                                                                                    
+0                                                                                                                                   
+       11)   2.69175E+03   2.72158E+03   2.82436E+03   2.67043E+03   2.68077E+03
+
+
+     -- ITERATION    8   OBJ = 2.25391E-06
+
+     DECISION VARIABLES (X-VECTOR)
+        1)   2.74226E+03   2.66114E+03   2.64552E+03   2.60637E+03   2.59198E+03
+        6)   2.80190E+03   2.75289E+03   2.65627E+03   2.78285E+03   2.65029E+03
+       11)   2.69175E+03   2.72158E+03   2.82436E+03   2.67043E+03   2.68077E+03
+
+
+     -- ITERATION    9   OBJ = 2.25391E-06
+
+     DECISION VARIABLES (X-VECTOR)
+        1)   2.74226E+03   2.66114E+03   2.64552E+03   2.60637E+03   2.59198E+03
+        6)   2.80190E+03   2.75289E+03   2.65627E+03   2.78285E+03   2.65029E+03
+       11)   2.69175E+03   2.72158E+03   2.82436E+03   2.67043E+03   2.68077E+03
+
+
+
+
+     FINAL OPTIMIZATION RESULTS
+
+     OBJECTIVE = 2.25391E-06
+
+     DECISION VARIABLES (X-VECTOR)
+        1)   2.74226E+03   2.66114E+03   2.64552E+03   2.60637E+03   2.59198E+03
+        6)   2.80190E+03   2.75289E+03   2.65627E+03   2.78285E+03   2.65029E+03
+       11)   2.69175E+03   2.72158E+03   2.82436E+03   2.67043E+03   2.68077E+03
+
+     TERMINATION CRITERIA
+
+     RELATIVE CONVERGENCE CRITERION WAS MET FOR  2 CONSECUTIVE ITERATIONS
+
+     ABSOLUTE CONVERGENCE CRITERION WAS MET FOR  2 CONSECUTIVE ITERATIONS
+1
+
+                       ----------------------
+                        OPTIMIZATION RESULTS
+                       ----------------------
+
+
+     OBJECTIVE FUNCTION VALUE    2.25391E-06
+
+
+     DESIGN VARIABLES
+
+                  LOWER                       UPPER
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    23
+                                                                                                                                    
+0                                                                                                                                   
+     VARIABLE     BOUND         VALUE         BOUND
+         1     2.68795E+03   2.74226E+03   2.74226E+03
+         2     2.60844E+03   2.66114E+03   2.66114E+03
+         3     2.59313E+03   2.64552E+03   2.64552E+03
+         4     2.56500E+03   2.60637E+03   2.60637E+03
+         5     2.56500E+03   2.59198E+03   2.59198E+03
+         6     2.74641E+03   2.80190E+03   2.80190E+03
+         7     2.69838E+03   2.75289E+03   2.75289E+03
+         8     2.60368E+03   2.65627E+03   2.65627E+03
+         9     2.72774E+03   2.78285E+03   2.78285E+03
+        10     2.59781E+03   2.65029E+03   2.65029E+03
+        11     2.63845E+03   2.69175E+03   2.69175E+03
+        12     2.66768E+03   2.72158E+03   2.72158E+03
+        13     2.76843E+03   2.82436E+03   2.82436E+03
+        14     2.63583E+03   2.67043E+03   2.68908E+03
+        15     2.68077E+03   2.68077E+03   2.73493E+03
+
+     FUNCTION EVALUATIONS =   129
+
+     GRADIENT EVALUATIONS =     9
+
+******************************************
+** CPU Statistics for Module DOM9 (MSCADS) **
+******************************************
+
+
+ Pre-processing      = 0.000000E+00   seconds
+ Function evaluation = 0.000000E+00   seconds
+ Gradient evaluation = 0.000000E+00   seconds
+ Optimization - MSCADS = 1.562500E-02   seconds
+ post-processing     = 0.000000E+00   seconds
+ ---------------------------------------------
+ Total               = 1.562500E-02   seconds
+
+
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    24
+                                                                                                                                    
+0                                                                                                                                   
+
+
+
+                                ********************************************************************
+                                *                                                                  *
+                                *                                                                  *
+                                *                D E S I G N    O P T I M I Z A T I O N            *
+                                *                                                                  *
+                                *                                                                  *
+                                ********************************************************************
+
+
+
+                                             *******************************************
+                                             *                                         *
+                                             *      D E S I G N   C Y C L E       1    *
+                                             *                                         *
+                                             *******************************************
+
+
+
+                                 *****   OPTIMIZATION RESULTS BASED ON THE APPROXIMATE MODEL   *****
+
+
+                                                  -----   DESIGN OBJECTIVE   -----
+
+     ---------------------------------------------------------------------------------------------------------------------------
+                INTERNAL                            MINIMIZE                                                           
+                RESPONSE                RESPONSE       OR       SUPERELEMENT    SUBCASE        INPUT          OUTPUT   
+                   ID        DRESPx       TYPE      MAXIMIZE         ID            ID          VALUE           VALUE   
+     ---------------------------------------------------------------------------------------------------------------------------
+                       4     DRESP2        N/A      MINIMIZE         N/A          N/A        7.8439E-05      2.2539E-06
+
+
+                                                  -----   DESIGN VARIABLES   -----
+
+     ---------------------------------------------------------------------------------------------------------------------------
+            INTERNAL       DESVAR                         LOWER             INPUT            OUTPUT             UPPER   
+               ID            ID          LABEL            BOUND             VALUE             VALUE             BOUND   
+     ---------------------------------------------------------------------------------------------------------------------------
+                   1           101      RHO1            2.5650E+03        2.7151E+03        2.7423E+03        2.8350E+03
+                   2           102      RHO2            2.5650E+03        2.6348E+03        2.6611E+03        2.8350E+03
+                   3           103      RHO3            2.5650E+03        2.6193E+03        2.6455E+03        2.8350E+03
+                   4           104      RHO4            2.5650E+03        2.5806E+03        2.6064E+03        2.8350E+03
+                   5           105      RHO5            2.5650E+03        2.5663E+03        2.5920E+03        2.8350E+03
+                   6           106      RHO6            2.5650E+03        2.7742E+03        2.8019E+03        2.8350E+03
+                   7           107      RHO7            2.5650E+03        2.7256E+03        2.7529E+03        2.8350E+03
+                   8           108      RHO8            2.5650E+03        2.6300E+03        2.6563E+03        2.8350E+03
+                   9           109      RHO9            2.5650E+03        2.7553E+03        2.7828E+03        2.8350E+03
+                  10           110      RHO10           2.5650E+03        2.6240E+03        2.6503E+03        2.8350E+03
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    25
+                                                                                                                                    
+0                                                                                                                                   
+
+
+                                                  -----   DESIGN VARIABLES   -----
+
+     ---------------------------------------------------------------------------------------------------------------------------
+            INTERNAL       DESVAR                         LOWER             INPUT            OUTPUT             UPPER   
+               ID            ID          LABEL            BOUND             VALUE             VALUE             BOUND   
+     ---------------------------------------------------------------------------------------------------------------------------
+                  11           111      RHO11           2.5650E+03        2.6651E+03        2.6917E+03        2.8350E+03
+                  12           112      RHO12           2.5650E+03        2.6946E+03        2.7216E+03        2.8350E+03
+                  13           113      RHO13           2.5650E+03        2.7964E+03        2.8244E+03        2.8350E+03
+                  14           114      RHO14           2.5650E+03        2.6625E+03        2.6704E+03        2.8350E+03
+                  15           115      RHO15           2.5650E+03        2.7079E+03        2.6808E+03        2.8350E+03
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    26
+                                                                                                                                    
+0                                                                                                                                   
+
+
+
+                       ****************************************************************************************
+                       INSPECTION OF CONVERGENCE DATA FOR THE OPTIMAL DESIGN WITH RESPECT TO APPROXIMATE MODELS
+                                                  (SOFT CONVERGENCE DECISION LOGIC)                            
+                       ****************************************************************************************
+
+                          MAXIMUM OF RELATIVE PROP. CHANGES     1.0000E-02 MUST BE LESS THAN   1.0000E-12
+                                                        --- AND ---
+                          MAXIMUM OF RELATIVE D.V. CHANGES      1.0000E-02  MUST BE LESS THAN   1.0000E-12
+                       ****************************************************************************************
+
+
+  
+ *** USER INFORMATION MESSAGE 9024 (SUBDMAP FEA)
+     STIFFNESS, MASS, DAMPING, AND LOAD GENERATION INITIATED.  DESIGN CYCLE NUMBER= 2
+  
+ *** SYSTEM INFORMATION MESSAGE 4159 (DFMSA)
+     THE DECOMPOSITION OF KLL      YIELDS A MAXIMUM MATRIX-TO-FACTOR-DIAGONAL RATIO OF    1.601299E+03
+ *** USER INFORMATION MESSAGE 9051 (SUBDMAP FEA)
+     STATIC   ANALYSIS INITIATED.  DESIGN CYCLE NUMBER= 2
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    27
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+ *** USER INFORMATION MESSAGE 5293 (SSG3A)
+    FOR DATA BLOCK KLL     
+    LOAD SEQ. NO.             EPSILON              EXTERNAL WORK      EPSILONS LARGER THAN 0.001 ARE FLAGGED WITH ASTERISKS
+                1          3.8023255E-09          3.7817143E-01
+ *** USER INFORMATION MESSAGE 9052 (SUBDMAP FEA)
+     STATIC   ANALYSIS COMPLETED.  DESIGN CYCLE NUMBER= 2
+
+
+                              CONVERGENCE NOT ACHIEVED YET   (HARD CONVERGENCE DECISION LOGIC)
+             ----------------------------------------------------------------------------------------------
+
+                      RELATIVE CHANGE IN OBJECTIVE           :  9.7127E-01  MUST BE LESS THAN   1.0000E-12
+              OR      ABSOLUTE CHANGE IN OBJECTIVE           :  7.6185E-05  MUST BE LESS THAN   1.0000E-20
+                                                      --- AND ---
+                      MAXIMUM CONSTRAINT VALUE               :   N/A        MUST BE LESS THAN   5.0000E-03
+                                             (CONVERGENCE TO A FEASIBLE DESIGN)
+                                                      --- OR ---
+                      MAXIMUM OF RELATIVE PROP. CHANGES      :  1.0000E-02  MUST BE LESS THAN   1.0000E-12
+              AND     MAXIMUM OF RELATIVE D.V. CHANGES       :  1.0000E-02  MUST BE LESS THAN   1.0000E-12
+                                     (CONVERGENCE TO A BEST COMPROMISE INFEASIBLE DESIGN)
+             ----------------------------------------------------------------------------------------------
+ *** SYSTEM INFORMATION MESSAGE 6649 (ADS9S)
+     MSCADS METHOD = 1 (MMFD) HAS BEEN SELECTED FOR DESIGN CYCLE =          2.
+
+
+
+
+
+
+
+
+                            M S C . A D S
+
+
+              E N H A N C E D   A D S   P R O G R A M
+
+                                F O R
+
+         A U T O M A T E D   D E S I G N   S Y N T H E S I S
+
+
+
+     MINMAX = -1 : THE OBJECTIVE FUNCTION WILL BE MINIMIZED
+     METHOD =  1 : MODIFIED METHOD OF FEASIBLE DIRECTIONS WILL BE USED
+
+     ADS CONTROL PARAMETERS
+     ISTRAT =    0    IOPT   =    3    IONED  =    2    IPRINT =    2
+     IGRAD  =    1    NDV    =   15    NCON   =    0
+1
+
+     SCALAR PROGRAM PARAMETERS
+     REAL PARAMETERS
+       1) ALAMDZ =  0.00000E+00     20) EXTRAP =  5.00000E+00
+       2) BETAMC =  0.00000E+00     21) FDCH   =  1.00000E-02
+       3) CT     = -3.00000E-02     22) FDCHM  =  1.00000E-03
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    28
+                                                                                                                                    
+0                                                                                                                                   
+       4) CTL    = -5.00000E-03     23) GMULTZ =  1.00000E+01
+       5) CTLMIN =  1.00000E-03     24) PSAIZ  =  9.50000E-01
+       6) CTMIN  =  3.00000E-03     25) RMULT  =  5.00000E+00
+       7) DABALP =  1.00000E-04     26) RMVLMZ =  2.00000E-01
+       8) DABOBJ =  2.25391E-10     27) RP     =  1.00000E+01
+       9) DABOBM =  4.50783E-10     28) RPMAX  =  1.00000E+10
+      10) DABSTR =  2.25391E-10     29) RPMULT =  2.00000E-01
+      11) DELALP =  5.00000E-03     30) RPPMIN =  1.00000E-10
+      12) DELOBJ =  1.00000E-03     31) RPPRIM =  1.00000E+02
+      13) DELOBM =  1.00000E-03     32) SCFO   =  1.00000E+00
+      14) DELSTR =  1.00000E-03     33) SCLMIN =  1.00000E-03
+      15) DOBJ1  =  1.00000E-01     34) STOL   =  1.00000E-03
+      16) DOBJ2  =  2.00000E-01     35) THETAZ =  1.00000E-01
+      17) DX1    =  1.00000E-02     36) XMULT  =  2.61803E+00
+      18) DX2    =  5.64872E+02     37) ZRO    =  1.00000E-06
+      19) EPSPEN = -5.00000E-02     38) PMLT   =  1.00000E+01
+
+     INTEGER PARAMETERS
+       1) ICNDIR =   16      4) ITRMOP =    2      7) JTMAX  =   20
+       2) ISCAL  =    1      5) ITRMST =    2      8) IGRAD  =    1
+       3) ITMAX  =  100      6) JONED  =    2      9) IWRITE =    6
+
+     ARRAY STORAGE REQUIREMENTS
+                      DIMENSIONED                  REQUIRED
+     ARRAY                   SIZE                      SIZE
+       WK                    5490                       515
+      IWK                     220                       217
+1
+
+
+     ---------------------------------------------------------------------------
+                    IOPT = 3; VARIABLE METRIC METHOD -- BFGS ---
+     ---------------------------------------------------------------------------
+
+
+     INITIAL DESIGN
+
+
+     OBJ = 2.25391E-06
+
+     DECISION VARIABLES (X-VECTOR)
+        1)   2.74226E+03   2.66114E+03   2.64552E+03   2.60637E+03   2.59198E+03
+        6)   2.80190E+03   2.75289E+03   2.65627E+03   2.78285E+03   2.65029E+03
+       11)   2.69175E+03   2.72158E+03   2.82436E+03   2.67043E+03   2.68077E+03
+
+
+     -- ITERATION    1   OBJ = 2.25391E-06
+
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    29
+                                                                                                                                    
+0                                                                                                                                   
+     DECISION VARIABLES (X-VECTOR)
+        1)   2.74226E+03   2.66114E+03   2.64552E+03   2.60637E+03   2.59198E+03
+        6)   2.80190E+03   2.75289E+03   2.65627E+03   2.78285E+03   2.65029E+03
+       11)   2.69175E+03   2.72158E+03   2.82436E+03   2.67043E+03   2.68077E+03
+
+
+     -- ITERATION    2   OBJ = 2.25391E-06
+
+     DECISION VARIABLES (X-VECTOR)
+        1)   2.74226E+03   2.66114E+03   2.64552E+03   2.60637E+03   2.59198E+03
+        6)   2.80190E+03   2.75289E+03   2.65627E+03   2.78285E+03   2.65029E+03
+       11)   2.69175E+03   2.72158E+03   2.82436E+03   2.67043E+03   2.68077E+03
+
+
+
+
+     FINAL OPTIMIZATION RESULTS
+
+     OBJECTIVE = 2.25391E-06
+
+     DECISION VARIABLES (X-VECTOR)
+        1)   2.74226E+03   2.66114E+03   2.64552E+03   2.60637E+03   2.59198E+03
+        6)   2.80190E+03   2.75289E+03   2.65627E+03   2.78285E+03   2.65029E+03
+       11)   2.69175E+03   2.72158E+03   2.82436E+03   2.67043E+03   2.68077E+03
+
+     TERMINATION CRITERIA
+
+     RELATIVE CONVERGENCE CRITERION WAS MET FOR  2 CONSECUTIVE ITERATIONS
+
+     ABSOLUTE CONVERGENCE CRITERION WAS MET FOR  2 CONSECUTIVE ITERATIONS
+1
+
+                       ----------------------
+                        OPTIMIZATION RESULTS
+                       ----------------------
+
+
+     OBJECTIVE FUNCTION VALUE    2.25391E-06
+
+
+     DESIGN VARIABLES
+
+                  LOWER                       UPPER
+     VARIABLE     BOUND         VALUE         BOUND
+         1     2.71483E+03   2.74226E+03   2.76968E+03
+         2     2.63453E+03   2.66114E+03   2.68775E+03
+         3     2.61907E+03   2.64552E+03   2.67198E+03
+         4     2.58030E+03   2.60637E+03   2.63243E+03
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    30
+                                                                                                                                    
+0                                                                                                                                   
+         5     2.56606E+03   2.59198E+03   2.61790E+03
+         6     2.77388E+03   2.80190E+03   2.82991E+03
+         7     2.72536E+03   2.75289E+03   2.78042E+03
+         8     2.62971E+03   2.65627E+03   2.68284E+03
+         9     2.75502E+03   2.78285E+03   2.81068E+03
+        10     2.62378E+03   2.65029E+03   2.67679E+03
+        11     2.66483E+03   2.69175E+03   2.71867E+03
+        12     2.69436E+03   2.72158E+03   2.74879E+03
+        13     2.79612E+03   2.82436E+03   2.83500E+03
+        14     2.64372E+03   2.67043E+03   2.69713E+03
+        15     2.65396E+03   2.68077E+03   2.70758E+03
+
+     FUNCTION EVALUATIONS =    30
+
+     GRADIENT EVALUATIONS =     1
+
+******************************************
+** CPU Statistics for Module DOM9 (MSCADS) **
+******************************************
+
+
+ Pre-processing      = 0.000000E+00   seconds
+ Function evaluation = 0.000000E+00   seconds
+ Gradient evaluation = 0.000000E+00   seconds
+ Optimization - MSCADS = 0.000000E+00   seconds
+ post-processing     = 0.000000E+00   seconds
+ ---------------------------------------------
+ Total               = 0.000000E+00   seconds
+
+
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    31
+                                                                                                                                    
+0                                                                                                                                   
+
+                                         **************************************************
+                                         TERMINATION OF DESIGN ITERATION (SOFT CONVERGENCE)
+                                         **************************************************
+
+                          MAXIMUM OF RELATIVE PROP. CHANGES     0.0000E+00 MUST BE LESS THAN   1.0000E-12
+                                                        --- AND ---
+                          MAXIMUM OF RELATIVE D.V. CHANGES      0.0000E+00 MUST BE LESS THAN   1.0000E-12
+
+               EXPLANATION:
+                 THE OPTIMIZATION PROCESS WITH RESPECT TO THE APPROXIMATE MODELS DID NOT CHANGE APPRECIABLY.
+                 THIS DESIGN MAY NOT WARRANT AN ADDITIONAL COMPLETE FINITE ELEMENT ANALYSIS.
+ *** USER INFORMATION MESSAGE 9024 (SUBDMAP FEA)
+     STIFFNESS, MASS, DAMPING, AND LOAD GENERATION INITIATED.  DESIGN CYCLE NUMBER= 3
+  
+ *** SYSTEM INFORMATION MESSAGE 4159 (DFMSA)
+     THE DECOMPOSITION OF KLL      YIELDS A MAXIMUM MATRIX-TO-FACTOR-DIAGONAL RATIO OF    1.601299E+03
+ *** USER INFORMATION MESSAGE 9051 (SUBDMAP FEA)
+     STATIC   ANALYSIS INITIATED.  DESIGN CYCLE NUMBER= 3
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    32
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+ *** USER INFORMATION MESSAGE 5293 (SSG3A)
+    FOR DATA BLOCK KLL     
+    LOAD SEQ. NO.             EPSILON              EXTERNAL WORK      EPSILONS LARGER THAN 0.001 ARE FLAGGED WITH ASTERISKS
+                1          3.8023255E-09          3.7817143E-01
+ *** USER INFORMATION MESSAGE 9052 (SUBDMAP FEA)
+     STATIC   ANALYSIS COMPLETED.  DESIGN CYCLE NUMBER= 3
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    33
+                                                                                                                                    
+0                                                                                                                                   
+
+
+                 ***** NORMAL CONVERGENCE CRITERIA SATISFIED ***** (HARD CONVERGENCE DECISION LOGIC)
+
+                 **************************************************************************************
+                                  CONVERGENCE ACHIEVED BASED ON THE FOLLOWING CRITERIA
+                                           (HARD CONVERGENCE DECISION LOGIC)          
+
+                        RELATIVE CHANGE IN OBJECTIVE        0.0000E+00  MUST BE LESS THAN   1.0000E-12
+                  OR    ABSOLUTE CHANGE IN OBJECTIVE        0.0000E+00  MUST BE LESS THAN   1.0000E-20
+                                                   --- AND ---
+                        MAXIMUM CONSTRAINT VALUE               N/A      MUST BE LESS THAN   5.0000E-03
+                                          (CONVERGENCE TO A FEASIBLE DESIGN)
+                                                   --- OR ---
+                        MAXIMUM OF RELATIVE PROP. CHANGES   0.0000E+00  MUST BE LESS THAN   1.0000E-12
+                  AND   MAXIMUM OF RELATIVE D.V. CHANGES    0.0000E+00  MUST BE LESS THAN   1.0000E-12
+                                 (CONVERGENCE TO A BEST COMPROMISE INFEASIBLE DESIGN)
+                 **************************************************************************************
+ *** USER INFORMATION MESSAGE 9024 (SUBDMAP FEA)
+     STIFFNESS, MASS, DAMPING, AND LOAD GENERATION INITIATED.  DESIGN CYCLE NUMBER= 3
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    34
+                                                                                                                                    
+0                                                                                                                                   
+0                                                  MAXIMUM  DISPLACEMENTS   
+  SUBCASE/
+  DAREA ID        T1             T2             T3             R1             R2             R3
+0        1   0.0000000E+00  0.0000000E+00  3.1639294E-01  0.0000000E+00  2.8147291E-01  0.0000000E+00
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    35
+                                                                                                                                    
+0                                                                                                                                   
+0                                                  MAXIMUM  APPLIED LOADS   
+  SUBCASE/
+  DAREA ID        T1             T2             T3             R1             R2             R3
+0        1   0.0000000E+00  0.0000000E+00  4.1560472E-02  0.0000000E+00  0.0000000E+00  0.0000000E+00
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    36
+      DEFAULT                                                                                                                       
+0                                                                                                            SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0
+             2      G      0.0            0.0           -2.809016E-05   0.0            5.602125E-03   0.0
+             3      G      0.0            0.0           -1.118289E-04   0.0            1.112981E-02   0.0
+             4      G      0.0            0.0           -2.504742E-04   0.0            1.658357E-02   0.0
+             5      G      0.0            0.0           -4.432896E-04   0.0            2.196391E-02   0.0
+             6      G      0.0            0.0           -6.895432E-04   0.0            2.727133E-02   0.0
+             7      G      0.0            0.0           -9.885084E-04   0.0            3.250635E-02   0.0
+             8      G      0.0            0.0           -1.339464E-03   0.0            3.766947E-02   0.0
+             9      G      0.0            0.0           -1.741693E-03   0.0            4.276120E-02   0.0
+            10      G      0.0            0.0           -2.194484E-03   0.0            4.778205E-02   0.0
+            11      G      0.0            0.0           -2.697132E-03   0.0            5.273252E-02   0.0
+            12      G      0.0            0.0           -3.248046E-03   0.0            5.743603E-02   0.0
+            13      G      0.0            0.0           -3.845661E-03   0.0            6.207268E-02   0.0
+            14      G      0.0            0.0           -4.489310E-03   0.0            6.664295E-02   0.0
+            15      G      0.0            0.0           -5.178331E-03   0.0            7.114731E-02   0.0
+            16      G      0.0            0.0           -5.912068E-03   0.0            7.558624E-02   0.0
+            17      G      0.0            0.0           -6.689870E-03   0.0            7.996021E-02   0.0
+            18      G      0.0            0.0           -7.511088E-03   0.0            8.426970E-02   0.0
+            19      G      0.0            0.0           -8.375080E-03   0.0            8.851518E-02   0.0
+            20      G      0.0            0.0           -9.281209E-03   0.0            9.269712E-02   0.0
+            21      G      0.0            0.0           -1.022884E-02   0.0            9.681600E-02   0.0
+            22      G      0.0            0.0           -1.121788E-02   0.0            1.009779E-01   0.0
+            23      G      0.0            0.0           -1.224822E-02   0.0            1.050761E-01   0.0
+            24      G      0.0            0.0           -1.331922E-02   0.0            1.091110E-01   0.0
+            25      G      0.0            0.0           -1.443026E-02   0.0            1.130831E-01   0.0
+            26      G      0.0            0.0           -1.558070E-02   0.0            1.169930E-01   0.0
+            27      G      0.0            0.0           -1.676994E-02   0.0            1.208411E-01   0.0
+            28      G      0.0            0.0           -1.799735E-02   0.0            1.246279E-01   0.0
+            29      G      0.0            0.0           -1.926232E-02   0.0            1.283539E-01   0.0
+            30      G      0.0            0.0           -2.056425E-02   0.0            1.320195E-01   0.0
+            31      G      0.0            0.0           -2.190254E-02   0.0            1.356252E-01   0.0
+            32      G      0.0            0.0           -2.327694E-02   0.0            1.392410E-01   0.0
+            33      G      0.0            0.0           -2.468719E-02   0.0            1.427966E-01   0.0
+            34      G      0.0            0.0           -2.613270E-02   0.0            1.462928E-01   0.0
+            35      G      0.0            0.0           -2.761287E-02   0.0            1.497298E-01   0.0
+            36      G      0.0            0.0           -2.912713E-02   0.0            1.531083E-01   0.0
+            37      G      0.0            0.0           -3.067487E-02   0.0            1.564286E-01   0.0
+            38      G      0.0            0.0           -3.225553E-02   0.0            1.596914E-01   0.0
+            39      G      0.0            0.0           -3.386854E-02   0.0            1.628970E-01   0.0
+            40      G      0.0            0.0           -3.551331E-02   0.0            1.660460E-01   0.0
+            41      G      0.0            0.0           -3.718929E-02   0.0            1.691388E-01   0.0
+            42      G      0.0            0.0           -3.889630E-02   0.0            1.722497E-01   0.0
+            43      G      0.0            0.0           -4.063412E-02   0.0            1.753040E-01   0.0
+            44      G      0.0            0.0           -4.240221E-02   0.0            1.783023E-01   0.0
+            45      G      0.0            0.0           -4.420001E-02   0.0            1.812451E-01   0.0
+            46      G      0.0            0.0           -4.602696E-02   0.0            1.841328E-01   0.0
+            47      G      0.0            0.0           -4.788251E-02   0.0            1.869660E-01   0.0
+            48      G      0.0            0.0           -4.976612E-02   0.0            1.897451E-01   0.0
+            49      G      0.0            0.0           -5.167726E-02   0.0            1.924708E-01   0.0
+            50      G      0.0            0.0           -5.361538E-02   0.0            1.951433E-01   0.0
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    37
+      DEFAULT                                                                                                                       
+0                                                                                                            SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            51      G      0.0            0.0           -5.557997E-02   0.0            1.977633E-01   0.0
+            52      G      0.0            0.0           -5.757060E-02   0.0            2.003509E-01   0.0
+            53      G      0.0            0.0           -5.958684E-02   0.0            2.028866E-01   0.0
+            54      G      0.0            0.0           -6.162818E-02   0.0            2.053709E-01   0.0
+            55      G      0.0            0.0           -6.369411E-02   0.0            2.078044E-01   0.0
+            56      G      0.0            0.0           -6.578413E-02   0.0            2.101875E-01   0.0
+            57      G      0.0            0.0           -6.789772E-02   0.0            2.125209E-01   0.0
+            58      G      0.0            0.0           -7.003440E-02   0.0            2.148051E-01   0.0
+            59      G      0.0            0.0           -7.219368E-02   0.0            2.170406E-01   0.0
+            60      G      0.0            0.0           -7.437508E-02   0.0            2.192279E-01   0.0
+            61      G      0.0            0.0           -7.657811E-02   0.0            2.213677E-01   0.0
+            62      G      0.0            0.0           -7.880187E-02   0.0            2.233766E-01   0.0
+            63      G      0.0            0.0           -8.104551E-02   0.0            2.253409E-01   0.0
+            64      G      0.0            0.0           -8.330857E-02   0.0            2.272610E-01   0.0
+            65      G      0.0            0.0           -8.559061E-02   0.0            2.291375E-01   0.0
+            66      G      0.0            0.0           -8.789119E-02   0.0            2.309708E-01   0.0
+            67      G      0.0            0.0           -9.020990E-02   0.0            2.327615E-01   0.0
+            68      G      0.0            0.0           -9.254630E-02   0.0            2.345101E-01   0.0
+            69      G      0.0            0.0           -9.489998E-02   0.0            2.362170E-01   0.0
+            70      G      0.0            0.0           -9.727053E-02   0.0            2.378829E-01   0.0
+            71      G      0.0            0.0           -9.965752E-02   0.0            2.395081E-01   0.0
+            72      G      0.0            0.0           -1.020603E-01   0.0            2.410377E-01   0.0
+            73      G      0.0            0.0           -1.044782E-01   0.0            2.425290E-01   0.0
+            74      G      0.0            0.0           -1.069108E-01   0.0            2.439827E-01   0.0
+            75      G      0.0            0.0           -1.093577E-01   0.0            2.453990E-01   0.0
+            76      G      0.0            0.0           -1.118186E-01   0.0            2.467786E-01   0.0
+            77      G      0.0            0.0           -1.142932E-01   0.0            2.481218E-01   0.0
+            78      G      0.0            0.0           -1.167810E-01   0.0            2.494293E-01   0.0
+            79      G      0.0            0.0           -1.192817E-01   0.0            2.507013E-01   0.0
+            80      G      0.0            0.0           -1.217949E-01   0.0            2.519385E-01   0.0
+            81      G      0.0            0.0           -1.243203E-01   0.0            2.531412E-01   0.0
+            82      G      0.0            0.0           -1.268578E-01   0.0            2.543465E-01   0.0
+            83      G      0.0            0.0           -1.294072E-01   0.0            2.555174E-01   0.0
+            84      G      0.0            0.0           -1.319681E-01   0.0            2.566542E-01   0.0
+            85      G      0.0            0.0           -1.345402E-01   0.0            2.577576E-01   0.0
+            86      G      0.0            0.0           -1.371231E-01   0.0            2.588280E-01   0.0
+            87      G      0.0            0.0           -1.397166E-01   0.0            2.598660E-01   0.0
+            88      G      0.0            0.0           -1.423203E-01   0.0            2.608720E-01   0.0
+            89      G      0.0            0.0           -1.449340E-01   0.0            2.618466E-01   0.0
+            90      G      0.0            0.0           -1.475572E-01   0.0            2.627903E-01   0.0
+            91      G      0.0            0.0           -1.501897E-01   0.0            2.637036E-01   0.0
+            92      G      0.0            0.0           -1.528310E-01   0.0            2.645599E-01   0.0
+            93      G      0.0            0.0           -1.554808E-01   0.0            2.653876E-01   0.0
+            94      G      0.0            0.0           -1.581387E-01   0.0            2.661873E-01   0.0
+            95      G      0.0            0.0           -1.608045E-01   0.0            2.669594E-01   0.0
+            96      G      0.0            0.0           -1.634778E-01   0.0            2.677045E-01   0.0
+            97      G      0.0            0.0           -1.661585E-01   0.0            2.684230E-01   0.0
+            98      G      0.0            0.0           -1.688462E-01   0.0            2.691154E-01   0.0
+            99      G      0.0            0.0           -1.715407E-01   0.0            2.697821E-01   0.0
+           100      G      0.0            0.0           -1.742418E-01   0.0            2.704236E-01   0.0
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    38
+      DEFAULT                                                                                                                       
+0                                                                                                            SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G      0.0            0.0           -1.769491E-01   0.0            2.710404E-01   0.0
+           102      G      0.0            0.0           -1.796627E-01   0.0            2.716654E-01   0.0
+           103      G      0.0            0.0           -1.823824E-01   0.0            2.722653E-01   0.0
+           104      G      0.0            0.0           -1.851079E-01   0.0            2.728407E-01   0.0
+           105      G      0.0            0.0           -1.878391E-01   0.0            2.733920E-01   0.0
+           106      G      0.0            0.0           -1.905757E-01   0.0            2.739198E-01   0.0
+           107      G      0.0            0.0           -1.933174E-01   0.0            2.744245E-01   0.0
+           108      G      0.0            0.0           -1.960641E-01   0.0            2.749068E-01   0.0
+           109      G      0.0            0.0           -1.988155E-01   0.0            2.753670E-01   0.0
+           110      G      0.0            0.0           -2.015714E-01   0.0            2.758057E-01   0.0
+           111      G      0.0            0.0           -2.043316E-01   0.0            2.762234E-01   0.0
+           112      G      0.0            0.0           -2.070957E-01   0.0            2.766059E-01   0.0
+           113      G      0.0            0.0           -2.098636E-01   0.0            2.769692E-01   0.0
+           114      G      0.0            0.0           -2.126351E-01   0.0            2.773138E-01   0.0
+           115      G      0.0            0.0           -2.154098E-01   0.0            2.776400E-01   0.0
+           116      G      0.0            0.0           -2.181878E-01   0.0            2.779485E-01   0.0
+           117      G      0.0            0.0           -2.209688E-01   0.0            2.782398E-01   0.0
+           118      G      0.0            0.0           -2.237526E-01   0.0            2.785142E-01   0.0
+           119      G      0.0            0.0           -2.265390E-01   0.0            2.787724E-01   0.0
+           120      G      0.0            0.0           -2.293280E-01   0.0            2.790147E-01   0.0
+           121      G      0.0            0.0           -2.321193E-01   0.0            2.792418E-01   0.0
+           122      G      0.0            0.0           -2.349128E-01   0.0            2.794571E-01   0.0
+           123      G      0.0            0.0           -2.377084E-01   0.0            2.796579E-01   0.0
+           124      G      0.0            0.0           -2.405059E-01   0.0            2.798447E-01   0.0
+           125      G      0.0            0.0           -2.433052E-01   0.0            2.800181E-01   0.0
+           126      G      0.0            0.0           -2.461062E-01   0.0            2.801785E-01   0.0
+           127      G      0.0            0.0           -2.489087E-01   0.0            2.803264E-01   0.0
+           128      G      0.0            0.0           -2.517127E-01   0.0            2.804625E-01   0.0
+           129      G      0.0            0.0           -2.545180E-01   0.0            2.805872E-01   0.0
+           130      G      0.0            0.0           -2.573244E-01   0.0            2.807010E-01   0.0
+           131      G      0.0            0.0           -2.601319E-01   0.0            2.808045E-01   0.0
+           132      G      0.0            0.0           -2.629405E-01   0.0            2.808994E-01   0.0
+           133      G      0.0            0.0           -2.657499E-01   0.0            2.809849E-01   0.0
+           134      G      0.0            0.0           -2.685602E-01   0.0            2.810614E-01   0.0
+           135      G      0.0            0.0           -2.713711E-01   0.0            2.811294E-01   0.0
+           136      G      0.0            0.0           -2.741827E-01   0.0            2.811894E-01   0.0
+           137      G      0.0            0.0           -2.769949E-01   0.0            2.812420E-01   0.0
+           138      G      0.0            0.0           -2.798075E-01   0.0            2.812875E-01   0.0
+           139      G      0.0            0.0           -2.826206E-01   0.0            2.813266E-01   0.0
+           140      G      0.0            0.0           -2.854340E-01   0.0            2.813597E-01   0.0
+           141      G      0.0            0.0           -2.882478E-01   0.0            2.813873E-01   0.0
+           142      G      0.0            0.0           -2.910618E-01   0.0            2.814104E-01   0.0
+           143      G      0.0            0.0           -2.938760E-01   0.0            2.814290E-01   0.0
+           144      G      0.0            0.0           -2.966904E-01   0.0            2.814434E-01   0.0
+           145      G      0.0            0.0           -2.995048E-01   0.0            2.814543E-01   0.0
+           146      G      0.0            0.0           -3.023194E-01   0.0            2.814621E-01   0.0
+           147      G      0.0            0.0           -3.051341E-01   0.0            2.814673E-01   0.0
+           148      G      0.0            0.0           -3.079488E-01   0.0            2.814705E-01   0.0
+           149      G      0.0            0.0           -3.107635E-01   0.0            2.814721E-01   0.0
+           150      G      0.0            0.0           -3.135782E-01   0.0            2.814728E-01   0.0
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    39
+      DEFAULT                                                                                                                       
+0                                                                                                            SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           151      G      0.0            0.0           -3.163929E-01   0.0            2.814729E-01   0.0
+ *** USER INFORMATION MESSAGE 9052 (SUBDMAP FEA)
+     STATIC   ANALYSIS COMPLETED.  DESIGN CYCLE NUMBER= 3
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    40
+                                                                                                                                    
+0                                                                                                                                   
+
+
+
+                                ********************************************************************
+                                *                                                                  *
+                                *                                                                  *
+                                *                D E S I G N    O P T I M I Z A T I O N            *
+                                *                                                                  *
+                                *                                                                  *
+                                ********************************************************************
+
+
+
+                                             *******************************************
+                                             *                                         *
+                                             *        F I N A L  A N A L Y S I S       *
+                                             *                                         *
+                                             *******************************************
+
+
+
+                                    *******   ANALYSIS RESULTS BASED ON THE FINAL DESIGN   *******
+
+
+                                                  -----   DESIGN OBJECTIVE   -----
+
+     ----------------------------------------------------------------------------------------------------
+                INTERNAL                            MINIMIZE                                                           
+                RESPONSE                RESPONSE       OR       SUPERELEMENT    SUBCASE
+                   ID        DRESPx       TYPE      MAXIMIZE         ID            ID          VALUE   
+     ----------------------------------------------------------------------------------------------------
+                       4     DRESP2        N/A      MINIMIZE         N/A          N/A        2.2539E-06
+
+
+                                                  -----   DESIGN VARIABLES   -----
+
+     ---------------------------------------------------------------------------------------------------------
+            INTERNAL       DESVAR                         LOWER                               UPPER   
+               ID            ID          LABEL            BOUND             VALUE             BOUND   
+     ---------------------------------------------------------------------------------------------------------
+                   1           101      RHO1            2.5650E+03        2.7423E+03        2.8350E+03
+                   2           102      RHO2            2.5650E+03        2.6611E+03        2.8350E+03
+                   3           103      RHO3            2.5650E+03        2.6455E+03        2.8350E+03
+                   4           104      RHO4            2.5650E+03        2.6064E+03        2.8350E+03
+                   5           105      RHO5            2.5650E+03        2.5920E+03        2.8350E+03
+                   6           106      RHO6            2.5650E+03        2.8019E+03        2.8350E+03
+                   7           107      RHO7            2.5650E+03        2.7529E+03        2.8350E+03
+                   8           108      RHO8            2.5650E+03        2.6563E+03        2.8350E+03
+                   9           109      RHO9            2.5650E+03        2.7828E+03        2.8350E+03
+                  10           110      RHO10           2.5650E+03        2.6503E+03        2.8350E+03
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    41
+                                                                                                                                    
+0                                                                                                                                   
+
+
+                                                  -----   DESIGN VARIABLES   -----
+
+     ---------------------------------------------------------------------------------------------------------
+            INTERNAL       DESVAR                         LOWER                               UPPER   
+               ID            ID          LABEL            BOUND             VALUE             BOUND   
+     ---------------------------------------------------------------------------------------------------------
+                  11           111      RHO11           2.5650E+03        2.6917E+03        2.8350E+03
+                  12           112      RHO12           2.5650E+03        2.7216E+03        2.8350E+03
+                  13           113      RHO13           2.5650E+03        2.8244E+03        2.8350E+03
+                  14           114      RHO14           2.5650E+03        2.6704E+03        2.8350E+03
+                  15           115      RHO15           2.5650E+03        2.6808E+03        2.8350E+03
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    42
+                                                                                                                                    
+0                                                                                                                                   
+                                   ***************************************************************
+                                   S U M M A R Y   O F   D E S I G N    C Y C L E    H I S T O R Y
+                                   ***************************************************************
+
+                                                      (HARD CONVERGENCE ACHIEVED)
+
+                                                      (SOFT CONVERGENCE ACHIEVED)
+
+
+                                       NUMBER OF FINITE ELEMENT ANALYSES COMPLETED           3
+                                       NUMBER OF OPTIMIZATIONS W.R.T. APPROXIMATE MODELS     2
+
+
+                                              OBJECTIVE AND MAXIMUM CONSTRAINT HISTORY
+           ---------------------------------------------------------------------------------------------------------------
+                              OBJECTIVE FROM           OBJECTIVE FROM          FRACTIONAL ERROR          MAXIMUM VALUE  
+             CYCLE              APPROXIMATE                 EXACT                    OF                       OF
+             NUMBER            OPTIMIZATION               ANALYSIS              APPROXIMATION             CONSTRAINT   
+           ---------------------------------------------------------------------------------------------------------------
+
+             INITIAL                                      7.843934E-05                                        N/A       
+
+                   1             2.253915E-06             2.253915E-06            -1.655234E-12               N/A       
+
+                   2             2.253915E-06             2.253915E-06             0.000000E+00               N/A       
+           ---------------------------------------------------------------------------------------------------------------
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    43
+                                                                                                                                    
+0                                                                                                                                   
+                                                       DESIGN VARIABLE HISTORY
+ ----------------------------------------------------------------------------------------------------------------------------------
+  INTERNAL |   EXTERNAL   |             |                                                                                          
+   DV. ID. |    DV. ID.   |    LABEL    |   INITIAL    :      1       :      2       :      3       :      4       :      5       :
+ ----------------------------------------------------------------------------------------------------------------------------------
+         1 |        101   |  RHO1       |   2.7151E+03 :   2.7423E+03 :   2.7423E+03 :
+         2 |        102   |  RHO2       |   2.6348E+03 :   2.6611E+03 :   2.6611E+03 :
+         3 |        103   |  RHO3       |   2.6193E+03 :   2.6455E+03 :   2.6455E+03 :
+         4 |        104   |  RHO4       |   2.5806E+03 :   2.6064E+03 :   2.6064E+03 :
+         5 |        105   |  RHO5       |   2.5663E+03 :   2.5920E+03 :   2.5920E+03 :
+         6 |        106   |  RHO6       |   2.7742E+03 :   2.8019E+03 :   2.8019E+03 :
+         7 |        107   |  RHO7       |   2.7256E+03 :   2.7529E+03 :   2.7529E+03 :
+         8 |        108   |  RHO8       |   2.6300E+03 :   2.6563E+03 :   2.6563E+03 :
+         9 |        109   |  RHO9       |   2.7553E+03 :   2.7828E+03 :   2.7828E+03 :
+        10 |        110   |  RHO10      |   2.6240E+03 :   2.6503E+03 :   2.6503E+03 :
+        11 |        111   |  RHO11      |   2.6651E+03 :   2.6917E+03 :   2.6917E+03 :
+        12 |        112   |  RHO12      |   2.6946E+03 :   2.7216E+03 :   2.7216E+03 :
+        13 |        113   |  RHO13      |   2.7964E+03 :   2.8244E+03 :   2.8244E+03 :
+        14 |        114   |  RHO14      |   2.6625E+03 :   2.6704E+03 :   2.6704E+03 :
+        15 |        115   |  RHO15      |   2.7079E+03 :   2.6808E+03 :   2.6808E+03 :
+ *** USER INFORMATION MESSAGE 6464 (DOM12E)
+     RUN TERMINATED DUE TO HARD CONVERGENCE TO AN OPTIMUM AT CYCLE NUMBER =        2.
+1    REFBEAM OPTIMIZATION                                                     MARCH  29, 2021  MSC Nastran 12/18/18   PAGE    44
+                                                                                                                                    
+0                                                                                                                                   
+ * * * *  D B D I C T   P R I N T  * * * *      SUBDMAP = PRTSUM  ,  DMAP STATEMENT NO.     71
+
+
+
+0                                   * * * *  A N A L Y S I S  S U M M A R Y  T A B L E  * * * *
+0 SEID  PEID PROJ VERS APRCH      SEMG SEMR SEKR SELG SELR MODES DYNRED SOLLIN PVALID SOLNL LOOPID DESIGN CYCLE SENSITIVITY
+ --------------------------------------------------------------------------------------------------------------------------
+     0     0    1    1 '        '    T    T    T    T    T     F      F      T      0     F     -1            2           T
+     0     0    1    1 '        '    T    T    T    T    T     F      F      T      0     F     -1            2           F
+0SEID = SUPERELEMENT ID.
+ PEID = PRIMARY SUPERELEMENT ID OF IMAGE SUPERELEMENT.
+ PROJ = PROJECT ID NUMBER.
+ VERS = VERSION ID.
+ APRCH = BLANK FOR STRUCTURAL ANALYSIS.  HEAT FOR HEAT TRANSFER ANALYSIS.
+ SEMG = STIFFNESS AND MASS MATRIX GENERATION STEP.
+ SEMR = MASS MATRIX REDUCTION STEP (INCLUDES EIGENVALUE SOLUTION FOR MODES).
+ SEKR = STIFFNESS MATRIX REDUCTION STEP.
+ SELG = LOAD MATRIX GENERATION STEP.
+ SELR = LOAD MATRIX REDUCTION STEP. 
+ MODES = T (TRUE) IF NORMAL MODES OR BUCKLING MODES CALCULATED.
+ DYNRED = T (TRUE) MEANS GENERALIZED DYNAMIC AND/OR COMPONENT MODE REDUCTION PERFORMED.
+ SOLLIN = T (TRUE) IF LINEAR SOLUTION EXISTS IN DATABASE.
+ PVALID = P-DISTRIBUTION ID OF P-VALUE FOR P-ELEMENTS
+ LOOPID = THE LAST LOOPID VALUE USED IN THE NONLINEAR ANALYSIS.  USEFUL FOR RESTARTS.
+ SOLNL = T (TRUE) IF NONLINEAR SOLUTION EXISTS IN DATABASE.
+ DESIGN CYCLE = THE LAST DESIGN CYCLE (ONLY VALID IN OPTIMIZATION).
+ SENSITIVITY = SENSITIVITY MATRIX GENERATION FLAG.
+ 
+ No PARAM values were set in the Control File.
+ 
+1                                        * * * END OF JOB * * *
+ 
+ 
+ No Symbolic Replacement variables or values were specified.
+

@@ -1,0 +1,178 @@
+$----------Design Optimization Data----------
+
+
+
+$----------Mass----------
+
+$-Design Variables-
+$ MAT1 PROPS (100s)
+DESVAR,101,RHO1,2715.105,2565.,2835.,
+DESVAR,102,RHO2,2634.789,2565.,2835.,
+DESVAR,103,RHO3,2619.327,2565.,2835.,
+DESVAR,104,RHO4,2580.562,2565.,2835.,
+DESVAR,105,RHO5,2566.318,2565.,2835.,
+DESVAR,106,RHO6,2774.154,2565.,2835.,
+DESVAR,107,RHO7,2725.635,2565.,2835.,
+DESVAR,108,RHO8,2629.975,2565.,2835.,
+DESVAR,109,RHO9,2755.297,2565.,2835.,
+DESVAR,110,RHO10,2624.046,2565.,2835.,
+DESVAR,111,RHO11,2665.098,2565.,2835.,
+DESVAR,112,RHO12,2694.63,2565.,2835.,
+DESVAR,113,RHO13,2796.397,2565.,2835.,
+DESVAR,114,RHO14,2662.452,2565.,2835.,
+DESVAR,115,RHO15,2707.851,2565.,2835.,
+
+$ CONM2 PROPS (200s)
+$DESVAR,201,CM1,.1020103,0.095,0.105,
+$DESVAR,202,CM2,.1019542,0.095,0.105,
+
+
+$-Design Variable Relations-
+DVMREL1, 101, MAT1, 1, RHO,
+       , 101, 1.0,
+DVMREL1, 102, MAT1, 2, RHO,
+       , 102, 1.0,
+DVMREL1, 103, MAT1, 3, RHO,
+       , 103, 1.0,
+DVMREL1, 104, MAT1, 4, RHO,
+       , 104, 1.0,
+DVMREL1, 105, MAT1, 5, RHO,
+       , 105, 1.0,
+DVMREL1, 106, MAT1, 6, RHO,
+       , 106, 1.0,
+DVMREL1, 107, MAT1, 7, RHO,
+       , 107, 1.0,
+DVMREL1, 108, MAT1, 8, RHO,
+       , 108, 1.0,
+DVMREL1, 109, MAT1, 9, RHO,
+       , 109, 1.0,
+DVMREL1, 110, MAT1, 10, RHO,
+       , 110, 1.0,
+DVMREL1, 111, MAT1, 11, RHO,
+       , 111, 1.0,
+DVMREL1, 112, MAT1, 12, RHO,
+       , 112, 1.0,
+DVMREL1, 113, MAT1, 13, RHO,
+       , 113, 1.0,
+DVMREL1, 114, MAT1, 14, RHO,
+       , 114, 1.0,
+DVMREL1, 115, MAT1, 15, RHO,
+       , 115, 1.0,
+
+$DVCREL1, 201, CONM2, 1001, M,
+$       , 201, 1.0,
+$DVCREL1, 202, CONM2, 1002, M,
+$       , 202, 1.0,
+
+
+
+$----------Stiffness----------
+
+$-Design Variables-
+$ MAT1 PROPS (300s)
+$DESVAR,301,E1,7.140+10,6.650+10,7.350+10,
+$DESVAR,302,E2,6.759+10,6.650+10,7.350+10,
+$DESVAR,303,E3,6.951+10,6.650+10,7.350+10,
+$DESVAR,305,NU1,.3366136,0.3135,0.3465,
+$DESVAR,306,NU2,.3186382,0.3135,0.3465,
+$DESVAR,307,NU3,.3276716,0.3135,0.3465,
+
+$$ PBEAML PROPS (400s)
+$DESVAR,401,B1,.0502689,0.0475,0.0525,
+$DESVAR,402,B2,.0514158,0.0475,0.0525,
+$DESVAR,403,B3,.0507529,0.0475,0.0525,
+$DESVAR,404,B4,.0500198,0.0475,0.0525,
+$DESVAR,405,H1,.0030161,0.00285,0.00315,
+$DESVAR,406,H2,.0030849,0.00285,0.00315,
+$DESVAR,407,H3,.0030452,0.00285,0.00315,
+$DESVAR,408,H4,.0030012,0.00285,0.00315,
+
+
+$-Design Variable Relations-
+$DVMREL1, 301, MAT1, 1, E,
+$       , 301, 1.0,
+$DVMREL1, 302, MAT1, 2, E,
+$       , 302, 1.0,
+$DVMREL1, 303, MAT1, 3, E,
+$       , 303, 1.0,
+$DVMREL1, 305, MAT1, 1, NU,
+$       , 305, 1.0,
+$DVMREL1, 306, MAT1, 2, NU,
+$       , 306, 1.0,
+$DVMREL1, 307, MAT1, 3, NU,
+$       , 307, 1.0,
+
+$DVPREL1, 401, PBEAML, 1, DIM1(A),
+$       , 401, 1.0,
+$DVPREL1, 402, PBEAML, 2, DIM1(A),
+$       , 402, 1.0,
+$DVPREL1, 403, PBEAML, 3, DIM1(A),
+$       , 403, 1.0,
+$DVPREL1, 404, PBEAML, 4, DIM1(A),
+$       , 404, 1.0,
+$DVPREL1, 405, PBEAML, 1, DIM2(A),
+$       , 405, 1.0,
+$DVPREL1, 406, PBEAML, 2, DIM2(A),
+$       , 406, 1.0,
+$DVPREL1, 407, PBEAML, 3, DIM2(A),
+$       , 407, 1.0,
+$DVPREL1, 408, PBEAML, 4, DIM2(A),
+$       , 408, 1.0,
+
+
+
+$-------------------------------------------------------------------------------
+$ Objective + Constraints 
+
+$ Design Responses - Mass-Matching 
+DRESP1,501,W,WEIGHT
+
+DRESP1,502,M,WEIGHT,,,3,3
+DRESP1,503,XM,WEIGHT,,,2,6
+DRESP1,504,YM,WEIGHT,,,3,4
+DRESP1,505,ZM,WEIGHT,,,1,5
+
+DEQATN  600      F(NUM,DEN) = NUM/DEN
+$DEQATN  601      F1(XM,M) = XM/M
+$DEQATN  602      F2(YM,M) = YM/M
+$DEQATN  603      F3(ZM,M) = ZM/M
+
+DRESP2  200     Xcg     600
+        DRESP1  503     502
+DRESP2  201     Ycg     600
+        DRESP1  504     502
+DRESP2  202     Zcg     600
+        DRESP1  505     502
+
+DEQATN  604      H1(W,Xcg,Ycg,Zcg) = ((W - .6075)/.6075)**2;
+        H2 = ((Xcg - 1.75)/1.75)**2;
+        H3 = ((Ycg - 1.0)/1.0)**2;
+        H4 = ((Zcg - 1.0)/1.0)**2;
+        J = SUM(H1,H2,H3,H4)
+
+DRESP2  999     OBJ     604             MIN     
+        DRESP1  501
+        DRESP2  200     201     202
+
+$$ Design Responses - Modal analysis matching first five modes (500s)
+$DRESP1  501     A       FREQ                    1
+$DRESP1  502     B       FREQ                    2
+$DRESP1  503     C       FREQ                    3
+$DRESP1  504     D       FREQ                    4
+$DRESP1  505     E       FREQ                    5
+
+$ Design equation definition - objective function equation (600s)
+$DEQATN  601     F1(A,B,C,D,E) = (A-0.831088)/0.831088;
+$        F2 = (B-4.857909)/4.857909;
+$        F3 = (C-13.81124)/13.81124;
+$        F4 = (D-15.02667)/15.02667;
+$        F5 = (E-20.36230)/20.36230;
+$        F = RSS(F1,F2,F3,F4,F5)*10000.0
+
+$ Objective Design Response (999)
+$DRESP2  999     OBJ     601             MIN     
+$        DRESP1  501     502     503     504     505
+
+$Overrides default values of parameters used in design optimization
+DOPTPRM,CONV1,1.-12,CONVDV,1.-12,CONVPR,1.-12,DELP,0.01,
+       ,DELX,0.01,IPRINT,2

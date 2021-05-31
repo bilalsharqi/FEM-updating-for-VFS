@@ -1,0 +1,59 @@
+$ Nodes for the entire model.
+GRID     1              0.00      0.      0.
+GRID     2              0.15      0.      0.
+GRID     3              0.30      0.      0.
+GRID     4              0.45      0.      0.
+GRID     5              0.60      0.      0.
+GRID     6              0.75      0.      0.
+GRID     7              0.90      0.      0.
+GRID     8              1.05      0.      0.
+GRID     9              1.20      0.      0.
+GRID     10              1.35      0.      0.
+GRID     11              1.50      0.      0.
+
+$ Material definition for each beam section
+$ Assumes material is aluminum
+MAT1     1      7.+10           .33     2700.
+MAT1     2      7.+10           .33     2700.
+MAT1     3      7.+10           .33     2700.
+MAT1     4      7.+10           .33     2700.
+MAT1     5      7.+10           .33     2700.
+MAT1     6      7.+10           .33     2700.
+MAT1     7      7.+10           .33     2700.
+MAT1     8      7.+10           .33     2700.
+MAT1     9      7.+10           .33     2700.
+MAT1     10      7.+10           .33     2700.
+
+$ PBEAML definition for each section of beam
+PBEAML   1       1               BAR
+        .051    .0031
+PBEAML   2       2               BAR
+        .051    .0031
+PBEAML   3       3               BAR
+        .051    .0031
+PBEAML   4       4               BAR
+        .051    .0031
+PBEAML   5       5               BAR
+        .051    .0031
+PBEAML   6       6               BAR
+        .051    .0031
+PBEAML   7       7               BAR
+        .051    .0031
+PBEAML   8       8               BAR
+        .051    .0031
+PBEAML   9       9               BAR
+        .051    .0031
+PBEAML   10       10               BAR
+        .051    .0031
+
+$ CBEAM definition along beam length
+CBEAM,1,1,1,2,0.,1.,0.
+CBEAM,2,2,2,3,0.,1.,0.
+CBEAM,3,3,3,4,0.,1.,0.
+CBEAM,4,4,4,5,0.,1.,0.
+CBEAM,5,5,5,6,0.,1.,0.
+CBEAM,6,6,6,7,0.,1.,0.
+CBEAM,7,7,7,8,0.,1.,0.
+CBEAM,8,8,8,9,0.,1.,0.
+CBEAM,9,9,9,10,0.,1.,0.
+CBEAM,10,10,10,11,0.,1.,0.

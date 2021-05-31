@@ -134,7 +134,7 @@ LOAD    40      1.      1.       7
 $ OOP + IP + Rx Combined 
 LOAD    50      1.      1.       1      1.       3      1.       4
         1.       5      1.       6      1.       7
-GRAV,10,,9.81e-6,0.,0.,-1. 
+GRAV,10,,9.81,0.,0.,-1. 
 $---------------------
 $ Attachments - concentrated masses
 $---------------------

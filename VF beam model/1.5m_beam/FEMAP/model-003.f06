@@ -1,0 +1,678 @@
+1
+ 
+ 
+ 
+ 
+                                                             
+                 Copyright 2020 Siemens Product Lifecycle    
+                        Management Software Inc.             
+                         All Rights Reserved.                
+                                                             
+               This software and related documentation are   
+                 proprietary to Siemens Product Lifecycle    
+                        Management Software Inc.             
+                                                             
+              Siemens and the Siemens logo are registered    
+           trademarks of Siemens AG. Simcenter is a trademark
+              or registered trademark of Siemens Product     
+               Lifecycle Management Software Inc. or its     
+             subsidiaries in the United States and in other  
+             countries.  NASTRAN is a registered trademark   
+                 of the National Aeronautics and Space       
+                 Administration.  All other trademarks,      
+              registered trademarks or service marks belong  
+                      to their respective holders.           
+                                                             
+           LIMITATIONS TO U.S. GOVERNMENT RIGHTS. UNPUBLISHED
+           - RIGHTS RESERVED UNDER THE COPYRIGHT LAWS OF THE 
+            UNITED STATES. This computer software and related
+               computer software documentation have been     
+            developed exclusively at private expense and are 
+           provided subject to the following rights:  If this
+               computer software and computer  software      
+            documentation qualify as "commercial items" (as  
+             that term is defined in FAR 2.101), their use,  
+            duplication or disclosure by the U.S. Government 
+           is subject to the protections and restrictions as 
+            set forth in the Siemens commercial license for  
+            software and/or documentation, as prescribed in  
+           FAR 12.212 and FAR 27.405(b)(2)(i) (for civilian  
+             agencies) and in DFARS 227.7202-1(a) and DFARS  
+           227.7202-3(a) (for the Department of Defense), or 
+           any successor or similar regulation, as applicable
+           or as amended from time to time.  If this computer
+           software and computer documentation do not qualify
+            as "commercial items", then they are "restricted 
+           computer software" and are provided with "restric-
+            tive rights", and their use, duplication or dis- 
+            closure by the U.S. Government is subject to the 
+            protections and restrictions as set forth in FAR 
+           27.404(b) and FAR 52-227-14 (for civilian agencies
+           ), and DFARS 227.7203-5(c) and DFARS 252.227-7014 
+           (for the Department of Defense), or any successor 
+           or similar regulation, as applicable or as amended
+              from time to time.  Siemens PLM Software Inc.  
+            5800 Granite Parkway, Suite 600, Plano, TX 75024 
+
+                * * * * * * * * * * * * * * * * * * * *
+                * * * * * * * * * * * * * * * * * * * *
+                * *                                 * *
+                * *                                 * *
+                * *                                 * *
+                * *                                 * *
+                * *     Simcenter Nastran 2020.1    * *
+                * *                                 * *
+                * *       VERSION - 1915.0004       * *
+                * *                                 * *
+                * *          MAR 12, 2020           * *
+                * *                                 * *
+                * *                                 * *
+                * *Intel64 Family 6 Model 158 Stepp * *
+                * *                                 * *
+                * *MODEL Intel(R) Core(TM) i7-7700H * *
+                * *                                 * *
+                * *           Windows 10            * *
+                * *                                 * *
+                * *       Compiled for X86-64       * *
+                * *                                 * *
+                * * * * * * * * * * * * * * * * * * * *
+                * * * * * * * * * * * * * * * * * * * *
+1 
+  
+                      Welcome to Simcenter Nastran
+                      ----------------------------
+  
+  
+ This "news" information can be turned off by setting "news=no" in the runtime
+ configuration (RC) file.  The "news" keyword can be set in the system RC file
+ for global, or multi-user control, and in a local file for local control.
+ Individual jobs can be controlled by setting news to yes or no on the command
+ line.
+1                                                                             MARCH  29, 2021  SIMCENTER NASTRAN  3/12/20   PAGE     1
+                                                                                                                                    
+0        N A S T R A N    F I L E    A N D    S Y S T E M    P A R A M E T E R    E C H O                                           
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     NASTRAN BUFFSIZE=32769 $(C:/PROGRAM FILES/SIEMENS/FEMAP 2020.2 STUDENT/NASTRAN/C
+     NASTRAN BUFFPOOL=5842                                                           
+     NASTRAN DIAGA=128 DIAGB=0 $(C:/PROGRAM FILES/SIEMENS/FEMAP 2020.2 STUDENT/NASTRA
+     NASTRAN REAL=2126381056 $(MEMORY LIMIT FOR MPI AND OTHER SPECIALIZED MODULES)   
+     INIT MASTER(S)                                                                  
+     NASTRAN SYSTEM(442)=-1,SYSTEM(319)=1                                            
+1                                                                             MARCH  29, 2021  SIMCENTER NASTRAN  3/12/20   PAGE     2
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    E C H O                                                             
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID FEMAP,FEMAP                                                                          
+     SOL SEMODES                                                                             
+     CEND                                                                                    
+1    MODAL                                                                    MARCH  29, 2021  SIMCENTER NASTRAN  3/12/20   PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L    E C H O                                                        
+                 COMMAND                                                                                                            
+                 COUNT                                                                                                              
+                  1        TITLE = MODAL                                                                         
+                  2        ECHO = NONE                                                                           
+                  3        DISPLACEMENT(PLOT) = ALL                                                              
+                  4        SPCFORCE(PLOT) = ALL                                                                  
+                  5        ESE(PLOT) = ALL                                                                       
+                  6        METHOD = 1                                                                            
+                  7        SPC = 1                                                                               
+                  8      BEGIN BULK                                                                              
+0                             INPUT BULK DATA ENTRY COUNT =         328
+0                       TOTAL COUNT=       316
+
+
+                                        M O D E L   S U M M A R Y
+
+                                   NUMBER OF GRID     POINTS   =      151
+ 
+ 
+                                   NUMBER OF CBEAM    ELEMENTS =      150
+ 
+ *** USER INFORMATION MESSAGE 4109 (OUTPBN2)
+     THE LABEL IS NX2020.1 FOR FORTRAN UNIT 12
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =        7 WORDS.)
+     (NUMBER OF FORTRAN RECORDS WRITTEN =        8 RECORDS.)
+     (TOTAL DATA WRITTEN FOR TAPE LABEL =       17 WORDS.)
+ *** USER INFORMATION MESSAGE 4114 (OUTPBN2)
+     DATA BLOCK PVT0     WRITTEN ON FORTRAN UNIT  12, TRL =
+                    101                23                 0                 0                 0                 0                 0
+     (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =    65538 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =       23 WORDS.)
+     (NUMBER OF FORTRAN RECORDS WRITTEN =       19 RECORDS.)
+     (TOTAL DATA WRITTEN FOR DATA BLOCK =       49 WORDS.)
+ *** USER INFORMATION MESSAGE 4114 (OUTPBN2)
+     DATA BLOCK CASECC   WRITTEN ON FORTRAN UNIT  12, TRL =
+                    101                 1                 0              1200                 0                 0                 0
+     (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =    65538 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =     1200 WORDS.)
+     (NUMBER OF FORTRAN RECORDS WRITTEN =       19 RECORDS.)
+     (TOTAL DATA WRITTEN FOR DATA BLOCK =     1226 WORDS.)
+1    MODAL                                                                    MARCH  29, 2021  SIMCENTER NASTRAN  3/12/20   PAGE     4
+                                                                                                                                    
+0                                                                                                                                   
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+ *** USER INFORMATION MESSAGE 4114 (OUTPBN2)
+     DATA BLOCK EQEXINS  WRITTEN ON FORTRAN UNIT  12, TRL =
+                    101               151                 0                 0                 0                 0                 0
+     (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =    65538 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =      302 WORDS.)
+     (NUMBER OF FORTRAN RECORDS WRITTEN =       24 RECORDS.)
+     (TOTAL DATA WRITTEN FOR DATA BLOCK =      634 WORDS.)
+1    MODAL                                                                    MARCH  29, 2021  SIMCENTER NASTRAN  3/12/20   PAGE     5
+                                                                                                                                    
+0                                                                                                                                   
+                           O U T P U T   F R O M   G R I D   P O I N T   W E I G H T   G E N E R A T O R
+0                                                     REFERENCE POINT =        0
+                                                                M O
+                      *  6.403050E-01  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00 *
+                      *  0.000000E+00  6.403050E-01  0.000000E+00  0.000000E+00  0.000000E+00  4.802287E-01 *
+                      *  0.000000E+00  0.000000E+00  6.403050E-01  0.000000E+00 -4.802287E-01  0.000000E+00 *
+                      *  0.000000E+00  0.000000E+00  0.000000E+00  1.392989E-04  0.000000E+00  0.000000E+00 *
+                      *  0.000000E+00  0.000000E+00 -4.802287E-01  0.000000E+00  4.802394E-01  0.000000E+00 *
+                      *  0.000000E+00  4.802287E-01  0.000000E+00  0.000000E+00  0.000000E+00  4.802394E-01 *
+                                                                 S
+                                           *  1.000000E+00  0.000000E+00  0.000000E+00 *
+                                           *  0.000000E+00  1.000000E+00  0.000000E+00 *
+                                           *  0.000000E+00  0.000000E+00  1.000000E+00 *
+                               DIRECTION
+                          MASS AXIS SYSTEM (S)     MASS              X-C.G.        Y-C.G.        Z-C.G.
+                                  X            6.403050E-01      0.000000E+00  0.000000E+00  0.000000E+00
+                                  Y            6.403050E-01      7.500000E-01  0.000000E+00  0.000000E+00
+                                  Z            6.403050E-01      7.500000E-01  0.000000E+00  0.000000E+00
+                                                                I(S)
+                                           *  1.392989E-04  0.000000E+00  0.000000E+00 *
+                                           *  0.000000E+00  1.200679E-01  0.000000E+00 *
+                                           *  0.000000E+00  0.000000E+00  1.200679E-01 *
+                                                                I(Q)
+                                           *  1.392989E-04                             *
+                                           *                1.200679E-01               *
+                                           *                              1.200679E-01 *
+                                                                 Q
+                                           *  1.000000E+00  0.000000E+00  0.000000E+00 *
+                                           *  0.000000E+00  1.000000E+00  0.000000E+00 *
+                                           *  0.000000E+00  0.000000E+00  1.000000E+00 *
+
+1    MODAL                                                                    MARCH  29, 2021  SIMCENTER NASTRAN  3/12/20   PAGE     6
+                                                                                                                                    
+0                                                                                                                                   
+ *** USER INFORMATION MESSAGE 4114 (OUTPBN2)
+     DATA BLOCK OGPWG    WRITTEN ON FORTRAN UNIT  12, TRL =
+                    101                 0                 0                 0                 0                 0                 1
+     (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =    65538 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =      146 WORDS.)
+     (NUMBER OF FORTRAN RECORDS WRITTEN =       24 RECORDS.)
+     (TOTAL DATA WRITTEN FOR DATA BLOCK =      254 WORDS.)
+1    MODAL                                                                    MARCH  29, 2021  SIMCENTER NASTRAN  3/12/20   PAGE     7
+                                                                                                                                    
+0                                                                                                                                   
+0 RESULTANTS ABOUT ORIGIN OF SUPERELEMENT BASIC COORDINATE SYSTEM IN SUPERELEMENT BASIC SYSTEM COORDINATES.
+
+0                                                  OLOAD    RESULTANT       
+  SUBCASE/    LOAD
+  DAREA ID    TYPE       T1            T2            T3            R1            R2            R3
+0        1     FX    0.000000E+00     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----       0.000000E+00     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----       0.000000E+00  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----       0.000000E+00     ----          ----                                  
+               MY       ----          ----          ----          ----       0.000000E+00     ----                                  
+               MZ       ----          ----          ----          ----          ----       0.000000E+00                             
+             TOTALS  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00                             
+ *** USER INFORMATION MESSAGE - SINGULARITIES FOUND USING EIGENVALUE METHOD
+ ***       0 SINGULARITIES FOUND         0 SINGULARITIES ELIMINATED
+ *** SYSTEM INFORMATION MESSAGE 6916 (DFMSYN)
+     DECOMP ORDERING METHOD CHOSEN: DEFAULT, ORDERING METHOD USED: MMD
+ *** USER INFORMATION MESSAGE 5010 (LNCILS)
+     STURM SEQUENCE DATA FOR EIGENVALUE EXTRACTION.
+     TRIAL EIGENVALUE =  5.522382E+05, CYCLES =  1.182724E+02 NUMBER OF EIGENVALUES BELOW THIS VALUE =     9
+     User information:
+     This message is automatic output during eigenvalue extraction.  This
+     can be used, along with the list of eigenvalues, to identify the modes
+     found. See the NASTRAN Numerical Methods User's Guide.
+ *** USER INFORMATION MESSAGE 5010 (LNCILS)
+     STURM SEQUENCE DATA FOR EIGENVALUE EXTRACTION.
+     TRIAL EIGENVALUE =  1.131005E+07, CYCLES =  5.352446E+02 NUMBER OF EIGENVALUES BELOW THIS VALUE =    20
+     User information:
+     This message is automatic output during eigenvalue extraction.  This
+     can be used, along with the list of eigenvalues, to identify the modes
+     found. See the NASTRAN Numerical Methods User's Guide.
+
+ TABLE OF SHIFTS:  (LNNRIGL)
+ SHIFT #        SHIFT VALUE         FREQUENCY, CYCLES     # EIGENVALUES BELOW    # NEW EIGENVALUES FOUND
+     1.        5.5223824E+05          1.1827239E+02                 9                       22
+     2.        1.1310047E+07          5.3524465E+02                20                        0
+
+1    MODAL                                                                    MARCH  29, 2021  SIMCENTER NASTRAN  3/12/20   PAGE     8
+                                                                                                                                    
+0                                                                                                                                   
+0
+
+
+                          E I G E N V A L U E  A N A L Y S I S   S U M M A R Y   (READ MODULE) 
+
+
+
+                                     BLOCK SIZE USED ......................    7
+
+                                     NUMBER OF DECOMPOSITIONS .............    2
+
+                                     NUMBER OF ROOTS FOUND ................   20
+
+                                     NUMBER OF SOLVES REQUIRED ............   10
+
+1    MODAL                                                                    MARCH  29, 2021  SIMCENTER NASTRAN  3/12/20   PAGE     9
+                                                                                                                                    
+0                                                                                                                                   
+ 
+                                              R E A L   E I G E N V A L U E S
+   MODE    EXTRACTION      EIGENVALUE            RADIANS             CYCLES            GENERALIZED         GENERALIZED
+    NO.       ORDER                                                                       MASS              STIFFNESS
+        1         1        4.997398E+01        7.069228E+00        1.125103E+00        1.000000E+00        4.997398E+01
+        2         2        1.962416E+03        4.429916E+01        7.050430E+00        1.000000E+00        1.962416E+03
+        3         3        1.350650E+04        1.162175E+02        1.849659E+01        1.000000E+00        1.350650E+04
+        4         4        1.538347E+04        1.240301E+02        1.974001E+01        1.000000E+00        1.538347E+04
+        5         5        5.906318E+04        2.430292E+02        3.867929E+01        1.000000E+00        5.906318E+04
+        6         6        1.491903E+05        3.862516E+02        6.147385E+01        1.000000E+00        1.491903E+05
+        7         7        1.613681E+05        4.017065E+02        6.393357E+01        1.000000E+00        1.613681E+05
+        8         8        3.600194E+05        6.000161E+02        9.549553E+01        1.000000E+00        3.600194E+05
+        9         9        5.259145E+05        7.251997E+02        1.154191E+02        1.000000E+00        5.259145E+05
+       10        10        7.021444E+05        8.379405E+02        1.333624E+02        1.000000E+00        7.021444E+05
+       11        11        1.244245E+06        1.115458E+03        1.775306E+02        1.000000E+00        1.244245E+06
+       12        12        1.342615E+06        1.158713E+03        1.844148E+02        1.000000E+00        1.342615E+06
+       13        13        2.052177E+06        1.432542E+03        2.279962E+02        1.000000E+00        2.052177E+06
+       14        14        3.201118E+06        1.789167E+03        2.847548E+02        1.000000E+00        3.201118E+06
+       15        15        3.728940E+06        1.931046E+03        3.073356E+02        1.000000E+00        3.728940E+06
+       16        16        4.067312E+06        2.016758E+03        3.209770E+02        1.000000E+00        4.067312E+06
+       17        17        4.775542E+06        2.185301E+03        3.478015E+02        1.000000E+00        4.775542E+06
+       18        18        6.869181E+06        2.620912E+03        4.171312E+02        1.000000E+00        6.869181E+06
+       19        19        7.307119E+06        2.703168E+03        4.302226E+02        1.000000E+00        7.307119E+06
+       20        20        9.584990E+06        3.095964E+03        4.927379E+02        1.000000E+00        9.584990E+06
+1    MODAL                                                                    MARCH  29, 2021  SIMCENTER NASTRAN  3/12/20   PAGE    10
+                                                                                                                                    
+0                                                                                                                                   
+1    MODAL                                                                    MARCH  29, 2021  SIMCENTER NASTRAN  3/12/20   PAGE    11
+                                                                                                                                    
+0                                                                                                                                   
+0 RESULTANTS ABOUT ORIGIN OF SUPERELEMENT BASIC COORDINATE SYSTEM IN SUPERELEMENT BASIC SYSTEM COORDINATES.
+
+0                                                  SPCFORCE RESULTANT       
+  SUBCASE/    LOAD
+  DAREA ID    TYPE       T1            T2            T3            R1            R2            R3
+0        1     FX   -1.345192E-09     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----       3.308131E-10     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----      -3.131059E+01  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----       8.436676E-13     ----          ----                                  
+               MY       ----          ----          ----          ----       3.412027E+01     ----                                  
+               MZ       ----          ----          ----          ----          ----       2.215231E-09                             
+             TOTALS -1.345192E-09  3.308131E-10 -3.131059E+01  8.436676E-13  3.412027E+01  2.215231E-09                             
+0        2     FX    7.781519E-09     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----      -1.102885E-08     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----      -6.814193E+02  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----      -1.730700E-13     ----          ----                                  
+               MY       ----          ----          ----          ----       2.138043E+02     ----                                  
+               MZ       ----          ----          ----          ----          ----      -4.139905E-09                             
+             TOTALS  7.781519E-09 -1.102885E-08 -6.814193E+02 -1.730700E-13  2.138043E+02 -4.139905E-09                             
+0        3     FX   -4.534411E-09     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----      -8.464496E+03     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----       9.257226E-10  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----       9.784430E-13     ----          ----                                  
+               MY       ----          ----          ----          ----      -1.752829E-10     ----                                  
+               MZ       ----          ----          ----          ----          ----      -9.222313E+03                             
+             TOTALS -4.534411E-09 -8.464496E+03  9.257226E-10  9.784430E-13 -1.752829E-10 -9.222313E+03                             
+0        4     FX   -2.449254E-09     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----       2.157194E-09     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----      -3.131955E+03  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----       3.515814E-13     ----          ----                                  
+               MY       ----          ----          ----          ----       5.985813E+02     ----                                  
+               MZ       ----          ----          ----          ----          ----      -2.991477E-09                             
+             TOTALS -2.449254E-09  2.157194E-09 -3.131955E+03  3.515814E-13  5.985813E+02 -2.991477E-09                             
+0        5     FX    1.261318E-09     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----       3.474838E-10     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----      -8.597122E+03  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----      -2.184426E-13     ----          ----                                  
+               MY       ----          ----          ----          ----       1.172793E+03     ----                                  
+               MZ       ----          ----          ----          ----          ----       1.306167E-09                             
+             TOTALS  1.261318E-09  3.474838E-10 -8.597122E+03 -2.184426E-13  1.172793E+03  1.306167E-09                             
+0        6     FX   -1.229952E-08     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----       1.625282E-08     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----       2.286228E-09  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----      -1.585279E+03     ----          ----                                  
+               MY       ----          ----          ----          ----      -6.215198E-11     ----                                  
+               MZ       ----          ----          ----          ----          ----       9.127281E-10                             
+             TOTALS -1.229952E-08  1.625282E-08  2.286228E-09 -1.585279E+03 -6.215198E-11  9.127281E-10                             
+0        7     FX   -1.224811E-10     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----      -2.419632E-09     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----       1.826849E+04  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----      -6.046280E-12     ----          ----                                  
+               MY       ----          ----          ----          ----      -1.938349E+03     ----                                  
+               MZ       ----          ----          ----          ----          ----      -5.265988E-11                             
+             TOTALS -1.224811E-10 -2.419632E-09  1.826849E+04 -6.046280E-12 -1.938349E+03 -5.265988E-11                             
+0        8     FX   -5.446305E-10     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----       5.068120E-10     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----      -3.334827E+04  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----      -5.556837E-14     ----          ----                                  
+               MY       ----          ----          ----          ----       2.894935E+03     ----                                  
+               MZ       ----          ----          ----          ----          ----      -3.116597E-10                             
+             TOTALS -5.446305E-10  5.068120E-10 -3.334827E+04 -5.556837E-14  2.894935E+03 -3.116597E-10                             
+0        9     FX    9.524212E-11     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----       1.829623E+05     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----      -6.644373E-11  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----       3.347781E-15     ----          ----                                  
+               MY       ----          ----          ----          ----       2.370124E-12     ----                                  
+               MZ       ----          ----          ----          ----          ----       5.723901E+04                             
+             TOTALS  9.524212E-11  1.829623E+05 -6.644373E-11  3.347781E-15  2.370124E-12  5.723901E+04                             
+0       10     FX    1.901236E-09     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----       3.178279E-10     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----       5.503481E+04  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----       4.483957E-12     ----          ----                                  
+               MY       ----          ----          ----          ----      -4.042356E+03     ----                                  
+               MZ       ----          ----          ----          ----          ----      -1.975247E-10                             
+             TOTALS  1.901236E-09  3.178279E-10  5.503481E+04  4.483957E-12 -4.042356E+03 -1.975247E-10                             
+0       11     FX   -1.162813E-08     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----      -7.857383E-09     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----       8.452513E+04  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----      -3.029590E-12     ----          ----                                  
+               MY       ----          ----          ----          ----      -5.380377E+03     ----                                  
+               MZ       ----          ----          ----          ----          ----       9.215778E-11                             
+             TOTALS -1.162813E-08 -7.857383E-09  8.452513E+04 -3.029590E-12 -5.380377E+03  9.215778E-11                             
+0       12     FX    2.190724E-08     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----      -2.502889E-08     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----      -6.039083E-09  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----      -4.755141E+03     ----          ----                                  
+               MY       ----          ----          ----          ----       1.011961E-10     ----                                  
+               MZ       ----          ----          ----          ----          ----      -1.009244E-09                             
+             TOTALS  2.190724E-08 -2.502889E-08 -6.039083E-09 -4.755141E+03  1.011961E-10 -1.009244E-09                             
+0       13     FX    2.015641E-09     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----      -3.362075E-08     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----       1.230143E+05  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----      -3.405059E-11     ----          ----                                  
+               MY       ----          ----          ----          ----      -6.908730E+03     ----                                  
+               MZ       ----          ----          ----          ----          ----      -1.072919E-09                             
+             TOTALS  2.015641E-09 -3.362075E-08  1.230143E+05 -3.405059E-11 -6.908730E+03 -1.072919E-09                             
+0       14     FX   -1.937378E-07     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----       2.321285E-07     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----       1.716955E+05  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----       1.290179E-10     ----          ----                                  
+               MY       ----          ----          ----          ----      -8.627117E+03     ----                                  
+               MZ       ----          ----          ----          ----          ----       9.760722E-09                             
+             TOTALS -1.937378E-07  2.321285E-07  1.716955E+05  1.290179E-10 -8.627117E+03  9.760722E-09                             
+0       15     FX   -2.026093E-05     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----      -1.942431E-05     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----      -1.415099E-05  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----      -7.922917E+03     ----          ----                                  
+               MY       ----          ----          ----          ----       2.027707E-07     ----                                  
+               MZ       ----          ----          ----          ----          ----      -7.303483E-07                             
+             TOTALS -2.026093E-05 -1.942431E-05 -1.415099E-05 -7.922917E+03  2.027707E-07 -7.303483E-07                             
+0       16     FX    1.732624E-07     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----       8.317858E+05     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----      -5.669715E-07  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----      -1.959375E-09     ----          ----                                  
+               MY       ----          ----          ----          ----       8.658747E-09     ----                                  
+               MZ       ----          ----          ----          ----          ----       1.576909E+05                             
+             TOTALS  1.732624E-07  8.317858E+05 -5.669715E-07 -1.959375E-09  8.658747E-09  1.576909E+05                             
+0       17     FX    5.926725E-06     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----      -1.164598E-05     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----      -2.317594E+05  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----      -7.666282E-09     ----          ----                                  
+               MY       ----          ----          ----          ----       1.053521E+04     ----                                  
+               MZ       ----          ----          ----          ----          ----      -6.098622E-07                             
+             TOTALS  5.926725E-06 -1.164598E-05 -2.317594E+05 -7.666282E-09  1.053521E+04 -6.098622E-07                             
+0       18     FX   -5.580252E-05     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----       1.398785E-04     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----      -3.043940E+05  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----       6.548771E-08     ----          ----                                  
+               MY       ----          ----          ----          ----       1.263264E+04     ----                                  
+               MZ       ----          ----          ----          ----          ----       7.101800E-06                             
+             TOTALS -5.580252E-05  1.398785E-04 -3.043940E+05  6.548771E-08  1.263264E+04  7.101800E-06                             
+0       19     FX   -1.045583E-02     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----      -1.993082E-02     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----      -1.515451E-02  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----       1.108722E+04     ----          ----                                  
+               MY       ----          ----          ----          ----       2.285941E-04     ----                                  
+               MZ       ----          ----          ----          ----          ----      -9.432212E-04                             
+             TOTALS -1.045583E-02 -1.993082E-02 -1.515451E-02  1.108722E+04  2.285941E-04 -9.432212E-04                             
+0       20     FX   -5.720835E-03     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----       8.820282E-03     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----       3.907847E+05  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----       2.164470E-05     ----          ----                                  
+               MY       ----          ----          ----          ----      -1.491903E+04     ----                                  
+               MZ       ----          ----          ----          ----          ----       4.821791E-04                             
+             TOTALS -5.720835E-03  8.820282E-03  3.907847E+05  2.164470E-05 -1.491903E+04  4.821791E-04                             
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   1       
+     THERE ARE     16 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   2       
+     THERE ARE      7 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   3       
+     THERE ARE     16 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   4       
+     THERE ARE      5 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   5       
+     THERE ARE      4 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   6       
+     THERE ARE      3 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   7       
+     THERE ARE      2 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   8       
+     THERE ARE      2 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   9       
+     THERE ARE      6 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   10      
+     THERE ARE      1 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   11      
+     THERE ARE      1 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   12      
+     THERE ARE      3 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   13      
+     THERE ARE      1 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   14      
+     THERE ARE      1 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   15      
+     THERE ARE      5 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   16      
+     THERE ARE      3 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   17      
+     THERE ARE      1 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   18      
+     THERE ARE      1 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   19      
+     THERE ARE      3 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4114 (OUTPBN2)
+     DATA BLOCK OQG1     WRITTEN ON FORTRAN UNIT  12, TRL =
+                    101                 0             24160                 0                 0                 0                 0
+     (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =    65538 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =     1208 WORDS.)
+     (NUMBER OF FORTRAN RECORDS WRITTEN =      214 RECORDS.)
+     (TOTAL DATA WRITTEN FOR DATA BLOCK =    27267 WORDS.)
+1    MODAL                                                                    MARCH  29, 2021  SIMCENTER NASTRAN  3/12/20   PAGE    12
+                                                                                                                                    
+0                                                                                                                                   
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+ *** USER INFORMATION MESSAGE 4114 (OUTPBN2)
+     DATA BLOCK LAMA     WRITTEN ON FORTRAN UNIT  12, TRL =
+                    101                20                 0                 0                 0                 0                 0
+     (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =    65538 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =      146 WORDS.)
+     (NUMBER OF FORTRAN RECORDS WRITTEN =       24 RECORDS.)
+     (TOTAL DATA WRITTEN FOR DATA BLOCK =      316 WORDS.)
+ *** USER INFORMATION MESSAGE 4114 (OUTPBN2)
+     DATA BLOCK OUGV1    WRITTEN ON FORTRAN UNIT  12, TRL =
+                    101                 0             24160                 0                 0                 0                 0
+     (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =    65538 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =     1208 WORDS.)
+     (NUMBER OF FORTRAN RECORDS WRITTEN =      214 RECORDS.)
+     (TOTAL DATA WRITTEN FOR DATA BLOCK =    27267 WORDS.)
+1    MODAL                                                                    MARCH  29, 2021  SIMCENTER NASTRAN  3/12/20   PAGE    13
+                                                                                                                                    
+0                                                                                                                                   
+1    MODAL                                                                    MARCH  29, 2021  SIMCENTER NASTRAN  3/12/20   PAGE    14
+                                                                                                                                    
+0                                                                                                                                   
+1    MODAL                                                                    MARCH  29, 2021  SIMCENTER NASTRAN  3/12/20   PAGE    15
+                                                                                                                                    
+0                                                                                                                                   
+ *** USER INFORMATION MESSAGE 4114 (OUTPBN2)
+     DATA BLOCK ONRGY1   WRITTEN ON FORTRAN UNIT  12, TRL =
+                    101                20                 0                 0                 0                 2                 0
+     (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =    65538 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =      604 WORDS.)
+     (NUMBER OF FORTRAN RECORDS WRITTEN =      214 RECORDS.)
+     (TOTAL DATA WRITTEN FOR DATA BLOCK =    14858 WORDS.)
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   1       
+     THERE ARE     16 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   2       
+     THERE ARE      7 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   3       
+     THERE ARE     16 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   4       
+     THERE ARE      5 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   5       
+     THERE ARE      3 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   6       
+     THERE ARE      3 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   7       
+     THERE ARE      2 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   8       
+     THERE ARE      2 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   9       
+     THERE ARE      7 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   10      
+     THERE ARE      1 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   11      
+     THERE ARE      1 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   12      
+     THERE ARE      3 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   13      
+     THERE ARE      1 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   14      
+     THERE ARE      1 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   16      
+     THERE ARE      4 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   17      
+     THERE ARE      1 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4507 (SDREE)
+     IN SUBCASE         1      MODE   18      
+     THERE ARE      1 BEAM     ELEMENTS HAVING STRAIN ENERGY WHICH IS LESS THAN   0.0010 PERCENT
+     OF THE TOTAL STRAIN ENERGY OF ALL ELEMENTS.
+ *** USER INFORMATION MESSAGE 4114 (OUTPBN2)
+     DATA BLOCK ONRGY2   WRITTEN ON FORTRAN UNIT  12, TRL =
+                    101                20                 0                 0                 0                 2                 0
+     (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =    65538 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =      604 WORDS.)
+     (NUMBER OF FORTRAN RECORDS WRITTEN =      214 RECORDS.)
+     (TOTAL DATA WRITTEN FOR DATA BLOCK =    14886 WORDS.)
+ *** USER INFORMATION MESSAGE 4110 (OUTPBN2)
+                                 END-OF-DATA SIMULATION ON FORTRAN UNIT 12
+                                 (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =      1 WORDS.)
+                                       (NUMBER OF FORTRAN RECORDS WRITTEN =      1 RECORDS.)
+                                       (TOTAL DATA WRITTEN FOR EOF MARKER =      1 WORDS.)
+1    MODAL                                                                    MARCH  29, 2021  SIMCENTER NASTRAN  3/12/20   PAGE    16
+                                                                                                                                    
+0                                                                                                                                   
+ * * * *  D B D I C T   P R I N T  * * * *      SUBDMAP = PRTSUM  ,  DMAP STATEMENT NO.     28
+
+
+
+0                                   * * * *  A N A L Y S I S  S U M M A R Y  T A B L E  * * * *
+0 SEID  PEID PROJ VERS APRCH      SEMG SEMR SEKR SELG SELR MODES DYNRED SOLLIN PVALID SOLNL LOOPID DESIGN CYCLE SENSITIVITY
+ --------------------------------------------------------------------------------------------------------------------------
+     0     0    1    1 '        '    T    T    T    T    T     T      F      T      0     F     -1            0           F
+0SEID = SUPERELEMENT ID.
+ PEID = PRIMARY SUPERELEMENT ID OF IMAGE SUPERELEMENT.
+ PROJ = PROJECT ID NUMBER.
+ VERS = VERSION ID.
+ APRCH = BLANK FOR STRUCTURAL ANALYSIS.  HEAT FOR HEAT TRANSFER ANALYSIS.
+ SEMG = STIFFNESS AND MASS MATRIX GENERATION STEP.
+ SEMR = MASS MATRIX REDUCTION STEP (INCLUDES EIGENVALUE SOLUTION FOR MODES).
+ SEKR = STIFFNESS MATRIX REDUCTION STEP.
+ SELG = LOAD MATRIX GENERATION STEP.
+ SELR = LOAD MATRIX REDUCTION STEP. 
+ MODES = T (TRUE) IF NORMAL MODES OR BUCKLING MODES CALCULATED.
+ DYNRED = T (TRUE) MEANS GENERALIZED DYNAMIC AND/OR COMPONENT MODE REDUCTION PERFORMED.
+ SOLLIN = T (TRUE) IF LINEAR SOLUTION EXISTS IN DATABASE.
+ PVALID = P-DISTRIBUTION ID OF P-VALUE FOR P-ELEMENTS
+ LOOPID = THE LAST LOOPID VALUE USED IN THE NONLINEAR ANALYSIS.  USEFUL FOR RESTARTS.
+ SOLNL = T (TRUE) IF NONLINEAR SOLUTION EXISTS IN DATABASE.
+ DESIGN CYCLE = THE LAST DESIGN CYCLE (ONLY VALID IN OPTIMIZATION).
+ SENSITIVITY = SENSITIVITY MATRIX GENERATION FLAG.
+1                                        * * * END OF JOB * * *
+ 
+ 

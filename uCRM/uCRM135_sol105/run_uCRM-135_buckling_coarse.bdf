@@ -1,0 +1,60 @@
+$ This is an example run file used to perform buckling analysis of
+$  the uCRM-13.5 coarse structural model
+SOL 105
+TIME 10
+CEND
+ECHO = NONE
+RESVEC = NO
+SUBCASE 1
+   TITLE=Buckling analysis of uCRM13.5
+   SUBTITLE=Load = 1.0 g
+   SPC = 1
+   LOAD = 101
+   METHOD = 10
+   VECTOR(SORT1,REAL)=ALL
+   DISPLACEMENT(PRINT,PLOT)=ALL
+$
+BEGIN BULK
+$ Analysis parameters
+PARAM,AUTOSPC,NO
+PARAM,GRDPNT,1
+PARAM,K6ROT,1e5
+PARAM,OGEOM,YES
+PARAM,COUPMASS,-1
+PARAM,MAXRATIO,1.0e7
+PARAM,POST,-1
+PARAM   PRTMAXIM YES
+PARAM,WTMASS,1.0
+$PARAM,AUTOMSET,YES
+$
+$ Include wingbox model
+INCLUDE 'uCRM-135_wingbox_coarse.bdf'
+
+$---------------------
+$ Load set
+$---------------------
+LOAD,100,1.,1.,200
+$---------------------
+GRAV,200,,9.81e-6,0.,0.,-1. 
+$---------------------
+$
+LOAD,101,1.,1.,201
+$---------------------
+GRAV,201,,9.81,0.,0.,1.
+$---------------------
+$
+LOAD,102,1.,1.,202
+$---------------------
+GRAV,202,,-24.525,0.,0.,-1. 
+
+EIGRL         10    1.-4              10       0                    MASS
+$ Include external masses
+$INCLUDE 'uCRM-135_LETE_masses_coarse.bdf'
+$INCLUDE 'uCRM-135_engine_mass_coarse.bdf'
+
+$ Include internal fuel mass 
+$ NOTE: Can change replace this with 100 percent fuel file, 
+$ if fullfuel is desired
+$INCLUDE 'uCRM-135_fuel_mass_20_percent_coarse.bdf'
+
+ENDDATA
