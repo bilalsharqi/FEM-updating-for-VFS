@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<b:Sources xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" SelectedStyle="">
+    <b:Source>
+        <b:Year>2020</b:Year>
+        <b:BIBTEX_Entry>inproceedings</b:BIBTEX_Entry>
+        <b:SourceType>ConferenceProceedings</b:SourceType>
+        <b:Title>Parametric Roll Maneuverability Analysis of a High-Aspect-Ratio-Wing Civil Transport Aircraft</b:Title>
+        <b:Publisher>American Institute of Aeronautics and Astronautics</b:Publisher>
+        <b:Tag>Riso2020</b:Tag>
+        <b:BookTitle>AIAA Scitech 2020 Forum</b:BookTitle>
+        <b:DOI>10.2514/6.2020-1191</b:DOI>
+        <b:Author>
+            <b:Author>
+                <b:NameList>
+                    <b:Person>
+                        <b:Last>Riso</b:Last>
+                        <b:First>Cristina</b:First>
+                    </b:Person>
+                    <b:Person>
+                        <b:Last>Sanghi</b:Last>
+                        <b:First>Divya</b:First>
+                    </b:Person>
+                    <b:Person>
+                        <b:Last>Cesnik</b:Last>
+                        <b:Middle>E.</b:Middle>
+                        <b:First>Carlos</b:First>
+                    </b:Person>
+                    <b:Person>
+                        <b:Last>Vetrano</b:Last>
+                        <b:First>Fabio</b:First>
+                    </b:Person>
+                    <b:Person>
+                        <b:Last>Teufel</b:Last>
+                        <b:First>Patrick</b:First>
+                    </b:Person>
+                </b:NameList>
+            </b:Author>
+        </b:Author>
+        <b:Month>1</b:Month>
+        <b:ConferenceName>AIAA Scitech 2020 Forum</b:ConferenceName>
+    </b:Source>
+    <b:Source>
+        <b:Year>2019</b:Year>
+        <b:Volume>57</b:Volume>
+        <b:BIBTEX_Entry>article</b:BIBTEX_Entry>
+        <b:SourceType>JournalArticle</b:SourceType>
+        <b:Title>Propeller Effects on the Response of High-Altitude Long-Endurance Aircraft</b:Title>
+        <b:Publisher>American Institute of Aeronautics and Astronautics (AIAA)</b:Publisher>
+        <b:Tag>Teixeira2019</b:Tag>
+        <b:DOI>10.2514/1.j057575</b:DOI>
+        <b:Author>
+            <b:Author>
+                <b:NameList>
+                    <b:Person>
+                        <b:Last>Teixeira</b:Last>
+                        <b:Middle>C.</b:Middle>
+                        <b:First>Patricia</b:First>
+                    </b:Person>
+                    <b:Person>
+                        <b:Last>Cesnik</b:Last>
+                        <b:Middle>E. S.</b:Middle>
+                        <b:First>Carlos</b:First>
+                    </b:Person>
+                </b:NameList>
+            </b:Author>
+        </b:Author>
+        <b:Pages>4328–4342</b:Pages>
+        <b:Month>10</b:Month>
+        <b:JournalName>AIAA Journal</b:JournalName>
+        <b:Number>10</b:Number>
+    </b:Source>
+    <b:Source>
+        <b:Year>2021</b:Year>
+        <b:BIBTEX_Entry>inproceedings</b:BIBTEX_Entry>
+        <b:SourceType>ConferenceProceedings</b:SourceType>
+        <b:Title>Correlations Between UM/NAST Nonlinear Aeroelastic Simulations and the Pre-Pazy Wing Experiment</b:Title>
+        <b:Publisher>American Institute of Aeronautics and Astronautics</b:Publisher>
+        <b:Tag>Riso2021</b:Tag>
+        <b:BookTitle>AIAA Scitech 2021 Forum</b:BookTitle>
+        <b:DOI>10.2514/6.2021-1712</b:DOI>
+        <b:Author>
+            <b:Author>
+                <b:NameList>
+                    <b:Person>
+                        <b:Last>Riso</b:Last>
+                        <b:First>Cristina</b:First>
+                    </b:Person>
+                    <b:Person>
+                        <b:Last>Cesnik</b:Last>
+                        <b:Middle>E.</b:Middle>
+                        <b:First>Carlos</b:First>
+                    </b:Person>
+                </b:NameList>
+            </b:Author>
+        </b:Author>
+        <b:Month>1</b:Month>
+        <b:ConferenceName>AIAA Scitech 2021 Forum</b:ConferenceName>
+    </b:Source>
+    <b:Source>
+        <b:Year>2021</b:Year>
+        <b:BIBTEX_Entry>inproceedings</b:BIBTEX_Entry>
+        <b:SourceType>ConferenceProceedings</b:SourceType>
+        <b:Title>Design, Analysis, and Testing of the Active Aeroelastic Aircraft Testbed (A3TB) Platform</b:Title>
+        <b:Publisher>American Institute of Aeronautics and Astronautics</b:Publisher>
+        <b:Tag>Joels2021</b:Tag>
+        <b:BookTitle>AIAA Scitech 2021 Forum</b:BookTitle>
+        <b:DOI>10.2514/6.2021-1390</b:DOI>
+        <b:Author>
+            <b:Author>
+                <b:NameList>
+                    <b:Person>
+                        <b:Last>Joels</b:Last>
+                        <b:First>Tsoof</b:First>
+                    </b:Person>
+                    <b:Person>
+                        <b:Last>Mayer</b:Last>
+                        <b:First>Ariel</b:First>
+                    </b:Person>
+                    <b:Person>
+                        <b:Last>Edery-Azulay</b:Last>
+                        <b:First>Lucy</b:First>
+                    </b:Person>
+                    <b:Person>
+                        <b:Last>Raveh</b:Last>
+                        <b:Middle>E.</b:Middle>
+                        <b:First>Daniella</b:First>
+                    </b:Person>
+                </b:NameList>
+            </b:Author>
+        </b:Author>
+        <b:Month>1</b:Month>
+        <b:ConferenceName>AIAA Scitech 2021 Forum</b:ConferenceName>
+    </b:Source>
+    <b:Source>
+        <b:Year>2021</b:Year>
+        <b:BIBTEX_Entry>inproceedings</b:BIBTEX_Entry>
+        <b:SourceType>ConferenceProceedings</b:SourceType>
+        <b:Title>Aeroelastic Analyses of the Free Flight of the Active Aeroelastic Aircraft Testbed (A3TB) Platform</b:Title>
+        <b:Publisher>American Institute of Aeronautics and Astronautics</b:Publisher>
+        <b:Tag>Sharqi2021</b:Tag>
+        <b:BookTitle>AIAA Scitech 2021 Forum</b:BookTitle>
+        <b:DOI>10.2514/6.2021-0905</b:DOI>
+        <b:Author>
+            <b:Author>
+                <b:NameList>
+                    <b:Person>
+                        <b:Last>Sharqi</b:Last>
+                        <b:First>Bilal</b:First>
+                    </b:Person>
+                    <b:Person>
+                        <b:Last>Cesnik</b:Last>
+                        <b:Middle>E.</b:Middle>
+                        <b:First>Carlos</b:First>
+                    </b:Person>
+                    <b:Person>
+                        <b:Last>Yechieli</b:Last>
+                        <b:First>Noam</b:First>
+                    </b:Person>
+                    <b:Person>
+                        <b:Last>Mallik</b:Last>
+                        <b:First>Wrik</b:First>
+                    </b:Person>
+                    <b:Person>
+                        <b:Last>Raveh</b:Last>
+                        <b:Middle>E.</b:Middle>
+                        <b:First>Daniella</b:First>
+                    </b:Person>
+                    <b:Person>
+                        <b:Last>Karpel</b:Last>
+                        <b:First>Moti</b:First>
+                    </b:Person>
+                </b:NameList>
+            </b:Author>
+        </b:Author>
+        <b:Month>1</b:Month>
+        <b:ConferenceName>AIAA Scitech 2021 Forum</b:ConferenceName>
+    </b:Source>
+</b:Sources>
