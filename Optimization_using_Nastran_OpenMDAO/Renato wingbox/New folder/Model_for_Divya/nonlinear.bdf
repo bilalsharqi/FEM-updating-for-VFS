@@ -1,0 +1,47 @@
+SOL 400
+CEND
+SET 1 = 80000001 THRU 80000031
+$ Direct Text Input for Global Case Control Data
+TITLE = MSC.Nastran job created on 02-Dec-16 at 16:06:26
+ECHO = NONE
+DISP(PRINT)= 1
+SUBCASE 1
+ STEP 1
+   ANALYSIS = NLSTAT
+   NLPARM = 1
+   SPC = 2
+   LOAD = 2
+$   SPCFORCES(SORT1,REAL)=ALL
+$   STRESS(SORT1,REAL,VONMISES,BILIN)=ALL
+$   METHOD = 1
+ STEP 2
+   ANALYSIS = MODES
+   SPC = 2
+   LOAD = 2
+   METHOD = 1
+
+   
+BEGIN BULK
+
+
+PARAM    POST    0
+PARAM    AUTOSPC NO
+PARAM    LGDISP  1
+PARAM   PRTMAXIM YES
+NLPARM   1       10              AUTO    5       25              NO
+$PARAM    NMLOOP  1
+MDLPRM, NLDIFF, 2
+EIGRL    1                       11      0
+
+
+
+$
+$-------2-------3-------4-------5-------6-------7-------8-------9-------10
+
+
+
+include 'rbes_box.bdf'
+include 'loads_box1.bdf'
+include 'wingbox.bdf'
+
+ENDDATA 
