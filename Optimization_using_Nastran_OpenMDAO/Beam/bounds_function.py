@@ -20,7 +20,7 @@ from pyNastran.bdf.bdf import BDF
 
 # Bounds function
 
-def bounds_func():
+def bounds_func(lb,ub):
 
     # Load the reference model bdf using pynastran
     # open the .bdf file
@@ -56,11 +56,10 @@ def bounds_func():
         ref_nu[nu] = ref_model.materials[nu+1].nu
         
     x_ref = [ref_mass, ref_stiffness, ref_nu]
-    x_lb = 0.9*np.float64(x_ref)
-    x_up = 1.1*np.float64(x_ref)
-    bnds = ((x_lb,x_up))
+    x_lb = lb*np.float64(x_ref)
+    x_ub = ub*np.float64(x_ref)
+    bnds = ((x_lb,x_ub))
     
     return bnds
 
-
-    
+# test_bnds = bounds_func(0.9, 1.1)

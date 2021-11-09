@@ -32,3 +32,7 @@ VF beam model/Post_Processing_Utilities/mistune_output/
 *.MASTER
 
 VF beam model/2_m_beam/archive/
+
+__pycache__/
+
+Optimization_using_Nastran_OpenMDAO/Beam/run/

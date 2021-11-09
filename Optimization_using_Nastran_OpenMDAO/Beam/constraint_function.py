@@ -51,7 +51,7 @@ cons = (        {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] - constra
 
 # Constraint function
 
-def constraint_func():
+def constraint_func(x):
   
     # Read mistuned results
     # Note: There are 4 loading subcases and 15 eigenvalues computed for each
@@ -86,7 +86,56 @@ def constraint_func():
     ycg = x_G_mistuned[1]
     zcg = x_G_mistuned[2]
     
-    return m,Ixx,Iyy,Izz,xcg,ycg,zcg
+    # MAC module
+    MAC = [[np.zeros(1) for i in range(n_modes)] for j in range(n_subcases)]
+    data_MAC_reference = [[np.zeros([6*mistuned_n_grids]) for i in range(n_modes)] for j in range(n_subcases)]
+    data_MAC_mistuned  = [[np.zeros([6*mistuned_n_grids]) for i in range(n_modes)] for j in range(n_subcases)]
+    for i in range(n_subcases):
+        for j in range(n_modes):
+            data_MAC_reference[i][j] = ref_mode_shapes[i][j].flatten('F')
+            data_MAC_mistuned[i][j] = mistuned_mode_shapes[i][j].flatten('F')       
+    
+    test_MAC2 = ComputeMAC(data_MAC_reference[0][0],data_MAC_mistuned[0][0])
+    for i in range(n_subcases):
+        for j in range(n_modes):
+                MAC[i][j] = ComputeMAC(data_MAC_reference[i][j], data_MAC_mistuned[i][j])
+    
+    return m,Ixx,Iyy,Izz,xcg,ycg,zcg,MAC
 
+# Load the mistuned model bdf to provide initial guess
+mistuned_model = BDF()
+mistuned_model.read_bdf("inp/mistunedBeam.bdf", punch=True)
+# print(mistuned_model.get_bdf_stats())
+   
+# get the number of properties of each type - separate mass and stiffness
+elemPropKeys = list(mistuned_model.properties.keys())
+matStiffPropKeys = list(mistuned_model.materials.keys())
+matMassPropKeys = list(mistuned_model.materials.keys())
+conMassKeys = list(mistuned_model.masses.keys())
+   
+numElemProps = len(elemPropKeys)
+numMatStiffProps = len(matStiffPropKeys)
+numMatMassProps = len(matMassPropKeys)
+numConMasses = len(conMassKeys)
+
+# read mistuned stiffness values
+mistuned_stiffness = np.zeros(numMatStiffProps)
+mistuned_mass = np.zeros(numMatMassProps)
+mistuned_nu = np.zeros(numMatStiffProps)
+
+for stiffness in range(len(matStiffPropKeys)):
+    mistuned_stiffness[stiffness] = mistuned_model.materials[stiffness+1].e
     
+# read mistuned mass values
+for mass in range(len(matMassPropKeys)):
+    mistuned_mass[mass] = mistuned_model.materials[mass+1].rho
     
+# read reference nu values
+for nu in range(len(matMassPropKeys)):
+    mistuned_nu[nu] = mistuned_model.materials[nu+1].nu
+
+x = np.array([np.transpose(mistuned_mass)])
+x = np.append(x,[np.transpose(mistuned_stiffness)])
+# x = np.append(x,[np.transpose(mistuned_nu)])
+    
+test_constraint = constraint_func(x)

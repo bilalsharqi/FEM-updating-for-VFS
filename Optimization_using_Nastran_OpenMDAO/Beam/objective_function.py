@@ -21,7 +21,7 @@ from pyMSCNastranUtilities import *
 
 # Objective function
 
-def obj_func(x,inp_dir, run_dir, out_dir, ref_file, mistuned_file):
+def obj_func(x,inp_dir, run_dir, out_dir, ref_file,mistuned_file):
     
     # create an output directory for the results if one doesn't exist
     outputDir = "mistune_output"
@@ -48,9 +48,9 @@ def obj_func(x,inp_dir, run_dir, out_dir, ref_file, mistuned_file):
     # model = BDF()
     # write material properties from updated design variables
     for i in range(len(elemPropKeys)):
-        mistuned_model.materials[i+1].rho = x[0][i]
-        mistuned_model.materials[i+1].e = x[1][i]
-        mistuned_model.materials[i+1].nu = x[2][i]
+        mistuned_model.materials[i+1].rho = x[i]
+        mistuned_model.materials[i+1].e   = x[i+len(elemPropKeys)]
+        # mistuned_model.materials[i+1].nu  = x[2][i]
         
     if mistuned_file.endswith('.bdf'):
         mistuned_file = mistuned_file[:-4]
@@ -81,7 +81,7 @@ def obj_func(x,inp_dir, run_dir, out_dir, ref_file, mistuned_file):
     print("\nReference NASTRAN data import completed")
 
     # Call Nastran for generating mistuned results
-    runNastran(inp_dir, run_dir, out_dir, "mistuned_sol400.dat", debug=True)
+    runNastran("mistune_output", run_dir, out_dir, "mistuned_sol400.dat", debug=True)
     
     # Read mistuned results
     # Note: There are 4 loading subcases and 15 eigenvalues computed for each
@@ -93,7 +93,7 @@ def obj_func(x,inp_dir, run_dir, out_dir, ref_file, mistuned_file):
     n_subcases=4
     
     # read the reference result files and store the numerical data
-    mistuned_grids, mistuned_n_grids, mistuned_grid_coords = importGrids(file_path, ['mistunedBeam.bdf',model_coords], debug=True)
+    mistuned_grids, mistuned_n_grids, mistuned_grid_coords = importGrids(file_path, ['mistunedBeam_Alt_1.bdf',model_coords], debug=True)
     mistuned_freq_NASTRAN = importFrequencies(file_path, f06_file, n_modes, n_subcases, debug=True)
     mistuned_mode_shapes = importEigenvectors(file_path, f06_file, n_modes, mistuned_n_grids, mistuned_grids, n_subcases,[],debug=True)
     mistuned_static_deform= importDisplacements(file_path, f06_file, n_subcases, mistuned_grids, grids_order=[], debug=True)
@@ -168,38 +168,47 @@ def obj_func(x,inp_dir, run_dir, out_dir, ref_file, mistuned_file):
     
     return obj, mass_metric, inertia_metric, cg_metric, frequency_metric
 
-# Load the mistuned model bdf to provide initial guess
-mistuned_model = BDF()
-mistuned_model.read_bdf("inp/mistunedBeam.bdf", punch=True)
-# print(mistuned_model.get_bdf_stats())
+# # Load the mistuned model bdf to provide initial guess
+# mistuned_model = BDF()
+# mistuned_model.read_bdf("inp/mistunedBeam.bdf", punch=True)
+# # print(mistuned_model.get_bdf_stats())
    
-# get the number of properties of each type - separate mass and stiffness
-elemPropKeys = list(mistuned_model.properties.keys())
-matStiffPropKeys = list(mistuned_model.materials.keys())
-matMassPropKeys = list(mistuned_model.materials.keys())
-conMassKeys = list(mistuned_model.masses.keys())
+# # get the number of properties of each type - separate mass and stiffness
+# elemPropKeys = list(mistuned_model.properties.keys())
+# matStiffPropKeys = list(mistuned_model.materials.keys())
+# matMassPropKeys = list(mistuned_model.materials.keys())
+# conMassKeys = list(mistuned_model.masses.keys())
    
-numElemProps = len(elemPropKeys)
-numMatStiffProps = len(matStiffPropKeys)
-numMatMassProps = len(matMassPropKeys)
-numConMasses = len(conMassKeys)
+# numElemProps = len(elemPropKeys)
+# numMatStiffProps = len(matStiffPropKeys)
+# numMatMassProps = len(matMassPropKeys)
+# numConMasses = len(conMassKeys)
 
-# read mistuned stiffness values
-mistuned_stiffness = np.zeros(numMatStiffProps)
-mistuned_mass = np.zeros(numMatMassProps)
-mistuned_nu = np.zeros(numMatStiffProps)
+# # read mistuned stiffness values
+# mistuned_stiffness = np.zeros(numMatStiffProps)
+# mistuned_mass = np.zeros(numMatMassProps)
+# mistuned_nu = np.zeros(numMatStiffProps)
 
-for stiffness in range(len(matStiffPropKeys)):
-    mistuned_stiffness[stiffness] = mistuned_model.materials[stiffness+1].e
+# for stiffness in range(len(matStiffPropKeys)):
+#     mistuned_stiffness[stiffness] = mistuned_model.materials[stiffness+1].e
     
-# read mistuned mass values
-for mass in range(len(matMassPropKeys)):
-    mistuned_mass[mass] = mistuned_model.materials[mass+1].rho
+# # read mistuned mass values
+# for mass in range(len(matMassPropKeys)):
+#     mistuned_mass[mass] = mistuned_model.materials[mass+1].rho
     
-# read reference nu values
-for nu in range(len(matMassPropKeys)):
-    mistuned_nu[nu] = mistuned_model.materials[nu+1].nu
+# # read reference nu values
+# for nu in range(len(matMassPropKeys)):
+#     mistuned_nu[nu] = mistuned_model.materials[nu+1].nu
 
-x = [mistuned_mass, mistuned_stiffness, mistuned_nu]
+# x = np.array([np.transpose(mistuned_mass)])
+# x = np.append(x,[np.transpose(mistuned_stiffness)])
+# # x = np.append(x,[np.transpose(mistuned_nu)])
 
-test = obj_func(x,"inp", "run", "out", "sol400.dat","mistunedBeam.bdf")
+# one output objective function
+def objective_function(x):
+    outputs = obj_func(x,"inp", "run", "out", "sol400.dat","mistunedBeam.bdf")
+    objective = outputs[0]
+    return objective
+
+# test_obj = obj_func(x,"inp", "run", "out", "sol400.dat","mistunedBeam.bdf")
+# test_objective = objective_function(x)
