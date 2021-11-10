@@ -20,7 +20,7 @@ from pyNastran.bdf.bdf import BDF
 
 from pyMSCNastranUtilities import *
 from objective_function import *
-from constraint_function import constraint_func
+from constraint_function import *
 from bounds_function import *
 
 # using SciPy minimize 
@@ -62,12 +62,22 @@ x = np.array([np.transpose(mistuned_mass)])
 x = np.append(x,[np.transpose(mistuned_stiffness)])
 # x = np.append(x,[np.transpose(mistuned_nu)])
 
+# bnds = ((2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),
+#         (6300,7700),(6300,7700),(6300,7700),(6300,7700),(6300,7700),(6300,7700),(6300,7700),(6300,7700),(6300,7700),(6300,7700),(6300,7700),(6300,7700),(6300,7700),(6300,7700),(6300,7700))
+
 bnds = bounds_func(0.9,1.1)
-#CON = ({'type': 'ineq', 'fun': lambda x: const(x)})
-# CON = ({'type': 'ineq', 'fun': lambda x: const(x), 'jac': lambda x: grad_constraint(x)})
+
+cons = (        {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] - constraint_func(x)[0]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func(x)[0]}, 
+                {'type': 'ineq', 'fun': lambda x: ineq_const_limits[1] - constraint_func(x)[1]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func(x)[0]}, 
+                {'type': 'ineq', 'fun': lambda x: ineq_const_limits[2] - constraint_func(x)[2]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func(x)[0]},
+                {'type': 'ineq', 'fun': lambda x: ineq_const_limits[3] - constraint_func(x)[3]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func(x)[0]},
+                {'type': 'ineq', 'fun': lambda x: ineq_const_limits[4] - constraint_func(x)[4]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func(x)[0]},
+                {'type': 'ineq', 'fun': lambda x: ineq_const_limits[5] - constraint_func(x)[5]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func(x)[0]},
+                {'type': 'ineq', 'fun': lambda x: ineq_const_limits[6] - constraint_func(x)[6]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func(x)[0]},
+        )
  
-scipy_uncon_nm = sio.minimize(objective_function, x, args=(),method='Nelder-Mead', bounds=bnds,options={'xatol': 0.0001, 'fatol': 0.0001,'gtol': 1e-6, 'disp': False})        
-# scipy_con_sqp  = sio.minimize(wingdrag, x, method='SLSQP', jac=grad_fobj, bounds=None, constraints=CON, tol=1e-6, options={'maxiter': 500,'ftol': 1e-6,'disp':False})
+scipy_uncon_nm = sio.minimize(objective_function, x, args=(),method='Nelder-Mead', bounds=bnds,options={'xatol': 0.0001, 'fatol': 0.0001,'gtol': 1e-6, 'disp': True})        
+# scipy_con_sqp  = sio.minimize(objective_function, x, method='SLSQP', jac=None, bounds=bnds, constraints=cons, tol=1e-6, options={'maxiter': 500,'ftol': 1e-6,'disp':True})
 
 print("SciPy unconstrained NM:", scipy_uncon_nm)
 # print("SciPy constrained SQP:", scipy_con_sqp)

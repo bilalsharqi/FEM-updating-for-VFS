@@ -40,19 +40,22 @@ print("\nReference NASTRAN data import completed")
 ineq_const_limits = 1.1*np.float64([M_ref, J_G_ref[0][0], J_G_ref[1][1], J_G_ref[2][2],
                      x_G_ref[0],x_G_ref[1],x_G_ref[2]])
 
-cons = (        {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] - constraint_func()[0]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func()[0]}, 
-                {'type': 'ineq', 'fun': lambda x: ineq_const_limits[1] - constraint_func()[1]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func()[0]}, 
-                {'type': 'ineq', 'fun': lambda x: ineq_const_limits[2] - constraint_func()[2]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func()[0]},
-                {'type': 'ineq', 'fun': lambda x: ineq_const_limits[3] - constraint_func()[3]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func()[0]},
-                {'type': 'ineq', 'fun': lambda x: ineq_const_limits[4] - constraint_func()[4]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func()[0]},
-                {'type': 'ineq', 'fun': lambda x: ineq_const_limits[5] - constraint_func()[5]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func()[0]},
-                {'type': 'ineq', 'fun': lambda x: ineq_const_limits[6] - constraint_func()[6]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func()[0]},
-        )
+# cons = (        {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] - constraint_func()[0]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func()[0]}, 
+#                 {'type': 'ineq', 'fun': lambda x: ineq_const_limits[1] - constraint_func()[1]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func()[0]}, 
+#                 {'type': 'ineq', 'fun': lambda x: ineq_const_limits[2] - constraint_func()[2]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func()[0]},
+#                 {'type': 'ineq', 'fun': lambda x: ineq_const_limits[3] - constraint_func()[3]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func()[0]},
+#                 {'type': 'ineq', 'fun': lambda x: ineq_const_limits[4] - constraint_func()[4]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func()[0]},
+#                 {'type': 'ineq', 'fun': lambda x: ineq_const_limits[5] - constraint_func()[5]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func()[0]},
+#                 {'type': 'ineq', 'fun': lambda x: ineq_const_limits[6] - constraint_func()[6]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func()[0]},
+#         )
 
 # Constraint function
 
 def constraint_func(x):
   
+    # # Call Nastran for generating mistuned results for computing gradients
+    # runNastran("mistune_output", "run", "out", "mistuned_sol400.dat", debug=True)
+    
     # Read mistuned results
     # Note: There are 4 loading subcases and 15 eigenvalues computed for each
     # deformed modal analysis
@@ -63,7 +66,7 @@ def constraint_func(x):
     n_subcases=4
     
     # read the reference result files and store the numerical data
-    mistuned_grids, mistuned_n_grids, mistuned_grid_coords = importGrids(file_path, ['mistunedBeam.bdf',model_coords], debug=True)
+    mistuned_grids, mistuned_n_grids, mistuned_grid_coords = importGrids(file_path, ['mistunedBeam_Alt_1.bdf',model_coords], debug=True)
     mistuned_freq_NASTRAN = importFrequencies(file_path, f06_file, n_modes, n_subcases, debug=True)
     mistuned_mode_shapes = importEigenvectors(file_path, f06_file, n_modes, mistuned_n_grids, mistuned_grids, n_subcases,[],debug=True)
     mistuned_static_deform= importDisplacements(file_path, f06_file, n_subcases, mistuned_grids, grids_order=[], debug=True)
@@ -102,40 +105,40 @@ def constraint_func(x):
     
     return m,Ixx,Iyy,Izz,xcg,ycg,zcg,MAC
 
-# Load the mistuned model bdf to provide initial guess
-mistuned_model = BDF()
-mistuned_model.read_bdf("inp/mistunedBeam.bdf", punch=True)
-# print(mistuned_model.get_bdf_stats())
+# # Load the mistuned model bdf to provide initial guess
+# mistuned_model = BDF()
+# mistuned_model.read_bdf("inp/mistunedBeam.bdf", punch=True)
+# # print(mistuned_model.get_bdf_stats())
    
-# get the number of properties of each type - separate mass and stiffness
-elemPropKeys = list(mistuned_model.properties.keys())
-matStiffPropKeys = list(mistuned_model.materials.keys())
-matMassPropKeys = list(mistuned_model.materials.keys())
-conMassKeys = list(mistuned_model.masses.keys())
+# # get the number of properties of each type - separate mass and stiffness
+# elemPropKeys = list(mistuned_model.properties.keys())
+# matStiffPropKeys = list(mistuned_model.materials.keys())
+# matMassPropKeys = list(mistuned_model.materials.keys())
+# conMassKeys = list(mistuned_model.masses.keys())
    
-numElemProps = len(elemPropKeys)
-numMatStiffProps = len(matStiffPropKeys)
-numMatMassProps = len(matMassPropKeys)
-numConMasses = len(conMassKeys)
+# numElemProps = len(elemPropKeys)
+# numMatStiffProps = len(matStiffPropKeys)
+# numMatMassProps = len(matMassPropKeys)
+# numConMasses = len(conMassKeys)
 
-# read mistuned stiffness values
-mistuned_stiffness = np.zeros(numMatStiffProps)
-mistuned_mass = np.zeros(numMatMassProps)
-mistuned_nu = np.zeros(numMatStiffProps)
+# # read mistuned stiffness values
+# mistuned_stiffness = np.zeros(numMatStiffProps)
+# mistuned_mass = np.zeros(numMatMassProps)
+# mistuned_nu = np.zeros(numMatStiffProps)
 
-for stiffness in range(len(matStiffPropKeys)):
-    mistuned_stiffness[stiffness] = mistuned_model.materials[stiffness+1].e
+# for stiffness in range(len(matStiffPropKeys)):
+#     mistuned_stiffness[stiffness] = mistuned_model.materials[stiffness+1].e
     
-# read mistuned mass values
-for mass in range(len(matMassPropKeys)):
-    mistuned_mass[mass] = mistuned_model.materials[mass+1].rho
+# # read mistuned mass values
+# for mass in range(len(matMassPropKeys)):
+#     mistuned_mass[mass] = mistuned_model.materials[mass+1].rho
     
-# read reference nu values
-for nu in range(len(matMassPropKeys)):
-    mistuned_nu[nu] = mistuned_model.materials[nu+1].nu
+# # read reference nu values
+# for nu in range(len(matMassPropKeys)):
+#     mistuned_nu[nu] = mistuned_model.materials[nu+1].nu
 
-x = np.array([np.transpose(mistuned_mass)])
-x = np.append(x,[np.transpose(mistuned_stiffness)])
-# x = np.append(x,[np.transpose(mistuned_nu)])
+# x = np.array([np.transpose(mistuned_mass)])
+# x = np.append(x,[np.transpose(mistuned_stiffness)])
+# # x = np.append(x,[np.transpose(mistuned_nu)])
     
-test_constraint = constraint_func(x)
+# test_constraint = constraint_func(x,"run", "out")

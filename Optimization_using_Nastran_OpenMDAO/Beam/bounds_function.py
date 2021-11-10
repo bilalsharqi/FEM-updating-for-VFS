@@ -55,10 +55,12 @@ def bounds_func(lb,ub):
     for nu in range(len(matMassPropKeys)):
         ref_nu[nu] = ref_model.materials[nu+1].nu
         
-    x_ref = [ref_mass, ref_stiffness, ref_nu]
+    x_ref = np.array([np.transpose(ref_mass)])
+    x_ref = np.append(x_ref,[np.transpose(ref_stiffness)])
+    # x = np.append(x,[np.transpose(ref_nu)])
     x_lb = lb*np.float64(x_ref)
     x_ub = ub*np.float64(x_ref)
-    bnds = ((x_lb,x_ub))
+    bnds = tuple(((x_lb[i],x_ub[i]) for i in range(len(x_ref))))
     
     return bnds
 
