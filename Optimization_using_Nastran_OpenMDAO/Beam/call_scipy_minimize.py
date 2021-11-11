@@ -24,6 +24,31 @@ from constraint_function import *
 from bounds_function import *
 
 # using SciPy minimize 
+
+# Call Nastran for generating reference results
+runNastran("inp", "run", "out", "sol400.dat", debug=True)
+
+# Read reference results
+# Note: There are 4 loading subcases and 15 eigenvalues computed for each
+# deformed modal analysis
+file_path = "out"
+f06_file = 'sol400.f06'
+model_coords = 'sol400_coor.txt'
+n_modes=15
+n_subcases=4
+
+# Components
+
+# read the reference result files and store the numerical data
+ref_grids, ref_n_grids, ref_grid_coords = importGrids(file_path, ['refBeam.bdf',model_coords], debug=True)
+ref_freq_NASTRAN = importFrequencies(file_path, f06_file, n_modes, n_subcases, debug=True)
+ref_mode_shapes = importEigenvectors(file_path, f06_file, n_modes, ref_n_grids, ref_grids, n_subcases,[],debug=True)
+ref_static_deform= importDisplacements(file_path, f06_file, n_subcases, ref_grids, grids_order=[], debug=True)
+M_ref, x_G_ref, J_G_ref = importRigidBodyMassData(file_path, f06_file,debug=True)
+print("\nReference NASTRAN data import completed")
+# Bilal - need to ensure the M_ref and others are passed correctly
+# as arguments to the objective function so we do not run 
+# the reference NASTRAN FEM every iteration
     
 # Load the mistuned model bdf to provide initial guess
 mistuned_model = BDF()

@@ -21,7 +21,7 @@ from pyMSCNastranUtilities import *
 
 # Objective function
 
-def obj_func(x,inp_dir, run_dir, out_dir, ref_file,mistuned_file):
+def obj_func(x,inp_dir, run_dir, out_dir, ref_file,mistuned_file, M_ref, J_G_ref, x_G_ref, ref_freq_NASTRAN):
     
     # create an output directory for the results if one doesn't exist
     outputDir = "mistune_output"
@@ -59,27 +59,27 @@ def obj_func(x,inp_dir, run_dir, out_dir, ref_file,mistuned_file):
     mistuned_model.write_bdf(bdfFilenameOut,interspersed = False)
     
     
-    # Call Nastran for generating reference results
-    runNastran(inp_dir, run_dir, out_dir, ref_file, debug=True)
+    # # Call Nastran for generating reference results
+    # runNastran(inp_dir, run_dir, out_dir, ref_file, debug=True)
     
-    # Read reference results
-    # Note: There are 4 loading subcases and 15 eigenvalues computed for each
-    # deformed modal analysis
-    file_path = "out"
-    f06_file = 'sol400.f06'
-    model_coords = 'sol400_coor.txt'
-    n_modes=15
-    n_subcases=4
+    # # Read reference results
+    # # Note: There are 4 loading subcases and 15 eigenvalues computed for each
+    # # deformed modal analysis
+    # file_path = "out"
+    # f06_file = 'sol400.f06'
+    # model_coords = 'sol400_coor.txt'
+    # n_modes=15
+    # n_subcases=4
     
-    # Components
+    # # Components
     
-    # read the reference result files and store the numerical data
-    ref_grids, ref_n_grids, ref_grid_coords = importGrids(file_path, ['refBeam.bdf',model_coords], debug=True)
-    ref_freq_NASTRAN = importFrequencies(file_path, f06_file, n_modes, n_subcases, debug=True)
-    ref_mode_shapes = importEigenvectors(file_path, f06_file, n_modes, ref_n_grids, ref_grids, n_subcases,[],debug=True)
-    ref_static_deform= importDisplacements(file_path, f06_file, n_subcases, ref_grids, grids_order=[], debug=True)
-    M_ref, x_G_ref, J_G_ref = importRigidBodyMassData(file_path, f06_file,debug=True)
-    print("\nReference NASTRAN data import completed")
+    # # read the reference result files and store the numerical data
+    # ref_grids, ref_n_grids, ref_grid_coords = importGrids(file_path, ['refBeam.bdf',model_coords], debug=True)
+    # ref_freq_NASTRAN = importFrequencies(file_path, f06_file, n_modes, n_subcases, debug=True)
+    # ref_mode_shapes = importEigenvectors(file_path, f06_file, n_modes, ref_n_grids, ref_grids, n_subcases,[],debug=True)
+    # ref_static_deform= importDisplacements(file_path, f06_file, n_subcases, ref_grids, grids_order=[], debug=True)
+    # M_ref, x_G_ref, J_G_ref = importRigidBodyMassData(file_path, f06_file,debug=True)
+    # print("\nReference NASTRAN data import completed")
 
     # Call Nastran for generating mistuned results
     runNastran("mistune_output", run_dir, out_dir, "mistuned_sol400.dat", debug=True)
@@ -207,9 +207,9 @@ x = np.append(x,[np.transpose(mistuned_stiffness)])
 
 # one output objective function
 def objective_function(x):
-    outputs = obj_func(x,"inp", "run", "out", "sol400.dat","mistunedBeam_Alt_1.bdf")
+    outputs = obj_func(x,"inp", "run", "out", "sol400.dat","mistunedBeam_Alt_1.bdf", M_ref, J_G_ref, x_G_ref, ref_freq_NASTRAN)
     objective = outputs[0]
     return objective
 
 # test_obj = obj_func(x,"inp", "run", "out", "sol400.dat","mistunedBeam.bdf")
-test_objective = objective_function(x)
+# test_objective = objective_function(x)
