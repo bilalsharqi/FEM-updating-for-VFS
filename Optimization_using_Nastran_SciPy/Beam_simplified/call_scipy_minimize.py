@@ -72,25 +72,38 @@ numMatStiffProps = len(matStiffPropKeys)
 numMatMassProps = len(matMassPropKeys)
 numConMasses = len(conMassKeys)
 
-# read mistuned stiffness values
+# initialize vectors for reading model properties
 mistuned_stiffness = np.zeros(numMatStiffProps)
 mistuned_mass = np.zeros(numMatMassProps)
 mistuned_nu = np.zeros(numMatStiffProps)
+mistuned_thickness = np.zeros(numElemProps)
+mistuned_height = np.zeros(numElemProps)
 
+# read initial stiffness values
 for stiffness in range(len(matStiffPropKeys)):
     mistuned_stiffness[stiffness] = mistuned_model.materials[stiffness+1].e
     
-# read mistuned mass values
+# read initial mass values
 for mass in range(len(matMassPropKeys)):
     mistuned_mass[mass] = mistuned_model.materials[mass+1].rho
     
-# read reference nu values
+# read initial nu values
 for nu in range(len(matMassPropKeys)):
     mistuned_nu[nu] = mistuned_model.materials[nu+1].nu
+
+# read initial thickness values
+for thickness in range(len(elemPropKeys)):
+    mistuned_thickness[thickness] = mistuned_model.properties[thickness+1].dim[0][0]
+
+# read initial height values
+for height in range(len(elemPropKeys)):
+    mistuned_height[height] = mistuned_model.properties[height+1].dim[0][1]
 
 # initial x
 x = np.array([np.transpose(mistuned_mass)])
 x = np.append(x,[np.transpose(mistuned_stiffness)])
+x = np.append(x,[np.transpose(mistuned_thickness)])
+x = np.append(x,[np.transpose(mistuned_height)])
 # x = np.append(x,[np.transpose(mistuned_nu)])
 
 # bnds = ((2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),
@@ -107,7 +120,7 @@ cons = (        {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] - constra
                 {'type': 'ineq', 'fun': lambda x: ineq_const_limits[6] - constraint_func(x)[6]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func(x)[0]},
         )
  
-scipy_uncon_nm = sio.minimize(objective_function, x, args=(),method='Nelder-Mead', bounds=bnds,options={'xatol': 0.1, 'fatol': 0.1,'gtol': 1e-1, 'disp': True})        
+scipy_uncon_nm = sio.minimize(objective_function, x, args=(),method='Nelder-Mead', bounds=bnds,options={'return_all': True, 'xatol': 0.1, 'fatol': 0.1,'disp': True, 'adaptive': True})        
 # scipy_con_sqp  = sio.minimize(objective_function, x, method='SLSQP', jac=None, bounds=bnds, constraints=cons, tol=1e-6, options={'maxiter': 500,'ftol': 1e-6,'disp':True})
 
 print("SciPy unconstrained NM:", scipy_uncon_nm)

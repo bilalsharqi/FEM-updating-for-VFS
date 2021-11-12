@@ -4,9 +4,9 @@ NASTRAN SYSTEM (151)=1
 $------------------------------------------------
 $ Executive
 $------------------------------------------------
-ASSIGN PUNCH='mistuned_sol400_coor.txt',FORM=FORMATTED,
+ASSIGN PUNCH='sol400_coor.txt',FORM=FORMATTED,
        STATUS=UNKNOWN,UNIT=91
-ASSIGN PUNCH='mistuned_sol400_mass.txt',FORM=FORMATTED,
+ASSIGN PUNCH='sol400_mass.txt',FORM=FORMATTED,
        STATUS=UNKNOWN,UNIT=92
 SOL 400
 COMPILE PHASE1DR NOLIST NOREF
@@ -85,7 +85,7 @@ VECTOR(SORT1,REAL)=ALL
 BEGIN BULK
 
 $ Include the model info
-INCLUDE 'mistunedBeam1.bdf'
+INCLUDE 'refBeam.bdf'
 
 $ Include the load info
 INCLUDE 'refBeam_loads.bdf'

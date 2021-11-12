@@ -85,7 +85,7 @@ VECTOR(SORT1,REAL)=ALL
 BEGIN BULK
 
 $ Include the model info
-INCLUDE 'mistunedBeam1.bdf'
+INCLUDE 'mistunedBeam.bdf'
 
 $ Include the load info
 INCLUDE 'refBeam_loads.bdf'
