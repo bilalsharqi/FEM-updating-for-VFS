@@ -1,0 +1,33 @@
+$ sysfield=SCR*(RAW=YES,BUFFIO=YES,wnum=16,wsize=16mb) $(c:/msc.software/msc_nastran/20171/conf/nast20171.rcf[1])
+$ sysfield=DBALL(RAW=YES,BUFFIO=YES,wnum=16,wsize=16mb) $(c:/msc.software/msc_nastran/20171/conf/nast20171.rcf[2])
+Nastran BUFFSIZE=8193 $(c:/msc.software/msc_nastran/20171/conf/nast20171.rcf[5])
+JID='C:\Users\bilal\OneDrive\Backups\Documents\GitHub\FEM-updating-for-VFS\Optimization_using_Nastran_SciPy\Renato wingbox\run\sol400.dat'
+OUT='./sol400'
+MEM=1063976960      $ WORDS
+MACH='Intel'
+OPER='Windows 10 Pro'
+OSV='6.2 9200'
+MODEL='P5-4/5900 (DESKTOP-4REHAG6)'
+NPROC='8'
+CONFIG=15
+NPROC=8
+symbol=DELDIR='c:/msc.software/msc_nastran/20171/msc20171/nast/del' $(program default)
+symbol=DEMODIR='c:/msc.software/msc_nastran/20171/msc20171/nast/demo' $(program default)
+symbol=LM_NO_SNMP=1 $(c:/msc.software/msc_nastran/20171/conf/nast20171.rcf[9])
+symbol=SSSALTERDIR='c:/msc.software/msc_nastran/20171/msc20171/nast/sssalter' $(program default)
+symbol=TPLDIR='c:/msc.software/msc_nastran/20171/msc20171/nast/tpl' $(program default)
+SDIR='c:/scratch/sol400.T30468_37'
+DBS='./sol400'
+SCR='no'
+SMEM=100
+BPOOL=7742.1MB
+DMPMEM=estimate
+NEWDEL='c:/msc.software/msc_nastran/20171/msc20171/win64i8/sss'
+DEL='MSCDEF'
+DML=MSCDEF
+SDL=MSCDEF
+AUTH='1800@license-msc-research.engin.umich.edu'
+AUTHQUE=20
+MSGCAT='c:/msc.software/msc_nastran/20171/msc20171/win64i8/analysis.msg'
+MSGDEST='f06'
+NEWS='c:/msc.software/msc_nastran/20171/msc20171/nast/news.txt'

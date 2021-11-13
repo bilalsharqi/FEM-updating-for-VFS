@@ -1,3 +1,5 @@
+$ Displacement Constraints of Load Set : Clamp
+SPC1     1       123456  19769   THRU    19844
 $ Elements and Element Properties for region : Ribs
 PSHELL   1       1      .02      1               1
 $ Pset: "Ribs" will be imported as: "pshell.1"

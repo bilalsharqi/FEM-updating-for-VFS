@@ -10,6 +10,7 @@
 import numpy as np
 import os
 import shutil
+import subprocess
 
 
 def runNastran(inp_dir, run_dir, out_dir, run_type, debug=True):
@@ -83,8 +84,8 @@ def runNastran(inp_dir, run_dir, out_dir, run_type, debug=True):
     new_cwd = run_dir
 
     os.chdir(new_cwd)
-
-    os.system('nastran '+driver)
+    subprocess.run(['nastran',driver], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    # os.system('nastran '+driver)
 
     while os.path.isfile(driver.replace(".dat",".op2")):
         pass

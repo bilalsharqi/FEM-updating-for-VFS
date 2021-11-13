@@ -77,7 +77,7 @@ $------------------------------------------------
 BEGIN BULK
 PARAM,POST,0
 PARAM,PRTMAXIM,YES
-PARAM,GRDPNT,184
+PARAM,GRDPNT,18695
 $---------------------
 PARAM,LGDISP,2
 PARAM,NLTOL,0
