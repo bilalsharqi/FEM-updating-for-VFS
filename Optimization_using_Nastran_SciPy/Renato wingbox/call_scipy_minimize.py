@@ -28,7 +28,7 @@ from bounds_function import *
 # Note: need to run Nastran with reference file first to provide ref_data
 # to the objective function 
 # Call Nastran for generating reference results
-runNastran("inp", "run", "out", "sol400.dat", debug=True)
+# runNastran("inp", "run", "out", "sol400.dat", debug=True)
 
 # Read reference results
 # Note: There are 4 loading subcases and 15 eigenvalues computed for each
@@ -37,7 +37,7 @@ file_path = "out"
 f06_file = 'sol400.f06'
 model_coords = 'sol400_coor.txt'
 n_modes=15
-n_subcases=4
+n_subcases=3
 
 # Components
 

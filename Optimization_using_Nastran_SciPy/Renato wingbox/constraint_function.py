@@ -29,7 +29,7 @@ n_modes=15
 n_subcases=4
 
 # read the reference result files and store the numerical data
-ref_grids, ref_n_grids, ref_grid_coords = importGrids(file_path, ['refBeam.bdf',model_coords], debug=True)
+ref_grids, ref_n_grids, ref_grid_coords = importGrids(file_path, ['wingbox.bdf',model_coords], debug=True)
 ref_freq_NASTRAN = importFrequencies(file_path, f06_file, n_modes, n_subcases, debug=True)
 ref_mode_shapes = importEigenvectors(file_path, f06_file, n_modes, ref_n_grids, ref_grids, n_subcases,[],debug=True)
 ref_static_deform= importDisplacements(file_path, f06_file, n_subcases, ref_grids, grids_order=[], debug=True)
@@ -66,7 +66,7 @@ def constraint_func(x):
     n_subcases=4
     
     # read the reference result files and store the numerical data
-    mistuned_grids, mistuned_n_grids, mistuned_grid_coords = importGrids(file_path, ['mistunedBeam_Alt_1.bdf',model_coords], debug=True)
+    mistuned_grids, mistuned_n_grids, mistuned_grid_coords = importGrids(file_path, ['mistuned_wingbox1.bdf',model_coords], debug=True)
     mistuned_freq_NASTRAN = importFrequencies(file_path, f06_file, n_modes, n_subcases, debug=True)
     mistuned_mode_shapes = importEigenvectors(file_path, f06_file, n_modes, mistuned_n_grids, mistuned_grids, n_subcases,[],debug=True)
     mistuned_static_deform= importDisplacements(file_path, f06_file, n_subcases, mistuned_grids, grids_order=[], debug=True)

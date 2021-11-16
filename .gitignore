@@ -35,4 +35,7 @@ VF beam model/2_m_beam/archive/
 
 __pycache__/
 
-Optimization_using_Nastran_OpenMDAO/Beam/run/
+Optimization_using_Nastran_SciPy/Beam/run/
+
+Optimization_using_Nastran_SciPy/Renato wingbox/run
+Optimization_using_Nastran_SciPy/Renato wingbox/out

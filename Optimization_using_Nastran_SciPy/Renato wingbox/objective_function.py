@@ -33,7 +33,7 @@ def obj_func(x,inp_dir, run_dir, out_dir, ref_file,mistuned_file, M_ref, J_G_ref
     # mistuned_model.read_bdf("mistune_output/mistunedBeam_Alt_1.bdf", punch=True)
     # print(mistuned_model.get_bdf_stats())
     mistuned_model.read_bdf("inp/mistuned_wingbox.bdf", punch=True)
-    # print(mistuned_model.get_bdf_stats())
+    print(mistuned_model.get_bdf_stats())
        
     # get the number of properties of each type - separate mass and stiffness
     elemPropKeys = list(mistuned_model.properties.keys())
@@ -50,10 +50,10 @@ def obj_func(x,inp_dir, run_dir, out_dir, ref_file,mistuned_file, M_ref, J_G_ref
     # model = BDF()
     # write material properties from updated design variables
     print(x)
+    mistuned_model.materials[1].rho = x[0]
+    mistuned_model.materials[1].e   = x[1]
     for i in range(len(elemPropKeys)):
-        mistuned_model.materials[i+1].rho = x[i]
-        mistuned_model.materials[i+1].e   = x[i+len(elemPropKeys)]
-        mistuned_model.properties[i+1].t = x[i+2*len(elemPropKeys)]
+        mistuned_model.properties[i+1].t = x[i+2]
 
         
     if mistuned_file.endswith('.bdf'):
@@ -71,10 +71,10 @@ def obj_func(x,inp_dir, run_dir, out_dir, ref_file,mistuned_file, M_ref, J_G_ref
     f06_file = 'mistuned_sol400.f06'
     model_coords = 'mistuned_sol400_coor.txt'
     n_modes=15
-    n_subcases=4
+    n_subcases=3
     
-    # read the reference result files and store the numerical data
-    mistuned_grids, mistuned_n_grids, mistuned_grid_coords = importGrids(file_path, ['mistunedBeam1.bdf',model_coords], debug=True)
+    # read the mistuned result files and store the numerical data
+    mistuned_grids, mistuned_n_grids, mistuned_grid_coords = importGrids(file_path, ['mistuned_wingbox1.bdf',model_coords], debug=True)
     mistuned_freq_NASTRAN = importFrequencies(file_path, f06_file, n_modes, n_subcases, debug=True)
     mistuned_mode_shapes = importEigenvectors(file_path, f06_file, n_modes, mistuned_n_grids, mistuned_grids, n_subcases,[],debug=True)
     mistuned_static_deform= importDisplacements(file_path, f06_file, n_subcases, mistuned_grids, grids_order=[], debug=True)
