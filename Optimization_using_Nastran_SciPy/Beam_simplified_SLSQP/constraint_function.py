@@ -18,9 +18,6 @@ from pyMSCNastranUtilities import *
 # Constraint function
 
 def constraint_func(x):
-  
-    # # Call Nastran for generating mistuned results for computing gradients
-    # runNastran("mistune_output", "run", "out", "mistuned_sol400.dat", debug=True)
     
     # Read reference results
     # Note: There are 4 loading subcases and 15 eigenvalues computed for each
@@ -83,7 +80,7 @@ def constraint_func(x):
             data_MAC_reference[i][j] = ref_mode_shapes[i][j].flatten('F')
             data_MAC_mistuned[i][j] = mistuned_mode_shapes[i][j].flatten('F')       
     
-    test_MAC2 = ComputeMAC(data_MAC_reference[0][0],data_MAC_mistuned[0][0])
+    # test_MAC2 = ComputeMAC(data_MAC_reference[0][0],data_MAC_mistuned[0][0])
     for i in range(n_subcases):
         for j in range(n_modes):
                 MAC[i][j] = ComputeMAC(data_MAC_reference[i][j], data_MAC_mistuned[i][j])

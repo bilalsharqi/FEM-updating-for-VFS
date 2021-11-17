@@ -21,7 +21,13 @@ from pyMSCNastranUtilities import *
 
 # Objective function
 
-def obj_func(x,inp_dir, run_dir, out_dir, ref_file,mistuned_file, M_ref, J_G_ref, x_G_ref, ref_freq_NASTRAN):
+def obj_func(x,inp_dir, run_dir, out_dir, ref_file,mistuned_file, M_ref, J_G_ref, x_G_ref, ref_freq_NASTRAN,x_lb,x_ub):
+    
+    # show the design variables used by the optimizer
+    print(x)
+    
+    # update the DV fed to Nastran
+    x_Nastran = x*(x_ub - x_lb) + x_lb
     
     # create an output directory for the results if one doesn't exist
     outputDir = "mistune_output"
@@ -49,12 +55,12 @@ def obj_func(x,inp_dir, run_dir, out_dir, ref_file,mistuned_file, M_ref, J_G_ref
     # Open BDF
     # model = BDF()
     # write material properties from updated design variables
-    print(x)
+    print(x_Nastran)
     for i in range(len(elemPropKeys)):
-        mistuned_model.materials[i+1].rho = x[i]
-        mistuned_model.materials[i+1].e   = x[i+len(elemPropKeys)]
-        mistuned_model.properties[i+1].dim[0][0] = x[i+2*len(elemPropKeys)]
-        mistuned_model.properties[i+1].dim[0][1] = x[i+3*len(elemPropKeys)]
+        mistuned_model.materials[i+1].rho = x_Nastran[i]
+        mistuned_model.materials[i+1].e   = x_Nastran[i+len(elemPropKeys)]
+        mistuned_model.properties[i+1].dim[0][0] = x_Nastran[i+2*len(elemPropKeys)]
+        mistuned_model.properties[i+1].dim[0][1] = x_Nastran[i+3*len(elemPropKeys)]
         
     if mistuned_file.endswith('.bdf'):
         mistuned_file = mistuned_file[:-4]
@@ -150,5 +156,4 @@ def obj_func(x,inp_dir, run_dir, out_dir, ref_file,mistuned_file, M_ref, J_G_ref
     print(obj)
     return obj, mass_metric, inertia_metric, cg_metric, frequency_metric
 
-# test_obj = obj_func(x,"inp", "run", "out", "sol400.dat","mistunedBeam.bdf")
 # test_objective = objective_function(x)

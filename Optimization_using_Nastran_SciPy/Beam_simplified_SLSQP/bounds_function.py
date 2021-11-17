@@ -20,63 +20,13 @@ from pyNastran.bdf.bdf import BDF
 
 # Bounds function
 
-def bounds_func(lb,ub):
-
-    # Load the reference model bdf using pynastran
-    # open the .bdf file
-    ref_model = BDF()
-    ref_model.read_bdf("inp/refBeam.bdf", punch=True)
-    # print(ref_model.get_bdf_stats())
-       
-    # get the number of properties of each type - separate mass and stiffness
-    elemPropKeys = list(ref_model.properties.keys())
-    matStiffPropKeys = list(ref_model.materials.keys())
-    matMassPropKeys = list(ref_model.materials.keys())
-    conMassKeys = list(ref_model.masses.keys())
-       
-    numElemProps = len(elemPropKeys)
-    numMatStiffProps = len(matStiffPropKeys)
-    numMatMassProps = len(matMassPropKeys)
-    numConMasses = len(conMassKeys)
-    
-    # initialize vectors for reading model properties
-    ref_stiffness = np.zeros(numMatStiffProps)
-    ref_mass = np.zeros(numMatMassProps)
-    ref_nu = np.zeros(numMatStiffProps)
-    ref_thickness = np.zeros(numElemProps)
-    ref_height = np.zeros(numElemProps)
-
-    # read initial stiffness values
-    for stiffness in range(len(matStiffPropKeys)):
-        ref_stiffness[stiffness] = ref_model.materials[stiffness+1].e
-        
-    # read initial mass values
-    for mass in range(len(matMassPropKeys)):
-        ref_mass[mass] = ref_model.materials[mass+1].rho
-        
-    # read initial nu values
-    for nu in range(len(matMassPropKeys)):
-        ref_nu[nu] = ref_model.materials[nu+1].nu
-
-    # read initial thickness values
-    for thickness in range(len(elemPropKeys)):
-        ref_thickness[thickness] = ref_model.properties[thickness+1].dim[0][0]
-
-    # read initial height values
-    for height in range(len(elemPropKeys)):
-        ref_height[height] = ref_model.properties[height+1].dim[0][1]
-
-    # initial x from reference FEM
-    x_ref = np.array([np.transpose(ref_mass)])
-    x_ref = np.append(x_ref,[np.transpose(ref_stiffness)])
-    x_ref = np.append(x_ref,[np.transpose(ref_thickness)])
-    x_ref = np.append(x_ref,[np.transpose(ref_height)])
+def bounds_func(x_ref,lb,ub):
 
     # apply bounds and format as tuple of tuples
     x_lb = lb*np.float64(x_ref)
     x_ub = ub*np.float64(x_ref)
     bnds = tuple(((x_lb[i],x_ub[i]) for i in range(len(x_ref))))
     
-    return bnds
+    return bnds, x_lb, x_ub
 
-# test_bnds = bounds_func(0.9, 1.1)
+# test_bnds = bounds_func(x,0.9, 1.1)

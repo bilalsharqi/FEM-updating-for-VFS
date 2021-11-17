@@ -27981,18 +27981,21 @@ CQUAD4     14273       2   34902   34903   19843   19842
 CQUAD4     14274       2   34903   21136   19844   19843
 $PROPERTIES
 $ Elements and Element Properties for region : Ribs
-PSHELL         1       1    .021       1               1
+PSHELL         1       1.0215559       1               1
+          -.0105   .0105
 $ Elements and Element Properties for region : Skins
-PSHELL         2       1   .0083       1               1
+PSHELL         2       1.0079338       1               1
+         -.00415  .00415
 $ Elements and Element Properties for region : Spars
-PSHELL         3       1   .0051       1               1
+PSHELL         3       1.0049834       1               1
+         -.00255  .00255
 $MATERIALS
 $ Referenced Material Records
 $
 $ Material Record : Aluminum
 $
 $ Description of Material :
-MAT1           1  7.1+10             .33   2729.
+MAT1           17.066+102.669+10     .332838.203
 $SPCs
 $ Displacement Constraints of Load Set : Clamp
 SPC1           1  123456   19769   19770   19771   19772   19773   19774

@@ -1,7 +1,7 @@
 
-VF beam model/Post_Processing_Utilities/__pycache__/
+__pycache__/
 
-VF beam model/Post_Processing_Utilities/mistune_output/
+
 
 *.rej
 
@@ -31,11 +31,7 @@ VF beam model/Post_Processing_Utilities/mistune_output/
 
 *.MASTER
 
-VF beam model/2_m_beam/archive/
-
-__pycache__/
-
-Optimization_using_Nastran_SciPy/Beam/run/
-
-Optimization_using_Nastran_SciPy/Renato wingbox/run
-Optimization_using_Nastran_SciPy/Renato wingbox/out
+archive/
+run/
+out/
+temp/
