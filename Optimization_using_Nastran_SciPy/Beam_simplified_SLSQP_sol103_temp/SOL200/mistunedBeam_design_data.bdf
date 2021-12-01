@@ -1,0 +1,134 @@
+$----------Design Optimization Data----------
+
+$----------Mass----------
+
+$-Design Variables-
+$ MAT1 PROPS (100s)
+DESVAR,101,RHO1,2715.105,2565.,2835.,
+DESVAR,102,RHO2,2634.789,2565.,2835.,
+DESVAR,103,RHO3,2619.327,2565.,2835.,
+DESVAR,104,RHO4,2580.562,2565.,2835.,
+DESVAR,105,RHO5,2566.318,2565.,2835.,
+DESVAR,106,RHO6,2774.154,2565.,2835.,
+DESVAR,107,RHO7,2725.635,2565.,2835.,
+DESVAR,108,RHO8,2629.975,2565.,2835.,
+DESVAR,109,RHO9,2755.297,2565.,2835.,
+DESVAR,110,RHO10,2624.046,2565.,2835.,
+DESVAR,111,RHO11,2665.098,2565.,2835.,
+DESVAR,112,RHO12,2694.63,2565.,2835.,
+DESVAR,113,RHO13,2796.397,2565.,2835.,
+DESVAR,114,RHO14,2662.452,2565.,2835.,
+DESVAR,115,RHO15,2707.851,2565.,2835.,
+
+$-Design Variable Relations-
+DVMREL1, 101, MAT1, 1, RHO,
+       , 101, 1.0,
+DVMREL1, 102, MAT1, 2, RHO,
+       , 102, 1.0,
+DVMREL1, 103, MAT1, 3, RHO,
+       , 103, 1.0,
+DVMREL1, 104, MAT1, 4, RHO,
+       , 104, 1.0,
+DVMREL1, 105, MAT1, 5, RHO,
+       , 105, 1.0,
+DVMREL1, 106, MAT1, 6, RHO,
+       , 106, 1.0,
+DVMREL1, 107, MAT1, 7, RHO,
+       , 107, 1.0,
+DVMREL1, 108, MAT1, 8, RHO,
+       , 108, 1.0,
+DVMREL1, 109, MAT1, 9, RHO,
+       , 109, 1.0,
+DVMREL1, 110, MAT1, 10, RHO,
+       , 110, 1.0,
+DVMREL1, 111, MAT1, 11, RHO,
+       , 111, 1.0,
+DVMREL1, 112, MAT1, 12, RHO,
+       , 112, 1.0,
+DVMREL1, 113, MAT1, 13, RHO,
+       , 113, 1.0,
+DVMREL1, 114, MAT1, 14, RHO,
+       , 114, 1.0,
+DVMREL1, 115, MAT1, 15, RHO,
+       , 115, 1.0,
+
+
+$----------Stiffness----------
+
+$-Design Variables- Young's Modulus E
+$ MAT1 PROPS (300s)
+DESVAR,301,E1, 7.065+10,6.650+10,7.350+10,
+DESVAR,302,E2, 7.331+10,6.650+10,7.350+10,
+DESVAR,303,E3, 7.145+10,6.650+10,7.350+10,
+DESVAR,304,E4, 7.008+10,6.650+10,7.350+10,
+DESVAR,305,E5, 6.842+10,6.650+10,7.350+10,
+DESVAR,306,E6, 6.790+10,6.650+10,7.350+10,
+DESVAR,307,E7, 7.073+10,6.650+10,7.350+10,
+DESVAR,308,E8, 7.330+10,6.650+10,7.350+10,
+DESVAR,309,E9, 7.108+10,6.650+10,7.350+10,
+DESVAR,310,E10,7.334+10,6.650+10,7.350+10,
+DESVAR,311,E11,6.954+10,6.650+10,7.350+10,
+DESVAR,312,E12,7.221+10,6.650+10,7.350+10,
+DESVAR,313,E13,7.119+10,6.650+10,7.350+10,
+DESVAR,314,E14,7.020+10,6.650+10,7.350+10,
+DESVAR,315,E15,6.860+10,6.650+10,7.350+10,
+
+$-Design Variable Relations-
+DVMREL1, 301, MAT1, 1, E,
+       , 301, 1.0,
+DVMREL1, 302, MAT1, 2, E,
+       , 302, 1.0,
+DVMREL1, 303, MAT1, 3, E,
+       , 303, 1.0,
+DVMREL1, 304, MAT1, 4, E,
+       , 304, 1.0,
+DVMREL1, 305, MAT1, 5, E,
+       , 305, 1.0,
+DVMREL1, 306, MAT1, 6, E,
+       , 306, 1.0,
+DVMREL1, 307, MAT1, 7, E,
+       , 307, 1.0,
+DVMREL1, 308, MAT1, 8, E,
+       , 308, 1.0,
+DVMREL1, 309, MAT1, 9, E,
+       , 309, 1.0,
+DVMREL1, 310, MAT1, 10, E,
+       , 310, 1.0,
+DVMREL1, 311, MAT1, 11, E,
+       , 311, 1.0,
+DVMREL1, 312, MAT1, 12, E,
+       , 312, 1.0,
+DVMREL1, 313, MAT1, 13, E,
+       , 313, 1.0,
+DVMREL1, 314, MAT1, 14, E,
+       , 314, 1.0,
+DVMREL1, 315, MAT1, 15, E,
+       , 315, 1.0,
+
+$-------------------------------------------------------------------------------
+$ Objective + Constraints 
+
+$$ Design Responses - Modal analysis matching first six modes (500s)
+DRESP1  501     A       FREQ                    1
+DRESP1  502     B       FREQ                    2
+DRESP1  503     C       FREQ                    3
+DRESP1  504     D       FREQ                    4
+DRESP1  505     E       FREQ                    5
+DRESP1  506     G       FREQ                    6
+
+$ Design equation definition - objective function equation (600s)
+DEQATN  601     F1(A,B,C,D,E,G) = (A-1.096671)/1.096671;
+        F2 = (B-6.872274)/6.872274;
+        F3 = (C-18.26535)/18.26535;
+        F4 = (D-19.24125)/19.24125;
+        F5 = (E-37.70214)/37.70214;
+        F6 = (G-61.22871)/61.22871;
+        F = RSS(F1,F2,F3,F4,F5)*10000.0
+
+$ Objective Design Response (999)
+DRESP2  999     OBJ     601             MIN     
+        DRESP1  501     502     503     504     505     506
+
+$Overrides default values of parameters used in design optimization
+DOPTPRM,CONV1,1.-12,CONVDV,1.-12,CONVPR,1.-12,DELP,0.01,
+       ,DELX,0.01,IPRINT,2

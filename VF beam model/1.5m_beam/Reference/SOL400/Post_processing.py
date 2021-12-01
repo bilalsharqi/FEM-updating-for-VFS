@@ -54,7 +54,7 @@ plt.yticks(fontsize=25)
 plt.legend(fontsize=22)
 # plt.ylim(-1,1.5)
 
-fig.savefig("beam_static_1_5m_z.svg",bbox_inches='tight')
+# fig.savefig("beam_static_1_5m_z.svg",bbox_inches='tight')
     
 # fig1=plt.figure(figsize=(15,8))
 # plt.plot(grid_coords[0,:] + static_deform[0][0][:], static_deform[0][1][:],'r',label='No load' )

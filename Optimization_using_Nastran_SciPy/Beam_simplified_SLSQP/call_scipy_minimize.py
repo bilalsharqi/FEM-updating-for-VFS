@@ -175,12 +175,12 @@ ineq_const_limits_ub = 1.1*np.float64([M_ref, J_G_ref[0][0], J_G_ref[1][1], J_G_
 
 
 cons = (        {'type': 'ineq', 'fun': lambda x: ineq_const_limits_ub[0] - constraint_func(x)[0]}, {'type': 'ineq', 'fun': lambda x: -ineq_const_limits_lb[0] + constraint_func(x)[0]}, 
-                {'type': 'ineq', 'fun': lambda x: ineq_const_limits_ub[1] - constraint_func(x)[1]}, {'type': 'ineq', 'fun': lambda x: -ineq_const_limits_lb[0] + constraint_func(x)[0]}, 
-                {'type': 'ineq', 'fun': lambda x: ineq_const_limits_ub[2] - constraint_func(x)[2]}, {'type': 'ineq', 'fun': lambda x: -ineq_const_limits_lb[0] + constraint_func(x)[0]},
-                {'type': 'ineq', 'fun': lambda x: ineq_const_limits_ub[3] - constraint_func(x)[3]}, {'type': 'ineq', 'fun': lambda x: -ineq_const_limits_lb[0] + constraint_func(x)[0]},
-                {'type': 'ineq', 'fun': lambda x: ineq_const_limits_ub[4] - constraint_func(x)[4]}, {'type': 'ineq', 'fun': lambda x: -ineq_const_limits_lb[0] + constraint_func(x)[0]},
-                {'type': 'ineq', 'fun': lambda x: ineq_const_limits_ub[5] - constraint_func(x)[5]}, {'type': 'ineq', 'fun': lambda x: -ineq_const_limits_lb[0] + constraint_func(x)[0]},
-                {'type': 'ineq', 'fun': lambda x: ineq_const_limits_ub[6] - constraint_func(x)[6]}, {'type': 'ineq', 'fun': lambda x: -ineq_const_limits_lb[0] + constraint_func(x)[0]},
+                {'type': 'ineq', 'fun': lambda x: ineq_const_limits_ub[1] - constraint_func(x)[1]}, {'type': 'ineq', 'fun': lambda x: -ineq_const_limits_lb[1] + constraint_func(x)[1]}, 
+                {'type': 'ineq', 'fun': lambda x: ineq_const_limits_ub[2] - constraint_func(x)[2]}, {'type': 'ineq', 'fun': lambda x: -ineq_const_limits_lb[2] + constraint_func(x)[2]},
+                {'type': 'ineq', 'fun': lambda x: ineq_const_limits_ub[3] - constraint_func(x)[3]}, {'type': 'ineq', 'fun': lambda x: -ineq_const_limits_lb[3] + constraint_func(x)[3]},
+                {'type': 'ineq', 'fun': lambda x: ineq_const_limits_ub[4] - constraint_func(x)[4]}, {'type': 'ineq', 'fun': lambda x: -ineq_const_limits_lb[4] + constraint_func(x)[4]},
+                {'type': 'ineq', 'fun': lambda x: ineq_const_limits_ub[5] - constraint_func(x)[5]}, {'type': 'ineq', 'fun': lambda x: -ineq_const_limits_lb[5] + constraint_func(x)[5]},
+                {'type': 'ineq', 'fun': lambda x: ineq_const_limits_ub[6] - constraint_func(x)[6]}, {'type': 'ineq', 'fun': lambda x: -ineq_const_limits_lb[6] + constraint_func(x)[6]},
         )
  
 # scipy_uncon_nm = sio.minimize(objective_function, x_new, args=(),method='Nelder-Mead', bounds=bnds,options={'return_all': True, 'fatol': 1e-2,'disp': True, 'adaptive': True})        

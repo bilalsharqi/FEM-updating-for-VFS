@@ -15,20 +15,16 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import axes3d, Axes3D
 from matplotlib import cm
 from pyNastran.bdf.bdf import BDF
-
-# plt.close("all")
-
 from pyMSCNastranUtilities import *
 from objective_function import *
-# from constraint_function import *
+from constraint_function import *
 from bounds_function import *
 
 # using SciPy minimize 
 
-# Note: need to run Nastran with reference file first to provide ref_data
-# to the objective function 
 # Call Nastran for generating reference results
-runNastran("inp", "run", "out", "sol400.dat", debug=True)
+# runNastran("inp", "run", "out", "sol400.dat", debug=True)
+# runNastran("mistune_output", "run", "out", "mistuned_sol400.dat", debug=True)
 
 # Read reference results
 # Note: There are 4 loading subcases and 15 eigenvalues computed for each
@@ -51,7 +47,7 @@ print("\nReference NASTRAN data import completed")
 
 # one output objective function
 def objective_function(x):
-    outputs = obj_func(x,"inp", "run", "out", "sol400.dat","mistuned_wingbox.bdf", M_ref, J_G_ref, x_G_ref, ref_freq_NASTRAN)
+    outputs = obj_func(x,"inp", "run", "out", "sol400.dat","mistuned_wingbox.bdf", M_ref, J_G_ref, x_G_ref, ref_freq_NASTRAN,x_lb,x_ub)
     objective = outputs[0]
     return objective
     
@@ -99,25 +95,79 @@ x = np.array([np.transpose(mistuned_mass)])
 x = np.append(x,[np.transpose(mistuned_stiffness)])
 x = np.append(x,[np.transpose(mistuned_thickness)])
 
-# bnds = ((2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),(2430,2970),
-#         (6300,7700),(6300,7700),(6300,7700),(6300,7700),(6300,7700),(6300,7700),(6300,7700),(6300,7700),(6300,7700),(6300,7700),(6300,7700),(6300,7700),(6300,7700),(6300,7700),(6300,7700))
+# Load the reference model bdf using pynastran
+# open the .bdf file
+ref_model = BDF()
+ref_model.read_bdf("inp/wingbox.bdf", punch=True)
+# print(ref_model.get_bdf_stats())
+   
+# get the number of properties of each type - separate mass and stiffness
+elemPropKeys = list(ref_model.properties.keys())
+matStiffPropKeys = list(ref_model.materials.keys())
+matMassPropKeys = list(ref_model.materials.keys())
+conMassKeys = list(ref_model.masses.keys())
+   
+numElemProps = len(elemPropKeys)
+numMatStiffProps = len(matStiffPropKeys)
+numMatMassProps = len(matMassPropKeys)
+numConMasses = len(conMassKeys)
 
-bnds = bounds_func(0.9,1.1)
+# initialize vectors for reading model properties
+ref_stiffness = np.zeros(numMatStiffProps)
+ref_mass = np.zeros(numMatMassProps)
+ref_nu = np.zeros(numMatStiffProps)
+ref_thickness = np.zeros(numElemProps)
 
-# cons = (        {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] - constraint_func(x)[0]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func(x)[0]}, 
-#                 {'type': 'ineq', 'fun': lambda x: ineq_const_limits[1] - constraint_func(x)[1]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func(x)[0]}, 
-#                 {'type': 'ineq', 'fun': lambda x: ineq_const_limits[2] - constraint_func(x)[2]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func(x)[0]},
-#                 {'type': 'ineq', 'fun': lambda x: ineq_const_limits[3] - constraint_func(x)[3]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func(x)[0]},
-#                 {'type': 'ineq', 'fun': lambda x: ineq_const_limits[4] - constraint_func(x)[4]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func(x)[0]},
-#                 {'type': 'ineq', 'fun': lambda x: ineq_const_limits[5] - constraint_func(x)[5]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func(x)[0]},
-#                 {'type': 'ineq', 'fun': lambda x: ineq_const_limits[6] - constraint_func(x)[6]}, {'type': 'ineq', 'fun': lambda x: ineq_const_limits[0] + constraint_func(x)[0]},
-#         )
+# read initial stiffness values
+for stiffness in range(len(matStiffPropKeys)):
+    ref_stiffness[stiffness] = ref_model.materials[stiffness+1].e
+    
+# read initial mass values
+for mass in range(len(matMassPropKeys)):
+    ref_mass[mass] = ref_model.materials[mass+1].rho
+    
+# read initial nu values
+for nu in range(len(matMassPropKeys)):
+    ref_nu[nu] = ref_model.materials[nu+1].nu
+
+# read initial thickness values
+for thickness in range(len(elemPropKeys)):
+    ref_thickness[thickness] = ref_model.properties[thickness+1].t
+
+# initial x from reference FEM
+x_ref = np.array([np.transpose(ref_mass)])
+x_ref = np.append(x_ref,[np.transpose(ref_stiffness)])
+x_ref = np.append(x_ref,[np.transpose(ref_thickness)])
+
+# x_new = np.float64([1,1,1,1,1])
+
+bnds_temp,x_lb,x_ub = bounds_func(x_ref,0.9,1.1)
+
+# scaling design variables to be between 0 and 1 each
+x_new = (x - x_lb)/(x_ub - x_lb)
+
+# creating new bounds for DV
+bnds = bounds_func(np.ones(5),0.0,1.0)[0]
+
+# set up limits for the inequality constraints
+ineq_const_limits_lb = 0.9*np.float64([M_ref, J_G_ref[0][0], J_G_ref[1][1], J_G_ref[2][2],
+                      x_G_ref[0],x_G_ref[1],x_G_ref[2]])
+ineq_const_limits_ub = 1.1*np.float64([M_ref, J_G_ref[0][0], J_G_ref[1][1], J_G_ref[2][2],
+                      x_G_ref[0],x_G_ref[1],x_G_ref[2]])
+
+cons = (        {'type': 'ineq', 'fun': lambda x: ineq_const_limits_ub[0] - constraint_func(x)[0]}, {'type': 'ineq', 'fun': lambda x: -ineq_const_limits_lb[0] + constraint_func(x)[0]}, 
+                {'type': 'ineq', 'fun': lambda x: ineq_const_limits_ub[1] - constraint_func(x)[1]}, {'type': 'ineq', 'fun': lambda x: -ineq_const_limits_lb[1] + constraint_func(x)[1]}, 
+                {'type': 'ineq', 'fun': lambda x: ineq_const_limits_ub[2] - constraint_func(x)[2]}, {'type': 'ineq', 'fun': lambda x: -ineq_const_limits_lb[2] + constraint_func(x)[2]},
+                {'type': 'ineq', 'fun': lambda x: ineq_const_limits_ub[3] - constraint_func(x)[3]}, {'type': 'ineq', 'fun': lambda x: -ineq_const_limits_lb[3] + constraint_func(x)[3]},
+                {'type': 'ineq', 'fun': lambda x: ineq_const_limits_ub[4] - constraint_func(x)[4]}, {'type': 'ineq', 'fun': lambda x: -ineq_const_limits_lb[4] + constraint_func(x)[4]},
+                {'type': 'ineq', 'fun': lambda x: ineq_const_limits_ub[5] - constraint_func(x)[5]}, {'type': 'ineq', 'fun': lambda x: -ineq_const_limits_lb[5] + constraint_func(x)[5]},
+                {'type': 'ineq', 'fun': lambda x: ineq_const_limits_ub[6] - constraint_func(x)[6]}, {'type': 'ineq', 'fun': lambda x: -ineq_const_limits_lb[6] + constraint_func(x)[6]},
+        )
  
-scipy_uncon_nm = sio.minimize(objective_function, x, args=(),method='Nelder-Mead', bounds=bnds,options={'return_all': True, 'xatol': 0.1, 'fatol': 0.1,'disp': True, 'adaptive': True})        
-# scipy_con_sqp  = sio.minimize(objective_function, x, method='SLSQP', jac=None, bounds=bnds, constraints=cons, tol=1e-6, options={'maxiter': 500,'ftol': 1e-6,'disp':True})
+# scipy_uncon_nm = sio.minimize(objective_function, x_new, args=(),method='Nelder-Mead', bounds=bnds,options={'return_all': True, 'fatol': 1e-2,'disp': True, 'adaptive': True})        
+# print("SciPy unconstrained NM:", scipy_uncon_nm)
+# x_opt_uncon = scipy_uncon_nm.x
 
-print("SciPy unconstrained NM:", scipy_uncon_nm)
-# print("SciPy constrained SQP:", scipy_con_sqp)
-
-x_opt_uncon = scipy_uncon_nm.x
-# x_opt_con   = scipy_con_sqp.x
+scipy_con_sqp  = sio.minimize(objective_function, x_new, method='SLSQP', jac=None, bounds=bnds, constraints=cons, tol=1e-6, options={'maxiter': 500,'ftol': 1e-6,'disp':True, 'eps': 1e-2})
+print("SciPy constrained SQP:", scipy_con_sqp)
+x_opt_con   = scipy_con_sqp.x
