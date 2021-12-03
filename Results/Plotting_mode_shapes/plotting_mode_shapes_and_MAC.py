@@ -76,18 +76,18 @@ subcase = 2
 
 # Static deformation
 fig=plt.figure(figsize=(17,10))
-plt.plot(ref_grid_coords[0,:] + ref_static_deform[0][0][:]-1, ref_static_deform[0][2][:],'kx',label='Reference FEM: 1 g load' ,markersize=8)
-plt.plot(ref_grid_coords[0,:] + ref_static_deform[1][0][:]-1, ref_static_deform[1][2][:],'k^',label='Reference FEM: 10 N distributed load',markersize=8)
+plt.plot(ref_grid_coords[0,:] + ref_static_deform[0][0][:]-1, ref_static_deform[0][2][:],'kx',label='Reference FEM: -1 g load' ,markersize=8)
+# plt.plot(ref_grid_coords[0,:] + ref_static_deform[1][0][:]-1, ref_static_deform[1][2][:],'k^',label='Reference FEM: 10 N distributed load',markersize=8)
 plt.plot(ref_grid_coords[0,:] + ref_static_deform[2][0][:]-1, ref_static_deform[2][2][:],'ko',label='Reference FEM: 25 N distributed load',markersize=8)
-plt.plot(ref_grid_coords[0,:]-1, ref_grid_coords[2,:]-1,'k+',label='Reference FEM: No load',markersize=8)
-plt.plot(initial_mistuned_grid_coords[0,:] + initial_mistuned_static_deform[0][0][:]-1, initial_mistuned_static_deform[0][2][:],label='Initial FEM: 1 g load' ,markersize=6)
-plt.plot(initial_mistuned_grid_coords[0,:] + initial_mistuned_static_deform[1][0][:]-1, initial_mistuned_static_deform[1][2][:],label='Initial FEM: 10 N distributed load',markersize=6)
+# plt.plot(ref_grid_coords[0,:]-1, ref_grid_coords[2,:]-1,'k+',label='Reference FEM: No load',markersize=8)
+plt.plot(initial_mistuned_grid_coords[0,:] + initial_mistuned_static_deform[0][0][:]-1, initial_mistuned_static_deform[0][2][:],label='Initial FEM: -1 g load' ,markersize=6)
+# plt.plot(initial_mistuned_grid_coords[0,:] + initial_mistuned_static_deform[1][0][:]-1, initial_mistuned_static_deform[1][2][:],label='Initial FEM: 10 N distributed load',markersize=6)
 plt.plot(initial_mistuned_grid_coords[0,:] + initial_mistuned_static_deform[2][0][:]-1, initial_mistuned_static_deform[2][2][:],label='Initial FEM: 25 N distributed load',markersize=6)
-plt.plot(initial_mistuned_grid_coords[0,:]-1, initial_mistuned_grid_coords[2,:]-1,label='Initial FEM: No load',markersize=6)
-plt.plot(mistuned_grid_coords[0,:] + mistuned_static_deform[0][0][:]-1, mistuned_static_deform[0][2][:],label='Final FEM: 1 g load' ,markersize=4)
-plt.plot(mistuned_grid_coords[0,:] + mistuned_static_deform[1][0][:]-1, mistuned_static_deform[1][2][:],label='Final FEM: 10 N distributed load',markersize=4)
+# plt.plot(initial_mistuned_grid_coords[0,:]-1, initial_mistuned_grid_coords[2,:]-1,label='Initial FEM: No load',markersize=6)
+plt.plot(mistuned_grid_coords[0,:] + mistuned_static_deform[0][0][:]-1, mistuned_static_deform[0][2][:],label='Final FEM: -1 g load' ,markersize=4)
+# plt.plot(mistuned_grid_coords[0,:] + mistuned_static_deform[1][0][:]-1, mistuned_static_deform[1][2][:],label='Final FEM: 10 N distributed load',markersize=4)
 plt.plot(mistuned_grid_coords[0,:] + mistuned_static_deform[2][0][:]-1, mistuned_static_deform[2][2][:],label='Final FEM: 25 N distributed load',markersize=4)
-plt.plot(mistuned_grid_coords[0,:]-1, mistuned_grid_coords[2,:]-1,label='Final FEM: No load',markersize=4)
+# plt.plot(mistuned_grid_coords[0,:]-1, mistuned_grid_coords[2,:]-1,label='Final FEM: No load',markersize=4)
 # plt.plot(grid_coords[0,:] + static_deform[3][0][:], static_deform[3][2][:],'g',label='No load')
 # plt.plot(grid_coords[0,:] + static_deform[4][0][:], static_deform[4][2][:],'c',label='OOP + IP + Rx load')
 plt.rcParams["lines.linewidth"] = 3
@@ -98,6 +98,10 @@ plt.ax = plt.gca()
 plt.xticks(fontsize=25)
 plt.yticks(fontsize=25)
 plt.legend(fontsize=14)
+plt.ax.spines['top'].set_visible(False)
+plt.ax.spines['right'].set_visible(False)
+plt.ax.spines['bottom'].set_visible(False)
+plt.ax.spines['left'].set_visible(False)
 # plt.ylim(-1,1.5)
 fig.savefig("static_displacement/static_displacement_w_static.svg",bbox_inches='tight')
 
@@ -105,21 +109,25 @@ fig.savefig("static_displacement/static_displacement_w_static.svg",bbox_inches='
 # print("Deformed OOP Bending mode shapes")
 # # select component of mode shape (3 translations and 3 rotations)
 # phi_component = 2
-# for i in range(0,n_modes):
-#     # i=2 for quickly plotting any one mode
-#     fig=plt.figure(figsize=(15,8))
-#     plt.plot(ref_grid_coords[0,:]-1,ref_mode_shapes[subcase][i][phi_component]+ref_static_deform[subcase][phi_component],'k^',label='Reference FEM')
-#     plt.plot(initial_mistuned_grid_coords[0,:]-1,initial_mistuned_mode_shapes[subcase][i][phi_component]+initial_mistuned_static_deform[subcase][phi_component],'b',label='Initial mistuned FEM')
-#     plt.plot(mistuned_grid_coords[0,:]-1,mistuned_mode_shapes[subcase][i][phi_component]+mistuned_static_deform[subcase][phi_component],'r',label='Converged FEM')
-#     # plt.title('Mode number ' + str(i) + ' at frequency ' + str(ref_freq_NASTRAN[subcase][i]) + '' ,fontsize=26)
-#     plt.xlabel('Beam Length [m]',fontsize=26)
-#     plt.rcParams["lines.linewidth"] = 3
-#     plt.ylabel('Amplitude',fontsize=26)
-#     plt.ax = plt.gca()
-#     plt.xticks(fontsize=25)
-#     plt.yticks(fontsize=25)
-#     plt.legend(fontsize=22)
-#     fig.savefig('mode_shapes/Mode shape ' + str(i+1) + '.svg',bbox_inches='tight')
+# # for i in range(0,n_modes):
+# i=3 # for quickly plotting any one mode
+# fig=plt.figure(figsize=(15,8))
+# plt.plot(ref_grid_coords[0,:]-1,ref_mode_shapes[subcase][i][phi_component]+ref_static_deform[subcase][phi_component],'k^',label='Reference FEM')
+# plt.plot(initial_mistuned_grid_coords[0,:]-1,initial_mistuned_mode_shapes[subcase][i][phi_component]+initial_mistuned_static_deform[subcase][phi_component],'b',label='Initial mistuned FEM')
+# plt.plot(mistuned_grid_coords[0,:]-1,mistuned_mode_shapes[subcase][i][phi_component]+mistuned_static_deform[subcase][phi_component],'r',label='Converged FEM')
+# # plt.title('Mode number ' + str(i) + ' at frequency ' + str(ref_freq_NASTRAN[subcase][i]) + '' ,fontsize=26)
+# plt.xlabel('Beam Length [m]',fontsize=26)
+# plt.rcParams["lines.linewidth"] = 3
+# plt.ylabel('Amplitude',fontsize=26)
+# plt.ax = plt.gca()
+# plt.xticks(fontsize=25)
+# plt.yticks(fontsize=25)
+# plt.legend(fontsize=22)
+# plt.ax.spines['top'].set_visible(False)
+# plt.ax.spines['right'].set_visible(False)
+# plt.ax.spines['bottom'].set_visible(False)
+# plt.ax.spines['left'].set_visible(False)
+# fig.savefig('mode_shapes/Mode shape ' + str(i+1) + '.svg',bbox_inches='tight')
 
 # # Plot frequencies
 # n_freq = 5

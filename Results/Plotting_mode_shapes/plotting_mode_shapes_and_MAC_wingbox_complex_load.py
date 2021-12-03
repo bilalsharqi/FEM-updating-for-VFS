@@ -21,43 +21,11 @@ temp_path = 'Renato_wingbox/'
 n_modes=15
 n_subcases=1
 
-# # Read reference results
-# # Note: There are 4 loading subcases and 15 eigenvalues computed for each
-# # deformed modal analysis
-# file_path = temp_path + 'reference'
-# f06_file = 'sol400.f06'
-# model_coords = 'sol400_coor.txt'
-
-# # Components
-
-# # read the reference result files and store the numerical data
-# ref_grids, ref_n_grids, ref_grid_coords = importGrids(file_path, ['wingbox.bdf',model_coords], debug=True)
-# ref_freq_NASTRAN = importFrequencies(file_path, f06_file, n_modes, n_subcases, debug=True)
-# ref_mode_shapes = importEigenvectors(file_path, f06_file, n_modes, ref_n_grids, ref_grids, n_subcases,[],debug=True)
-# ref_static_deform= importDisplacements(file_path, f06_file, n_subcases, ref_grids, grids_order=[], debug=True)
-# M_ref, x_G_ref, J_G_ref = importRigidBodyMassData(file_path, f06_file,debug=True)
-# print("\nReference NASTRAN data import completed")
-
-# # Read initial mistuned results
-# # Note: There are 4 loading subcases and 15 eigenvalues computed for each
-# # deformed modal analysis
-# file_path = temp_path + 'initial'
-# f06_file = 'mistuned_sol400.f06'
-# model_coords = 'mistuned_sol400_coor.txt'
-
-# # read the reference result files and store the numerical data
-# initial_mistuned_grids, initial_mistuned_n_grids, initial_mistuned_grid_coords = importGrids(file_path, ['mistuned_wingbox.bdf',model_coords], debug=True)
-# initial_mistuned_freq_NASTRAN = importFrequencies(file_path, f06_file, n_modes, n_subcases, debug=True)
-# initial_mistuned_mode_shapes = importEigenvectors(file_path, f06_file, n_modes, initial_mistuned_n_grids, initial_mistuned_grids, n_subcases,[],debug=True)
-# initial_mistuned_static_deform= importDisplacements(file_path, f06_file, n_subcases, initial_mistuned_grids, grids_order=[], debug=True)
-# M_mistuned, x_G_mistuned, J_G_mistuned = importRigidBodyMassData(file_path, f06_file,debug=True)
-# print("\nInitial mistuned NASTRAN data import completed")
-
 
 # Read final/converged mistuned results
 # Note: There are 4 loading subcases and 15 eigenvalues computed for each
 # deformed modal analysis
-file_path = temp_path + 'intermediate'
+file_path = temp_path + 'intermediate/Complex_loads/Renumbered_grids'
 f06_file = 'sol400_complex_loads.f06'
 model_coords = 'mistuned_sol400_coor_cplx_load.txt'
 
@@ -72,28 +40,28 @@ print("\nMistuned NASTRAN data import completed")
 # # ================================================================================
 # # Save data
 # # ================================================================================
-# print("...Exporting results in a .mat file")
-# dir=os.path.dirname(os.path.abspath("plotting_mode_shapes_and_MAC_wingbox.py"))
-# path = os.path.join(dir, "ref_mode_shapes_data_wingbox.mat")
-# database = {}
+print("...Exporting results in a .mat file")
+dir=os.path.dirname(os.path.abspath("plotting_mode_shapes_and_MAC_wingbox.py"))
+path = os.path.join(dir, "multi_case_complex_load.mat")
+database = {}
 
-# # Write problem data
-# database["n_subcases"] = n_subcases
-# database['n_modes'] = n_modes
-# database["n_grids"] = ref_n_grids
-# database["ref_grid_coords"] = ref_grids
+# Write problem data
+database["n_subcases"] = n_subcases
+database['n_modes'] = n_modes
+database["n_grids"] = mistuned_n_grids
+database["ref_grid_coords"] = mistuned_grids
 
-# # Write mode shapes
-# database['mode_shapes'] = ref_mode_shapes
-# # Write frequencies 
-# database["frequencies"] = ref_freq_NASTRAN
-# # write static displacement
-# database['static_displacement'] = ref_static_deform
+# Write mode shapes
+database['mode_shapes'] = mistuned_mode_shapes
+# Write frequencies 
+database["frequencies"] = mistuned_freq_NASTRAN
+# write static displacement
+database['static_displacement'] = mistuned_static_deform
 
-# # Writing database
-# if os.path.isfile(path):
-#     os.remove(path)
-# s_io.savemat(path,database,appendmat=False)
+# Writing database
+if os.path.isfile(path):
+    os.remove(path)
+s_io.savemat(path,database,appendmat=False)
 
 
 # subcase = 0

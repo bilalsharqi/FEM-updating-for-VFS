@@ -38,7 +38,7 @@ static_deform= importDisplacements(file_path, f06_file, n_subcases, grids, grids
 print("\nNASTRAN data import completed")
     
 fig=plt.figure(figsize=(15,8))
-plt.plot(grid_coords[0,:] + static_deform[0][0][:]-1, static_deform[0][2][:],'r',label='Gravity load' )
+plt.plot(grid_coords[0,:] + static_deform[0][0][:]-1, static_deform[0][2][:],'r',label='-1 g load (self-weight)' )
 plt.plot(grid_coords[0,:] + static_deform[1][0][:]-1, static_deform[1][2][:],'b',label='10 N distributed load')
 plt.plot(grid_coords[0,:] + static_deform[2][0][:]-1, static_deform[2][2][:],'g',label='25 N distributed load')
 plt.plot(grid_coords[0,:]-1, grid_coords[2,:]-1, 'k',label='No load')
@@ -52,9 +52,13 @@ plt.ax = plt.gca()
 plt.xticks(fontsize=25)
 plt.yticks(fontsize=25)
 plt.legend(fontsize=22)
+plt.ax.spines['top'].set_visible(False)
+plt.ax.spines['right'].set_visible(False)
+plt.ax.spines['bottom'].set_visible(False)
+plt.ax.spines['left'].set_visible(False)
 # plt.ylim(-1,1.5)
 
-# fig.savefig("beam_static_1_5m_z.svg",bbox_inches='tight')
+fig.savefig("beam_static_1_5m_z.svg",bbox_inches='tight')
     
 # fig1=plt.figure(figsize=(15,8))
 # plt.plot(grid_coords[0,:] + static_deform[0][0][:], static_deform[0][1][:],'r',label='No load' )
