@@ -16,6 +16,7 @@ from mpl_toolkits.mplot3d import axes3d, Axes3D
 from matplotlib import cm
 from pyMSCNastranUtilities import *
 plt.close('all')
+plt.rcParams["font.family"] = "Times New Roman"
 
 temp_path = 'Renato_wingbox/'
 n_modes=15
@@ -113,7 +114,7 @@ print("\nMistuned NASTRAN data import completed")
 #     os.remove(path)
 # s_io.savemat(path,database,appendmat=False)
 
-# subcase = 2
+subcase = 2
 
 # # Plot a basic scatter plot with static displacement 
 # # plotted on top of the grid coordinates
@@ -232,69 +233,73 @@ print("\nMistuned NASTRAN data import completed")
 
 
 # # Plot frequencies
-# n_freq = 5
+# n_freq = 15
 # for i in range(0, n_subcases):
 #     fig=plt.figure(figsize=(16,9))
-#     plt.plot(np.linspace(1,n_freq,n_freq),ref_freq_NASTRAN[i][0:5],'k^',label='Reference FEM',markersize=8)
-#     plt.plot(np.linspace(1,n_freq,n_freq),mistuned_freq_NASTRAN[i][0:5],'ro',label='Converged FEM',markersize=8)
-#     plt.plot(np.linspace(1,n_freq,n_freq),initial_mistuned_freq_NASTRAN[i][0:5],'b+',label='Initial FEM',markersize=12)
+#     plt.plot(np.linspace(1,n_freq,n_freq),ref_freq_NASTRAN[i][0:n_freq],'k^',label='Reference FEM',markersize=8)
+#     plt.plot(np.linspace(1,n_freq,n_freq),mistuned_freq_NASTRAN[i][0:n_freq],'ro',label='Converged FEM',markersize=8)
+#     plt.plot(np.linspace(1,n_freq,n_freq),initial_mistuned_freq_NASTRAN[i][0:n_freq],'b+',label='Initial FEM',markersize=12)
 #     plt.xlabel('Mode number',fontsize=26)
 #     plt.rcParams["lines.linewidth"] = 3
 #     plt.ylabel('Frequency [Hz]',fontsize=26)
 #     plt.ax = plt.gca()
 #     plt.xticks(fontsize=25)
-#     plt.ylim(0,40)
+#     plt.ylim(0,100)
 #     plt.xticks(np.arange(1, n_freq+1, step=1.0))
 #     plt.yticks(fontsize=25)
 #     plt.legend(fontsize=22)
+#     plt.ax.spines['top'].set_visible(False)
+#     plt.ax.spines['right'].set_visible(False)
+#     # plt.ax.spines['bottom'].set_visible(False)
+#     # plt.ax.spines['left'].set_visible(False)
 #     fig.savefig('Renato_wingbox/mode_shapes/Frequency case ' + str(i+1) + '.svg',bbox_inches='tight')
     
-# # MAC module
-# temp_MAC_size = (n_subcases,n_subcases)
+# MAC module
+temp_MAC_size = (n_subcases,n_subcases)
 
-# MAC_matrix_ref_initial = [np.zeros(temp_MAC_size) for j in range(n_subcases)]
-# MAC_matrix_ref_final = [np.zeros(temp_MAC_size) for j in range(n_subcases)]
+MAC_matrix_ref_initial = [np.zeros(temp_MAC_size) for j in range(n_subcases)]
+MAC_matrix_ref_final = [np.zeros(temp_MAC_size) for j in range(n_subcases)]
 
-# data_MAC_reference = [[np.zeros([6*mistuned_n_grids]) for i in range(n_modes)] for j in range(n_subcases)]
-# data_MAC_initial  = [[np.zeros([6*initial_mistuned_n_grids]) for i in range(n_modes)] for j in range(n_subcases)]
-# data_MAC_mistuned  = [[np.zeros([6*mistuned_n_grids]) for i in range(n_modes)] for j in range(n_subcases)]
+data_MAC_reference = [[np.zeros([6*mistuned_n_grids]) for i in range(n_modes)] for j in range(n_subcases)]
+data_MAC_initial  = [[np.zeros([6*initial_mistuned_n_grids]) for i in range(n_modes)] for j in range(n_subcases)]
+data_MAC_mistuned  = [[np.zeros([6*mistuned_n_grids]) for i in range(n_modes)] for j in range(n_subcases)]
 
-# for i in range(n_subcases):
-#     for j in range(n_modes):
-#         data_MAC_reference[i][j] = ref_mode_shapes[i][j].flatten('C')
-#         data_MAC_initial[i][j] = initial_mistuned_mode_shapes[i][j].flatten('C')
-#         data_MAC_mistuned[i][j] = mistuned_mode_shapes[i][j].flatten('C')
+for i in range(n_subcases):
+    for j in range(n_modes):
+        data_MAC_reference[i][j] = ref_mode_shapes[i][j].flatten('C')
+        data_MAC_initial[i][j] = initial_mistuned_mode_shapes[i][j].flatten('C')
+        data_MAC_mistuned[i][j] = mistuned_mode_shapes[i][j].flatten('C')
 
-# # test_MAC2 = ComputeMAC(data_MAC_reference[0][0],data_MAC_mistuned[0][0])
-# for i in range(n_subcases):
-#         MAC_matrix_ref_initial[i] = mac(np.array(data_MAC_reference[i][:]), np.array(data_MAC_initial[i][:]))
-#         MAC_matrix_ref_final[i] = mac(np.array(data_MAC_reference[i][:]), np.array(data_MAC_mistuned[i][:]))
+# test_MAC2 = ComputeMAC(data_MAC_reference[0][0],data_MAC_mistuned[0][0])
+for i in range(n_subcases):
+        MAC_matrix_ref_initial[i] = mac(np.array(data_MAC_reference[i][:]), np.array(data_MAC_initial[i][:]))
+        MAC_matrix_ref_final[i] = mac(np.array(data_MAC_reference[i][:]), np.array(data_MAC_mistuned[i][:]))
         
-# # Plot initial MAC        
-# fig = plt.figure(figsize=(16, 9))
-# ax = fig.add_subplot(111)
-# ax.set_aspect('equal')
-# im=plt.imshow(MAC_matrix_ref_initial[subcase])
-# cb=plt.colorbar(im,orientation='vertical')
-# cb.ax.tick_params(labelsize=20)
-# plt.clim(0, 1.0) 
-# im.figure.axes[0].tick_params(axis="both", labelsize=20)
-# im.figure.axes[1].tick_params(axis="x", labelsize=20)
-# plt.show()
-# fig.savefig("Renato_wingbox/MAC/initial_vs_ref_MAC.svg",bbox_inches='tight')
+# Plot initial MAC        
+fig = plt.figure(figsize=(16, 9))
+ax = fig.add_subplot(111)
+ax.set_aspect('equal')
+im=plt.imshow(MAC_matrix_ref_initial[subcase])
+cb=plt.colorbar(im,orientation='vertical')
+cb.ax.tick_params(labelsize=20)
+plt.clim(0, 1.0) 
+im.figure.axes[0].tick_params(axis="both", labelsize=20)
+im.figure.axes[1].tick_params(axis="x", labelsize=20)
+plt.show()
+fig.savefig("Renato_wingbox/MAC/initial_vs_ref_MAC.svg",bbox_inches='tight')
 
-# # Plot final MAC        
-# fig = plt.figure(figsize=(16, 9))
-# ax = fig.add_subplot(111)
-# ax.set_aspect('equal')
-# im=plt.imshow(MAC_matrix_ref_final[subcase])
-# cb=plt.colorbar(im,orientation='vertical')
-# cb.ax.tick_params(labelsize=20)
-# plt.clim(0, 1.0) 
-# im.figure.axes[0].tick_params(axis="both", labelsize=20)
-# im.figure.axes[1].tick_params(axis="x", labelsize=20)
-# plt.show()
-# fig.savefig("Renato_wingbox/MAC/final_vs_ref_MAC.svg",bbox_inches='tight')
+# Plot final MAC        
+fig = plt.figure(figsize=(16, 9))
+ax = fig.add_subplot(111)
+ax.set_aspect('equal')
+im=plt.imshow(MAC_matrix_ref_final[subcase])
+cb=plt.colorbar(im,orientation='vertical')
+cb.ax.tick_params(labelsize=20)
+plt.clim(0, 1.0) 
+im.figure.axes[0].tick_params(axis="both", labelsize=20)
+im.figure.axes[1].tick_params(axis="x", labelsize=20)
+plt.show()
+fig.savefig("Renato_wingbox/MAC/final_vs_ref_MAC.svg",bbox_inches='tight')
 
 
 

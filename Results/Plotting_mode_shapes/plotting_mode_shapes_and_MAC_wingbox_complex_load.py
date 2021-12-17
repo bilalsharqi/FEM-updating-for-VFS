@@ -25,12 +25,12 @@ n_subcases=1
 # Read final/converged mistuned results
 # Note: There are 4 loading subcases and 15 eigenvalues computed for each
 # deformed modal analysis
-file_path = temp_path + 'intermediate/Complex_loads/Renumbered_grids'
+file_path = temp_path + 'reference/Complex_loads/Renumbered_grids'
 f06_file = 'sol400_complex_loads.f06'
 model_coords = 'mistuned_sol400_coor_cplx_load.txt'
 
 # read the reference result files and store the numerical data
-mistuned_grids, mistuned_n_grids, mistuned_grid_coords = importGrids(file_path, ['mistuned_wingbox1.bdf',model_coords], debug=True)
+mistuned_grids, mistuned_n_grids, mistuned_grid_coords = importGrids(file_path, ['wingbox.bdf',model_coords], debug=True)
 mistuned_freq_NASTRAN = importFrequencies(file_path, f06_file, n_modes, n_subcases, debug=True)
 mistuned_mode_shapes = importEigenvectors(file_path, f06_file, n_modes, mistuned_n_grids, mistuned_grids, n_subcases,[],debug=True)
 mistuned_static_deform= importDisplacements(file_path, f06_file, n_subcases, mistuned_grids, grids_order=[], debug=True)
@@ -42,7 +42,7 @@ print("\nMistuned NASTRAN data import completed")
 # # ================================================================================
 print("...Exporting results in a .mat file")
 dir=os.path.dirname(os.path.abspath("plotting_mode_shapes_and_MAC_wingbox.py"))
-path = os.path.join(dir, "multi_case_complex_load.mat")
+path = os.path.join(dir, "visualize_complex_load_reference.mat")
 database = {}
 
 # Write problem data
@@ -248,3 +248,54 @@ s_io.savemat(path,database,appendmat=False)
 
 
 
+data = np.array([[1,	0.68,	0.68,	0.83,	0.68,	0.23,],
+        [2,	2.87,	2.87,	0.03,	2.88,	0.10,],
+        [3,	4.25,	4.27,	0.42,	4.24,	0.21,],
+        [4,	11.71,	11.73,	0.24,	11.69,	0.16,],
+        [5,	17.20,	17.20,	0.04,	17.20,	0.04,],
+        [6,	18.04,	18.03,	0.05,	18.05,	0.02,],
+        [7,	22.18,	22.22,	0.17,	22.16,	0.11,],
+        [8,	34.81,	34.91,	0.26,	34.80,	0.04,],
+        [9,	47.90,	47.87,	0.05,	47.93,	0.07,],
+        [10,	48.23,	48.58,	0.72,	48.25,	0.05,],
+        [11,	52.23,	52.24,	0.01,	52.18,	0.09,],
+        [12,	54.89,	58.01,	5.69,	55.07,	0.33,],
+        [13,	60.57,	62.54,	3.26,	60.64,	0.12,],
+        [14,	63.92,	64.00,	0.12,	63.88,	0.06,],
+        [15,	67.16,	69.97,	4.19,	67.25,	0.14]])
+
+# data = np.array([[1	   , 0.51	,0.52,	0.63,	0.51	,0.16],
+#                  [2	   , 2.71	,2.71,	0.11,	2.71	,0.19],
+#                  [3	   , 3.90	,3.90,	0.14,	3.89	,0.09],
+#                  [4	    ,10.55	,10.60	,0.47	,10.55	,0.03],
+#                  [5	    ,16.78	,16.78	,0.01	,16.78	,0.01],
+#                  [6	    ,17.80	,17.81	,0.03	,17.81	,0.02],
+#                  [7	    ,19.97	,20.00	,0.19	,19.97	,0.00],
+#                  [8	    ,31.77	,31.87	,0.32	,31.79	,0.05],
+#                  [9	    ,43.50	,43.80	,0.68	,43.56	,0.15],
+#                  [10	,47.07	,47.05	,0.04	,47.12	,0.09],
+#                  [11	,51.43	,51.73	,0.57	,51.65	,0.42],
+#                  [12	,51.69	,53.45	,3.40	,51.73	,0.07],
+#                  [13	,56.26	,56.27	,0.01	,56.38	,0.21],
+#                  [14	,59.09	,60.08	,1.67	,59.19	,0.18],
+#                  [15	,60.81	,62.62	,2.98	,60.92	,0.18]])
+
+
+# Plot errors for complex load case linear vs nonlinear optimization
+n_freq = 15
+for i in range(0, n_subcases):
+    fig=plt.figure(figsize=(16,9))
+    plt.plot(np.linspace(1,n_freq,n_freq),data[:,3],'k^',label='Conventional optimization vs. reference FEM',markersize=8)
+    plt.plot(np.linspace(1,n_freq,n_freq),data[:,5],'ro',label='Modified optimization vs. reference FEM',markersize=8)
+    plt.xlabel('Mode number',fontsize=26)
+    plt.rcParams["lines.linewidth"] = 3
+    plt.ylabel('Error [%]',fontsize=26)
+    plt.ax = plt.gca()
+    plt.xticks(fontsize=25)
+    plt.ylim(0,10)
+    plt.xticks(np.arange(1, n_freq+1, step=1.0))
+    plt.yticks(fontsize=25)
+    plt.legend(fontsize=22)
+    plt.ax.spines['top'].set_visible(False)
+    plt.ax.spines['right'].set_visible(False)
+    fig.savefig('mode_shapes/linear_v_nonlinear.svg',bbox_inches='tight')

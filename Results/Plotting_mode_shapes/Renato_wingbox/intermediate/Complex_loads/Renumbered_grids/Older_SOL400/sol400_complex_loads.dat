@@ -1,0 +1,99 @@
+NASTRAN NLINES=9999999
+NASTRAN BUFFSIZE=65537
+NASTRAN SYSTEM (151)=1
+NASTRAN PARALLEL=8
+$------------------------------------------------
+$ Executive
+$------------------------------------------------
+ASSIGN PUNCH='mistuned_sol400_coor_cplx_load.txt',FORM=FORMATTED,
+       STATUS=UNKNOWN,UNIT=91
+ASSIGN PUNCH='mistuned_sol400_mass_cplx_load.txt',FORM=FORMATTED,
+       STATUS=UNKNOWN,UNIT=92
+SOL 400
+COMPILE PHASE1DR NOLIST NOREF
+ALTER 303
+TYPE PARM,,I,N,PCHORIG
+PCHORIG = GETSYS(PCHORIG,64)
+PUTSYS(92,64)
+MATMOD MGG,EQEXINS,USET0,,,/,/16/1         $
+PUTSYS(PCHORIG,64)
+VECPLOT   ,,BGPDTS,SCSTM,CSTMS,,,,/LOC///3 $
+PUTSYS(91,64)
+MATMOD LOC,EQEXINS,USET0,,,/,/16/1         $
+PUTSYS(PCHORIG,64)
+CEND
+$------------------------------------------------
+$ Case
+$------------------------------------------------
+TITLE = WHATEVER
+ECHO = NONE
+RIGID = LAGR 
+$---------------------
+$ Subcases
+$---------------------
+$---------------------
+$ Subcases
+$---------------------
+$ two step solution with NL static + deformed modal under complex load
+SUBCASE 1
+STEP 1
+SPC = 1
+LOAD = 101
+NLPARM = 21
+DISPLACEMENT(SORT1,PRINT,PUNCH,REAL) = ALL
+STEP 2
+ANALYSIS = MODES
+SPC = 1  
+METHOD = 100
+VECTOR(SORT1,REAL)=ALL
+
+$------------------------------------------------
+$ Bulk
+$------------------------------------------------
+BEGIN BULK
+PARAM,POST,0
+PARAM,PRTMAXIM,YES
+PARAM,GRDPNT,18695
+$---------------------
+PARAM,LGDISP,2
+PARAM,NLTOL,0
+$---------------------
+NLPARM,21,40,,FNT,-1,50,,NO
+$---------------------
+$ Structural model
+$---------------------
+INCLUDE 'mistuned_wingbox1.bdf'
+$---------------------
+$ Method
+$---------------------
+EIGRL,100,,,15,,,,MASS
+$---------------------
+$---------------------
+$ Load set - define inertial loads (1 g in OOP and IP)
+$---------------------
+$---------------------
+GRAV,201,,9.81,0.,0.,1.
+$---------------------
+$---------------------
+GRAV,202,,9.81,0.,1.,0.
+$---------------------
+
+$define tip moments at fixed nodes
+MOMENT,1004,48,0,1.,-1.0e+02,0.0,0.0
+$
+MOMENT,1005,48,0,1.,0.0,1.0e+04,0.0
+$
+MOMENT,1006,48,0,1.,0.0,0.0,1.0e+02
+
+$
+LOAD,101,1.,1.,201,1.,202,1.,1004
+,1.,1005,1.,1006
+
+
+$---------------------
+$ Boundary condition
+$---------------------
+$ Loads for Load Case : Default
+SPCADD   2       1
+$---------------------
+ENDDATA

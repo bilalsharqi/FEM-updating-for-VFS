@@ -63,41 +63,57 @@ close all;
 
 grids = load('test/grids.txt');
 connectivity = load('test/connect.txt');
-
-% load reference case data
-ref_data = load('test/reference_case_complex_load.mat');
-% load single case data
-single_data = load('test/single_case_complex_load.mat');
-% load multi-case data
-multi_data = load('test/multi_case_complex_load.mat');
-
 %subcase number
 m = 1;
 
+% load reference case data
+vis_ref_data = load('test/visualize_complex_load_reference.mat');
+
 figure();
-% add reference FEM
-h1 = trisurf(connectivity,squeeze(ref_data.static_displacement(m,1,:))+grids(:,1),...
-    squeeze(ref_data.static_displacement(m,2,:))+grids(:,2),...
-    squeeze(ref_data.static_displacement(m,3,:))+grids(:,3),'FaceAlpha',0.5,'FaceColor','k','FaceAlpha',1.0,'EdgeAlpha',0.0);
+h1 = trisurf(connectivity,squeeze(vis_ref_data.static_displacement(m,1,:))+grids(:,1),...
+    squeeze(vis_ref_data.static_displacement(m,2,:))+grids(:,2),...
+    squeeze(vis_ref_data.static_displacement(m,3,:))+grids(:,3),'FaceAlpha',0.5,'FaceColor','k','FaceAlpha',1.0,'EdgeAlpha',0.0);
 axis equal tight
 xlabel('Span [m]','FontSize',15)
 ylabel('Chord [m]','FontSize',15)
 zlabel('Vertical displacement','FontSize',15)
-hold on
+% hold on
+% load reference case data
+ref_data = load('test/ref_mode_shapes_data_wingbox.mat');
 
-% add single case FEM
-h2 = trisurf(connectivity,squeeze(single_data.static_displacement(m,1,:))+grids(:,1),...
-    squeeze(single_data.static_displacement(m,2,:))+grids(:,2),...
-    squeeze(single_data.static_displacement(m,3,:))+grids(:,3),'FaceColor','b','FaceAlpha',1.0,'EdgeAlpha',0.0);
+% load reference case data
+% ref_data = load('test/reference_case_complex_load.mat');
+% % load single case data
+% single_data = load('test/single_case_complex_load.mat');
+% % load multi-case data
+% multi_data = load('test/multi_case_complex_load.mat');
+% 
 
-% add multi case FEM 
-h3 = trisurf(connectivity,squeeze(multi_data.static_displacement(m,1,:))+grids(:,1),...
-    squeeze(multi_data.static_displacement(m,2,:))+grids(:,2),...
-    squeeze(multi_data.static_displacement(m,3,:))+grids(:,3),'FaceColor','r','FaceAlpha',0.5,'EdgeAlpha',0.0);
-axis equal tight
-xlabel('Span [m]','FontSize',15)
-ylabel('Chord [m]','FontSize',15)
-zlabel('Vertical displacement','FontSize',15)
-legend([h1, h2, h3], {'Reference FEM', 'Single FEM', 'Multi FEM'},'FontSize',15);
-box off
-hold off
+% 
+% figure();
+% % add reference FEM
+% h1 = trisurf(connectivity,squeeze(ref_data.static_displacement(m,1,:))+grids(:,1),...
+%     squeeze(ref_data.static_displacement(m,2,:))+grids(:,2),...
+%     squeeze(ref_data.static_displacement(m,3,:))+grids(:,3),'FaceAlpha',0.5,'FaceColor','k','FaceAlpha',1.0,'EdgeAlpha',0.0);
+% axis equal tight
+% xlabel('Span [m]','FontSize',15)
+% ylabel('Chord [m]','FontSize',15)
+% zlabel('Vertical displacement','FontSize',15)
+% hold on
+% 
+% % add single case FEM
+% h2 = trisurf(connectivity,squeeze(single_data.static_displacement(m,1,:))+grids(:,1),...
+%     squeeze(single_data.static_displacement(m,2,:))+grids(:,2),...
+%     squeeze(single_data.static_displacement(m,3,:))+grids(:,3),'FaceColor','b','FaceAlpha',1.0,'EdgeAlpha',0.0);
+% 
+% % add multi case FEM 
+% h3 = trisurf(connectivity,squeeze(multi_data.static_displacement(m,1,:))+grids(:,1),...
+%     squeeze(multi_data.static_displacement(m,2,:))+grids(:,2),...
+%     squeeze(multi_data.static_displacement(m,3,:))+grids(:,3),'FaceColor','r','FaceAlpha',0.5,'EdgeAlpha',0.0);
+% axis equal tight
+% xlabel('Span [m]','FontSize',15)
+% ylabel('Chord [m]','FontSize',15)
+% zlabel('Vertical displacement','FontSize',15)
+% legend([h1, h2, h3], {'Reference FEM', 'Single FEM', 'Multi FEM'},'FontSize',15);
+% box off
+% hold off
