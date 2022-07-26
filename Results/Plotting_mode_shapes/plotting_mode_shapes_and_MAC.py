@@ -75,41 +75,74 @@ print("\nMistuned NASTRAN data import completed")
 
 subcase = 0
 
-# Static deformation
-fig=plt.figure(figsize=(17,10))
-plt.plot(ref_grid_coords[0,:] + ref_static_deform[0][0][:]-1, ref_static_deform[0][2][:]/1.5*100,'kx',label='Reference FEM: -1 g load' ,markersize=8)
-plt.plot(ref_grid_coords[0,:] + ref_static_deform[1][0][:]-1, ref_static_deform[1][2][:]/1.5*100,'k^',label='Reference FEM: 10 N distributed load',markersize=8)
-plt.plot(ref_grid_coords[0,:] + ref_static_deform[2][0][:]-1, ref_static_deform[2][2][:]/1.5*100,'ko',label='Reference FEM: 25 N distributed load',markersize=8)
-plt.plot(ref_grid_coords[0,:]-1, ref_grid_coords[2,:]-1,'k+',label='Reference FEM: No load',markersize=8)
-plt.plot(initial_mistuned_grid_coords[0,:] + initial_mistuned_static_deform[0][0][:]-1, initial_mistuned_static_deform[0][2][:]/1.5*100,label='Initial FEM: -1 g load' ,markersize=6)
-plt.plot(initial_mistuned_grid_coords[0,:] + initial_mistuned_static_deform[1][0][:]-1, initial_mistuned_static_deform[1][2][:]/1.5*100,label='Initial FEM: 10 N distributed load',markersize=6)
-plt.plot(initial_mistuned_grid_coords[0,:] + initial_mistuned_static_deform[2][0][:]-1, initial_mistuned_static_deform[2][2][:]/1.5*100,label='Initial FEM: 25 N distributed load',markersize=6)
-plt.plot(initial_mistuned_grid_coords[0,:]-1, initial_mistuned_grid_coords[2,:]-1,label='Initial FEM: No load',markersize=6)
-plt.plot(mistuned_grid_coords[0,:] + mistuned_static_deform[0][0][:]-1, mistuned_static_deform[0][2][:]/1.5*100,label='Final FEM: -1 g load' ,markersize=4)
-plt.plot(mistuned_grid_coords[0,:] + mistuned_static_deform[1][0][:]-1, mistuned_static_deform[1][2][:]/1.5*100,label='Final FEM: 10 N distributed load',markersize=4)
-plt.plot(mistuned_grid_coords[0,:] + mistuned_static_deform[2][0][:]-1, mistuned_static_deform[2][2][:]/1.5*100,label='Final FEM: 25 N distributed load',markersize=4)
-plt.plot(mistuned_grid_coords[0,:]-1, mistuned_grid_coords[2,:]-1,label='Final FEM: No load',markersize=4)
-plt.rcParams["lines.linewidth"] = 3
-# plt.title('Static deformation with loading',fontsize=32 )
-plt.xlabel("Beam length [m]",fontsize=26)
-plt.ylabel("Vertical displacement [% span]",fontsize=26)
-plt.ax = plt.gca()
-plt.xticks(fontsize=25)
-plt.yticks(fontsize=25)
-plt.legend(fontsize=16)
-plt.ax.spines['top'].set_visible(False)
-plt.ax.spines['right'].set_visible(False)
-# plt.ax.spines['bottom'].set_visible(False)
-# plt.ax.spines['left'].set_visible(False)
-# plt.ylim(-1,1.5)
-fig.savefig("static_displacement/beam_static_displacement.svg",bbox_inches='tight')
+# # Static deformation
+# fig=plt.figure(figsize=(17,10))
+# plt.plot(ref_grid_coords[0,:] + ref_static_deform[0][0][:]-1, ref_static_deform[0][2][:]/1.5*100,'kx',label='Reference FEM: -1-g load' ,markersize=8)
+# plt.plot(ref_grid_coords[0,:] + ref_static_deform[1][0][:]-1, ref_static_deform[1][2][:]/1.5*100,'k^',label='Reference FEM: 10-N dist. load',markersize=8)
+# plt.plot(ref_grid_coords[0,:] + ref_static_deform[2][0][:]-1, ref_static_deform[2][2][:]/1.5*100,'ko',label='Reference FEM: 25-N dist. load',markersize=8)
+# plt.plot(ref_grid_coords[0,:]-1, ref_grid_coords[2,:]-1,'k+',label='Reference FEM: No load',markersize=8)
+# plt.plot(initial_mistuned_grid_coords[0,:] + initial_mistuned_static_deform[0][0][:]-1, initial_mistuned_static_deform[0][2][:]/1.5*100,label='Initial FEM: -1-g load' ,markersize=6)
+# plt.plot(initial_mistuned_grid_coords[0,:] + initial_mistuned_static_deform[1][0][:]-1, initial_mistuned_static_deform[1][2][:]/1.5*100,label='Initial FEM: 10-N dist. load',markersize=6)
+# plt.plot(initial_mistuned_grid_coords[0,:] + initial_mistuned_static_deform[2][0][:]-1, initial_mistuned_static_deform[2][2][:]/1.5*100,label='Initial FEM: 25-N dist. load',markersize=6)
+# plt.plot(initial_mistuned_grid_coords[0,:]-1, initial_mistuned_grid_coords[2,:]-1,label='Initial FEM: No load',markersize=6)
+# plt.plot(mistuned_grid_coords[0,:] + mistuned_static_deform[0][0][:]-1, mistuned_static_deform[0][2][:]/1.5*100,label='Final FEM: -1-g load' ,markersize=4)
+# plt.plot(mistuned_grid_coords[0,:] + mistuned_static_deform[1][0][:]-1, mistuned_static_deform[1][2][:]/1.5*100,label='Final FEM: 10-N dist. load',markersize=4)
+# plt.plot(mistuned_grid_coords[0,:] + mistuned_static_deform[2][0][:]-1, mistuned_static_deform[2][2][:]/1.5*100,label='Final FEM: 25-N dist. load',markersize=4)
+# plt.plot(mistuned_grid_coords[0,:]-1, mistuned_grid_coords[2,:]-1,label='Final FEM: No load',markersize=4)
+# plt.rcParams["lines.linewidth"] = 3
+# # plt.title('Static deformation with loading',fontsize=32 )
+# plt.xlabel("Beam length [m]",fontsize=26)
+# plt.ylabel("Vertical displacement [% span]",fontsize=26)
+# plt.ax = plt.gca()
+# plt.xticks(fontsize=25)
+# plt.yticks(fontsize=25)
+# plt.legend(frameon=False, fontsize=20)
+# # plt.legend(fontsize=16)
+
+# plt.ax.spines['top'].set_visible(False)
+# plt.ax.spines['right'].set_visible(False)
+# # plt.ax.spines['bottom'].set_visible(False)
+# # plt.ax.spines['left'].set_visible(False)
+# # plt.ylim(-1,1.5)
+# fig.savefig("static_displacement/beam_static_displacement.svg",bbox_inches='tight')
+
+# # Static deformation with static
+# fig=plt.figure(figsize=(17,10))
+# plt.plot(ref_grid_coords[0,:] + ref_static_deform[0][0][:]-1, ref_static_deform[0][2][:]/1.5*100,'kx',label='Reference FEM: -1-g load' ,markersize=8)
+# # plt.plot(ref_grid_coords[0,:] + ref_static_deform[1][0][:]-1, ref_static_deform[1][2][:]/1.5*100,'k^',label='Reference FEM: 10-N dist. load',markersize=8)
+# plt.plot(ref_grid_coords[0,:] + ref_static_deform[2][0][:]-1, ref_static_deform[2][2][:]/1.5*100,'ko',label='Reference FEM: 25-N dist. load',markersize=8)
+# plt.plot(ref_grid_coords[0,:]-1, ref_grid_coords[2,:]-1,'k+',label='Reference FEM: No load',markersize=8)
+# plt.plot(initial_mistuned_grid_coords[0,:] + initial_mistuned_static_deform[0][0][:]-1, initial_mistuned_static_deform[0][2][:]/1.5*100,label='Initial FEM: -1-g load' ,markersize=6)
+# # plt.plot(initial_mistuned_grid_coords[0,:] + initial_mistuned_static_deform[1][0][:]-1, initial_mistuned_static_deform[1][2][:]/1.5*100,label='Initial FEM: 10-N dist. load',markersize=6)
+# plt.plot(initial_mistuned_grid_coords[0,:] + initial_mistuned_static_deform[2][0][:]-1, initial_mistuned_static_deform[2][2][:]/1.5*100,label='Initial FEM: 25-N dist. load',markersize=6)
+# plt.plot(initial_mistuned_grid_coords[0,:]-1, initial_mistuned_grid_coords[2,:]-1,label='Initial FEM: No load',markersize=6)
+# plt.plot(mistuned_grid_coords[0,:] + mistuned_static_deform[0][0][:]-1, mistuned_static_deform[0][2][:]/1.5*100,label='Final FEM: -1-g load' ,markersize=4)
+# # plt.plot(mistuned_grid_coords[0,:] + mistuned_static_deform[1][0][:]-1, mistuned_static_deform[1][2][:]/1.5*100,label='Final FEM: 10-N dist. load',markersize=4)
+# plt.plot(mistuned_grid_coords[0,:] + mistuned_static_deform[2][0][:]-1, mistuned_static_deform[2][2][:]/1.5*100,label='Final FEM: 25-N dist. load',markersize=4)
+# plt.plot(mistuned_grid_coords[0,:]-1, mistuned_grid_coords[2,:]-1,label='Final FEM: No load',markersize=4)
+# plt.rcParams["lines.linewidth"] = 3
+# # plt.title('Static deformation with loading',fontsize=32 )
+# plt.xlabel("Beam length [m]",fontsize=26)
+# plt.ylabel("Vertical displacement [% span]",fontsize=26)
+# plt.ax = plt.gca()
+# plt.xticks(fontsize=25)
+# plt.yticks(fontsize=25)
+# plt.legend(frameon=False, fontsize=20)
+# # plt.legend(fontsize=16)
+
+# plt.ax.spines['top'].set_visible(False)
+# plt.ax.spines['right'].set_visible(False)
+# # plt.ax.spines['bottom'].set_visible(False)
+# # plt.ax.spines['left'].set_visible(False)
+# # plt.ylim(-1,1.5)
+# fig.savefig("static_displacement/static_displacement_w_static.svg",bbox_inches='tight')
 
 
 # print("Deformed OOP Bending mode shapes")
 # # select component of mode shape (3 translations and 3 rotations)
 # phi_component = 2
 # # for i in range(0,n_modes):
-# i=3 # for quickly plotting any one mode
+# i=1 # for quickly plotting any one mode
 # fig=plt.figure(figsize=(15,8))
 # plt.plot(ref_grid_coords[0,:]-1,ref_mode_shapes[subcase][i][phi_component]+ref_static_deform[subcase][phi_component],'k^',label='Reference FEM')
 # plt.plot(initial_mistuned_grid_coords[0,:]-1,initial_mistuned_mode_shapes[subcase][i][phi_component]+initial_mistuned_static_deform[subcase][phi_component],'b',label='Initial mistuned FEM')
@@ -121,66 +154,95 @@ fig.savefig("static_displacement/beam_static_displacement.svg",bbox_inches='tigh
 # plt.ax = plt.gca()
 # plt.xticks(fontsize=25)
 # plt.yticks(fontsize=25)
-# plt.legend(fontsize=22)
+# plt.legend(fontsize=22, frameon=False)
 # plt.ax.spines['top'].set_visible(False)
 # plt.ax.spines['right'].set_visible(False)
 # # plt.ax.spines['bottom'].set_visible(False)
 # # plt.ax.spines['left'].set_visible(False)
 # fig.savefig('mode_shapes/Mode shape ' + str(i+1) + '.svg',bbox_inches='tight')
 
-# Plot frequencies
-# n_freq = 5
+# Plot frequencies for each case
+# n_freq = 15
 # for i in range(0, n_subcases):
 #     fig=plt.figure(figsize=(16,9))
-#     plt.plot(np.linspace(1,n_freq,n_freq),ref_freq_NASTRAN[i][0:5],'k^',label='Reference FEM',markersize=8)
-#     plt.plot(np.linspace(1,n_freq,n_freq),mistuned_freq_NASTRAN[i][0:5],'ro',label='Converged FEM',markersize=8)
-#     plt.plot(np.linspace(1,n_freq,n_freq),initial_mistuned_freq_NASTRAN[i][0:5],'b+',label='Initial FEM',markersize=12)
+#     plt.plot(np.linspace(1,n_freq,n_freq),ref_freq_NASTRAN[i][0:15],'k^',label='Reference FEM',markersize=8)
+#     plt.plot(np.linspace(1,n_freq,n_freq),mistuned_freq_NASTRAN[i][0:15],'ro',label='Converged FEM',markersize=8)
+#     plt.plot(np.linspace(1,n_freq,n_freq),initial_mistuned_freq_NASTRAN[i][0:15],'b+',label='Initial FEM',markersize=12)
 #     plt.xlabel('Mode number',fontsize=26)
 #     plt.rcParams["lines.linewidth"] = 3
 #     plt.ylabel('Frequency [Hz]',fontsize=26)
 #     plt.ax = plt.gca()
 #     plt.xticks(fontsize=25)
-#     plt.ylim(0,40)
+#     plt.ylim(0,360)
 #     plt.xticks(np.arange(1, n_freq+1, step=1.0))
 #     plt.yticks(fontsize=25)
 #     plt.legend(fontsize=22)
 #     plt.ax.spines['top'].set_visible(False)
 #     plt.ax.spines['right'].set_visible(False)
 #     fig.savefig('mode_shapes/Frequency case ' + str(i+1) + '.svg',bbox_inches='tight')
+
+# # plot frequencies for all cases
+# n_freq = 15
+# fig=plt.figure(figsize=(16,9))
+# plt.plot(np.linspace(1,n_freq,n_freq),ref_freq_NASTRAN[0][0:15],'^',label='Reference FEM self-weight',markersize=8)
+# plt.plot(np.linspace(1,n_freq,n_freq),mistuned_freq_NASTRAN[0][0:15],'o',label='Converged FEM self-weight',markersize=8)
+# plt.plot(np.linspace(1,n_freq,n_freq),initial_mistuned_freq_NASTRAN[0][0:15],'+',label='Initial FEM self-weight',markersize=8)
+# plt.plot(np.linspace(1,n_freq,n_freq),ref_freq_NASTRAN[1][0:15],'^',label='Reference FEM 10 N',markersize=8)
+# plt.plot(np.linspace(1,n_freq,n_freq),mistuned_freq_NASTRAN[1][0:15],'o',label='Converged FEM 10 N',markersize=8)
+# plt.plot(np.linspace(1,n_freq,n_freq),initial_mistuned_freq_NASTRAN[1][0:15],'+',label='Initial FEM 10 N',markersize=8)
+# plt.plot(np.linspace(1,n_freq,n_freq),ref_freq_NASTRAN[2][0:15],'^',label='Reference FEM 25 N',markersize=8)
+# plt.plot(np.linspace(1,n_freq,n_freq),mistuned_freq_NASTRAN[2][0:15],'o',label='Converged FEM 25 N',markersize=8)
+# plt.plot(np.linspace(1,n_freq,n_freq),initial_mistuned_freq_NASTRAN[2][0:15],'+',label='Initial FEM 25 N',markersize=8)
+# plt.xlabel('Mode number',fontsize=26)
+# plt.rcParams["lines.linewidth"] = 3
+# plt.ylabel('Frequency [Hz]',fontsize=26)
+# plt.ax = plt.gca()
+# plt.xticks(fontsize=25)
+# plt.ylim(0,360)
+# plt.xticks(np.arange(1, n_freq+1, step=1.0))
+# plt.yticks(fontsize=25)
+# plt.legend(fontsize=22)
+# plt.ax.spines['top'].set_visible(False)
+# plt.ax.spines['right'].set_visible(False)
+# fig.savefig('mode_shapes/Frequency cases all.svg',bbox_inches='tight')
     
-# # MAC module
-# temp_MAC_size = (n_subcases,n_subcases)
+# MAC module
+temp_MAC_size = (n_subcases,n_subcases)
 
-# MAC_matrix_ref_initial = [np.zeros(temp_MAC_size) for j in range(n_subcases)]
-# MAC_matrix_ref_final = [np.zeros(temp_MAC_size) for j in range(n_subcases)]
+MAC_matrix_ref_initial = [np.zeros(temp_MAC_size) for j in range(n_subcases)]
+MAC_matrix_ref_final = [np.zeros(temp_MAC_size) for j in range(n_subcases)]
 
-# data_MAC_reference = [[np.zeros([6*mistuned_n_grids]) for i in range(n_modes)] for j in range(n_subcases)]
-# data_MAC_initial  = [[np.zeros([6*initial_mistuned_n_grids]) for i in range(n_modes)] for j in range(n_subcases)]
-# data_MAC_mistuned  = [[np.zeros([6*mistuned_n_grids]) for i in range(n_modes)] for j in range(n_subcases)]
+data_MAC_reference = [[np.zeros([6*mistuned_n_grids]) for i in range(n_modes)] for j in range(n_subcases)]
+data_MAC_initial  = [[np.zeros([6*initial_mistuned_n_grids]) for i in range(n_modes)] for j in range(n_subcases)]
+data_MAC_mistuned  = [[np.zeros([6*mistuned_n_grids]) for i in range(n_modes)] for j in range(n_subcases)]
 
-# for i in range(n_subcases):
-#     for j in range(n_modes):
-#         data_MAC_reference[i][j] = ref_mode_shapes[i][j].flatten('C')
-#         data_MAC_initial[i][j] = initial_mistuned_mode_shapes[i][j].flatten('C')
-#         data_MAC_mistuned[i][j] = mistuned_mode_shapes[i][j].flatten('C')
+for i in range(n_subcases):
+    for j in range(n_modes):
+        data_MAC_reference[i][j] = ref_mode_shapes[i][j].flatten('C')
+        data_MAC_initial[i][j] = initial_mistuned_mode_shapes[i][j].flatten('C')
+        data_MAC_mistuned[i][j] = mistuned_mode_shapes[i][j].flatten('C')
 
-# # test_MAC2 = ComputeMAC(data_MAC_reference[0][0],data_MAC_mistuned[0][0])
-# for i in range(n_subcases):
-#         MAC_matrix_ref_initial[i] = mac(np.array(data_MAC_reference[i][:]), np.array(data_MAC_initial[i][:]))
-#         MAC_matrix_ref_final[i] = mac(np.array(data_MAC_reference[i][:]), np.array(data_MAC_mistuned[i][:]))
+# test_MAC2 = ComputeMAC(data_MAC_reference[0][0],data_MAC_mistuned[0][0])
+for i in range(n_subcases):
+        MAC_matrix_ref_initial[i] = mac(np.array(data_MAC_reference[i][:]), np.array(data_MAC_initial[i][:]))
+        MAC_matrix_ref_final[i] = mac(np.array(data_MAC_reference[i][:]), np.array(data_MAC_mistuned[i][:]))
         
-# # Plot initial MAC        
-# fig = plt.figure(figsize=(16, 9))
-# ax = fig.add_subplot(111)
-# ax.set_aspect('equal')
-# im=plt.imshow(MAC_matrix_ref_initial[subcase])
+# Plot initial MAC        
+fig = plt.figure(figsize=(16, 9))
+ax = fig.add_subplot(111)
+ax.set_aspect('equal')
+im=plt.imshow(MAC_matrix_ref_initial[subcase])
 # cb=plt.colorbar(im,orientation='vertical')
 # cb.ax.tick_params(labelsize=20)
 # plt.clim(0, 1.0) 
-# im.figure.axes[0].tick_params(axis="both", labelsize=20)
+plt.xticks(np.arange(15), ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'
+                          , '11', '12','13', '14', '15'])
+plt.yticks(np.arange(15), ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'
+                          , '11', '12','13', '14', '15'])
+im.figure.axes[0].tick_params(axis="both", labelsize=20)
 # im.figure.axes[1].tick_params(axis="x", labelsize=20)
-# plt.show()
-# fig.savefig("MAC/initial_vs_ref_MAC_case_0.svg",bbox_inches='tight')
+plt.show()
+fig.savefig("MAC/initial_vs_ref_MAC_case_0.svg",bbox_inches='tight')
 
 # # Plot final MAC        
 # fig = plt.figure(figsize=(16, 9))
@@ -190,6 +252,10 @@ fig.savefig("static_displacement/beam_static_displacement.svg",bbox_inches='tigh
 # cb=plt.colorbar(im,orientation='vertical')
 # cb.ax.tick_params(labelsize=20)
 # plt.clim(0, 1.0) 
+# plt.xticks(np.arange(15), ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'
+#                           , '11', '12','13', '14', '15'])
+# plt.yticks(np.arange(15), ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'
+#                           , '11', '12','13', '14', '15'])
 # im.figure.axes[0].tick_params(axis="both", labelsize=20)
 # im.figure.axes[1].tick_params(axis="x", labelsize=20)
 # plt.show()

@@ -280,26 +280,34 @@ fig = plt.figure(figsize=(16, 9))
 ax = fig.add_subplot(111)
 ax.set_aspect('equal')
 im=plt.imshow(MAC_matrix_ref_initial[subcase])
-cb=plt.colorbar(im,orientation='vertical')
-cb.ax.tick_params(labelsize=20)
-plt.clim(0, 1.0) 
+# cb=plt.colorbar(im,orientation='vertical')
+# cb.ax.tick_params(labelsize=20)
+# plt.clim(0, 1.0) 
+plt.xticks(np.arange(15), ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'
+                          , '11', '12','13', '14', '15'])
+plt.yticks(np.arange(15), ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'
+                          , '11', '12','13', '14', '15'])
 im.figure.axes[0].tick_params(axis="both", labelsize=20)
-im.figure.axes[1].tick_params(axis="x", labelsize=20)
+# im.figure.axes[1].tick_params(axis="x", labelsize=20)
 plt.show()
 fig.savefig("Renato_wingbox/MAC/initial_vs_ref_MAC.svg",bbox_inches='tight')
 
-# Plot final MAC        
-fig = plt.figure(figsize=(16, 9))
-ax = fig.add_subplot(111)
-ax.set_aspect('equal')
-im=plt.imshow(MAC_matrix_ref_final[subcase])
-cb=plt.colorbar(im,orientation='vertical')
-cb.ax.tick_params(labelsize=20)
-plt.clim(0, 1.0) 
-im.figure.axes[0].tick_params(axis="both", labelsize=20)
-im.figure.axes[1].tick_params(axis="x", labelsize=20)
-plt.show()
-fig.savefig("Renato_wingbox/MAC/final_vs_ref_MAC.svg",bbox_inches='tight')
+# # Plot final MAC        
+# fig = plt.figure(figsize=(16, 9))
+# ax = fig.add_subplot(111)
+# ax.set_aspect('equal')
+# im=plt.imshow(MAC_matrix_ref_final[subcase])
+# cb=plt.colorbar(im,orientation='vertical')
+# cb.ax.tick_params(labelsize=20)
+# plt.clim(0, 1.0) 
+# plt.xticks(np.arange(15), ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'
+#                           , '11', '12','13', '14', '15'])
+# plt.yticks(np.arange(15), ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'
+#                           , '11', '12','13', '14', '15'])
+# im.figure.axes[0].tick_params(axis="both", labelsize=20)
+# im.figure.axes[1].tick_params(axis="x", labelsize=20)
+# plt.show()
+# fig.savefig("Renato_wingbox/MAC/final_vs_ref_MAC.svg",bbox_inches='tight')
 
 
 

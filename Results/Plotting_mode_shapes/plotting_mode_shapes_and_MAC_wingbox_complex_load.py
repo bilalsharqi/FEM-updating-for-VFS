@@ -247,7 +247,7 @@ s_io.savemat(path,database,appendmat=False)
 # fig.savefig("Renato_wingbox/MAC/final_vs_ref_MAC.svg",bbox_inches='tight')
 
 
-
+# models calibrated using complex load linear vs nonlinear optimization
 data = np.array([[1,	0.68,	0.68,	0.83,	0.68,	0.23,],
         [2,	2.87,	2.87,	0.03,	2.88,	0.10,],
         [3,	4.25,	4.27,	0.42,	4.24,	0.21,],
@@ -280,22 +280,91 @@ data = np.array([[1,	0.68,	0.68,	0.83,	0.68,	0.23,],
 #                  [14	,59.09	,60.08	,1.67	,59.19	,0.18],
 #                  [15	,60.81	,62.62	,2.98	,60.92	,0.18]])
 
+# model calibrated using linear, unloaded and undeformed optimization
+data_103 = np.array([[0.720,	0.740,	0.720,	3.55,	0.13,],
+                     [2.900,	3.000,	2.900,	3.38,	0.13,],
+                     [4.410,	4.570,	4.410,	3.54,	0.13,],
+                     [12.02,	12.45,	12.01,	3.53,	0.12,],
+                     [17.52,	18.14,	17.52,	3.52,	0.05,],
+                     [17.78,	18.38,	17.75,	3.38,	0.13,],
+                     [22.66,	23.46,	22.64,	3.52,	0.11,],
+                     [35.65,	36.91,	35.62,	3.54,	0.08,],
+                     [48.18,	49.82,	48.12,	3.39,	0.13,],
+                     [50.13,	51.93,	50.12,	3.60,	0.02,],
+                     [52.18,	54.05,	52.18,	3.57,	0.01,],
+                     [65.20,	67.61,	65.24,	3.70,	0.06,],
+                     [66.84,	69.18,	66.76,	3.51,	0.11,],
+                     [80.01,	83.11,	80.15,	3.86,	0.17,],
+                     [85.56,	88.72,	85.61,	3.70,	0.07,]])
 
-# Plot errors for complex load case linear vs nonlinear optimization
+# Plot frequencies for complex load case linear vs nonlinear optimization
+# n_freq = 15
+# for i in range(0, n_subcases):
+#     fig=plt.figure(figsize=(16,9))
+#     plt.plot(np.linspace(1,n_freq,n_freq),data[:,1],'k^',label='Reference FEM',markersize=8)
+#     plt.plot(np.linspace(1,n_freq,n_freq),data[:,2],'b^',label='Conventional optimization',markersize=8)
+#     plt.plot(np.linspace(1,n_freq,n_freq),data[:,4],'ro',label='Modified optimization',markersize=8)
+#     plt.xlabel('Mode number',fontsize=26)
+#     plt.rcParams["lines.linewidth"] = 3
+#     plt.ylabel('Frequency [Hz]',fontsize=26)
+#     plt.ax = plt.gca()
+#     plt.xticks(fontsize=25)
+#     plt.ylim(0,72)
+#     plt.xticks(np.arange(1, n_freq+1, step=1.0))
+#     plt.yticks(fontsize=25)
+#     plt.legend(fontsize=22)
+#     plt.ax.spines['top'].set_visible(False)
+#     plt.ax.spines['right'].set_visible(False)
+#     fig.savefig('mode_shapes/linear_v_nonlinear_modes.svg',bbox_inches='tight')
+
+# bar plot for frequencies
 n_freq = 15
 for i in range(0, n_subcases):
+    # set width of bar
+    barWidth = 0.25
+    
+    # Set position of bar on X axis
+    br1 = np.arange(len(data[:,1]))
+    br2 = [x + 2*barWidth for x in br1]
+    br3 = [x + 3*barWidth for x in br2]
     fig=plt.figure(figsize=(16,9))
-    plt.plot(np.linspace(1,n_freq,n_freq),data[:,3],'k^',label='Conventional optimization vs. reference FEM',markersize=8)
-    plt.plot(np.linspace(1,n_freq,n_freq),data[:,5],'ro',label='Modified optimization vs. reference FEM',markersize=8)
+    plt.bar(br1,data[:,1],color ='k',label='Reference FEM',alpha=None)
+    plt.bar(br2,data[:,2],color ='b',yerr = data[:,3],label='Conventional optimization',alpha=0.5)
+    plt.bar(br3,data[:,4],color ='r',yerr = data[:,5],label='Modified optimization',alpha=0.5)
+    # plt.bar(np.linspace(1,n_freq,n_freq),data[:,1],color ='k',label='Reference FEM')
+    # plt.bar(np.linspace(1,n_freq,n_freq),data[:,2],color ='b',yerr = data[:,3],label='Conventional optimization')
+    # plt.bar(np.linspace(1,n_freq,n_freq),data[:,4],color ='r',yerr = data[:,5],label='Modified optimization')
     plt.xlabel('Mode number',fontsize=26)
     plt.rcParams["lines.linewidth"] = 3
-    plt.ylabel('Error [%]',fontsize=26)
+    plt.ylabel('Frequency [Hz]',fontsize=26)
     plt.ax = plt.gca()
     plt.xticks(fontsize=25)
-    plt.ylim(0,10)
-    plt.xticks(np.arange(1, n_freq+1, step=1.0))
+    plt.ylim(0,72)
+    # plt.xticks(np.arange(1, n_freq+1, step=1.0))
+    plt.xticks([r + barWidth for r in range(len(data[:,1]))],
+        ['1', '2', '3', '4', '5','6', '7', '8', '9', '10','11', '12', '13', '14', '15'])
     plt.yticks(fontsize=25)
     plt.legend(fontsize=22)
     plt.ax.spines['top'].set_visible(False)
     plt.ax.spines['right'].set_visible(False)
-    fig.savefig('mode_shapes/linear_v_nonlinear.svg',bbox_inches='tight')
+    fig.savefig('mode_shapes/linear_v_nonlinear_modes_bar.svg',bbox_inches='tight')
+    
+    
+# # Plot errors for complex load case linear vs nonlinear optimization
+# n_freq = 15
+# for i in range(0, n_subcases):
+#     fig=plt.figure(figsize=(16,9))
+#     plt.plot(np.linspace(1,n_freq,n_freq),data[:,3],'k^',label='Conventional optimization vs. reference FEM',markersize=8)
+#     plt.plot(np.linspace(1,n_freq,n_freq),data[:,5],'ro',label='Modified optimization vs. reference FEM',markersize=8)
+#     plt.xlabel('Mode number',fontsize=26)
+#     plt.rcParams["lines.linewidth"] = 3
+#     plt.ylabel('Error [%]',fontsize=26)
+#     plt.ax = plt.gca()
+#     plt.xticks(fontsize=25)
+#     plt.ylim(0,10)
+#     plt.xticks(np.arange(1, n_freq+1, step=1.0))
+#     plt.yticks(fontsize=25)
+#     plt.legend(fontsize=22)
+#     plt.ax.spines['top'].set_visible(False)
+#     plt.ax.spines['right'].set_visible(False)
+#     fig.savefig('mode_shapes/linear_v_nonlinear.svg',bbox_inches='tight')
