@@ -57,7 +57,48 @@ rects3 = ax.bar(x + width, np.abs(g_2_5_fin - g_2_5_ini), width, label='2.5 g lo
 # rects6 = ax.bar(x + 4*width, g_2_5_fin, width, label='2.5 g load final')
 
 # Add some text for labels, title and custom x-axis tick labels, etc.
-ax.set_ylabel('Reduction in error [%]',fontsize=26)
+ax.set_ylabel('Reduction in percent error',fontsize=26)
+ax.set_xlabel('Mode number',fontsize=26)
+# ax.set_title('Errors')
+ax.set_xticks(x)
+ax.legend()
+
+# plt.xlabel('Mode number',fontsize=26)
+# plt.rcParams["lines.linewidth"] = 3
+# plt.ylabel('Error [%]',fontsize=26)
+plt.ax = plt.gca()
+plt.xticks(fontsize=25)
+# plt.ylim(0,72)
+# plt.xticks(np.arange(1, n_freq+1, step=1.0))
+# plt.xticks([r + barWidth for r in range(len(data[:,1]))],
+    # ['1', '2', '3', '4', '5','6', '7', '8', '9', '10','11', '12', '13', '14', '15'])
+plt.yticks(fontsize=25)
+plt.legend(fontsize=22, frameon=False)
+plt.ax.spines['top'].set_visible(False)
+plt.ax.spines['right'].set_visible(False)
+fig.savefig('mode_shapes/Reduction_Errors_ini_fin_wingbox.svg',bbox_inches='tight')
+
+fig.tight_layout()
+
+plt.show()
+
+# absolute error
+fig, ax = plt.subplots(figsize=(16,9))
+# fig=plt.figure(figsize=(16,9))
+rects1 = ax.bar(x - width, no_load_ini, width, label='No load initial',alpha=0.45)
+rects2 = ax.bar(x, g_ini, width, label='- 1 g load initial',alpha=0.45)
+rects3 = ax.bar(x + width, g_2_5_ini, width, label='2.5 g load initial',alpha=0.45)
+
+# rects1 = ax.bar(x - width, np.abs(no_load_fin - no_load_ini), width, label='No load')
+# rects2 = ax.bar(x, np.abs(g_fin - g_ini), width, label='- 1 g load')
+# rects3 = ax.bar(x + width, np.abs(g_2_5_fin - g_2_5_ini), width, label='2.5 g load')
+
+rects4 = ax.bar(x - width, no_load_fin, width, label='No load final')
+rects5 = ax.bar(x , g_fin, width, label='- 1 g load final')
+rects6 = ax.bar(x + width, g_2_5_fin, width, label='2.5 g load final')
+
+# Add some text for labels, title and custom x-axis tick labels, etc.
+ax.set_ylabel('Error [%]',fontsize=26)
 ax.set_xlabel('Mode number',fontsize=26)
 # ax.set_title('Errors')
 ax.set_xticks(x)
@@ -84,7 +125,7 @@ plt.show()
 
 # models calibrated using complex load linear vs nonlinear optimization
 lin_v_nl = np.array([[1,	0.68,	0.68,	0.83,	0.68,	0.23,],
-        [2,	2.87,	2.87,	0.03,	2.88,	0.10,],
+        [2,	2.87,	2.87,	0.30,	2.88,	0.10,],
         [3,	4.25,	4.27,	0.42,	4.24,	0.21,],
         [4,	11.71,	11.73,	0.24,	11.69,	0.16,],
         [5,	17.20,	17.20,	0.04,	17.20,	0.04,],
@@ -93,7 +134,7 @@ lin_v_nl = np.array([[1,	0.68,	0.68,	0.83,	0.68,	0.23,],
         [8,	34.81,	34.91,	0.26,	34.80,	0.04,],
         [9,	47.90,	47.87,	0.05,	47.93,	0.07,],
         [10,	48.23,	48.58,	0.72,	48.25,	0.05,],
-        [11,	52.23,	52.24,	0.01,	52.18,	0.09,],
+        [11,	52.23,	52.24,	0.10,	52.18,	0.09,],
         [12,	54.89,	58.01,	5.69,	55.07,	0.33,],
         [13,	60.57,	62.54,	3.26,	60.64,	0.12,],
         [14,	63.92,	64.00,	0.12,	63.88,	0.06,],
@@ -115,7 +156,7 @@ fig, ax = plt.subplots(figsize=(16,9))
 # rects3 = ax.bar(x + width, g_2_5_ini, width, label='2.5 g load initial')
 
 rects1 = ax.bar(x - width/2, lin_err, width, label='Conventional optimization vs. reference FEM')
-rects2 = ax.bar(x + width/2, nl_err, width, label='Modified optimzation vs. reference FEM')
+rects2 = ax.bar(x + width/2, nl_err, width, label='Modified optimization vs. reference FEM')
 
 # rects4 = ax.bar(x + 2*width, no_load_fin, width, label='No load final')
 # rects5 = ax.bar(x + 3*width, g_fin, width, label='- 1 g load final')
@@ -329,7 +370,7 @@ ax.legend()
 # plt.ylabel('Error [%]',fontsize=26)
 plt.ax = plt.gca()
 plt.xticks(fontsize=25)
-plt.ylim(0,5)
+plt.ylim(0,4.5)
 # plt.xticks(np.arange(1, n_freq+1, step=1.0))
 # plt.xticks([r + barWidth for r in range(len(data[:,1]))],
     # ['1', '2', '3', '4', '5','6', '7', '8', '9', '10','11', '12', '13', '14', '15'])

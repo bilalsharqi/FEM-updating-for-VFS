@@ -175,7 +175,7 @@ xlabel('Span [m]','FontSize',15)
 ylabel('Chord [m]','FontSize',15)
 zlabel('Vertical displacement','FontSize',15)
 axis equal tight
-axis off
+% axis off
 % legend([h1, h2, h3], {'No Load', '-1 g', '2.5 g'},'FontSize',15);
 box off
 hold off

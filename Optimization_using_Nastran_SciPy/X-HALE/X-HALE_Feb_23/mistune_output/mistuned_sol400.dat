@@ -1,0 +1,101 @@
+NASTRAN NLINES=9999999
+NASTRAN BUFFSIZE=65537
+NASTRAN SYSTEM (151)=1
+NASTRAN PARALLEL=8
+$------------------------------------------------
+$ Executive
+$------------------------------------------------
+ASSIGN PUNCH='mistuned_sol400_coor.txt',FORM=FORMATTED,
+       STATUS=UNKNOWN,UNIT=91
+ASSIGN PUNCH='mistuned_sol400_mass.txt',FORM=FORMATTED,
+       STATUS=UNKNOWN,UNIT=92
+SOL 400
+COMPILE PHASE1DR NOLIST NOREF
+ALTER 303
+TYPE PARM,,I,N,PCHORIG
+PCHORIG = GETSYS(PCHORIG,64)
+PUTSYS(92,64)
+MATMOD MGG,EQEXINS,USET0,,,/,/16/1         $
+PUTSYS(PCHORIG,64)
+VECPLOT   ,,BGPDTS,SCSTM,CSTMS,,,,/LOC///3 $
+PUTSYS(91,64)
+MATMOD LOC,EQEXINS,USET0,,,/,/16/1         $
+PUTSYS(PCHORIG,64)
+CEND
+$------------------------------------------------
+$ Case
+$------------------------------------------------
+TITLE = WHATEVER
+ECHO = NONE
+RIGID = LAGR 
+$---------------------
+$ Subcases
+$---------------------
+SUBCASE 1
+STEP 1
+SPC = 1
+LOAD = 11
+NLPARM = 21
+DISPLACEMENT(SORT1,REAL) = ALL
+STEP 2
+ANALYSIS = MODES
+$SPC = 1  
+METHOD = 100
+VECTOR(SORT1,PRINT,REAL)=ALL
+$------------------------------------------------
+$ Bulk
+$------------------------------------------------
+BEGIN BULK
+PARAM,POST,0
+PARAM,PRTMAXIM,YES
+PARAM,GRDPNT,5001
+$---------------------
+PARAM,LGDISP,2
+PARAM,NLTOL,0
+$---------------------
+NLPARM,21,40,,FNT,-1,50,,NO
+$---------------------
+$ Structural model
+$---------------------
+INCLUDE 'mistuned_input_XHALE1.bdf'
+$---------------------
+$ Method
+$---------------------
+EIGRL,100,,,15,,,,MASS
+$---------------------
+$ Load set
+$---------------------
+LOAD,11,1.,1.,10
+$---------------------
+GRAV,10,,9.81,0.,0.,-1. 
+$$---------------------
+$$ Boundary condition outboard
+$$---------------------
+$SPCADD,1,1
+$SPC1,1,12356,10002
+$SPC1,1,1356,21002
+$$---------------------
+$$ Definition of springs at outboard positions 
+$PELAS, 66666, 17.59
+$PELAS, 66667, 17.59
+$$   
+$CELAS1, 77777, 66666, 10002, 3
+$CELAS1, 77778, 66667, 21002, 3
+$$
+
+$---------------------
+$ Boundary condition inboard
+$---------------------
+SPCADD,1,1
+SPC1,1,12356,5002
+SPC1,1,1356,16002
+$---------------------
+$ Definition of springs at inboard positions 
+PELAS, 66666, 17.59
+PELAS, 66667, 17.59
+$   
+CELAS1, 77777, 66666, 5002, 3
+CELAS1, 77778, 66667, 16002, 3
+$
+ENDDATA
+

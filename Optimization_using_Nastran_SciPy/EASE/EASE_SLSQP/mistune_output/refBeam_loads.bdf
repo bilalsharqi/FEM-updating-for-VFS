@@ -1,0 +1,139 @@
+$ Define load components
+$ Gravity
+GRAV    1000            9.81    0.      0.      -1.
+
+$ Out of plane load case one : 10 N
+PLOAD1  2000    1       FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    2       FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    3       FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    4       FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    5       FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    6       FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    7       FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    8       FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    9       FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    10      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    11      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    12      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    13      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    14      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    15      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    16      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    17      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    18      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    19      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    20      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    21      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    22      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    23      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    24      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    25      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    26      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    27      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    28      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    29      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    30      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    31      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    32      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    33      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    34      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    35      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    36      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    37      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    38      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    39      FZ      FR      0.      10.     1.      10.
+PLOAD1  2000    40      FZ      FR      0.      10.     1.      10.
+
+$ Out of plane load case two : 25 N
+PLOAD1  3000    1       FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    2       FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    3       FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    4       FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    5       FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    6       FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    7       FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    8       FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    9       FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    10      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    11      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    12      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    13      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    14      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    15      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    16      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    17      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    18      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    19      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    20      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    21      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    22      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    23      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    24      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    25      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    26      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    27      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    28      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    29      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    30      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    31      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    32      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    33      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    34      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    35      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    36      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    37      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    38      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    39      FZ      FR      0.      25.     1.      25.
+PLOAD1  3000    40      FZ      FR      0.      25.     1.      25.
+
+$ Out of plane load case three : 0.000001 N
+PLOAD1  4000    1       FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    2       FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    3       FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    4       FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    5       FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    6       FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    7       FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    8       FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    9       FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    10      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    11      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    12      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    13      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    14      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    15      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    16      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    17      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    18      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    19      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    20      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    21      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    22      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    23      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    24      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    25      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    26      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    27      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    28      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    29      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    30      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    31      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    32      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    33      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    34      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    35      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    36      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    37      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    38      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    39      FZ      FR      0.      1e-6    1.      1e-6 
+PLOAD1  4000    40      FZ      FR      0.      1e-6    1.      1e-6 
+
+$$$ Define load sets
+$Gravity
+LOAD    1111    1.      1.      1000
+$OOP case 1 : 10 N
+LOAD    2222    1.      1.      2000
+$ OOP case 2 : 25 N
+LOAD    3333    1.      1.      3000
+$ OOP case 3 : 1e-6 N
+LOAD    4444    1.      1.      4000
