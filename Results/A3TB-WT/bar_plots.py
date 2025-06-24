@@ -113,7 +113,7 @@ ax.set_xticks(x)
 
 plt.ax = plt.gca()
 plt.xticks(fontsize=25)
-plt.ax.legend(loc="best")
+plt.ax.legend(loc="upper left")
 plt.yticks(fontsize=25)
 plt.legend(fontsize=22, frameon=False)
 plt.ax.spines['top'].set_visible(False)
